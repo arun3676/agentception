@@ -1,0 +1,89 @@
+AI Engineer:
+  keywords: ["AI","LLM","agent","RAG","MLOps","vector","retrieval","prompt","eval"]
+  value_props: ["agent orchestration","RAG grounding","eval/telemetry","shipping fast demos"]
+  hooks: ["agents","RAG","LLM","autonomous","evaluation","observability","vector search"]
+  proofs: ["shipped multi-agent orchestration", "built RAG with rerank + eval", "cut latency/cost with tool routing"]
+
+Full-Stack Developer:
+  keywords: ["full-stack","React","Next.js","Node","TypeScript","Postgres","Tailwind","API","Vercel"]
+  value_props: ["end-to-end delivery","clean UI/UX","API design","DevOps basics"]
+  hooks: ["Next.js","React","TypeScript","serverless","Edge","Tailwind"]
+  proofs: ["launched Next.js app", "improved LCP by 25%", "built typed API + DB"]
+
+Java Developer:
+  keywords: ["Java","Spring","microservices","JVM","Kafka","SQL","gRPC"]
+  value_props: ["reliable services","perf & memory","streaming","testing"]
+  hooks: ["Spring","Kafka","JVM","microservices","observability"]
+  proofs: ["cut p99 by 30%", "migrated monolith→microservices", "improved test coverage 85%"]
+
+Data Analyst:
+  keywords: ["analytics","SQL","dbt","dashboard","A/B testing","visualization","ETL"]
+  value_props: ["insights that move metrics","experiment design","stakeholder comms"]
+  hooks: ["dbt","Looker","Mode","experimentation","segmentation"]
+  proofs: ["built revenue dashboard", "designed A/B tests", "partnered with PMs for roadmap"]
+
+Data Engineer:
+  keywords: ["ETL","Spark","Airflow","Dataflow","Kafka","Lakehouse","Parquet","Iceberg"]
+  value_props: ["reliable pipelines","cost efficiency","observability","data quality"]
+  hooks: ["Airflow","Spark","Kafka","Delta","Iceberg","dbt-core"]
+  proofs: ["reduced pipeline cost 40%", "added data quality checks", "built CDC to lakehouse"]
+
+Machine Learning Engineer:
+  keywords: ["ML","MLOps","TensorFlow","PyTorch","model","deployment","inference","training"]
+  value_props: ["production ML systems","model optimization","MLOps pipelines","scalable inference"]
+  hooks: ["TensorFlow","PyTorch","MLOps","model serving","feature store","experiment tracking"]
+  proofs: ["deployed model to 10M+ users", "reduced inference latency 50%", "built feature pipeline"]
+
+DevOps Engineer:
+  keywords: ["DevOps","CI/CD","Docker","Kubernetes","AWS","Azure","monitoring","infrastructure"]
+  value_props: ["reliable deployments","infrastructure automation","monitoring & alerting","scalable systems"]
+  hooks: ["Kubernetes","Docker","CI/CD","Terraform","monitoring","GitOps"]
+  proofs: ["reduced deployment time 80%", "built zero-downtime deploys", "implemented GitOps workflow"]
+
+Cloud Engineer:
+  keywords: ["cloud","AWS","Azure","GCP","serverless","containers","microservices","IaC"]
+  value_props: ["cloud architecture","cost optimization","security & compliance","scalable infrastructure"]
+  hooks: ["AWS","Azure","serverless","containers","IaC","cloud-native"]
+  proofs: ["reduced cloud costs 35%", "built multi-region architecture", "implemented security controls"]
+
+Cybersecurity Engineer:
+  keywords: ["security","cybersecurity","penetration testing","SOC","threat detection","compliance","vulnerability"]
+  value_props: ["security architecture","threat detection","incident response","compliance & governance"]
+  hooks: ["SIEM","threat hunting","vulnerability assessment","compliance","incident response"]
+  proofs: ["detected 50+ threats", "improved MTTD by 60%", "achieved SOC2 compliance"]
+
+Product Manager:
+  keywords: ["product","strategy","roadmap","analytics","user research","stakeholder","metrics","growth"]
+  value_props: ["product strategy","user-centric design","data-driven decisions","cross-functional leadership"]
+  hooks: ["product analytics","user research","roadmap","stakeholder management","growth metrics"]
+  proofs: ["increased DAU by 40%", "launched 3 major features", "improved NPS score to 70+"]
+
+Software Architect:
+  keywords: ["architecture","design patterns","scalability","microservices","system design","performance","security"]
+  value_props: ["system architecture","technical leadership","scalable design","performance optimization"]
+  hooks: ["system design","microservices","architecture","scalability","performance"]
+  proofs: ["designed system for 1M+ users", "reduced system complexity 50%", "improved performance 3x"]
+
+Backend Engineer:
+  keywords: ["backend","API","database","server","microservices","Python","Java","Node.js"]
+  value_props: ["robust APIs","database design","performance optimization","system integration"]
+  hooks: ["REST API","GraphQL","database","microservices","caching","performance"]
+  proofs: ["built API serving 100K+ req/s", "optimized DB queries 5x", "reduced latency 40%"]
+
+Frontend Engineer:
+  keywords: ["frontend","React","Vue","Angular","JavaScript","TypeScript","UI/UX","responsive"]
+  value_props: ["modern UI/UX","performance optimization","responsive design","user experience"]
+  hooks: ["React","Vue","Angular","TypeScript","UI/UX","performance","accessibility"]
+  proofs: ["improved Core Web Vitals", "built responsive design system", "achieved WCAG 2.1 AA"]
+
+Mobile Developer:
+  keywords: ["mobile","iOS","Android","React Native","Flutter","Swift","Kotlin","app development"]
+  value_props: ["native mobile apps","cross-platform development","performance optimization","user experience"]
+  hooks: ["React Native","Flutter","iOS","Android","mobile performance","app store"]
+  proofs: ["launched app with 100K+ downloads", "improved crash rate to <0.1%", "built cross-platform features"]
+
+Blockchain Developer:
+  keywords: ["blockchain","smart contracts","Web3","DeFi","Solidity","Ethereum","cryptocurrency","dApps"]
+  value_props: ["smart contract development","DeFi protocols","Web3 integration","blockchain architecture"]
+  hooks: ["Solidity","smart contracts","DeFi","Web3","Ethereum","blockchain"]
+  proofs: ["deployed smart contracts", "built DeFi protocol", "reduced gas costs 30%"]

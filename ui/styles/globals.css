@@ -1,0 +1,42 @@
+/* 
+  TAILWIND CSS DIRECTIVES
+  ========================
+  The following @tailwind directives are special Tailwind CSS at-rules.
+  CSS linters may show "Unknown at rule" warnings for these, but this is expected
+  and can be safely ignored. These directives are processed by Tailwind's build system.
+  
+  If you see warnings about @tailwind, @apply, or other Tailwind directives,
+  they are false positives and do not indicate actual errors.
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ring: 0 0% 100% / 0.08;
+  --glass: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.04);
+}
+
+html, body, #__next { height: 100%; }
+/* 
+  @apply is a special Tailwind directive.
+  It's safe to ignore the "Unknown at rule" warning.
+*/
+body { 
+  background-color: #0A0B10; /* bg-bg */
+  color: #E5E7EB; /* text-ink */
+  -webkit-font-smoothing: antialiased; /* antialiased */
+}
+
+/* Scrollbar minimal */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+/* 
+  @apply is a special Tailwind directive.
+  It's safe to ignore the "Unknown at rule" warning.
+*/
+*::-webkit-scrollbar-thumb { 
+  background-color: #0F1117; /* bg-panel */
+  border-radius: 9999px; /* rounded-full */
+}
+*::-webkit-scrollbar-track { background: transparent; }
