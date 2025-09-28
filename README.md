@@ -67,8 +67,8 @@
 
 1. **Clone and Setup Environment**
 ```bash
-git clone <repository-url>
-cd Agentception
+git clone https://github.com/arun3676/agentception.git
+cd agentception
 python -m venv .venv
 
 # Windows
