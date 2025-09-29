@@ -1,0 +1,67 @@
+flowchart LR
+  subgraph "Frontend"
+    UI[UI Pages]
+    SSE[SSE Stream]
+  end
+
+  subgraph "Backend"
+    APP[FastAPI app]
+    RAG[route: rag companies]
+    WRITER[route: writer outreach]
+    UPLOAD[route: upload resume]
+    TIMELINE[route: timeline :run_id]
+
+    subgraph "Agents"
+      RAGAgent[RAG Company Discovery]
+      ResearchAgent[Enhanced Research]
+      WriterAgent[Writer Outreach]
+    end
+
+    subgraph "State and Storage"
+      StateStore[state store]
+      SQLStore[sqlite store]
+      Uploads[uploads]
+    end
+
+    subgraph "RAG Helpers"
+      Roles[roles]
+      Match[match]
+      ExaCompany[company discovery]
+    end
+
+    subgraph "External Tools"
+      Exa[Exa]
+      LLM[DeepSeek]
+      Geo[Geocoding]
+      PDF[PDF parsers]
+    end
+  end
+
+  UI -->|HTTP| APP
+  UI -->|Triggers| RAG
+  UI -->|Triggers| WRITER
+  UI -->|Upload PDF| UPLOAD
+  SSE <-->|/timeline| TIMELINE
+
+  RAG --> RAGAgent
+  RAGAgent --> ExaCompany
+  ExaCompany --> Exa
+  RAGAgent --> Geo
+  RAGAgent --> Roles
+  RAGAgent --> Match
+  RAGAgent --> Memory
+
+  WRITER --> WriterAgent
+  WriterAgent --> LLM
+  WriterAgent --> Memory
+
+  ResearchAgent --> Exa
+  ResearchAgent --> LLM
+  ResearchAgent --> Memory
+
+  APP --> Memory
+
+  classDef store fill:#f5f5f5,stroke:#888,color:#222;
+  class StateStore,SQLStore,Uploads store;
+
+

@@ -1,4 +1,6 @@
-# Agentception - AI-Powered Job Search Assistant
+# Agentception — AI-Powered Job Search Assistant
+
+> TL;DR: Multi-agent workflow that finds companies, researches them, and writes personalized outreach emails—end-to-end in minutes.
 
 ## 🎯 Project Overview
 
@@ -14,6 +16,8 @@
 - **Modern UI**: React/Next.js frontend with Tailwind CSS design system and Framer Motion animations
 
 ## 🏗️ Architecture
+
+![Architecture](docs/architecture.png)
 
 ### Backend (`server/`)
 - **FastAPI** application with async/await support
@@ -56,7 +60,17 @@
 - **Timeline**: Real-time progress tracking with SSE
 - **Results**: Structured display of companies and generated emails
 
-## 🚀 Getting Started
+## 🚀 Quickstart
+
+```bash
+python -m venv .venv && .\.venv\Scripts\activate && pip install -r requirements.txt
+cd ui && npm install && npm run dev
+python -m uvicorn server.app:app --reload --host 0.0.0.0 --port 8000
+```
+
+Demo: [Add link]  •  Metric: **Time-to-first-personalized-email < 120s**
+
+## Getting Started
 
 ### Prerequisites
 - **Python 3.11+** with virtual environment support
