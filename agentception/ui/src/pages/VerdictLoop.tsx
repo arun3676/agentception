@@ -25,8 +25,7 @@ import {
   Loader2,
 } from "lucide-react";
 import OutcomeTimeline from "@/components/OutcomeTimeline";
-
-const BACKEND = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
+import { AuthRequiredError, getOutcomePatterns, logOutcome as logOutcomeApi } from "@/lib/api";
 
 const OUTCOMES = [
   { value: "ghosted", label: "Ghosted", icon: Ghost, color: "text-gray-400" },
@@ -56,21 +55,19 @@ export default function VerdictLoop() {
   const [loadingPatterns, setLoadingPatterns] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<string | null>(null);
 
-  // TODO: Replace with actual user_id from auth
-  const userId = import.meta.env.VITE_SUPABASE_DEFAULT_USER_ID || "demo-user";
-
+  // The owner comes from the verified JWT, server-side. This used to be
+  // `VITE_SUPABASE_DEFAULT_USER_ID || "demo-user"` sent as a query param — a
+  // browser-supplied owner, so anyone could read anyone's outcomes.
   const fetchPatterns = useCallback(async () => {
     setLoadingPatterns(true);
     try {
-      const resp = await fetch(`${BACKEND}/outcomes/patterns?user_id=${userId}`);
-      const data = await resp.json();
-      setPatterns(data);
+      setPatterns(await getOutcomePatterns());
     } catch (err) {
       console.error("Failed to load patterns:", err);
     } finally {
       setLoadingPatterns(false);
     }
-  }, [userId]);
+  }, []);
 
   useEffect(() => {
     fetchPatterns();
@@ -82,17 +79,7 @@ export default function VerdictLoop() {
     setSubmitMessage(null);
 
     try {
-      const resp = await fetch(`${BACKEND}/outcomes/log`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          user_id: userId,
-          company,
-          role,
-          outcome,
-        }),
-      });
-      const data = await resp.json();
+      const data = await logOutcomeApi({ company, role, outcome });
       if (data.ok) {
         setSubmitMessage("Outcome logged!");
         setCompany("");
@@ -102,8 +89,14 @@ export default function VerdictLoop() {
       } else {
         setSubmitMessage("Failed to log outcome");
       }
-    } catch {
-      setSubmitMessage("Network error");
+    } catch (err) {
+      // Distinguish "you aren't signed in" (retrying is futile) from a real
+      // failure (retrying may work) — the same mistake the Track button made.
+      setSubmitMessage(
+        err instanceof AuthRequiredError
+          ? "Sign in to log an outcome."
+          : "Network error — please try again.",
+      );
     } finally {
       setSubmitting(false);
     }

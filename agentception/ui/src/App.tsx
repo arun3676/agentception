@@ -20,6 +20,10 @@ import Portfolio from "./pages/Portfolio";
 import CareerReverseEngineer from "./pages/CareerReverseEngineer";
 import SystemHealth from "./pages/SystemHealth";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import { AuthProvider } from "./auth/AuthProvider";
+import { RequireAuth } from "./auth/RequireAuth";
 
 const queryClient = new QueryClient();
 
@@ -30,25 +34,29 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <AuthProvider>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/resources" element={<Resources />} />
-            <Route path="/learning-paths" element={<LearningPaths />} />
-            <Route path="/applications" element={<Applications />} />
-            <Route path="/skill-gaps" element={<SkillGaps />} />
-            <Route path="/tailor-resume" element={<TailorResume />} />
-            <Route path="/audit" element={<Audit />} />
-            <Route path="/one-thing" element={<OneThing />} />
-            <Route path="/verdict-loop" element={<VerdictLoop />} />
-            <Route path="/cohort" element={<Cohort />} />
-            <Route path="/profile" element={<TrustProfile />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/career-reverse-engineer" element={<CareerReverseEngineer />} />
-            <Route path="/system-health" element={<SystemHealth />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
+            <Route path="/resources" element={<RequireAuth><Resources /></RequireAuth>} />
+            <Route path="/learning-paths" element={<RequireAuth><LearningPaths /></RequireAuth>} />
+            <Route path="/applications" element={<RequireAuth><Applications /></RequireAuth>} />
+            <Route path="/skill-gaps" element={<RequireAuth><SkillGaps /></RequireAuth>} />
+            <Route path="/tailor-resume" element={<RequireAuth><TailorResume /></RequireAuth>} />
+            <Route path="/audit" element={<RequireAuth><Audit /></RequireAuth>} />
+            <Route path="/one-thing" element={<RequireAuth><OneThing /></RequireAuth>} />
+            <Route path="/verdict-loop" element={<RequireAuth><VerdictLoop /></RequireAuth>} />
+            <Route path="/cohort" element={<RequireAuth><Cohort /></RequireAuth>} />
+            <Route path="/profile" element={<RequireAuth><TrustProfile /></RequireAuth>} />
+            <Route path="/portfolio" element={<RequireAuth><Portfolio /></RequireAuth>} />
+            <Route path="/career-reverse-engineer" element={<RequireAuth><CareerReverseEngineer /></RequireAuth>} />
+            <Route path="/system-health" element={<RequireAuth><SystemHealth /></RequireAuth>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </AuthProvider>
         </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>

@@ -7,7 +7,7 @@ from urllib.parse import quote_plus
 
 import httpx
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel
 
 from ..memory import sql_store
@@ -16,6 +16,7 @@ from ..schemas import LearningPathRequest
 from ..tools.resume_parser import _parse_skills
 from ..tools.resume_store import TECH_SKILLS_KEYWORDS, _extract_keywords
 from ..agentception2 import _role_seed_skills, summarize_applications
+from ..auth import User, require_user
 from .cache import cached_search
 
 router = APIRouter(prefix="/api/v1")
@@ -67,9 +68,13 @@ async def get_resource(resource_id: str):
 
 # --------- Learning paths ---------
 
+# Learning paths are user-owned rows, so every route here derives the owner from
+# the verified JWT. They previously took `user_id` from the query string / request
+# body, which meant anyone could list, read, or write as any user — no token needed.
+
 @router.get("/learning-paths")
-async def list_learning_paths(user_id: Optional[str] = None):
-    paths = sql_store.learning_path_list(user_id=user_id)
+async def list_learning_paths(user: User = Depends(require_user)):
+    paths = sql_store.learning_path_list(user_id=user.id)
     return {
         "paths": [
             {
@@ -85,17 +90,21 @@ async def list_learning_paths(user_id: Optional[str] = None):
 
 
 @router.get("/learning-paths/{path_id}")
-async def get_learning_path(path_id: str):
-    record = sql_store.learning_path_get(path_id)
+async def get_learning_path(path_id: str, user: User = Depends(require_user)):
+    record = sql_store.learning_path_get(path_id, user_id=user.id)
     if not record:
+        # 404 for both "no such path" and "not yours" — a 403 would confirm the
+        # id exists, which is itself a leak.
         raise HTTPException(404, "Learning path not found")
     return record["path"] or record
 
 
 @router.post("/learning-paths/generate")
-async def create_learning_path(req: LearningPathRequest):
+async def create_learning_path(req: LearningPathRequest, user: User = Depends(require_user)):
     try:
-        path = generate_learning_path(req)
+        # The owner comes from the token. `req.user_id` is ignored on purpose —
+        # trusting it would let a client file a path under someone else's id.
+        path = generate_learning_path(req, user_id=user.id)
         return path.model_dump()
     except Exception as e:
         raise HTTPException(500, f"Failed to generate learning path: {e}")
@@ -167,7 +176,8 @@ async def analyze_skill_gaps(body: SkillGapBody):
 # --------- Applications ---------
 
 class ApplicationCreateBody(BaseModel):
-    user_id: Optional[str] = None
+    # No user_id. Ownership comes from the verified JWT; a body field that looks
+    # like it sets the owner but is silently ignored is a trap for the next reader.
     company_name: str
     job_title: str
     job_url: str
@@ -191,10 +201,10 @@ async def _check_listing(url: str) -> dict:
 
 
 @router.post("/applications")
-async def create_application(body: ApplicationCreateBody):
+async def create_application(body: ApplicationCreateBody, user: User = Depends(require_user)):
     record = sql_store.job_application_add(
         app_id=str(uuid.uuid4()),
-        user_id=body.user_id,
+        user_id=user.id,
         company_name=body.company_name,
         job_title=body.job_title,
         job_url=body.job_url,
@@ -204,27 +214,27 @@ async def create_application(body: ApplicationCreateBody):
 
 
 @router.get("/applications")
-async def list_applications(user_id: Optional[str] = None):
-    items = sql_store.job_applications_list(user_id=user_id)
+async def list_applications(user: User = Depends(require_user)):
+    items = sql_store.job_applications_list(user_id=user.id)
     return {"items": items, "summary": summarize_applications(items)}
 
 
 @router.put("/applications/{application_id}")
-async def update_application(application_id: str, body: ApplicationUpdateBody):
-    record = sql_store.job_application_update_status(application_id, body.application_status)
+async def update_application(application_id: str, body: ApplicationUpdateBody, user: User = Depends(require_user)):
+    record = sql_store.job_application_update_status(application_id, body.application_status, user_id=user.id)
     if not record:
         raise HTTPException(404, "Application not found")
     return record
 
 
 @router.post("/applications/refresh-listings")
-async def refresh_application_listings(user_id: Optional[str] = None):
+async def refresh_application_listings(user: User = Depends(require_user)):
     """Refresh public job-posting availability for saved applications.
 
     Recruiter-stage changes are intentionally left to the user unless an email or
     ATS integration is connected; public pages only expose whether a role is live.
     """
-    apps = sql_store.job_applications_list(user_id=user_id)
+    apps = sql_store.job_applications_list(user_id=user.id)
     checks = await asyncio.gather(*[_check_listing(app["job_url"]) for app in apps]) if apps else []
     return {"items": [{"id": app["id"], **check} for app, check in zip(apps, checks)]}
 

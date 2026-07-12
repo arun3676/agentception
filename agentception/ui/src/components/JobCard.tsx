@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Bookmark, BookmarkCheck, ExternalLink, Wallet } from "lucide-react";
+import { Bookmark, BookmarkCheck, ExternalLink, LogIn, Wallet } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { useAuth } from "@/auth/AuthProvider";
 import { JobCard as JobCardType } from "@/lib/jobCardNormalization";
 import { createApplication } from "@/lib/api";
+import { trackFailure, trackIntent } from "@/lib/trackOutcome";
 import { MatchScoreBadge } from "./MatchScoreBadge";
 import { GapReport } from "./GapReport";
 import { TailorJobButton } from "./TailorJobButton";
@@ -36,6 +39,14 @@ export const JobCard = ({
 }: JobCardProps) => {
   const [tracked, setTracked] = useState(false);
   const [tracking, setTracking] = useState(false);
+  const { session } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const signedIn = Boolean(session);
+
+  // Matches RequireAuth/Login's convention, so the user lands back here afterwards.
+  const goSignIn = () => navigate("/login", { state: { from: location } });
 
   const handleOpen = () => {
     if (onOpen) {
@@ -67,6 +78,15 @@ export const JobCard = ({
 
   const handleTrack = async () => {
     if (tracked || tracking) return;
+
+    // Signed out: go somewhere useful. Firing a request we know will be rejected,
+    // then reporting it as a generic failure, is how the old code told people to
+    // "try again" at something that could never succeed.
+    if (trackIntent(signedIn) === "sign-in") {
+      goSignIn();
+      return;
+    }
+
     setTracking(true);
     try {
       await createApplication({
@@ -80,12 +100,16 @@ export const JobCard = ({
         title: "Added to your applications",
         description: `${displayTitle} — track its outcome from the Applications page.`,
       });
-    } catch {
+    } catch (error) {
+      // The session can expire between render and click, so a signed-in user can
+      // still land in the sign-in case here.
+      const failure = trackFailure(error);
       toast({
-        title: "Could not save this application",
-        description: "Please try again.",
+        title: failure.title,
+        description: failure.description,
         variant: "destructive",
       });
+      if (failure.kind === "sign-in") goSignIn();
     } finally {
       setTracking(false);
     }
@@ -171,10 +195,17 @@ export const JobCard = ({
             size="sm"
             onClick={handleTrack}
             disabled={tracked || tracking}
+            title={signedIn ? undefined : "Sign in to save roles to your applications"}
             className="justify-center gap-1.5 rounded-2xl text-muted-foreground hover:text-foreground"
           >
-            {tracked ? <BookmarkCheck className="h-3.5 w-3.5" /> : <Bookmark className="h-3.5 w-3.5" />}
-            {tracked ? "Tracked" : "Track"}
+            {tracked ? (
+              <BookmarkCheck className="h-3.5 w-3.5" />
+            ) : signedIn ? (
+              <Bookmark className="h-3.5 w-3.5" />
+            ) : (
+              <LogIn className="h-3.5 w-3.5" />
+            )}
+            {tracked ? "Tracked" : signedIn ? "Track" : "Sign in to track"}
           </Button>
 
           <Button
