@@ -549,27 +549,54 @@ function extractCompanyFromDomain(url: string | null | undefined): string | null
 /**
  * Derive a human-friendly company name from URL domain
  */
+/**
+ * On an applicant tracking system the employer is in the PATH, not the domain:
+ *   job-boards.greenhouse.io/anthropic/jobs/123  -> anthropic
+ *   jobs.lever.co/hophr/9e92ee57                 -> hophr
+ * Reading the domain instead returns the ATS vendor ("Greenhouse"), which is how
+ * every card ended up titled "roles at Greenhouse".
+ */
+const ATS_HOSTS = ["greenhouse.io", "lever.co", "ashbyhq.com", "workable.com"];
+
+function getEmployerFromAtsUrl(url: string): string | null {
+  const domain = getDomainFromUrl(url);
+  if (!domain || !ATS_HOSTS.some(h => domain.endsWith(h))) return null;
+
+  try {
+    const segments = new URL(url).pathname.split("/").filter(Boolean);
+    // Greenhouse also serves /embed/job_app?token=... — no employer segment there.
+    const slug = segments[0];
+    if (!slug || ["embed", "jobs", "j", "o"].includes(slug.toLowerCase())) return null;
+    return toTitleCase(slug.replace(/[-_]/g, " "));
+  } catch {
+    return null;
+  }
+}
+
 function getCompanyNameFromUrl(url: string): string {
+  const fromAts = getEmployerFromAtsUrl(url);
+  if (fromAts) return fromAts;
+
   const domain = getDomainFromUrl(url);
   if (!domain) return "Company";
-  
+
   // Remove common prefixes
   const cleaned = domain
     .replace(/^www\./, "")
     .replace(/^jobs?\./, "")
     .replace(/^careers?\./, "")
     .replace(/^boards?\./, "");
-  
+
   // Extract main domain name
   const parts = cleaned.split(".");
   let companyName = parts.length >= 2 ? parts[parts.length - 2] : cleaned;
-  
+
   // Capitalize first letter of each word
   companyName = companyName
     .split(/[-._]/)
     .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(" ");
-  
+
   return companyName || "Company";
 }
 
@@ -719,54 +746,69 @@ function getRoleDisplayName(role: string | null | undefined): string {
 /**
  * Get display title for job card with priority logic
  */
+/**
+ * Strip the wrappers an ATS puts around a perfectly good job title.
+ * Greenhouse serves "Job Application for Staff Engineer at Anthropic. San
+ * Francisco, CA | New York, NY" — the role is in there; it just needs unwrapping.
+ */
+function unwrapAtsTitle(raw: string): string {
+  let s = raw.trim();
+
+  s = s.replace(/^job\s+application\s+for\s*/i, "");
+  s = s.replace(/^job\s+description\s*[–—-]\s*/i, "");
+  s = s.replace(/^apply\s+(?:for|to)\s*/i, "");
+  s = s.replace(/\s+jobs?\s+in\s+.*$/i, "");
+
+  // Cut the location tail: "... at Anthropic. San Francisco, CA | New York, NY"
+  s = s.split(/\s*[.|·•]\s+/)[0];
+
+  // Drop a trailing " at <Company>" — the company is rendered separately on the card.
+  s = s.replace(/\s+at\s+[^,]{2,40}$/i, "");
+
+  return s.trim();
+}
+
 function getDisplayTitle(params: {
   rawTitle?: string | null;
   snippet: string;
   url: string;
   requestedRole?: string | null;
+  companyName?: string | null;
 }): string {
-  const { rawTitle, snippet, url, requestedRole } = params;
-  
-  // Priority 1: Try to extract role from snippet
+  const { rawTitle, snippet, url, requestedRole, companyName } = params;
+
+  // Clean FIRST, then judge. The old order asked "is this noisy?" *before*
+  // stripping the very prefixes that make it look noisy, so a real title —
+  // "Job Application for Staff Engineer at Anthropic" — was thrown away and
+  // replaced by a guess from the URL.
+  const unwrapped = rawTitle ? unwrapAtsTitle(rawTitle) : "";
+  const unwrappedLower = unwrapped.toLowerCase();
+
+  const stillNoisy =
+    !unwrapped ||
+    unwrapped.length < 4 ||
+    unwrappedLower.includes("jobs in") ||
+    unwrappedLower.includes("template") ||
+    unwrappedLower.startsWith("best ") ||
+    unwrappedLower.includes("van, fuel & insurance") ||
+    unwrappedLower === "application";
+
+  if (!stillNoisy) {
+    return toTitleCase(unwrapped);
+  }
+
+  // Priority 2: try to recover a role from the snippet.
   const roleFromSnippet = extractRoleFromSnippet(snippet);
   if (roleFromSnippet) {
     return roleFromSnippet;
   }
-  
-  // Priority 2: Check if rawTitle is noisy/missing
-  const rawTitleLower = rawTitle?.toLowerCase().trim() || "";
-  const isNoisyTitle = 
-    !rawTitle ||
-    rawTitle.length < 4 ||
-    rawTitleLower.includes("job application") ||
-    rawTitleLower.includes("jobs in") ||
-    rawTitleLower.includes("job description") ||
-    rawTitleLower.includes("template") ||
-    rawTitleLower.startsWith("best ") ||
-    rawTitleLower.includes("van, fuel & insurance") ||
-    rawTitleLower === "application";
-  
-  if (isNoisyTitle) {
-    // Derive company name from URL
-    const companyName = getCompanyNameFromUrl(url);
-    const roleDisplayName = getRoleDisplayName(requestedRole);
-    return `${roleDisplayName} at ${companyName}`;
-  }
-  
-  // Priority 3: Clean and use rawTitle
-  let cleaned = rawTitle.trim();
-  
-  // Remove trailing "jobs in ..." segments
-  cleaned = cleaned.replace(/\s+jobs?\s+in\s+.*$/i, "");
-  
-  // Remove prefixes
-  cleaned = cleaned.replace(/^job\s+application\s+for\s*/i, "");
-  cleaned = cleaned.replace(/^job\s+description\s*[–—-]\s*/i, "");
-  
-  // Apply title case
-  cleaned = toTitleCase(cleaned.trim());
-  
-  return cleaned;
+
+  // Last resort. Prefer the employer the backend resolved; only guess from the
+  // URL if we have nothing, and never fall through to a bare "roles" when the
+  // user searched without specifying one.
+  const employer = companyName?.trim() || getCompanyNameFromUrl(url);
+  const roleDisplayName = requestedRole ? getRoleDisplayName(requestedRole) : "";
+  return roleDisplayName ? `${roleDisplayName} at ${employer}` : `Open role at ${employer}`;
 }
 
 /**
@@ -808,6 +850,7 @@ function getDisplayTitleValue(params: {
     snippet,
     url,
     requestedRole,
+    companyName,
   });
 
   // If the title is generic (e.g. "AI Engineer") and matches the requested role exactly,

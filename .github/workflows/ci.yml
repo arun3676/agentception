@@ -35,7 +35,7 @@ jobs:
         run: python -m pytest -q --strict-markers
 
   frontend:
-    name: Frontend — typecheck, lint, build
+    name: Frontend — tests, typecheck, lint, build
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -50,6 +50,9 @@ jobs:
           cache-dependency-path: agentception/ui/package-lock.json
 
       - run: npm ci
+      # Two test files existed for months but vitest was never a dependency and
+      # there was no test script, so they had never run anywhere.
+      - run: npm test
       - run: npx tsc --noEmit -p tsconfig.app.json
       - run: npm run lint
       - run: npm run build
