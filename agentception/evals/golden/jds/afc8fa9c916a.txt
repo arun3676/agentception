@@ -1,0 +1,32 @@
+Title: Software Engineer, Benchmarking
+
+Epoch AI is looking for a Software Engineer who will help us evaluate frontier AI models, enabling researchers, developers, and policymakers to better understand AI development. The role will involve running and maintaining our benchmarking infrastructure as well as contributing to the development of brand new benchmarks.
+About the role
+Please do not include a cover letter, photograph, or headshot of yourself, or any personal information that is not relevant to the role for which you're applying (including marital status, age, identity traits, etc.).
+We are looking for a Software Engineer to help us expand and develop our AI Benchmarking Hub. You will work closely with the rest of the benchmarking team to run and maintain benchmarks, integrate with AI providers, set up existing benchmarks to run on our infrastructure, help design and develop brand new benchmarks, and facilitate internal experiments.
+This role is fully remote, and we are able to hire in many countries. We invite anyone who is interested to apply, regardless of background, experience, or credentials.
+Applications are rolling.
+\n
+Key Responsibilities
+Implement benchmarks : Implement AI benchmarks within our evaluation infrastructure (primarily using the Inspect library) to expand the suite of capabilities we track. Develop our existing suite of benchmarks so we can quickly and painlessly evaluate new model releases.
+Develop new benchmarks : Contribute to the development of brand new benchmarks. You will have the opportunity to pitch and prototype your own ideas in addition to helping out with existing projects.
+Collaborate : Work closely with researchers, analysts, and other engineers at Epoch AI to ensure evaluation data and outputs are accurate, insightful, and effectively integrated into our research products and publications.
+What we are looking for
+Solid engineering skills : A strong software engineering background with more than two years of professional experience building and maintaining complex systems. You are expected to regularly contribute high-quality, robust, and maintainable code and be comfortable diving deep into existing codebases and infrastructure.
+Ideas and creativity : Candidates should be able to generate their own ideas for new benchmarks, experiments, novel things to try, and other projects.
+Mission-driven : You’re motivated by Epoch AI’s mission to provide rigorous, independent insight into key trends in AI. You want to deliver public, trustworthy evaluations of AI capabilities on challenging benchmarks, empowering researchers, policymakers, and the wider public to make well-informed decisions about AI.
+AI domain expertise or cybersecurity experience are strong pluses but not required . (This includes hands-on experience running LLM evaluations, familiarity with evaluation frameworks like Inspect , as well as a solid grasp of current AI trends.) Solid engineering skills and an ability to learn quickly matter more than direct background in these areas.
+Compensation & Benefits
+Annual salary between $125,000 and $200,000 USD.
+Salaries are not restricted to USD, and contracts and payments are usually in local currencies. Conversions are based on one-year average exchange rates.
+Fully remote environment, including flexible work hours and schedules for most roles.
+Competitive global benefits program, including a comprehensive health insurance program—including supplemental benefits specific to a local country, as available and mandated by local law—and life insurance and a pension plan, if applicable in your country.
+Generous paid time off (PTO), including no specific limit on PTO with 30 days per year protected, unlimited personal and sick leave, and up to 6 months (combination of paid + unpaid) parental leave for permanent staff.
+A flexible and generous expense policy for you to spend on equipment and a large range of productivity tools or learning/development opportunities you might find valuable, subject to regulations and manager approval.
+Paid work trips, including 3 staff retreats per year and relevant conferences.
+Access to our very well-equipped offices in Berkeley, California, including paid meals, snacks, gym, and more. All staff, independently of where they are based, have access to the office for at least 20 days each year.
+\n
+Additional Information
+While we welcome applicants from all time zones, we prefer candidates who can overlap with UTC–8 (Pacific Time) and UTC (Greenwich Mean Time), as most of our staff work in this range of time zones. We also prefer candidates who can travel: we hold three retreats per year, during which we record podcast episodes and other communication efforts.
+Please submit all of your application materials in  English and note that we require professional level English proficiency.
+Epoch is committed to building an  inclusive, equitable, and supportive community for you to thrive and do your best work. We’re committed to finding the best peo

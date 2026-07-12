@@ -1,0 +1,16 @@
+{
+  "name": "Agentception",
+  "short_name": "Agentception",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#18181b",
+  "theme_color": "#18181b",
+  "description": "AI career operating system. Reverse engineer your dream role, build proof, and get hired.",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ]
+}

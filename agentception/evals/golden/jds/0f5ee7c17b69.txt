@@ -1,0 +1,34 @@
+Back to jobs Senior Backend Engineer - Product
+San Francisco, CA, New York, NY, Portland, OR, or Remote within Canada or United States Apply Since the dawn of aviation, pilots have faced the constant challenge of air resistance, much like sailors navigating the friction of water. Amidst this relentless struggle, the trim tab emerges as an ingenious yet understated marvel. Just as the wheel revolutionized transportation by easing movement over land, the trim tab simplifies flight, allowing for smoother navigation through the skies. It embodies the elegance of simplicity in engineering, transforming the demanding task of controlling an aircraft into a more graceful and manageable endeavor.
+At Mercury, we are committed to crafting an exceptional banking* experience for startups. Our team is passionately focused on ensuring our product not only meets but anticipates the needs of our customers.
+Our product engineering group is growing and we’re looking to hire senior backend engineers . We’re a team of pragmatic, product-minded engineers motivated by the desire to create lovable products that rescue our customers from frustrating, expensive legacy industry tools.
+As part of this role, you will:
+Feel a strong sense of product ownership and actively seek responsibility – we often self-organize on small/medium projects, and we want someone excited to help shape and build Mercury’s future.
+Work in an autonomous environment on a close-knit team, with a “startup within a startup” feel.
+Partner closely with designers and product leaders to ship lovable experiences. We want to transcend the status quo for banking and fintech software, and many of our customers are startups and appreciate our slick, magical designs.
+Join a team of experienced product engineers within one of our Mercury product groups such as Banking, Experiences, Expansion, or Risk.
+The ideal candidate for the role:
+Has 3-7 years of backend development experience.
+Knowledge of or excitement to learn Haskell, and proficiency in SQL.
+Empathizes with users and can channel their perspective to build lovable products.
+Has made architectural decisions in the past and measured the impact of those decisions over time. You should be able to clearly articulate your technical opinions and lay out tradeoffs.
+Actively incorporates AI tools into their workflow and is excited about leveraging them to amplify their impact — whether that's accelerating development, improving code quality, or finding creative solutions to hard problems.
+Communicates and collaborates effectively with peers and cross-functional counterparts.
+If this role interests you, we invite you to explore our public demo at demo.mercury.com .
+The total rewards package at Mercury includes base salary, equity (stock options/RSUs), and benefits. Our salary and equity ranges are highly competitive within the SaaS and fintech industry and are updated regularly using the most reliable compensation survey data for our industry. New hire offers are made based on a candidate’s experience, expertise, geographic location, and internal pay equity relative to peers.
+Our target new hire base salary ranges for this role are the following:
+US employees (any location): $166,600 - $208,300
+Canadian employees (any location): CAD 157,400 - 196,800
+*Mercury is a fintech company, not an FDIC-insured bank. Banking services provided through Choice Financial Group and Column N.A., Members FDIC.
+Mercury values diversity & belonging and is proud to be an Equal Employment Opportunity employer. All individuals seeking employment at Mercury are considered without regard to race, color, religion, national origin, age, sex, marital status, ancestry, physical or mental disability, veteran status, gender identity, sexual orientation, or any other legally protected characteristic. We are committed to providing reasonable accommodations throughout the recruitment process for applicants with disabilities or special needs. If you need assistance, or an accommodation, please let your recruiter know once you are contacted about a role.
+#LI-ES1
+Create a Job Alert
+Interested in building your career at Mercury? Get future opportunities sent straight to your email.
+Create alert Apply for this job
+*
+indicates a required field
+Quick Apply with MyGreenhouse First Name * Last Name * Email * Phone Country * Phone * Resume/CV * Attach Attach Dropbox Google Drive Enter manually Enter manually Accepted file types: pdf, doc, docx, txt, rtf
+Cover Letter Attach Attach Dropbox Google Drive Enter manually Enter manually Accepted file types: pdf, doc, docx, txt, rtf
+LinkedIn Profile Portfolio Website Upload anything Attach Attach Dropbox Google Drive Accepted file types: pdf, doc, docx, txt, rtf
+Past work, references, side projects, fun facts, recent poetry, etc.
+Will you now or at any time in the future require visa sponsorship? * Select... From where do you intend to work? * Please list city and state/province ( San Francisco, California, Toronto, Ontario,

@@ -1,9 +1,0 @@
-uvicorn[standard]
-fastapi
-pydantic
-httpx
-python-multipart
-python-dotenv
-PyMuPDF
-pypdf
-pdfplumber

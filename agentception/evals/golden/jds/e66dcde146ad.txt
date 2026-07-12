@@ -1,0 +1,27 @@
+Title: AI Engineer (Back-end)
+
+About the company
+Taste Labs is building the data and infrastructure layer for taste.
+Our goal is to end AI slop. To make AI feel right, not just be correct. We raised $18.5M in seed co-led by Amplify and CRV, and most frontier labs are already customers.
+AI has nailed objective domains and can generate anything. The hard part left is judgement: what fits, what feels like you, what's actually GREAT. We're turning that into something measurable, starting with design.
+We do it on two sides: building the post-training data and RL environments that teach taste to frontier models, and the context and verification tools agents need to produce work that's more creative, more on-brand, more right.
+If that problem excites you, you'll like it here!
+About the role
+You'll build the AI systems that power taste agent harnesses, memory, evals, tooling, data collection, index, search, graph, crawling, scraping, security and more.
+Types of problems you’d work on
+Craft agent harnesses, memory and self-improvement loops
+Design evaluation pipelines and synthetic data generation
+Create embedding and retrieval infrastructure that scales to millions of requests
+Build crawling and scraping systems for visual data across the web
+Set up inference serving and APIs for client-facing products
+Manage security sweeps vulnerability mapping
+Develop the tooling and infrastructure that makes everything reliable and fast
+What matters to us
+Deeply technical: you’re deeply opinionated about what good code means, you have an AI-forward setup while being anti-slop, you care deeply about the craft.
+You’re creative and have genuine curiosity about ‘taste’ and making subjective domains verifiable
+You have startup DNA: you move fast, adapt, no such thing as ‘not in scope’, you like ambiguous, hard problems
+AI experience: you need experience building AI forward products, systems, agents, models and more.
+You care about arriving at the simple, clear solution vs. the complex one
+Bonus points
+Open source contributions or personal projects that show you build things because you're curious
+Background at creative companies (Figma, Notion, Canva, Adobe, Runway, etc.) or companies with strong index building/crawling (e.g. Firecrawl, Brave, Luma, Pika) or data (Mercor, Surge, etc.)

@@ -1,0 +1,29 @@
+Back to jobs Staff Machine Learning Operations Engineer
+New York City, New York Apply Garner’s mission is to transform the healthcare economy, delivering high-quality and affordable care for all.
+We are fundamentally reimagining how healthcare works in the U.S. by partnering with employers to redesign healthcare benefits using clear incentives and powerful, data-driven insights. Our approach guides employees to higher-quality, lower-cost care, creating a system that works better for everyone. Patients achieve better health outcomes, employers spend healthcare dollars more effectively, and physicians are rewarded for delivering exceptional care rather than performing more procedures.
+Garner is one of the fastest-growing healthcare technology companies in the country. Our products are trusted by the most sophisticated employers and providers in the industry, and we are building a team of talented, mission-driven individuals who are motivated to make a meaningful impact on healthcare at scale.
+About the role:
+We are seeking an exceptional Staff MLOps Engineer to join our Platform Engineering team . This role will report to the VP of Platform Engineering . As Garner's foundational dedicated MLOps Engineer, you will assume responsibility for the reliability, performance, and cost-efficiency of our production machine learning systems. You will lead the development of a robust platform designed to facilitate the secure and consistent deployment of models by our machine learning and data science teams. Given that these models directly influence health outcomes and cost-effectiveness for millions of patients, maintaining the highest standards of production quality is imperative.
+Where you will work:
+This role will be based in our New York City office (in the Financial District). You must be willing to work in the office 3 days per week on Tuesday, Wednesday and Thursday.
+What you will do:
+Own the reliability, performance, functionality, and cost-efficiency of Garner's production ML systems, including establishing SLOs, observability, and on-call responsibilities.
+Architect Garner's ML platform including required data infrastructure (including feature store, model registry and CI/CD for models), and standardized service patterns.
+Implement ML-specific CI/CD pipelines: Transition our deployment process from manual notebook hand-offs to automated, PR-driven CI/CD workflows that include automated data quality checks and statistical model validation prior to deployment.
+Drive down cost and latency through improved architecture, hardware choices, and model optimization as appropriate.
+Lay the foundation for a future Garner MLOps team, including workflows, standards, and KPIs that enables rapid teammate onboarding and helps stakeholders and teammates quickly identify the health of the team’s products, allowing engineers to focus on areas where issues reside
+Establish Drift Monitoring: Design and implement automated data drift and concept drift monitoring systems that alert the team when models degrade, laying the groundwork for future Continuous Training (CT) architectures
+The ideal candidate has:
+7+ years of software engineering experience, with significant time spent operating ML or data-intensive systems in production at scale.
+Deep experience with the modern ML production stack: model serving (e.g., Sagemaker, Triton, or equivalent), feature stores, model registries, and CI/CD for ML.
+Strong infrastructure and platform engineering fundamentals: Kubernetes, containerization, cloud (AWS preferred), Terraform/IaC, observability, and incident response.
+Experience designing ML platforms or significant components of one (not strictly consuming SaaS) and the judgment to know when to build vs. buy.
+Strong collaboration with ML, data, platform engineers, data scientists, and product engineering teams, with the ability to set technical direction as the most senior MLOps voice in the org.
+Healthcare, regulated-data, or other high-stakes production ML experience is a plus but not required.
+A desire to be a part of a high-performing, mission-driven team that operates with intense urgency, a strong sense of individual accountability, and a commitment to authentic feedback
+Technologies we use:
+Python, Kubernetes, AWS, Sagemaker, Terraform, S3, Snowflake, Airflow, Datadog
+This is a unique opportunity to join a fast-growing company in a transformative role, helping shape the future of healthcare.
+Please note: we are unable to sponsor or take over sponsorship of an employment visa at this time.
+Compensation Transparency:
+The target salary range for this position is $298,000 - $351,000. Individual compensation for this role will depend on various factors, including qualifications, skills, and applicable laws. In addition to base compensation, this role is eligible to participate in our equity incentive and competitive benefits plans, including but not limited to: flexible PTO, Medical/Dental/Vision plan options, 401(k), Teladoc Health an

@@ -1,0 +1,84 @@
+Arun Kumar Chukkala
+SF, California, USA | arun.chukkala@example.com | [phone redacted] | GitHub | Portfolio | LinkedIn
+Professional Summary
+3+ years of experience as a Forward Deployed Engineer specializing in AI solutions. Successfully delivered a 30%
+reduction in manual review time and achieved a 62% latency reduction in production deployments. My expertise in
+multi-agent systems and cross-functional collaboration enables me to effectively engage with customers and iterate
+on solutions. I excel in environments that require end-to-end ownership and a focus on high-quality deliverables.
+Core Focus:  LangGraph Agent Orchestration | Multi-Agent Architectures | AI Copilot Development | Tool-Using
+LLMs | Evaluation Harness | Production AI
+Technical Skills
+Programming & Development:  Python, TypeScript, FastAPI, React, JavaScript, SQL, REST APIs, Git/GitHub,
+Streamlit, AsyncIO, Node.js, Next.js
+AI/ML Frameworks & Tools: LangChain, LangGraph, CrewAI, LlamaIndex, PyTorch, TensorFlow, Scikit-learn,
+Hugging Face Transformers
+LLMs & Generative AI:  OpenAI GPT-4o, Google Gemini 2.0 Flash, Anthropic Claude Sonnet, Fireworks AI,
+Prompt Engineering, Fine-tuning
+Agentic AI & Orchestration:  LangGraph, CrewAI, AutoGen, Multi-Agent Systems, MCP, Tool Orchestration
+MLOps & Deployment:  Docker, Kubernetes, CI/CD, GitHub Actions, AWS (SageMaker, Lambda), Azure (ML,
+Data Factory), vLLM
+Data & Vector Databases: MongoDB Atlas, Pinecone, ChromaDB, Weaviate, FAISS
+Development Tools & IDEs: VS Code, Jupyter, Linux/Unix
+Monitoring & Evaluation:  LangSmith, Weights & Biases, MLflow, A/B Testing, Guardrails
+Professional Experience
+Forward Deployed Engineer (FWE) / Applied AI Engineer, Jefferies Group – Remote, USA
+Mar 2024 – Present
+Concurrent with Master's program
+• Led the development of autonomous multi-agent fraud detection systems using Fireworks AI and MongoDB
+Atlas, achieving a 30% reduction in manual review time at a global investment bank.
+• Managed end-to-end ownership of AI solutions, implementing CI/CD pipelines that resulted in a 62% latency
+reduction from 850ms to 320ms during production deployment.
+• Collaborated cross-functionally with product teams to document best practices and capture unmet customer
+needs, enhancing future project efficiencies.
+• Monitored live system performance and implemented observability tools to ensure reliability and compliance
+with financial regulations, maintaining 98%+ uptime.
+• Developed a production-ready AI Learning Path Generator utilizing ChromaDB, enhancing customer engagement
+through personalized document retrieval.
+Associate AI/ML Engineer, Experian – Hyderabad, India
+Jan 2021 – Dec 2022
+• Implemented machine learning models for fraud detection, achieving an 18% reduction in false positives at a
+Fortune 500 credit bureau, ensuring compliance with regulatory standards.
+• Designed and optimized data pipelines using Azure Data Factory, resulting in a 25% improvement in processing
+efficiency for sensitive data.
+• Engaged in cross-functional collaboration to enhance system reliability, contributing to a 98%+ uptime for
+production ML models in a regulated fintech environment.
+• Developed anomaly detection algorithms leveraging advanced ML techniques, improving classification accuracy
+and operational efficiency.
+
+Open Source Contributions
+LiteLLM (Open Source Contributor)
+• Resolved a critical regression in the Team Management UI by implementing payload sanitization that stripped
+empty enterprise metadata, unblocking features for the open-source community.
+• Engineered comprehensive Vitest integration tests to ensure CI/CD compliance, preventing future false-positive
+enterprise gating and improving system reliability for 100+ LLM providers.
+Featured Projects
+Vigil - Autonomous Economic Fraud Defense
+GitHub | Demo
+• Developed a multi-agent fraud detection system that utilizes VOI reasoning and integrates with Fireworks AI to
+ensure compliance-ready audit trails.
+LLM Code Analyzer
+GitHub | Demo
+• Created a multi-agent orchestration system for automated code quality scoring, utilizing a combination of GPT-4o
+and Claude 3 to streamline the development workflow.
+AI Learning Path Generator
+GitHub | Demo
+• Engineered a RAG system that leverages ChromaDB and LlamaIndex for semantic caching, enabling
+personalized learning path recommendations that enhance user engagement.
+ClaimGuardian AI - Automated Medical Bill Audit & Appeal System
+GitHub | Demo
+• Designed an AI-powered medical bill auditing platform utilizing Google Gemini, incorporating LangGraph
+workflows to automate compliance benchmarking for Medicare.
+Job Search Assistant
+GitHub | Demo
+• Built a multi-agent job search assistant that integrates FastAPI and Next.js to enhance the user experience through
+intelligent, real-time recommendations.
+Education
+Lamar University, MS in Computer Science
+Jan 2023 – Dec 2024
+Beaumont, TX, USA
+Sri Indu Institute of Engineering & Technology, BTech in Computer Science
+Aug 2016 – May 2020
+Hyderabad, India
+Certifications
+• DeepLearning.AI: Generative AI for Everyone, LangChain for LLM Application Development
+• Coursera: Machine Learning Specialization (Andrew Ng, Stanford University)

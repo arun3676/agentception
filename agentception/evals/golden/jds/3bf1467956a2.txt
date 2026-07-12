@@ -1,0 +1,34 @@
+Back to jobs Senior Frontend Engineer
+Remote Apply About LeafLink
+LeafLink is the largest unified B2B cannabis platform, providing licensed cannabis businesses a suite of tools to manage their business more effectively, sell or order from their favorite brands and accelerate growth. We are one platform, one solution and we’re defining the way thousands of cannabis brands, distributors, and retailers streamline their operations. With thousands of brands and retailers across 30+ markets in North America, we are setting the industry standard for how cannabis businesses grow together. LeafLink processes more than $5 billion in wholesale cannabis orders annually.
+Our team, backed by funding from leading VC's, including Founders Fund, Thrive Capital, Nosara Capital, and Lerer Hippeau is poised to define the cannabis supply chain through technology.  LeafLink was named one of Inc. 5000’s ‘Top 5000 Fastest-Growing Private Companies’; one of Fast Company's 'Top 10 Most Innovative Companies in Enterprise for 2020', joining the ranks of Amazon, Slack, and VMWare; one of Built In NYC's 'Best Places to Work in 2021'; 2024 Fast Company’s Best WorkPlaces for Innovators for Banking, Finance, and Fintech category; 2024 Green Market Report Award for Best Fintech in cannabis - and we're just getting started!
+The Role
+LeafLink is seeking a Senior Frontend Engineer to join our remote-based team who is passionate about working on teams that solve interesting, large-scale problems at a rapid pace. This role will contribute heavily to the buildout and iteration of LeafLink’s existing and emerging systems, powering an ever-expanding set of product offerings. As a member of our engineering team, you will be in a position to have a direct, lasting impact everywhere that technology powers our business. LeafLink is currently gearing up to tackle a large-scale platform overhaul that will strengthen our position as a technical leader within the industry. As such, this role has the opportunity to help shape and grow this new platform, as well as work within new and growing technologies. It’s a very exciting time to join our engineering team! Ideal candidates for this position should possess a keen mind for solving tough problems with the ideal solution, partnering effectively with various team members along the way. They should be personable, efficient, flexible, and communicative, possess a strong desire to implement change, growth, and maturity, and have a passion and love for what they do. This role comes with the opportunity to be a high performer within a department that’s fast-paced, dynamic, and quickly growing in all areas.
+What You’ll Be Doing
+Design, build, and maintain scalable frontend applications using   Vue 3 ,   TypeScript , and modern JavaScript tooling.
+Own complex frontend features from technical design through production release.
+Collaborate with product and design teams to translate requirements into high-quality user experiences.
+Build reusable components, patterns, and frontend architecture that improve developer velocity.
+Improve application performance, accessibility, responsiveness, and reliability.
+Partner with backend engineers on API design, data contracts, error handling, and integration patterns.
+Write high-quality tests using tools such as   Vitest ,   Vue Test Utils ,   Playwright , or similar.
+Participate in code reviews and provide thoughtful, constructive feedback.
+Mentor engineers and help establish frontend best practices across the team.
+Evaluate and introduce modern frontend technologies where they provide clear business or engineering value.
+Contribute to CI/CD improvements, observability, monitoring, and frontend release quality.
+Help maintain strong standards around security, privacy, and safe handling of user data.
+What You’ll Bring to the Team
+5+ years working in rich, complex, and ever-evolving front-end user experiences
+Proven track record of practical, thoughtful problem-solving
+Strong professional experience building production web applications.
+Deep experience with   Vue.js , preferably   Vue 3   and the Composition API.
+Strong proficiency with   TypeScript , JavaScript, HTML, and CSS.
+Experience with modern frontend tooling such as   Vite ,   ESBuild ,   pnpm/npm/yarn , and modern build pipelines.
+Experience with state management patterns and libraries such as   Pinia , Vuex, or equivalent.
+Strong understanding of component architecture, design systems, and reusable UI patterns.
+Experience integrating frontend applications with REST, GraphQL, or event-driven APIs.
+Strong testing experience, including unit, integration, and end-to-end testing.
+Understanding of frontend performance optimization, bundle analysis, caching, lazy loading, and Core Web Vitals.
+Familiarity with accessibility standards such as   WCAG   and semantic HTML.
+Experience working in agile development environments with cross-functional teams.
+Strong communication skills and the ability to explain technical tradeoffs clear

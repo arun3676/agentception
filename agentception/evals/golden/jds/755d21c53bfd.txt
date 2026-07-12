@@ -1,0 +1,31 @@
+Title: Senior Data Engineer
+
+Belvedere Trading is a leading proprietary trading firm proudly headquartered in downtown Chicago. Our traders work hard to provide liquidity to the market through their market-making activities and are the masters of a diverse set of commodities, interest rates, exchange-traded funds (ETF), and equity index options. From the beginning, we began iteratively investing in our proprietary technology and committing to building our systems from the ground up. Our trading models and software systems are continually re-engineered, optimized, and maintained to stay on top of the industry. This wouldn’t be possible without the dedicated efforts of our technology teams who utilize and perfect our innovative technology solutions.
+High-performance proprietary development is the source of our success and competitive advantage at Belvedere, further fueling our passion for performance. We are a team driven by intellectual curiosity, seeking answers that will change not only how we trade in this technological age, but also the future landscape of the trading industry. We place a high premium on defining, developing, and deploying high performance trading software using a team-based, holistic development approach. We look for passionate team members that excel and their contribution is critical to our continued success.
+Belvedere Trading is looking for a proven Senior Data Engineer to work directly with our trading desks to improve trading performance. This role will be instrumental in ensuring data availability, breadth, and reliability to make better trading decisions. A Senior Data Engineer will work directly with on-desk staff to architect robust and scalable analytical solutions.
+Our Data Engineers are responsible for data services, including ETL pipeline implementation, data warehouse architecture, data quality automation, and analytic visualization. We expect a Senior Data Engineer to need minimal guidance on architecture best practices and to communicate clearly to stakeholders across the organization.
+Team Belvedere is an environment where you will solve challenging problems that result from petabytes of high-fidelity data. We incrementally add value to our trading desk and, at the same time, design long-term architectures to scale. We seek someone passionate about data and who enjoys working in a fast-paced environment.
+\n
+What You'll Do
+Work with our traders to understand analytic needs to improve trading performance.
+Design and maintain a modular data architecture to facilitate and scale future analysis.
+Ensure high data quality for all analytical trading datasets.
+Hold other team members to data standards, including modular design, testing, and documentation.
+Hold other team members to visual standards, including modular design, testing, and documentation.
+Ensure technical solutions are simple and scale well for future use cases.
+What You'll Need
+Experience designing and developing big data warehouses and ETL pipelines.
+Proven knowledge of SQL and Python.
+Demonstrated ability to navigate and integrate data across multiple data platforms, including RDBMS, NoSQL, and Time Series.
+Experience with real time messaging systems, such as Kafka, Kinesis, and Pulsar, and with developing a stream processing framework, such as Flink or Spark, a plus.
+Proficiency in crafting high-performance BigQuery queries, optimizing for efficiency and scalability to handle large datasets effectively.
+Excellent verbal and written communication, analytical, and problem-solving skills.
+\n $150,000 - $200,000 a year Additionally, certain positions at Belvedere Trading are eligible for discretionary bonuses. Our employees have access to a variety of benefits, which can be found on our website  here . \n Women and underrepresented groups frequently apply to jobs only if they meet 100% of the qualifications.
+We encourage you to break that mold and apply. No candidate is perfect; all have a lot to offer.
+We welcome your application.
+Core Values
+The secret to our award-winning culture is our Core Values:  Team Belvedere, Me In Team, Own It, Build Rockets, and Passionate Discourse . We live and breathe these values every day.
+Compliance
+For our trading positions and certain engineering roles, the SIE and Series 57 licenses are required; Belvedere Trading will provide comprehensive study materials and allocate dedicated time during the onboarding process to ensure your success in obtaining these certifications.
+Our Stance
+Belvedere is an Equal Opportunity Employer and is committed to providing a non-discriminatory employment environment for its employees. Discrimination against employees and applicants due to race, color, religion, sex, national origin, disability, age, military, and veteran status is prohibited. Belvedere encourages initiatives to increase diversity and provide equal opportunity to all applicants and employees. Belvedere is committed to providing a positive environment in which team members are treate

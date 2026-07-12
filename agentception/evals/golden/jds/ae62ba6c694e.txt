@@ -1,0 +1,46 @@
+Title: AI Engineer
+
+Join a National Top Workplace
+Named a Top Workplace in the USA and Top Remote Workplace, Kobie is where the best minds in loyalty come together, driven by passion and innovation. We’re always looking for talented individuals who are ready to join a collaborative, growth-focused culture. As a partner to some of the world’s most recognized brands, we are leaders in loyalty, helping brands build lasting emotional connections with their consumers.
+Join Us from Anywhere
+While our headquarters are nestled in sunny St. Petersburg, Florida, Kobie embraces a flexible work environment, offering teammates the freedom to work remotely . We understand the importance of work-life balance and support our team with:
+·          Flexible Time Off to recharge when needed
+·          Nine Company-Wide Holidays
+·          A diverse suite of benefits prioritizing your growth, development, and personal well-being
+Discover more about our perks and benefits here .
+Kobie is a values-led organization where we believe that everyone is a leader, regardless of their position or role.
+About the team and what we’ll build together
+Kobie runs some of the largest loyalty programs in the world. We're building an internal agent platform on Amazon AgentCore that automates analyst workflows, surfaces insights from program data in Snowflake, and gives our teams and clients an LLM-native way to work with complex loyalty logic.
+We're looking for a hands-on AI Engineer to ship on that platform: building agent harnesses, writing the tools those agents call, and owning the reliability and evaluation of what goes to production. This is not a research role. You'll prototype, ship, monitor, and iterate on features used by real teams
+Our team tends to be people who reason carefully, ship working code,and pick up new tools without a lot of handholding. There’s no single path into this role. We value the impact of what you’ve built and your track record of building things that hold up.
+How you will make an impact
+Agent Development
+Build agent harnesses in Python using LangChain and LangGraph, including tool-calling, structured outputs (Pydantic/JSON schema), retries, streaming, and memory
+Package agent harnesses for the AgentCore Runtime with appropriate context, tools, skills, and subagents that fit cleanly into production flows and scenarios
+Write the tools and skills agents use  API integrations, SQL queries against Snowflake, Snowflake backed knowledge retrieval with clear contracts and Pydantic validation
+Evaluation and Reliability
+Build evaluation harnesses (golden datasets, LLM-as-judge, regression suites) using AgentCore Evaluations, and wire them into CI
+Implement guardrails around tool execution: auth scoping, input/output validation, PII and prompt-injection protections, and hallucination mitigation
+You own what you ship: prototype, deploy through Amazon AgentCore, monitor traces, and fix it when it breaks
+Collaboration
+Partner with data engineers on Snowflake backed retrieval patterns (Cortex Analyst and Cortex Search Services)
+Contribute to refining our internal engineering patterns as the stack evolves
+What you need to be successful
+Required
+3+ years of professional Python, with production experience building and operating services
+1+ years of hands-on work with LLMs in production: prompt/context engineering, tool/function calling, structured outputs, RAG
+Working knowledge of LangChain/LangGraph or a comparable framework like AgentCore Strands, CrewAI, or Semantic Kernel
+Experience with LLM observability tools: Amazon CloudWatch, LangSmith, Langfuse, MLflow, or OpenTelemetry
+Experience designing evaluation frameworks ( MLFlow , DeepEval, LLM-as-judge, multi-turn regression)
+Fluency with Git, Docker, and modern API frameworks
+Clear written communication and the judgment to know when something is ready to ship
+A bachelor's degree is not required. Equivalent practical experience: including bootcamps, self-taught work, career changes, or non-CS technical degrees counts.
+Strongly Preferred
+Hands-on experience with Amazon Bedrock and/or AgentCore as a developer: runtime, gateways, memory, policy, guardrails, observability, awscli, evaluations
+Experience with Snowflake, Snowpark, or Snowflake Cortex
+Fluency in writing and reading SQL, as well as understanding semantic models.
+Familiarity with multi-agent patterns: supervisor/router, subagent/handoff, reflection, human-in-the-loop
+A considered view on where agents should and shouldn't act and comfort pushing back when "let's add an agent" isn't the right answer
+Experience in Loyalty, MarTech, AdTech, or a comparable data rich B2B domain
+\n
+\n Who we are  As a trusted partner, Kobie delivers market-leading, end-to-end loyalty solutions designed to enable customer experiences for the world's most successful brands. We do this with a strategy-led technology approach that uncovers the truth behind what drives consumers on an emotional level. We believe that our team's passion and expert

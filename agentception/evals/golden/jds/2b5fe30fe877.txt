@@ -1,0 +1,34 @@
+Senior Software Engineer (AI Data Engineering)
+New York, NY or Remote Apply About Us: EvolutionIQ’s mission is to deliver state of the art technology that helps insurance claims teams make claims handling more accurate, fair, and efficient, so that more people impacted by injury or illness can continue their lives with dignity and stability. We are currently experiencing massive growth and to accomplish our goals, we are hiring world-class talent who want to help build and scale internally, and transform the insurance space. Our team is our #1 priority, and we have been named one of Inc.’s Best Workplaces 3 years in a row and Built In’s Best Places to work in 2025 and 2026!
+About You:  An ambitious Software Engineer using agentic workflows as a massive lever for engineering velocity. While you use modern AI tools to accelerate code generation, your core strengths lie where LLMs fall short: system architecture, rigorous code quality, security, and complex debugging. You will be in the driver’s seat as we design and deliver the entire systems for our growing line of AI solutions. You thrive on fast, secure, consistent deployments and have a data driven mindset.
+In this Role You Will:
+Orchestrate High-Velocity Workflows: Leverage advanced agentic coding tools (e.g., Cursor, multi-agent environments) to dramatically accelerate feature prototyping, code generation, and test coverage.
+Own the Guardrails & Quality: Act as the ultimate reviewer and architect; define the specifications, establish repo-context guardrails, and review AI-accelerated output for hidden security risks, scale bottlenecks, and architectural alignment.
+Build Scalable Application and Data Layers: Design, build, and maintain our data pipelines and application to service our hundreds of users.
+Bridging the Data: Partner closely with product, client services, and data science teams to transform raw pipeline outputs into meaning.
+Drive Greenfield Engineering: Take complete ownership of designing, building, and launching enterprise-grade applications, moving fluidly between rapid prototyping and bulletproof production systems.
+Skills Requirements:
+Extensive experience going through the full feature development life cycle: Working with product managers, deciding scope, designing data models and pipeline architectures
+Proven fluency in using agentic coding tools like Cursor AI and/or Claude
+5+ years of engineering experience, an expert in Python and SQL Development
+Experience designing, building and launching backend architectures that support multi-tenant, multi-user scenarios through pipeline performance and data quality checks
+Ability to remain agile and move between rapid prototyping and stable production development
+Ability to write technical design documents, perform code reviews, and maintain state of the art engineering practices
+You know the critical questions to ask in order to understand a client’s business problem and can show the business impact of your technical solutions through data
+You have crisp written and verbal communication skills and the ability to effectively correspond between technical and non-technical audiences
+Excellent collaboration skills and are open to giving and receiving critical feedback across teams
+You have an eye towards analytics and helping to enable data driven decision making
+Work-life, Culture & Perks:
+Compensation: The base salary range is $190-225K, with flexibility depending on a candidate’s background and experience. An annual bonus plan and company equity plan (RSUs) are also included in our compensation package.
+Well-Being: Medical, dental, vision, short & long-term disability, life insurance and AD&D, and 401k matching. Additional family, wellness, and pet benefits.
+Home & Family: Paid time off and sick leave, 100% paid parental leave (16 weeks for primary caregivers and 12 weeks for secondary caregivers). We offer a flexible schedule for new parents returning to work.
+Office Life: Catered lunches, happy hours, pet-friendly spaces, and monthly technology stipend.
+Growth & Training: $1,000/year for each employee for professional development, as well opportunities for tuition reimbursement.
+Sponsorship: We are open to sponsoring candidates currently in the U.S. who need to transfer their active visa. Please check with our Recruiting team if your visa is applicable for transfer.
+EvolutionIQ appreciates your interest in our company as a place of employment. EvolutionIQ is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees.
+Create a Job Alert
+Interested in building your career at EvolutionIQ? Get future opportunities sent straight to your email.
+Create alert Apply for this job
+*
+indicates a required field
+Quick Apply with MyGreenhouse First Name * Last Name * Email * Phone Country * Phone * Location (City) * Locate me Resume/CV * Attach Attach Dropbox Google Drive Enter manually Enter manually Accepted file types: pdf, doc, docx,

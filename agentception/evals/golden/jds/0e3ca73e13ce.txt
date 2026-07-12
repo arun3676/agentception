@@ -1,0 +1,26 @@
+Back to jobs New Staff Platform Engineer, Infrastructure
+Denver, CO or Long Beach, CA Apply Space is a warfighting domain. True Anomaly seeks those with the talent and ambition to build the technology that secures it.
+OUR MISSION
+True Anomaly delivers decisive capabilities for space superiority. We build autonomous spacecraft, advanced payloads, mission software, and space-based interceptors — enabling the U.S. and its Allies to secure the space environment and counter threats from the ultimate high ground.
+OUR VALUES
+Be the offset.   We create asymmetric advantages with creativity and ingenuity.
+What would it take?  We challenge assumptions to deliver ambitious results.
+It’s the people.  Our team is our competitive advantage and we are better together.
+YOUR MISSION
+At True Anomaly, we’re building the next generation of space defense. As we scale, the foundational cloud infrastructure that everything else is built on, including how we run compute, connect our environments, and ship software, becomes one of the most important force multipliers in the company. We are investing in platform engineering as a core operating capability, and this role exists to make that investment real.
+As a Staff Infrastructure Platform Engineer, you will be one of the first hires building the cloud infrastructure, tooling, and standards that every engineering team across the company depends on. You will design and ship the foundational infrastructure that the rest of the company relies on, including multi-cloud environments, the connectivity between them, and the paved-road patterns for how software gets built, deployed, and operated. Your work will let engineering teams across True Anomaly move faster and more safely.
+The scope is broad by design. Your work will range from designing cross-cloud networking between AWS and Azure, to authoring reusable infrastructure-as-code that other teams build on, to establishing CI/CD and deployment standards that scale across the whole enterprise. You will own platform-level technical decisions about cloud architecture, tooling, and build-vs-buy, and you will be the technical anchor for the first infrastructure engineers on the team, leading, coaching, and mentoring them as we grow the function.
+The platform engineering org, reporting to the Chief Security Officer, works across the enterprise, from engineering and product to marketing and finance. You will have meaningful autonomy, visibility to executive leadership, and the opportunity to shape how a fast-growing defense technology company builds and operates its infrastructure.
+As a technical leader on the team, you’ll be expected to bring a breadth of cross-discipline experience from areas like software engineering, cloud infrastructure, DevOps, SRE, systems design, and technical decision-making. You will partner with senior leaders across the organization, exercise cross-organizational influence to align teams on shared standards, and work through significant ambiguity to establish technical requirements and deliver results. You will coach and mentor a team through the delivery of complex technical projects, and set the technical bar for how infrastructure is built at True Anomaly.
+RESPONSIBILITIES
+* Lead the design of foundational cloud infrastructure that will be rolled out across the enterprise. Work with stakeholders across engineering and business functions to gather requirements, evaluate technical tradeoffs, and reach consensus.
+* Design and operate the foundational multi-cloud environment, including the account structure, guardrails, and shared networking and identity that every team builds on top of.
+* Own the self-service experience for how engineering teams provision accounts, bootstrap resources, and deploy onto paved roads, so teams can move quickly while staying inside a governed, secure foundation.
+* Author and maintain reusable infrastructure-as-code (e.g. Terraform) that other teams build on, and establish the standards and paved-road patterns for how it is used.
+* Establish CI/CD, testing, and deployment standards that scale across the enterprise rather than any single product, and drive their adoption across teams.
+* Build the self-service tooling and paved-road patterns that let engineering teams provision, deploy, and operate their own systems without depending on a central queue.
+* Own technical evaluation and selection of cloud services, infrastructure tooling, and platforms, making build-vs-buy decisions based on capability, compliance requirements, and speed to value.
+* Act as the technical anchor for the first infrastructure engineers on the team — leading, coaching, and mentoring them and setting a high engineering bar.
+* Partner with engineering, security, and IT teams to ensure infrastructure meets government security and compliance requirements across data classification levels.
+* Leverage AI-assisted development tools to accelerate delivery, and help the team adopt them as a force multiplier.
+QUALIFICATIONS

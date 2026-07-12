@@ -1,0 +1,35 @@
+Careers / Open Roles / Senior Software Engineer - Platform Engineering - Federal Operations Senior Software Engineer - Platform Engineering - Federal Operations
+Remote - USA Division Foundations 2155 Apply Now About the Role
+Abnormal AI is hiring a Senior Software Engineer, Platform Engineering to help build the Federal Platform layer underpinning our GovCloud environment. This is a platform infrastructure role first: you will design and evolve the core infrastructure, deployment foundations, and platform patterns that make GovCloud behave more like a thin extension of our commercial platform, with less drift and stronger operational leverage over time. As the first engineer focused on Federal Platform, you will help define the charter for the team, provide mentorship and guidance on platform-oriented topics in the GovCloud environment, and build the paved roads that make Federal Operations and application teams more self-sufficient as we scale the federal business.
+What you will do
+Lead the build-out and evolution of Abnormal’s FedRAMP High cloud infrastructure, translating security and compliance requirements into reliable, auditable AWS implementations for the GovCloud environment.
+Design and maintain reusable Terraform modules, infrastructure patterns, and platform standards that make Gov changes safer, more repeatable, and easier for FedOps engineers to operate.
+Drive sound architectural decisions across compute, networking, and service design, balancing compliance, operational simplicity, and parity with commercial where it delivers the most value.
+Partner closely with FedRAMP, compliance, and other engineering teams to reduce environment drift, improve deployment readiness, and close high-impact gaps between Gov and commercial.
+Raise the operational bar for GovCloud through better monitoring, alerting, documentation, and incident readiness, with a focus on reducing toil and improving long-term maintainability.
+Serve as a technical leader for FedOps by mentoring engineers, guiding implementation quality, and helping the team adopt AI-assisted workflows that speed up delivery and onboarding.
+Must Haves
+7+ years of experience operating public cloud environments, with deep hands-on AWS expertise
+Strong, production-grade Terraform experience. Comfortable building and debugging IaC modules from scratch, not just using existing configurations
+Experience deploying and managing Kubernetes workloads in production
+Experience working in or building toward compliance-constrained environments (FedRAMP, SOC 2, ISO 27001, or similar)
+Comfort reading and writing Python, Go, or similar scripting languages. You don't need to ship full applications, but should be able to read, adapt, and write infrastructure automation scripts
+Demonstrated AI-forward mindset. Active use of AI in engineering workflows beyond as a coding assistant
+US Citizenship or Permanent Resident status (required for FedRAMP environment access)
+Nice to Have
+Direct FedRAMP Moderate or High implementation experience
+Experience building developer enablement infrastructure: cloud code integration, local agent setup, or CI/CD pipelines
+Experience using AI/LLM tooling in production engineering contexts
+AWS certifications (Solutions Architect, DevOps Engineer, or equivalent)
+#LI-NT1
+Actual compensation will be determined based on several non-discriminatory factors including skills, experience, qualifications, and geographic location.
+In addition to base salary, this role may be eligible for bonus or incentive compensation, equity, and a comprehensive benefits package.
+Base salary range: $179,800 — $258,500 USD AI and our hiring process
+Abnormal AI uses AI-assisted tools to help our recruiting team prepare for candidate interviews. These tools analyze resume content and role requirements to suggest interview questions and identify areas for the interviewer to explore. They do not make hiring decisions or screen candidates automatically. Every decision about a candidacy is made by a person.
+Abnormal AI is an equal opportunity employer. Qualified applicants will receive consideration for employment without regard to race, color, religion, sex, national origin, disability, protected veteran status or other characteristics protected by law. For our EEO policy statement please  click here . If you would like more information on your EEO rights under the law, please  click here .
+About Abnormal
+Abnormal protects the humans behind the world's most critical organizations from AI-powered cybercrime. 4,500+ enterprises trust our behavioral AI platform.
+Learn More Imposter Alert
+Please be aware of individuals fraudulently posing as Abnormal recruiters. All official recruiting communication comes from an @abnormal.ai email address, and we will never request payment or sensitive financial information during the hiring process. If something feels off, verify the role on this careers site before responding.
+Export Compliance Notice:
+This position involves access to technolo

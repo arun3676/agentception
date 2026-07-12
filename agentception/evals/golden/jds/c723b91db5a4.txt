@@ -1,0 +1,41 @@
+Back to jobs [P] Data Engineer, Safeguards
+San Francisco, CA | New York City, NY Apply About Anthropic
+Anthropic’s mission is to create reliable, interpretable, and steerable AI systems. We want AI to be safe and beneficial for our users and for society as a whole. Our team is a quickly growing group of committed researchers, engineers, policy experts, and business leaders working together to build beneficial AI systems.
+About the role
+As a Data Engineer on the Safeguards team, you will build the data foundations that keep our AI systems safe. The Safeguards team works to monitor models, prevent misuse, and ensure user well-being — and doing that well requires robust, reliable data infrastructure.
+In this role, you will design and build the pipelines, warehousing solutions, and analytical tooling that power our safety and trust efforts at scale. You'll work closely with engineers, data scientists, and policy teams to ensure the Safeguards organization has the data it needs to detect abuse patterns, measure the effectiveness of safety interventions, and make informed decisions about model behavior and enforcement. This is a high-impact role where your work directly supports Anthropic's mission to develop AI that is safe and beneficial.
+Key responsibilities
+Design, build, and maintain scalable data pipelines that support safety monitoring, abuse detection, and enforcement workflows
+Develop and optimize data models and warehousing solutions to enable efficient analysis of large-scale usage and safety data
+Build and maintain dashboards and reporting infrastructure that give Safeguards teams visibility into model behavior, misuse patterns, and enforcement outcomes
+Collaborate with engineers to integrate data from multiple sources — including model outputs, user reports, and automated classifiers — into a unified analytical layer
+Implement data quality frameworks, monitoring, and alerting to ensure the reliability of safety-critical data
+Partner with research teams to surface data insights that inform model improvements and safety interventions
+Develop self-service data tooling that enables stakeholders to explore safety data and generate reports independently
+Contribute to data governance practices, including access controls, retention policies, and privacy-compliant data handling
+Minimum qualifications
+Proficiency in SQL and Python, with hands-on experience building and maintaining ETL/ELT pipelines
+Experience with cloud data platforms such as BigQuery, Redshift, Snowflake, or similar
+Experience with modern data stack tools such as dbt, Airflow, Spark, or similar orchestration and transformation frameworks
+Experience building dashboards and data visualizations using tools such as Looker, Tableau, or Metabase
+Ability to communicate clearly and translate complex data concepts for both technical and non-technical audiences
+Preferred qualifications
+8+ years of experience in data engineering, analytics engineering, or a related role
+Comfort contributing across the stack and picking up work outside your immediate scope when the situation calls for it
+Background in trust and safety, integrity, fraud, or abuse detection data systems
+Experience with large-scale event streaming systems such as Kafka, Pub/Sub, or Kinesis
+Experience building data infrastructure that supports ML model monitoring or evaluation
+Familiarity with data privacy and compliance frameworks such as GDPR, CCPA, or similar
+Background in statistical analysis or experience working closely with data scientists
+A genuine interest in the societal implications of AI and in making AI systems safer
+The annual compensation range for this role is listed below.
+For sales roles, the range provided is the role’s On Target Earnings ("OTE") range, meaning that the range includes both the sales commissions/sales bonuses target and annual base salary for the role.
+Annual Salary:
+$320,000 - $405,000 USD
+Logistics
+Minimum education: Bachelor’s degree or an equivalent combination of education, training, and/or experience
+Required field of study:  A field relevant to the role as demonstrated through coursework, training, or professional experience
+Minimum years of experience: Years of experience required will correlate with the internal job level requirements for the position
+Location-based hybrid policy: Currently, we expect all staff to be in one of our offices at least 25% of the time. However, some roles may require more time in our offices.
+Visa sponsorship:  We do sponsor visas! However, we aren't able to successfully sponsor visas for every role and every candidate. But if we make you an offer, we will make every reasonable effort to get you a visa, and we retain an immigration lawyer to help with this.
+We encourage you to apply even if you do not believe you meet every single qualification. Not all strong candidates will meet every single qualification as listed.  Research shows that people who identify as being from underrepresented groups are more prone to experi

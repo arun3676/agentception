@@ -1,0 +1,40 @@
+Title: Senior Frontend Software Developer
+
+ABOUT YOU
+Xsolla is looking for a Senior Frontend Software Developer to join a team responsible for building the platform powering all user-facing experiences. This role offers a unique opportunity to collaborate with both local and international teams, focusing on user-centric software that elevates the digital experience for Xsolla’s global audience. In this role you will have the opportunity to contribute in building high-performance frontend solutions used by game developers worldwide. This position requires strong frontend and e-commerce experience, the ability to work on complex technical initiatives, and the capability to support predictable, reliable delivery.
+ABOUT US
+Xsolla is a global commerce company with robust tools and services to help developers solve the inherent challenges of the video game industry. From indie to AAA, companies partner with Xsolla to help them fund, distribute, market, and monetize their games. Grounded in the belief in the future of video games, Xsolla is resolute in the mission to bring opportunities together, and continually make new resources available to creators. Headquartered and incorporated in Los Angeles, California, Xsolla operates as the merchant of record and has helped over 1,500+ game developers to reach more players and grow their businesses around the world. With more paths to profits and ways to win, developers have all the things needed to enjoy the game. For more information, visit xsolla.com .
+\n
+Responsibilities:
+Collaborate with product managers, designers, and backend engineers to translate complex requirements into intuitive user experiences.
+Design, build and evolve scalable, high-performance frontend web applications
+Participate in code reviews, share best practices, and help maintain high engineering standards within the frontend team.
+Work closely with DevOps to streamline CI/CD pipelines, improve deployment reliability, and enhance observability through metrics and monitoring tools.
+Own features end-to-end such as requirement refinement, implementation, testing, and delivery. Optimize frontend performance, focusing on loading times, rendering speed, and bundle efficiency.
+Ensure cross-browser and multi-device compatibility while meeting accessibility (a11y) and usability standards.
+Contribute to the modernization, refactoring, and continuous performance improvements to keep the platform scalable, maintainable, and aligned with product goals.
+Contribute and enforce engineering best practices across coding, documentation, testing, and review processes.
+Ensure strong automated test coverage and reliable CI/CD workflows that reduce manual effort and improve delivery predictability.
+Own operational excellence, including incident response, root-cause analysis, and long-term reliability improvements.
+Advocate for scalability, performance, security, and observability across the platform’s architecture and tooling.
+Identify technical risks, estimate complexity, and communicate trade-offs to leadership and stakeholders.
+Qualifications & Skills:
+At least 2+ years of experience holding a senior frontend development title.
+7+ years of frontend software development experience with strong expertise in modern frontend frameworks at scale.
+Experience building or leading frontend development for e-commerce, gaming, or monetization platforms
+Extensive experience with Typescript, React, Redux or modern state management libraries.
+Experience with module federation, component architecture, performance optimizations, accessibility, RSC, and SSR patterns.
+Strong expertise in modern CSS frameworks and UX/UI design systems and principles.
+Solid understanding of microservices architecture and RESTful or RPC-style APIs integration and patterns.
+Proficiency with Node.js and MongoDB for server-side functionality.
+Experience with automated testing frameworks (Vitest/Jest) and end-to-end testing (Playwright/Cypress).
+Good understanding of bundling and compilation (e.g., webpack, rollup, vite, esbuild)
+Experience with CI/CD workflows (GitLab CI or similar), private registries, and secure artifact handling.
+Proven ability to influence technical decisions and drive change. Experience in a leadership role is a plus.
+Excellent interpersonal and communication skills facilitating effective collaboration with a cross functional team.
+Committed to writing high-quality code and continuously improving projects.
+Strong understanding of development best practices, including design patterns, testing methodologies, and an agile development process.
+Bachelor’s or Master’s degree in Computer Science, Engineering, or a related field.
+Strong English communication skills, both written and verbal
+\n $100,000 - $130,000 a year \n Benefits:
+We are passionate about fostering a supportive environment for our team, so we prioritize the physical, mental, and emotional well-being of our employees and their families through a comprehensive Benefits Program. Th

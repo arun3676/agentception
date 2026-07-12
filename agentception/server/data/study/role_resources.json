@@ -1,0 +1,281 @@
+{
+  "_schema_version": "2.0",
+  "_description": "Project-Based Learning Resource Database - Categorized by: courses (watch), projects (build), reading (read), youtube (watch)",
+  
+  "ai_engineer": {
+    "beginner": {
+      "courses": ["coursera.org", "datacamp.com", "fast.ai", "deeplearning.ai"],
+      "projects": ["github.com", "kaggle.com", "huggingface.co/spaces"],
+      "reading": ["freecodecamp.org", "promptingguide.ai", "realpython.com"],
+      "youtube": ["freeCodeCamp.org", "Andrew Ng", "DeepLearningAI", "Sentdex"],
+      "search_terms": ["basics", "introduction", "tutorial", "getting started", "for beginners"]
+    },
+    "intermediate": {
+      "courses": ["coursera.org", "udacity.com", "frontendmasters.com"],
+      "projects": ["github.com", "kaggle.com", "huggingface.co"],
+      "reading": ["langchain.com", "pinecone.io", "ollama.ai", "towardsdatascience.com"],
+      "youtube": ["Andrej Karpathy", "Two Minute Papers", "Siraj Raval"],
+      "search_terms": ["implementation", "guide", "best practices", "hands-on", "project"]
+    },
+    "advanced": {
+      "courses": ["coursera.org", "udemy.com", "learn.microsoft.com"],
+      "projects": ["github.com", "huggingface.co", "kaggle.com"],
+      "reading": ["arxiv.org", "distill.pub", "vllm.ai", "netflixtechblog.com"],
+      "youtube": ["Computerphile", "3Blue1Brown"],
+      "search_terms": ["optimization", "paper", "architecture", "fine-tuning", "inference"]
+    }
+  },
+  "data_scientist": {
+    "beginner": {
+      "courses": ["coursera.org", "datacamp.com", "codecademy.com", "edx.org"],
+      "projects": ["kaggle.com", "github.com"],
+      "reading": ["khanacademy.org", "freecodecamp.org", "towardsdatascience.com"],
+      "youtube": ["StatQuest with Josh Starmer", "Brandon Foltz", "freeCodeCamp.org"],
+      "search_terms": ["basics", "introduction", "tutorial", "statistics", "EDA"]
+    },
+    "intermediate": {
+      "courses": ["coursera.org", "datacamp.com", "udemy.com"],
+      "projects": ["kaggle.com", "github.com"],
+      "reading": ["towardsdatascience.com", "geeksforgeeks.org", "analyticsvidhya.com"],
+      "youtube": ["Data School", "Corey Schafer"],
+      "search_terms": ["implementation", "guide", "best practices", "feature engineering", "SQL"]
+    },
+    "advanced": {
+      "courses": ["coursera.org", "udacity.com", "fast.ai"],
+      "projects": ["kaggle.com", "github.com", "paperswithcode.com"],
+      "reading": ["arxiv.org", "kdnuggets.com", "distill.pub"],
+      "youtube": ["Sentdex", "3Blue1Brown"],
+      "search_terms": ["deep learning", "causal inference", "A/B testing", "optimization", "paper"]
+    }
+  },
+  "data_engineer": {
+    "beginner": {
+      "courses": ["coursera.org", "datacamp.com", "udacity.com"],
+      "projects": ["github.com", "kaggle.com"],
+      "reading": ["tutorialspoint.com", "dataengineerthings.blog", "freecodecamp.org"],
+      "youtube": ["Tech With Tim", "Corey Schafer", "freeCodeCamp.org"],
+      "search_terms": ["basics", "SQL", "ETL", "tutorial", "for beginners"]
+    },
+    "intermediate": {
+      "courses": ["coursera.org", "datacamp.com", "udemy.com"],
+      "projects": ["github.com", "kaggle.com"],
+      "reading": ["medium.com", "dbt.com", "prefect.io"],
+      "youtube": ["Edureka", "Simplilearn", "DataEngineerAcademy"],
+      "search_terms": ["data warehousing", "Snowflake", "BigQuery", "Airflow", "dbt", "orchestration"]
+    },
+    "advanced": {
+      "courses": ["coursera.org", "udemy.com"],
+      "projects": ["github.com", "confluent.io"],
+      "reading": ["confluent.io", "apache.org", "snowflake.com"],
+      "youtube": ["KodeKloud", "Nigel Poulton"],
+      "search_terms": ["streaming", "Kafka", "Flink", "data mesh", "cost optimization", "architecture"]
+    }
+  },
+  "full_stack_developer": {
+    "beginner": {
+      "courses": ["coursera.org", "udemy.com", "codecademy.com", "freecodecamp.org"],
+      "projects": ["github.com", "codepen.io", "replit.com"],
+      "reading": ["developer.mozilla.org", "freecodecamp.org", "w3schools.com"],
+      "youtube": ["Traversy Media", "The Net Ninja", "freeCodeCamp.org"],
+      "search_terms": ["basics", "HTML", "CSS", "JavaScript", "React", "tutorial", "for beginners"]
+    },
+    "intermediate": {
+      "courses": ["frontendmasters.com", "udemy.com", "codecademy.com"],
+      "projects": ["github.com", "vercel.com"],
+      "reading": ["scotch.io", "dev.to", "css-tricks.com"],
+      "youtube": ["Academind", "Programming with Mosh"],
+      "search_terms": ["Next.js", "SQL", "ORM", "Prisma", "authentication", "best practices"]
+    },
+    "advanced": {
+      "courses": ["frontendmasters.com", "udemy.com", "pluralsight.com"],
+      "projects": ["github.com", "vercel.com"],
+      "reading": ["digitalocean.com", "dev.to", "smashingmagazine.com"],
+      "youtube": ["Fireship", "Web Dev Simplified"],
+      "search_terms": ["serverless", "edge functions", "system design", "performance", "Web Vitals"]
+    }
+  },
+  "backend_engineer": {
+    "beginner": {
+      "courses": ["coursera.org", "udemy.com", "codecademy.com", "boot.dev"],
+      "projects": ["github.com", "replit.com"],
+      "reading": ["roadmap.sh", "tutorialspoint.com", "freecodecamp.org"],
+      "youtube": ["Traversy Media", "freeCodeCamp.org", "Boot.dev"],
+      "search_terms": ["basics", "REST API", "HTTP", "database", "tutorial", "for beginners"]
+    },
+    "intermediate": {
+      "courses": ["udemy.com", "frontendmasters.com", "pluralsight.com"],
+      "projects": ["github.com"],
+      "reading": ["masteringbackend.com", "levelup.gitconnected.com", "dev.to"],
+      "youtube": ["Programming with Mosh", "The Net Ninja"],
+      "search_terms": ["microservices", "caching", "Redis", "message queues", "RabbitMQ", "best practices"]
+    },
+    "advanced": {
+      "courses": ["coursera.org", "udemy.com"],
+      "projects": ["github.com"],
+      "reading": ["uber.com/blog", "netflixtechblog.com", "engineering.fb.com"],
+      "youtube": ["Fireship", "Google Developers"],
+      "search_terms": ["distributed systems", "gRPC", "GraphQL", "database internals", "sharding", "architecture"]
+    }
+  },
+  "frontend_engineer": {
+    "beginner": {
+      "courses": ["coursera.org", "udemy.com", "frontendmasters.com"],
+      "projects": ["github.com", "codepen.io", "codesandbox.io"],
+      "reading": ["developer.mozilla.org", "freecodecamp.org", "css-tricks.com"],
+      "youtube": ["Traversy Media", "The Net Ninja", "freeCodeCamp.org"],
+      "search_terms": ["basics", "CSS", "Tailwind", "JavaScript", "React", "tutorial", "for beginners"]
+    },
+    "intermediate": {
+      "courses": ["frontendmasters.com", "udemy.com", "codecademy.com"],
+      "projects": ["github.com", "codepen.io"],
+      "reading": ["uxdesign.cc", "dev.to", "smashingmagazine.com"],
+      "youtube": ["Academind", "Web Dev Simplified"],
+      "search_terms": ["state management", "Zustand", "Redux", "testing", "Cypress", "accessibility"]
+    },
+    "advanced": {
+      "courses": ["frontendmasters.com", "udemy.com", "egghead.io"],
+      "projects": ["github.com"],
+      "reading": ["dev.to", "smashingmagazine.com", "web.dev"],
+      "youtube": ["Fireship", "Google Chrome Developers"],
+      "search_terms": ["WebAssembly", "WebGL", "Three.js", "micro-frontends", "performance", "architecture"]
+    }
+  },
+  "devops_engineer": {
+    "beginner": {
+      "courses": ["coursera.org", "udemy.com", "kodekloud.com"],
+      "projects": ["github.com"],
+      "reading": ["roadmap.sh", "devopscube.com", "freecodecamp.org"],
+      "youtube": ["TechWorld with Nana", "freeCodeCamp.org", "KodeKloud"],
+      "search_terms": ["basics", "Linux", "shell scripting", "networking", "Git", "tutorial"]
+    },
+    "intermediate": {
+      "courses": ["coursera.org", "udemy.com", "acloudguru.com"],
+      "projects": ["github.com"],
+      "reading": ["dzone.com", "medium.com", "dev.to"],
+      "youtube": ["Nigel Poulton", "Bret Fisher"],
+      "search_terms": ["Docker", "CI/CD", "GitHub Actions", "Terraform", "IaC", "best practices"]
+    },
+    "advanced": {
+      "courses": ["udemy.com", "coursera.org", "linuxfoundation.org"],
+      "projects": ["github.com", "cncf.io"],
+      "reading": ["spacelift.io", "cncf.io", "kubernetes.io"],
+      "youtube": ["Just Me and Opensource", "Continuous Delivery"],
+      "search_terms": ["Kubernetes", "observability", "Prometheus", "Grafana", "GitOps", "ArgoCD", "architecture"]
+    }
+  },
+  "cloud_architect": {
+    "beginner": {
+      "courses": ["coursera.org", "udacity.com", "acloudguru.com"],
+      "projects": ["github.com"],
+      "reading": ["learn.microsoft.com", "aws.amazon.com/training", "cloud.google.com/training"],
+      "youtube": ["Adrian Cantrill", "freeCodeCamp.org", "A Cloud Guru"],
+      "search_terms": ["basics", "AWS", "Azure", "cloud", "IAM", "security", "tutorial"]
+    },
+    "intermediate": {
+      "courses": ["coursera.org", "udemy.com", "acloudguru.com"],
+      "projects": ["github.com"],
+      "reading": ["zerotomastery.io", "cloudthat.com", "aws.amazon.com/blogs"],
+      "youtube": ["John Savill", "Adam Marczak"],
+      "search_terms": ["serverless", "VPC", "DNS", "networking", "migration", "best practices"]
+    },
+    "advanced": {
+      "courses": ["coursera.org", "udemy.com", "linuxfoundation.org"],
+      "projects": ["github.com"],
+      "reading": ["k21academy.com", "aws.amazon.com/architecture", "cloud.google.com/architecture"],
+      "youtube": ["Mattias Andersson", "Priyanka Vergadia"],
+      "search_terms": ["multi-cloud", "FinOps", "cost control", "disaster recovery", "architecture", "optimization"]
+    }
+  },
+  "product_manager": {
+    "beginner": {
+      "courses": ["coursera.org", "udemy.com", "productschool.com"],
+      "projects": ["github.com", "figma.com"],
+      "reading": ["mindtheproduct.com", "productplan.com", "svpg.com"],
+      "youtube": ["Product School", "Cracking PM Interview"],
+      "search_terms": ["basics", "Agile", "Scrum", "user stories", "wireframing", "tutorial"]
+    },
+    "intermediate": {
+      "courses": ["reforge.com", "udemy.com", "productschool.com"],
+      "projects": ["github.com", "figma.com"],
+      "reading": ["theproductfolks.com", "joinleland.com", "lennysnewsletter.com"],
+      "youtube": ["Exponent", "Ken Norton"],
+      "search_terms": ["product analytics", "Mixpanel", "A/B testing", "stakeholder management", "best practices"]
+    },
+    "advanced": {
+      "courses": ["reforge.com", "mindtheproduct.com"],
+      "projects": ["github.com"],
+      "reading": ["cpoclub.com", "stratechery.com", "caseyaccidental.com"],
+      "youtube": ["Product Hunt", "Valuetainment"],
+      "search_terms": ["product strategy", "growth loops", "AI product management", "leadership", "optimization"]
+    }
+  },
+  "ui_ux_designer": {
+    "beginner": {
+      "courses": ["coursera.org", "udemy.com", "interaction-design.org"],
+      "projects": ["figma.com", "dribbble.com", "behance.net"],
+      "reading": ["uxtweak.com", "uxplanet.org", "nngroup.com"],
+      "youtube": ["DesignCourse", "Flux Academy", "Jesse Showalter"],
+      "search_terms": ["basics", "design thinking", "Figma", "typography", "color", "tutorial"]
+    },
+    "intermediate": {
+      "courses": ["coursera.org", "udemy.com", "skillshare.com"],
+      "projects": ["figma.com", "dribbble.com"],
+      "reading": ["uxdesign.cc", "interaction-design.org", "smashingmagazine.com"],
+      "youtube": ["ChunBuns", "Mizko", "Femke Design"],
+      "search_terms": ["prototyping", "design systems", "user research", "best practices", "methods"]
+    },
+    "advanced": {
+      "courses": ["coursera.org", "udemy.com", "interaction-design.org"],
+      "projects": ["figma.com", "framer.com"],
+      "reading": ["uxfol.io", "nngroup.com", "alistapart.com"],
+      "youtube": ["NNgroup", "Vaexperience"],
+      "search_terms": ["spatial design", "AR/VR", "interaction design", "AI-driven tools", "optimization"]
+    }
+  },
+  "mobile_developer": {
+    "beginner": {
+      "courses": ["coursera.org", "udemy.com", "codecademy.com"],
+      "projects": ["github.com", "expo.dev"],
+      "reading": ["developer.android.com", "developer.apple.com", "raywenderlich.com"],
+      "youtube": ["CodeWithChris", "Philipp Lackner", "freeCodeCamp.org"],
+      "search_terms": ["basics", "Swift", "iOS", "Kotlin", "Android", "UI layouts", "tutorial"]
+    },
+    "intermediate": {
+      "courses": ["udemy.com", "coursera.org", "raywenderlich.com"],
+      "projects": ["github.com", "expo.dev"],
+      "reading": ["flutter.dev", "reactnative.dev", "medium.com"],
+      "youtube": ["Reso Coder", "Academind", "The Net Ninja"],
+      "search_terms": ["networking", "APIs", "state management", "Flutter", "React Native", "cross-platform"]
+    },
+    "advanced": {
+      "courses": ["udemy.com", "coursera.org", "raywenderlich.com"],
+      "projects": ["github.com"],
+      "reading": ["developer.apple.com", "developer.android.com", "medium.com"],
+      "youtube": ["Simon Grimm", "Dilmer Valecillos"],
+      "search_terms": ["native modules", "performance profiling", "offline-first", "architecture", "optimization"]
+    }
+  },
+  "cybersecurity_analyst": {
+    "beginner": {
+      "courses": ["coursera.org", "udemy.com", "cybrary.it"],
+      "projects": ["tryhackme.com", "github.com"],
+      "reading": ["sans.org", "owasp.org", "freecodecamp.org"],
+      "youtube": ["Professor Messer", "NetworkChuck", "The Cyber Mentor"],
+      "search_terms": ["basics", "Network+", "Security+", "Linux", "foundations", "tutorial"]
+    },
+    "intermediate": {
+      "courses": ["coursera.org", "udemy.com", "offensive-security.com"],
+      "projects": ["hackthebox.com", "tryhackme.com", "github.com"],
+      "reading": ["portswigger.net", "owasp.org", "hackerone.com"],
+      "youtube": ["LiveOverflow", "John Hammond", "Hak5"],
+      "search_terms": ["pentesting", "Kali", "Python for security", "SIEM", "scripting", "best practices"]
+    },
+    "advanced": {
+      "courses": ["sans.org", "coursera.org", "offensive-security.com"],
+      "projects": ["hackthebox.com", "github.com"],
+      "reading": ["nist.gov", "mitre.org", "crowdstrike.com/blog"],
+      "youtube": ["David Bombal", "Sans Institute"],
+      "search_terms": ["reverse engineering", "malware analysis", "cloud security", "DevSecOps", "architecture"]
+    }
+  }
+}

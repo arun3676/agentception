@@ -1,0 +1,37 @@
+Back to jobs Senior Software Engineer, WebOTT
+San Francisco, CA (Hybrid) Apply About the Role:
+The WebOTT Experiences team is responsible for building and optimizing the UI/UX across all Web and OTT applications at Tubi. This team owns everything that end users see and interact with, making it one of the most impactful teams in the company.
+As part of this team, you will work closely with Product and Design to develop cutting-edge, experiment-driven features that enhance the user experience. In addition to front-end development, the team maintains the underlying infrastructure, improves CI/CD pipelines, and ensures seamless app performance at scale.
+You will be working with React, Node.js, GitHub Actions, Terraform, and CDN infrastructure to build and deploy high-performance applications that reach millions of users.
+This is a hybrid role based out of our San Francisco office. You must be willing to travel to our San Francisco office two days/week.
+What You'll Do:
+Own the UI/UX across 19 different platforms, ensuring a seamless and high-performing experience for millions of users worldwide.
+Lead and drive innovation in building experiment-driven features that push the boundaries of user experience in streaming.
+Consistently ship features and improvements across Web and OTT apps with minimal guidance, collaborating with cross-functional teams to deliver high-impact updates.
+Optimize performance and reliability of OTT applications especially on low end platforms, ensuring smooth playback and interactions across various network conditions and devices.
+Improve and maintain the CI/CD pipeline to streamline deployments and ensure high-quality releases across all platforms.
+Identify and implement improvements in shared UI components, platform-specific optimizations, and overall front-end infrastructure.
+Mentor and collaborate with fellow engineers, sharing technical expertise and contributing to a culture of continuous learning and improvement.
+Your Background:
+5+ years of experience developing high performing and scalable web applications using React JS, Redux, JavaScript, Web APIs, HTML5/CSS, and Typescript
+Experience leading engineering initiatives and effectively communicating with cross functional stakeholders
+Experience mentoring junior engineers
+#LI-CL1
+#LI-Hybrid
+Pursuant to state and local pay disclosure requirements, the pay range for this role, with final offer amount dependent on education, skills, experience, and location is listed annually below. This role is also eligible for an annual discretionary bonus, long-term incentive plan, and various benefits including medical/dental/vision, insurance, a 401(k) plan, paid time off and other benefits in accordance with applicable plan documents.
+High cost labor markets such as but not limited to Los Angeles, New York City, and San Francisco
+$186,400 - $266,300 USD
+Tubi is a division of Fox Corporation, and the FOX Employee Benefits summarized  here , covers the majority of all US employee benefits.  The following distinctions below outline the differences between the Tubi and FOX benefits:
+For US-based non-exempt Tubi employees, the FOX Employee Benefits summary accurately captures the Vacation and Sick Time.
+For all salaried/exempt employees, in lieu of the FOX Vacation policy, Tubi offers a Flexible Time off Policy to manage all personal matters.
+For all full-time, regular employees, in lieu of FOX Paid Parental Leave, Tubi offers a generous Parental Leave Program, which allows parents twelve (12) weeks of paid bonding leave within the first year of birth, adoption, surrogacy, or foster placement of a child in addition to applicable government leave program(s) and FOX’s short-term disability policy. This time is 100% paid through a combination of any applicable state, city, and federal leaves and wage-replacement programs in addition to contributions made by Tubi.
+For all full-time, regular employees, Tubi offers a monthly wellness reimbursement.
+About Tubi:
+Boldly built for every fandom, Tubi is a free streaming service that entertains over 100 million monthly active users. Tubi offers the world's largest collection of Hollywood movies and TV shows, thousands of creator-led stories and hundreds of Tubi Originals made for the most passionate fans. Headquartered in San Francisco and founded in 2014, Tubi is part of Tubi Media Group, a division of Fox Corporation.
+We are an equal opportunity employer and all qualified applicants will receive consideration for employment without regard to race, color, religion, sex, national origin, gender identity, disability, protected veteran status, or any other characteristic protected by law. We will consider for employment qualified applicants with criminal histories consistent with applicable law.
+Create a Job Alert
+Interested in building your career at Tubi? Get future opportunities sent straight to your email.
+Create alert Apply for this job
+*
+indicates a required field
+Quick Apply with MyGreenhouse First Name * La

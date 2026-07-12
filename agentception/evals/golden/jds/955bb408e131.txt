@@ -1,0 +1,34 @@
+Back to jobs New Senior Software Engineer, Frontend Platform
+Remote Apply What We Do
+We’re on a mission to empower animal healthcare professionals with opportunities to earn more and achieve greater flexibility in their careers and personal lives.
+Powered by groundbreaking technology, Roo has built the industry-leading veterinary staffing platform, connecting Veterinarians, Technicians, and Assistants with animal hospitals for relief work and hiring opportunities. Roo empowers the largest network of over 20,000 veterinary professionals to help more than 9,000 animal hospitals provide quality care to more pets.
+Together, we’ve provided more than  3 million hours of healthcare, helping Veterinarians earn more than $200 million. About the Role
+We're in the builder era. Prompt-to-feature workflows are real, AI coding tools are the new norm, and the teams that win will be the ones who set up the right infrastructure to move fast with them.
+We're hiring an engineer to own the frontend platform at Roo. That includes our design system, shared UI architecture, developer tooling, AI-assisted workflows, and the technical foundation that helps every team member build polished, consistent product experiences.
+You're creating the workflows that unlock capacity for the whole team. You'll identify and build the highest-leverage improvements to our frontend platform, from design system tooling and AI integrations to shared infrastructure, developer experience, and platform modernization. Your customers are every builder at Roo—engineers, designers, and AI agents. Success in this role means making it dramatically easier for all of them to build great product experiences.
+This is a high-agency, find-it-fix-it-ship-it role. You'll identify the problems, scope the solutions, and build them, without needing a full squad behind you. The right person is already using AI tools to move faster than anyone around them and sees this as a chance to do that at platform scale.
+Responsibilities
+Own the long-term technical direction of Roo's frontend platform, including the systems, tooling, and architecture that power development across web and mobile.
+Partner with Product and Design to evolve our design system as a foundational platform rather than a standalone library.
+Make our design system effortless to consume by engineers, designers, and AI agents through thoughtful integrations, documentation, tooling, and developer workflows.
+Lead platform initiatives like framework upgrades, React Native modernization, Expo adoption, and shared library evolution.
+Own the migration of legacy components to our v2 design system — including the tooling and documentation that let the rest of the team complete the migration themselves.
+Establish patterns that let engineers ship new pages and flows quickly from a component library that's built for how people actually build in 2026.
+Improve developer experience through shared tooling, automation, documentation, templates, and workflows that increase engineering velocity.
+Identify and eliminate the friction points that slow builders down — missing tokens, undocumented patterns, inconsistencies that force one-off decisions — and fix them systematically.
+Qualifications
+Significant experience building production software, including a focus on frontend systems
+Strong full-stack engineering fundamentals with deep expertise in React and TypeScript. You're equally comfortable building frontend experiences, backend services, developer tooling, and platform infrastructure when the problem calls for it.
+React Native or mobile experience.
+Experience working closely with designers and modern design systems. You're comfortable working in Figma and understand how design decisions translate into scalable frontend architecture.
+Hands-on experience with AI-assisted development: Cursor, Claude, or similar. You're already building meaningfully faster with these tools, and you think about how to extend that leverage to everyone around you.
+You've connected design systems to prototyping tools, AI coding environments, or engineering pipelines — and you understand what makes those integrations actually get adopted vs. ignored.
+You operate well in an eng org — you understand how to get work prioritized, you don't need a PM to run interference, and you're comfortable owning a technical roadmap.
+Nice to Have
+Familiarity with Storybook, style-dictionary, or design token pipelines.
+Experience with animation and interaction frameworks (Framer Motion, Rive, Lottie).
+This Role Probably Isn't for You If...
+You want someone to hand you a scoped project. This role requires finding the problems, not just solving them.
+You're not actively using AI tools in your workflow. This role is explicitly about building for the AI-assisted era — we need someone already living in it.
+You need a lot of structure to ship. We move fast, and you'll drive your own roadmap.
+You want to stay inside the system. The best version of this role is visible, collabor

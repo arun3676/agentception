@@ -1,0 +1,38 @@
+Back to jobs Senior Staff Machine Learning Engineer, Notifications
+Remote - United States Apply
+Reddit is a community of communities. It’s built on shared interests, passion, and trust, and is home to the most open and authentic conversations on the internet. Every day, Reddit users submit, vote, and comment on the topics they care most about. With 100,000+ active communities and approximately 126 million daily active unique visitors, Reddit is one of the internet’s largest sources of information. For more information, visit www.redditinc.com .
+The Notifications Relevance team at Reddit is building the next generation of notifications focused on delivering the right content to the right user at the right time using the right channel (push notification, email digest and in-app). We are the second largest growth lever at Reddit and a core component to understanding how to delight our current user base and bring new users to discover all that Reddit has to offer.
+Redditors produce the most amazing content about every niche topic in the world.  Leveraging machine learning and large-scale system development, we process hundreds of millions of posts and user activities to provide personalized recommendations for tens of millions of users. As a Senior Staff, you will design and build a large-scale system that powers end-to-end recommendation systems at scale. You’ll  work across multiple areas of the stack, including budget optimization, retrieval, ranking, features, measurement, LLM-based answers, etc, partnering deeply with product, org leads, and other XFN to deliver reliable, high quality systems that can help Reddit Notifications push the boundary on state of the art.
+What You’ll Do
+Contribute to advancing Reddit's growth by designing and implementing content discovery algorithms that prioritize a seamless and highly personalized user experience.
+Deeply understand the Reddit Notifications product and drive the vision for the notifications relevance team.
+Enhance core recommendation capabilities, including candidate retrieval, ranking models, and budgeting optimization, while designing and testing new pipeline components.  You will also deploy  ML models, integrate LLMs, and ensure robust monitoring and smooth product integration throughout the process.
+Serve as the primary ML domain expert, deploying state-of-the-art models at scale, driving architectural decisions, and ensuring robust monitoring and smooth product integration across the engineering organization.
+Collaborate across disciplines and with ML, Product, Infrastructure, and DS teams at Reddit to find technical solutions to complex challenges.
+Mentor and guide senior and staff engineers in the team.
+Partner closely with senior leadership and cross-functional org leads to shape long-term roadmaps, balancing immediate operational wins with strategic technical objectives.
+Who You Are
+10+ years of industry experience with deep expertise in large-scale recommendation systems, notifications experience preferred.
+Proven ability to identify key opportunities, define roadmaps and drive scalable improvement in  notifications relevance.
+Strong experience in building and deploying large-scale ML models using frameworks such as PyTorch or Tensorflow.
+Experience working with LLM in production and utilizing generative AI to augment recommendation systems
+Proficiency in object-oriented programming (Python, Golang).
+Big Plus: experience with state of the art model architectures
+Big Plus: experience building production Agentic AI frameworks.
+Benefits:
+Comprehensive Healthcare Benefits and Income Replacement Programs
+401k with Employer Match
+Global Benefit programs that fit your lifestyle, from workspace to professional development to caregiving support
+Family Planning Support
+Gender-Affirming Care
+Mental Health & Coaching Benefits
+Flexible Vacation & Paid Volunteer Time Off
+Generous Paid Parental Leave
+#LI-remote, #LI-JS5
+Pay Transparency:
+This job posting may span more than one career level.
+In addition to base salary, this job is eligible to receive equity in the form of restricted stock units, and depending on the position offered, it may also be eligible to receive a commission. Additionally, Reddit offers a wide range of benefits to U.S.-based employees, including medical, dental, and vision insurance, 401(k) program with employer match, generous time off for vacation, and parental leave. To learn more, please visit https://www.redditinc.com/careers/ .
+To provide greater transparency to candidates, we share base salary ranges for all US-based job postings regardless of state. We set standard base pay ranges for all roles based on function, level, and country location, benchmarked against similar stage growth companies. Final offer amounts are determined by multiple factors including, skills, depth of work experience and relevant licenses/credentials, and may vary from the amounts listed below.
+The base salary range for this position is:
+$266,000 - $372,400 USD
+I

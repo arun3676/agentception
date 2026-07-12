@@ -1,0 +1,28 @@
+Title: Assistant Vice President, Data Engineer
+
+Harrison Street Asset Management ("HSAM") is a leading global alternative investment management firm focused on real estate, infrastructure, and credit strategies across North America and Europe. Headquartered in Chicago, Toronto, and London with offices across North America, Europe, Asia and the Middle East, the firm has over $108 billion in assets under management on behalf of institutional investors and registered investment advisors globally.
+Founded on a culture of innovation, HSAM is an early mover in alternative real estate and mid-market infrastructure. Today, the firm’s global team, consisting of more than 520 professionals, is committed to creating long-term value through deep sector expertise and forward-thinking strategies.
+Under direction of the Head of Data Analytics & Architecture, Global, the successful Data Engineer candidate will be responsible for designing, building, and maintaining the data infrastructure and systems that support data-driven applications and analytics within Harrison Street. The candidate must have a broad understanding of the entire data & analytics ecosystem of tools and technologies, with hands on experience across the core data domains of business intelligence, data architecture, data science, data engineering, and data visualization.
+The candidate will analyze the data needs of Harrison Street Asset Management and use their skills in coding to develop and maintain secure data platforms. The successful candidate will be responsible for transforming data into formats that can be more easily analyzed by citizen analysts and data scientists alike. They will do this by developing, maintaining, and testing infrastructures for data generation that enable others within HSAM to more easily access in a secure way the data needed to derive data-driven insights and do their jobs.
+The Data Engineer will be responsible for the collection, storage, processing, and transformation of large volumes of data to make it accessible, reliable, and usable for analysis and decision-making purposes. The ideal candidate is an experienced data pipeline builder and data wrangler who enjoys optimizing data systems and building them from the ground up.
+The successful candidate must be self-directed and comfortable supporting the data needs of multiple teams and systems. The right candidate will be excited by the prospect of optimizing our company’s data to support our next generation of investments.
+\n
+Responsibilities:
+60%     Data Engineering, Data Architecture, and ETL
+Designing, building, and maintaining scalable and efficient data pipelines to extract, transform, and load (ETL) data from various sources into Enterprise Data Platform (EDP).
+Designing and implementing data marts, including dimensional modeling, schema design, and optimization techniques.
+Integrating and consolidating data from diverse sources, such as databases, sftp’s, APIs, and streaming platforms, ensuring data quality, consistency, and integrity.
+Creating and maintaining data models, defining data structures, relationships, and data storage requirements, using techniques like entity-relationship diagrams and data flow diagrams.
+Developing data transformation processes, including data cleansing, normalization, aggregation, and enrichment, to prepare data for analytics and reporting.
+Identifying and resolving performance bottlenecks in data processing and storage systems, optimizing query performance, and improving overall data pipeline efficiency.
+Implementing data quality assurance processes, performing data validation, testing data pipelines, and resolving data quality issues.
+Monitoring data pipelines, diagnosing and troubleshooting issues, performing system upgrades and maintenance tasks to ensure data reliability and availability.
+Collaborating with cross-functional teams, including Business Liaisons, analysts, and software engineers, and documenting data engineering processes, workflows, and best practices. Supports training of Harrison Street team members on how to properly organize findings and read data collected.
+Partners with Technology Infrastructure and Support Operations team to identify, design, and implement internal process improvements: e.g., automating manual processes, optimizing data delivery, and redesigning infrastructure for greater scalability.
+Partners with Technology Infrastructure and Support Operations teams to build the infrastructure required for optimal extraction, transformation, and loading of data from a wide variety of data sources using Microsoft Fabric.
+Understands how Harrison Street’s data platform integrates within the overall technical architecture.
+20%     Data Visualization
+Solid understanding of data visualization principles, best practices, and design aesthetics.
+Develop, maintain, and manage advanced reporting, analytics, dashboards using Tableau and Power BI.
+Perform data analysis and validations.
+Ability to translate business r

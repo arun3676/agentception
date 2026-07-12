@@ -1,0 +1,26 @@
+Back to jobs Senior AI Engineer – Health Intelligence
+On-site - San Francisco, California Apply Our mission at Oura is to empower every person to own their inner potential. Our award-winning products help our global community gain a deeper knowledge of their readiness, activity, and sleep quality by using their Oura Ring and its connected app. We've helped millions of people understand and improve their health by providing daily insights and practical steps to inspire healthy lifestyles.
+Empowering the world starts with living our values and empowering our team. As a quickly growing company focused on helping people live healthier and happier lives, we ensure that our team members have what they need to do their best work — both in and out of the office.
+The Health Intelligence team is at the forefront of integrating modern AI and LLMs into the Oura experience, transforming how members interact with and learn from their data. We are building the next generation of AI-powered health guidance at Oura, blending traditional ML with modern LLMs, reasoning systems, and robust evaluation - not as “chatbots with vibes,” but as rigorously evaluated components that explain decisions, surface trade-offs, and adapt member journeys over months and years.
+As a Senior AI Engineer, you will design, build, and operate the systems that make this possible: LLM-backed workflows, retrieval and knowledge representations, evaluation pipelines, and personalization logic that together power personalized guidance, proactive engagement, and new AI-driven product experiences.
+You’ll:
+Work with rich longitudinal signals from wearables plus real-world context.
+Help turn ambiguous health questions into structured, testable AI systems.
+Balance scientific depth, engineering pragmatism, and product impact so millions of members get guidance that respects both their biology and their real lives.
+This role is ideal for someone who wants to work end-to-end - from problem framing and model/tooling choices to productionization, evaluation, and iteration - in a domain where outcomes and behavior change, not clicks, are the primary success metrics.
+What you will do
+You don’t need to do all of these on day one, but these are the kinds of problems you’ll own:
+Design and build LLM‑backed product capabilities: Ship user-facing features that use LLMs and other AI models to deliver personalized insights, guidance, and proactive notifications. Implement safe tool-calling, retrieval, and orchestration so that AI components behave deterministically where they must and adaptively where they can.
+Own evaluation, quality, and safety for AI workflows: Lead the design and implementation of evaluation frameworks and tooling to measure quality, safety, latency, and cost before and after release. Define the metrics and slices that matter for user-facing guidance, and integrate evals into the production pipeline.
+Integrate LLMs with personalization and understanding layers: Ground AI behavior in structured user context rather than one-off prompts. Connect AI components to navigation flows and action systems so guidance turns into coherent, multi-step programs and one-tap actions, not isolated tips.
+Contribute to a multi-LLM and reasoning platform: Prototype and productionize workflows across multiple model providers and configurations, including routing logic and shadow-mode experimentation. Collaborate with infrastructure and science teams on reasoning, planning, and multimodal use cases.
+Build robust, observable, and cost-aware systems: Design and implement services and workflows that meet reliability and performance expectations. Take ownership of operational health: debugging production issues, reducing technical debt, and iterating on architecture as the AI surface area and traffic grow.
+Partner cross-functionally: Work closely with product, data science, research, design, and content to shape problem definitions, constraints, and evaluation plans. Communicate trade-offs clearly and help the team make principled decisions in a fast-moving domain.
+Requirements
+We’d love to hear from you if you have:
+2+ years of hands-on experience in AI engineering, with a multi-year background in backend engineering, applied ML, or related roles building production systems.
+Strong proficiency in at least one modern backend or ML language (e.g., Python) and comfort working with cloud-native services to ship and maintain production features.
+Demonstrated ability to own systems end-to-end: from problem framing and data pipelines through modeling and prompting, all the way to deployment, monitoring, and iteration.
+A track record of working in product-facing teams, shipping to real users rather than only research prototypes, and caring about impact and iteration speed.
+Comfort operating in a fast-changing AI/LLM domain with ambiguity, balancing rigor with pragmatism and keeping member value and safety at the center.
+Excellent communication and collaboration skills, including the ab

@@ -1,0 +1,94 @@
+# Python
+#
+# These are ANCHORED with a leading slash on purpose. Unanchored, git applies them at
+# every depth — and `lib/` then silently excludes `ui/src/lib/`, which is where the
+# shadcn `cn()` helper lives. Everything still built locally (the files were on disk)
+# while a fresh clone failed with "Could not load src/lib/utils". Keep the slashes.
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+/build/
+/develop-eggs/
+/dist/
+/downloads/
+/eggs/
+/.eggs/
+/lib/
+/lib64/
+/parts/
+/sdist/
+/var/
+/wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Next.js
+.next/
+out/
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+*.tmp
+*.temp
+.vercel
+.env*.local
+
+# Test & build artifacts
+.pytest_cache/
+test-results/
+playwright-report/
+e2e/*.png
+htmlcov/
+.coverage
+
+# Local data
+data/uploads/
+data/*.db

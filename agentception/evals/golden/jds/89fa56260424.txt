@@ -1,0 +1,32 @@
+Back to jobs Quality Control Engineer III (Hybrid - Chicago, IL)
+Chicago, Illinois, United States Apply Interested in joining a growing company where you will work with talented colleagues, enhance a supportive and energetic culture, and be part of the climate solution? At Energy Solutions, we focus on the big impacts. And we believe that market-based programs can be a powerful force to deliver large-scale energy, carbon, and water-use savings. Since 1995, we’ve harnessed that power to offer proven, performance-based solutions for our utility, government, and institutional customers.
+We are seeking a Quality Control Engineer III to join our Information Systems. In this opportunity, you will dive into our core systems—including our vital IRIS platform—to champion the accuracy, reliability, and sheer excellence of complex technology solutions. This isn't just about finding bugs; it’s your opportunity to actively shape our testing philosophies, elevate quality practices, and pioneer robust validation strategies across our entire software and data ecosystem.
+Operating with immense independence, you will design, write, and execute brilliant automated and manual tests, tackling complex technical challenges head-on. You will partner dynamically with engineering teams to supercharge test coverage and ensure flawless delivery, while serving as an inspiring technical mentor and peer trainer who elevates junior engineers through hands-on coaching. If you are a seasoned pro with sharp automation skills who can develop automated UI tests with minimal ramp-up and a passion for driving long-term process evolution, we want you to lead the charge in our quality revolution.
+The person filling this role will be required to work in a hybrid work environment adjacent to one of our offices in Oakland, CA; Orange, CA; New York, NY; Portland, OR; Boston, MA; or Chicago, IL
+Responsibilities include, but are not limited to:
+Design, execute, and maintain manual and automated test approaches for software features, workflows, and integrated systems
+Develop and enhance automated testing frameworks and CI/CD quality integrations to improve reliability and scalability
+Design and apply test approaches for assigned projects across functional, regression, integration, performance, and security testing
+Improve and monitor quality metrics for assigned projects to evaluate test effectiveness, defect trends, and coverage
+Partner with engineering teams to integrate testing practices into development, deployment, and release workflows
+Develop, maintain, and execute automated test suites using tools such as Selenium, Cypress, Playwright, or Pytest
+Write and improve automated UI tests based on prior automation experience and team practices
+Perform hands-on testing across assigned systems and projects to identify defects, validate functionality, and reduce delivery risk
+Conduct root cause analysis on recurring issues and support preventive actions to reduce defect recurrence
+Support quality gate adherence within CI/CD processes and release workflows
+Apply testing practices that align with expectations related to privacy, security, accessibility, and quality standards
+Serve as a peer mentor and trainer to Quality Control Engineers I and II by sharing expertise and guiding testing practices
+Evaluate and adopt new tools, automation techniques, and testing frameworks that improve efficiency and coverage
+Minimum Qualifications:
+Bachelor’s degree in Computer Science, a related technical field, or equivalent technical experience
+Six years of experience testing software products in a professional setting
+Demonstrated experience designing, developing, and executing test automation and quality assurance practices within complex software environments
+Experience working with Agile methodologies and CI/CD environments to support reliable, efficient, and scalable software delivery
+Proficiency with test automation tools and frameworks (e.g., Selenium, Cypress, Playwright, Pytest, or similar)
+Strong written and verbal communication skills, with the ability to clearly communicate technical findings, testing outcomes, and quality risks to cross‑functional stakeholders
+Proficiency in test automation and programming, with the ability to design, write, and maintain automated test cases (including UI tests) and supporting frameworks
+Ability to analyze system behavior, identify defects, and resolve complex testing issues independently once familiar with the system and product landscape
+Ability to influence testing approaches and quality decisions by providing informed input on coverage, prioritization, and test strategy
+Demonstrated ability to evaluate and adopt new testing tools and technologies to improve testing effectiveness and efficiency
+The salary range for this role is $108,000–$125,000, with a target compensation of $108,000 - $118,000 based on experience and qualifications.
+Compensation is commensurate with experience and includes a generous retirement package. E

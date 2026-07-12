@@ -1,0 +1,35 @@
+Back to jobs Lead Software Engineer - Front End
+Los Angeles, CA Apply AXS connects fans with the artists and teams they love. Each year we sell millions of tickets to thousands of incredible events – from concerts and festivals to sports and theater – at some of the most iconic venues in the world. Since our founding in 2011, we've consistently pushed the industry forward and improved experiences for fans, making it easier than ever to discover events, find the perfect seats, and enjoy unforgettable live entertainment, and we continue to lead the evolution of our industry today.
+We're passionate about improving the fan experience and providing game-changing solutions for our clients, and we're always looking for smart, motivated people to help make it happen. Bring your enthusiasm, your big ideas, and your desire to team up with some of the best and brightest in technology and entertainment.
+The Role
+AXS is seeking a Lead Software Engineer to join our team. The ideal candidate enjoys and thrives in working with a variety of tools, languages, and architectures while building features and applications for our core ticketing systems. You will work on consumer-facing and B2B applications that can scale and handle high demand, with primary ownership of the FanSight user experience, front-end architecture, and customer-facing web platform, while collaborating across complex enterprise systems that meet our global needs.
+As Lead Software Engineer, you will own systems and products end-to-end for the FanSight platform, including front-end architecture and user experience strategy, balancing hands-on coding with planning and team leadership.
+You will align technical efforts with business and product goals, guide technical direction and team best practices, and act as the tech lead for a team of engineers working on the FanSight platform.
+What You’ll Be Doing
+Essential Functions
+Design and build new features and enhancements for our global ticketing platforms
+Lead the architecture, design, and evolution of the FanSight front-end platform, driving scalable, maintainable, and high-performing user experiences.
+Partner closely with Product and Design teams to deliver intuitive, accessible, and responsive customer-facing applications that serve millions of fans.
+Establish front-end engineering standards and best practices, including component architecture, performance optimization, accessibility, testing, and maintainability.
+Optimize for user experience and performance in scaling out our applications to handle massive spikes in traffic
+Build scalable modules for internal applications and external partners
+Create services that power the core of our infrastructure, implementing APIs and features for our mission-critical products
+Work closely with other engineers, architects, business analysts, product and project managers to create innovative solutions that continue to push the boundaries of our business
+Participate in design and code reviews to ensure best practices and high-quality code
+Develop consistent, well-tested code with open-source programming languages and frameworks
+Work with third parties to make a seamless and integrated experience for our customers and fans
+Own systems and products end-to-end for the FanSight platform, balancing hands-on coding with planning and team leadership
+Define the annual technology roadmap and capacity plan for the project, and make key technical decisions
+Establish and enforce coding standards, code review standards, and engineering best practices across the squad
+Provide technical leadership and mentorship to developers, fostering technical growth across the team
+Lead sprint pre-planning and task assignments, and conduct feasibility assessments and feedback sessions for new product features
+Proactively assess and identify areas to improve performance, stability, and maintainability, and identify and mitigate technical risks early
+Partner with security stakeholders on security audits and remediation of findings
+Act as the liaison between the engineering team and stakeholders, including product managers, project managers, architects, and other cross-functional partners
+What to Bring
+Years of experience, qualifications, knowledge, skills, abilities
+7+ years of relevant software development experience within a professional environment, including demonstrated experience as a technical lead
+Experience leading the architecture and development of large-scale consumer-facing web applications, including performance optimization, accessibility, responsive design, and modern UI engineering practices.
+BS in Computer Science or a related technical field
+Strong full-stack engineering background with deep expertise in modern front-end technologies including JavaScript/TypeScript, React, and front-end architecture patterns, complemented by proficiency in modern back-end languages and frameworks (e.g., C#/.NET, Node.js, Python, or Go).
+Hands-on experience designing and operating distributed, high-th

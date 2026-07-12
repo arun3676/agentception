@@ -1,0 +1,39 @@
+Back to jobs Ground Software Engineer
+Los Angeles, CA Apply K2 is building the largest and highest-power satellites ever flown, unlocking performance levels previously out of reach across every orbit. Backed by $450M from leading investors including Altimeter Capital, Redpoint Ventures, T. Rowe Price, Lightspeed Venture Partners, Alpine Space Ventures, and others – with an additional $500M in signed contracts across commercial and US government customers – we’re mass-producing the highest-power satellite platforms ever built for missions from LEO to deep space.
+The rise of heavy-lift launch vehicles is shifting the industry from an era of mass constraint to one of mass abundance, and we believe this new era demands a fundamentally different class of spacecraft. Engineered to survive the harshest radiation environments and to fully capitalize on today’s and tomorrow’s massive rockets, K2 satellites deliver unmatched capability at constellation scale and across multiple orbits.
+With multiple launches planned through 2026 and 2027, we're Building Bigger to develop the solar system and become a Kardashev Type II (K2) civilization.  If you are a motivated individual who thrives in a fast-paced environment and you're excited about contributing to the success of a groundbreaking Series C space startup, we’d love for you to apply.
+The Role
+As a Software Engineer on our Ground Software team, you are responsible for creating the software that is used to build, test, and fly our satellites and customer payloads. You will build upon the mission software platform used to fly K2's Gravitas satellite, developing new capabilities and automation as we scale to support multiple constellations. You will collaborate closely with internal Mission Operations and Flight Software teams to define and implement our overall mission architecture, and you will work with external customers to scope and deliver software that meets their payload needs.
+You will have the opportunity to work in exciting, interdisciplinary domains like: satellite command and control, constellation operations, mission automation, radio communications, astrodynamics, and more.
+**This role requires in person presence at our headquarters in Torrance, CA.**
+Responsibilities
+Design and implement software that facilitates the build, test, and operations of K2's vehicles and our customers' payloads
+Collaborate with Mission Operators and Engineers across the company to identify and scope software solutions to complex technical and business problems
+Facilitate software design reviews, architecture discussions, and code reviews to align stakeholders on technical direction
+Work across our stack (Rust backend, TypeScript/Vue frontend) to support development, test, and operations milestones
+Support internal and external customers in an on-call capacity as your software is used to drive ground test activities and on-orbit spacecraft operations
+Mentor other engineers to build a strong team culture and software engineering practices
+Qualifications
+Bachelor's degree in computer science, computer engineering, electrical engineering, math, or a STEM discipline or 3+ years of professional experience in software engineering
+Nice-to-Have
+Experience working on space missions and/or the satellite ground segment
+Experience with Rust or another statically-typed backend programming language (Go, C++, Java, C#, TypeScript)
+Experience with JavaScript/TypeScript and modern frontend development tooling (Vue, React, Svelte)
+Experience with version control, continuous integration, build, deployment, monitoring
+Experience developing HTTP or gRPC APIs
+Experience with SQL databases (PostgreSQL or similar)
+Experience designing and implementing event-driven architectures
+Experience developing reliable, scalable systems
+Experience with Docker and/or Kubernetes
+Experience with WebSockets and/or Server-Sent-Events (SSE)
+Familiarity with cybersecurity best practices and relevant certifications/standards (SOC2, FedRAMP)
+Familiarity with networking protocols (TCP/IP, UDP, QUIC)
+Familiarity with data streaming technologies such as NATS, Pulsar, or similar
+Compensation and Benefits:
+Base salary range for this role is $123,000 - $150,000 + equity in the company
+Salary will be based on several factors including, but not limited to: knowledge and skills, education, and experience level
+Comprehensive benefits package including paid time off, medical/dental/vision/ coverage, life insurance, paid parental leave, and many other perks
+If you don’t meet 100% of the preferred skills and experience, we encourage you to still apply! Building a spacecraft unlike any other requires a team unlike any other and non-traditional career twists and turns are encouraged!
+If you need a reasonable accommodation as part of your application for employment or interviews with us, please let us know.
+Export Compliance
+As defined in the ITAR, “U.S. Persons” include U.S. citizens, lawful permanent residents (i.e., Green Card holders)

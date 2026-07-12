@@ -1,0 +1,40 @@
+SEE ALL JOBS;
+Staff Android Software Engineer, Cash App Consumer Platform
+Remote
+New York, NY, US
+Req ID: R0003757
+Posted Date: 06/01/26
+It all started with an idea at Block in 2013. Initially built to take the pain out of peer-to-peer payments, Cash App has gone from a simple product with a single purpose to a dynamic ecosystem, developing unique financial products, including Afterpay/Clearpay, to provide a better way to send, spend, invest, borrow and save to our 50+ million monthly active customers. We want to redefine the world's relationship with money to make it more relatable, instantly available, and universally accessible.
+Today, Cash App has thousands of employees working globally across office and remote locations, with a culture geared toward innovation, collaboration and impact. We've been a distributed team since day one, and many of our roles can be done remotely from the countries where Cash App operates. No matter the location, we tailor our experience to ensure our employees are creative, productive, and happy.
+The Team
+The Cash App Consumer Platform is responsible for laying the foundation that every Cash App engineer builds on. We own the shared systems, abstractions, and tooling that power product development across the app. We sit at the product platform layer, building on top of core systems enabling feature development. Our customers are the engineers and teams building Cash App's product experiences, and we measure our success by their velocity and quality.
+As AI fundamentally reshapes software engineering, Cash’s Consumer Platform is uniquely positioned to define what AI-native development looks like at Cash App and Block, both by building AI-powered capabilities into our platform and by establishing the practices that help hundreds of engineers leverage AI effectively every day.
+The Job
+As a Staff Android Engineer on Cash App Consumer Platform, you are a multiplier for the entire client engineering discipline. You think in systems. You spot problems before they have names. You create platforms and patterns that make the right thing easy and the wrong thing hard. You operate at an organizational scope. Your work shapes how hundreds of Builders build and how millions of customers experience Cash App.
+You don't wait to be handed a problem - you identify what needs to exist, build the case for it, and lead the work to completion. You bring deep Android expertise and a genuine conviction that AI is a transformative force in how we build software, and you act accordingly. This role reports to the Cash App Product Platform Lead.
+You Will
+Build and Own the Android Platform
+- Own and evolve foundational Android infrastructure: modularization, dependency injection, navigation, deep linking, and app lifecycle systems
+- Design and deliver shared libraries and frameworks that feature teams rely on daily with developer and AI ergonomics as a first-class concern
+- Drive Cash App's Android architecture forward, making high-leverage decisions that compound over time
+- Invent thoughtful Android platform tech and open source it where it creates value for the broader community
+- Develop and steward rapid experimentation in support of the fast iteration enabled by the AI world
+- Build upon observability and performance tooling that gives engineers and on-callers clarity and confidence
+- Partner with iOS, Web, and backend engineers to deliver consistent, high-quality cross-platform experiences
+Lead as an AI-Native Engineer
+- Evolve how Cash App's Android engineering org uses AI
+- Proactively identify where AI creates real leverage in platform and product engineering workflows, and act on it
+- Introduce and evaluate emerging AI development tools (Claude Code, GPT/Codex, Goose, and what comes next), forming a clear point of view on adoption
+- Build AI-powered capabilities into the platform itself where they create durable value for product teams
+Drive Organizational Impact
+- Operate beyond your immediate team. Identify cross-cutting technical problems across Cash App's Android org and mobilize the resources to address them
+- Surface unknown risks and systemic issues before they become customer problems or engineering crises
+- Lead architecture and design reviews across team boundaries - help set standards that scale
+- Mentor and grow engineers at all levels, raising the technical ceiling of the Android community at Cash App
+Collaborate Broadly
+- Partner with engineers, product managers, and designers across Cash App to align platform investments with what teams actually need
+- Represent Android platform needs in cross-functional, cross-org, and Block-wide technical discussions
+- Communicate complex technical tradeoffs with clarity to engineers, product partners, and leadership alike
+You Have
+- Platform or infrastructure builder's mindset. You've built systems for engineers as your customers, and you care deeply about developer experience
+- A high agency mindset - if you see a problem you take the initiat

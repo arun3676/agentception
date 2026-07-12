@@ -1,0 +1,31 @@
+Back to jobs AI/ML Engineer
+San Francisco, CA, USA Apply About the role
+Chime’s AI/ML Trust & Safety team is building models, insights, and decisioning systems that help protect millions of members while enabling safe, reliable financial progress. We are looking for an AI/ML Engineer who is growing strong technical depth in machine learning, experimentation, and analytical problem solving, with an interest in applying those skills to trust, safety, and risk challenges across Chime.
+You’ll contribute to end-to-end model development, analysis, and production-facing decision systems with guidance from senior team members. Your work will help improve how Chime detects risk, understands member behavior, evaluates tradeoffs, and scales trustworthy member experiences. This role is a strong opportunity to build deeper expertise in applied ML, risk systems, experimentation, generative AI, sequence models, and cross-functional product impact in a high-scale environment.
+The base salary offered for this role and level of experience will begin at$125,000.00 and up to $173,000.00. Full-time employees are also eligible for a bonus, competitive equity package, and benefits. The actual base salary offered may be higher, depending on your location, skills, qualifications, and experience.
+In this role, you can expect to
+Contribute to the design and implementation of training pipeline components for AI/ML models that support Chime’s risk decisioning systems.
+Develop, test, and iterate on model features within clear requirements and with support from senior team members.
+Support offline model evaluation and contribute to online experiment analysis to understand performance, tradeoffs, and member impact.
+Write modular, testable, and maintainable code following engineering best practices.
+Collaborate with Product Managers, Engineers, and Risk teams to translate model findings into clear recommendations and measurable member impact.
+Contribute to production-facing model workflows, including model training, tuning, inference, and monitoring.
+Contribute to projects that apply modern AI/ML methods, such as generative AI, sequence models, and automation workflows, to improve Risk decisioning.
+To thrive in this role, you have
+1–2 years of experience in applied data science or AI/ML engineering, including relevant internship, academic, or project experience.
+Working knowledge of machine learning fundamentals, including feature development, model training, validation, tuning, and evaluation.
+Familiarity with cloud platforms, preferably AWS, orchestration tools, and version control.
+Familiarity with offline model evaluation, experimentation, and model performance tradeoffs.
+Ability to communicate analyses and model findings clearly, clarify requirements, and collaborate effectively with technical and non-technical partners.
+Nice to have
+Exposure to production ML workflows, including inference, monitoring, retraining, orchestration, model deployment.
+Experience using AI-assisted development tools such as Cursor, Claude Code, or similar tools.
+Exposure to deep learning methods, such as embeddings, sequence models, representation learning, or behavioral modeling.
+#LI-GC1 #LI-Hybrid
+A little about us
+At Chime, we believe that everyone can achieve financial progress. We created Chime—a financial technology company, not a bank*—on the premise that core banking services should be helpful, easy, and free. Through our user-friendly tools and intuitive platforms, we empower our members to take control of their finances and work towards their goals. Whether it's starting a savings account, purchasing a first car or home, launching a business, or pursuing higher education, we're proud to have helped millions unlock their financial potential.
+We're a team of problem solvers, dreamers, and builders with one shared obsession: our members. From day one, Chimers have worked tirelessly to out-hustle and out-execute competitors to bring our mission to life. Their grit and determination inspire us to work harder every day to deliver the very best experience possible. We each bring an owner's mindset to our work, refusing to be outdone and holding ourselves accountable to meet and exceed the highest bars for our teams, our company, and our members.
+We believe in being bold, dreaming big, and taking risks, while also working together, embracing our diverse perspectives, and giving each other honest feedback. Our culture remains deeply entrepreneurial, encouraging every Chimer to see themselves as stewards of our mission to help everyday Americans unlock their financial progress.
+We know that to achieve our mission, we must earn and keep people's trust—so we hold ourselves to the highest standards of integrity in everything we do. These aren't just words on a wall—our values are embedded in every aspect of our business, serving as a north star that guides us as we work to help millions achieve their financial potential.
+Because if we don't—who will?
+*Chime is

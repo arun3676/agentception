@@ -1,0 +1,46 @@
+Back to jobs New Lead Data Engineer (P4519)
+Cincinnati, OH; Chicago, IL Apply 84.51° Overview:
+84.51° is a retail data science, insights and media company. We help The Kroger Co., consumer packaged goods companies, agencies, publishers and affiliates create more personalized and valuable experiences for shoppers across the path to purchase.
+Powered by cutting-edge science, we utilize first-party retail data from more than 62 million U.S. households sourced through the Kroger Plus loyalty card program to fuel a more customer-centric journey using 84.51° Insights, 84.51° Loyalty Marketing and our retail media advertising solution, Kroger Precision Marketing.
+84.51° follows a 5‑day in‑office work schedule to support collaboration, alignment, and team connection.
+Join us at 84.51°!
+__________________________________________________________
+Lead Data Engineer
+We are a full-stack data science company and a wholly owned subsidiary of The Kroger Company. We own 10 petabytes of data and collect 35+ terabytes of new data each week sourced from 62 million households. As a member of our engineering team, you will use cutting-edge technologies to develop applications that turn our data into actionable insights used to personalize the customer experience for shoppers at Kroger. We practice Agile development with Big Room Planning to align cross-functional squads—Product, Architecture, Data Science, and Engineering—around building scalable enterprise applications.
+SUMMARY:
+As a Lead Data Engineer, you will design and implement solutions to ingest, store, transform, and distribute big data on Azure Cloud. Our developers use Databricks (Spark, SQL, PySpark), Databricks Workflows, Python, JSON, and SQL to build products, tools, and features that power customer personalization at scale.  Communication and Collaboration with Product and Data science are critical to success and are expected for this role to be successful.
+RESPONSIBILITIES:
+Take ownership of features and drive them to completion through all phases of the entire 84.51° SDLC.  This includes external facing and internal applications as well as process improvement activities such as:
+Develop Business Domain understanding, bridges this to technical stakeholders
+Sets technical strategy in partnership with Data Science, Product, Architecture, and Kroger partners
+Oversees team(s) of Engineers including operations and development, blended Offshore/Onshore
+Provide mentoring to junior resources
+Lead design and development of Databricks-based solutions
+Perform development of REST APIs hosted in Kubernetes
+Execute unit and integration testing
+Collaborate with senior resources to ensure consistent development practices
+Bring new perspectives to problems and be driven to improve yourself and the way things are done
+QUALIFICATIONS, SKILLS, AND EXPERIENCE:
+Bachelor’s degree typically in Computer Science, Management Information Systems, Mathematics, Business Analytics or another technically strong program.
+5+ years proven ability of professional data development experience
+Strong understanding of Agile Principles (Scrum)
+5+ years proven ability of developing with Spark (Databricks, PySpark)
+Full understanding of ETL concepts and data warehousing concepts
+3+ year developing experience with Python
+1+ year developing experience with REST APIs
+1+ year experience with Kubernetes
+#LI-SSS
+Pay Transparency and Benefits
+The stated salary range represents the entire span applicable across all geographic markets from lowest to highest.  Actual salary offers will be determined by multiple factors including but not limited to geographic location, relevant experience, knowledge, skills, other job-related qualifications, and alignment with market data and cost of labor. In addition to salary, this position is also eligible for variable compensation.
+Below is a list of some of the benefits we offer our associates:
+Health: Medical: with competitive plan designs and support for self-care, wellness and mental health. Dental: with in-network and out-of-network benefit. Vision: with in-network and out-of-network benefit.
+Wealth: 401(k) with Roth option and matching contribution. Health Savings Account with matching contribution (requires participation in qualifying medical plan). AD&D and supplemental insurance options to help ensure additional protection for you.
+Happiness: Paid time off with flexibility to meet your life needs, including 5 weeks of vacation time, 7 health and wellness days, 3 floating holidays, as well as 6 company-paid holidays per year. Paid leave for maternity, paternity and family care instances.
+Pay Range
+$125,000 - $207,000 USD
+Create a Job Alert
+Interested in building your career at 84.51° ? Get future opportunities sent straight to your email.
+Create alert Apply for this job
+*
+indicates a required field
+First Name * Last Name * Preferred First Name * Email * Phone Country * Phone * Location (City) Locate me Resume/CV * Attach Attach Enter manually Enter manually Accepted fi

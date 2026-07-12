@@ -1,0 +1,28 @@
+Back to jobs Full-Stack AI Engineer (evergreen)
+San Francisco, CA Apply We Breathe Life Into Data
+At Komodo Health, our mission is to reduce the global burden of disease. And we believe that smarter use of data is essential to this mission. That’s why we built the Healthcare Map — the industry’s largest, most complete, precise view of the U.S. healthcare system — by combining de-identified, real-world patient data with innovative algorithms and decades of clinical experience. The Healthcare Map serves as our foundation for a powerful suite of software applications, helping us answer healthcare’s most complex questions for our partners. Across the healthcare ecosystem, we’re helping our clients unlock critical insights to track detailed patient behaviors and treatment patterns, identify gaps in care, address unmet patient needs, and reduce the global burden of disease.
+As we pursue these goals, it remains essential to us that we stay grounded in our values: be awesome, seek growth, deliver “wow,” and enjoy the ride. At Komodo, you will be joining a team of ambitious, supportive Dragons with diverse backgrounds but a shared passion to deliver on our mission to reduce the burden of disease — and enjoy the journey along the way.
+Of note, this role will remain posted until July 17, so we have time to review applications thoughtfully. Once all current resumes have been reviewed, the role will be reposted as needed.
+The Opportunity at Komodo Health:
+Healthcare in the U.S. is a mess. Komodo Health is fixing that—with data. We've mapped the patient journey across the country to build the most complete picture of disease burden and treatment gaps. Our customers—pharma companies, payers, and health systems—use this data to make decisions that meaningfully improve patient outcomes.
+Labs@Komodo builds the AI-native platforms and systems that turn this data into action. We are the team behind Marmot, Komodo's AI-native product—designed with AI embedded directly into both the interface and the development workflow. By combining Komodo's unmatched healthcare data with modern LLMs, Marmot is delivering some of the most compelling real-world insights of the new AI era.
+Building Marmot has sharpened our view of what this discipline actually demands. AI is rewriting what "full-stack" means — the engineers who excel here own the entire intelligence stack: data context and lineage, semantic definitions and business logic, retrieval and tool use, agent orchestration, evals and regression testing, model and prompt versioning, and permissions and governance. And they bring the product intuition to connect all of it to real outcomes. In healthcare, the stakes are higher still — AI systems must function amid messy real-world data, domain-specific definitions, privacy constraints, and high-stakes clinical and commercial decisions. Trustworthiness isn't a nice-to-have. It's the product.
+Mission of the Role:
+As a Full-Stack AI Engineer, you will design and deploy end-to-end AI solutions that power real products and internal tools. You'll work at the intersection of applied research, engineering, and product development — bringing modern AI techniques into scalable production systems.
+You'll operate in a lean, high-leverage pod: a small team of Full-Stack AI Engineers paired closely with a PM who deeply understands the customer workflow — built to compress the discovery loop and ship things that actually matter. You'll also collaborate with platform and data teams to build AI capabilities that transform how healthcare data is explored, understood, and operationalized.
+Looking back on your first 12 months at Komodo Health, you will have accomplished…
+Shipped production AI features that improve the precision, usability, and intelligence of Komodo's platform.
+Designed and deployed agent-based AI pipelines integrated into real customer-facing products.
+Built internal AI productivity tools that accelerate engineering workflows across Komodo.
+Prototyped and validated new AI approaches using emerging research and model capabilities.
+Contributed reusable prompt templates, orchestration patterns, and AI system architecture.
+Implemented monitoring, evaluation, and observability frameworks for deployed AI services.
+What You'll Own:
+Designing, building, and deploying end-to-end AI systems across the full intelligence stack — from data context and retrieval to agent orchestration, evals, versioning, and governance.
+Developing agent pipelines, prompt chains, and orchestration frameworks for LLM-driven workflows.
+Selecting the right AI technique (LLMs, classic ML, or hybrid approaches) for the problem at hand.
+Collaborating with PMs, engineers, and data scientists to define requirements and deliver solutions.
+Building scalable AI services with monitoring, evaluation, and deployment pipelines.
+Contributing reusable patterns to Komodo's AI infrastructure and internal tooling ecosystem.
+What you bring to Komodo Health (required):
+Experience building produ

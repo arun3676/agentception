@@ -1,0 +1,34 @@
+Back to jobs Senior Backend Engineer - Offroad
+Bozeman, Montana, United States Apply ABOUT onX
+We’re a team of builders, adventurers, and risk takers using technology to help people confidently explore the outdoors. Driven by our mission to awaken the adventurer inside everyone, we build products that optimize every outdoor experience and inspire confidence to get out and go further.
+We’re a high-growth tech company. The pace is fast, the work takes grit, and ambiguity is part of the job. As the world changes around us, we adapt - continuously evolving how we build, prioritize, and deliver.
+Our business moves quickly, and there’s real opportunity to shape what we build next. Each of our verticals - Hunt, Offroad, Backcountry, and Fish - is at a different stage of maturity, which means the challenges you encounter and the impact you have will vary depending on where you sit and what the business needs most.
+We operate with an experimentation mindset, continually iterating and improving how we solve problems. We expect our people to use the latest tooling, including AI, thoughtfully and responsibly, pairing human judgment with technology to increase quality, speed, and impact.
+Our impact comes to life through the products we build, in the stories of our customers, and in our growing commitment to land stewardship and recreational access.
+WHAT YOU WILL DO
+onX is seeking a Senior Backend Engineer who will contribute to meaningful, real-world outcomes that have a lasting impact for customers and the business. In this role, you’ll focus on the user’s experience with off-road mapping and navigation as part of the Offroad team, supporting reliable, high-confidence trail navigation and land-use intelligence for Overlanders and Trail Riders. You’ll take ownership of your work, collaborate closely with partners across the organization, and help move initiatives forward in an environment where priorities evolve, learning is celebrated, and you’re encouraged to keep stretching your skills. This role will report to the Offroad engineering manager.
+As an onX Senior Backend Engineer, your day to day responsibilities would look like:
+(Essential Job Duties)
+Design and build scalable, reliable backend APIs and services that power trail navigation, land-use intelligence, and offline mapping experiences for Overlanders and Trail Riders.
+Own end-to-end delivery of complex backend features, from architecture and design through testing, deployment, and operational readiness.
+Partner closely with mobile and frontend engineers to define API contracts and integration patterns that enable fast, confident feature development across platforms.
+Participate in architectural decisions for the Offroad platform, ensuring alignment with broader platform strategy and advancing shared engineering patterns across teams.
+Proactively improve system observability, monitoring, and alerting to ensure high availability and reliability of Offroad services.
+Mentor and support the growth of junior and mid-level engineers through code reviews, design feedback, and day-to-day collaboration.
+Participate in an on-call rotation to maintain service reliability and respond to production incidents.
+Look for opportunities to embed AI as a repeatable co-pilot in daily workflows by integrating experimentation into real work, and continuously refining its use with sound judgment and validation.
+LOCATION
+onX has created a thriving distributed workforce community across several US locations. This position can be performed from an onX corporate office, “Basecamp,” or “Connection Hub".
+Corporate Offices : onX was founded in Montana with offices in Missoula and Bozeman. If you prefer to work in an office at least part of the time this is a great option.
+Basecamps : Basecamps are established virtual workforce communities where a sizable number of distributed team members group for work, volunteering, socializing, and adventure.
+Our current Basecamps are located within a 90-mile radius of the following: Austin, TX; Charlotte, NC; Denver, CO; Kalispell, MT; Minneapolis, MN; Portland, OR; Salt Lake City, UT; and Seattle, WA.
+Connection Hubs : Connection Hub locations are smaller, emerging communities of distributed team members.
+Our current Connection Hubs are located within a 60-mile radius of the following: Boise, ID; Charleston, SC; Dallas/Fort Worth, TX; Phoenix, AZ; Richmond, VA; Spokane, WA; and Vermont.
+WHAT YOU’LL BRING
+B.S., M.S., or equivalent experience in computer science or a related field
+A minimum of seven (7) years of full-time professional software development experience is required with a focus on distributed cloud computing and API development.
+Experience with Go lang and a curiosity for frontend development with Vue.
+Familiarity with Docker, Kubernetes, and infrastructure-as-code technologies, such as Terraform
+A strong computer science foundation.
+Experience building and debugging a distributed, scalable, highly available microservices architecture.
+A pa

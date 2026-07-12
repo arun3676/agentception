@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 42 33% 96%;
+    --foreground: 195 10% 9%;
+    --card: 42 40% 99%;
+    --card-foreground: 195 10% 9%;
+    --popover: 42 40% 99%;
+    --popover-foreground: 195 10% 9%;
+    --primary: 195 10% 9%;
+    --primary-foreground: 42 40% 99%;
+    --secondary: 40 22% 92%;
+    --secondary-foreground: 195 10% 14%;
+    --muted: 40 22% 92%;
+    --muted-foreground: 200 8% 42%;
+    --accent: 157 59% 45%;
+    --accent-foreground: 195 10% 9%;
+    --destructive: 2 66% 48%;
+    --destructive-foreground: 42 40% 99%;
+    --border: 39 14% 82%;
+    --input: 39 14% 82%;
+    --ring: 157 59% 38%;
+    --success: 157 59% 40%;
+    --success-foreground: 42 40% 99%;
+    --warning: 37 78% 48%;
+    --warning-foreground: 195 10% 9%;
+    --radius: 0.9rem;
+  }
+
+  .dark {
+    --background: 195 12% 7%;
+    --foreground: 42 30% 95%;
+    --card: 195 10% 10%;
+    --card-foreground: 42 30% 95%;
+    --popover: 195 10% 10%;
+    --popover-foreground: 42 30% 95%;
+    --primary: 42 30% 95%;
+    --primary-foreground: 195 12% 7%;
+    --secondary: 195 9% 16%;
+    --secondary-foreground: 42 30% 95%;
+    --muted: 195 9% 16%;
+    --muted-foreground: 190 6% 63%;
+    --accent: 157 59% 50%;
+    --accent-foreground: 195 12% 7%;
+    --destructive: 2 60% 43%;
+    --destructive-foreground: 42 30% 95%;
+    --border: 195 8% 22%;
+    --input: 195 8% 22%;
+    --ring: 157 59% 50%;
+  }
+
+  * { @apply border-border; }
+  html { overflow-x: hidden; font-size: 16px; }
+  body {
+    @apply bg-background text-foreground;
+    min-width: 320px;
+    padding-bottom: env(safe-area-inset-bottom);
+    font-family: "DM Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 { font-family: "Manrope", "DM Sans", sans-serif; }
+  a { @apply underline-offset-4; }
+  :focus-visible { @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background; }
+}
+
+@layer components {
+  .app-main {
+    @apply mx-auto w-full flex-1 px-4 pb-24 pt-5 sm:px-7 sm:pb-8 sm:pt-7 lg:ml-[17rem] lg:max-w-[calc(100%-17rem)] lg:px-9 lg:pb-12 lg:pt-8 2xl:px-12;
+  }
+
+  .card-clean,
+  .soft-card,
+  .glass-panel {
+    @apply rounded-[var(--radius)] border border-border bg-card shadow-[0_1px_1px_rgba(24,28,30,0.02),0_12px_34px_rgba(24,28,30,0.035)];
+  }
+
+  .eyebrow,
+  .section-label {
+    @apply text-[11px] font-bold uppercase tracking-[0.12em] text-muted-foreground;
+  }
+
+  .app-hero {
+    @apply mb-6 grid overflow-hidden rounded-[1.25rem] border border-border bg-card xl:grid-cols-[minmax(0,1fr)_360px];
+  }
+
+  .app-hero-copy {
+    @apply px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12;
+  }
+
+  .app-hero-title {
+    @apply mt-4 max-w-3xl text-[clamp(2.25rem,5vw,4.8rem)] font-extrabold leading-[0.98] tracking-[-0.065em];
+  }
+
+  .app-hero-title span { @apply text-muted-foreground; }
+
+  .app-hero-summary {
+    @apply mt-5 max-w-2xl text-[15px] leading-7 text-muted-foreground sm:text-base;
+  }
+
+  .app-pulse {
+    @apply border-t border-border bg-secondary/35 p-5 sm:p-7 xl:border-l xl:border-t-0;
+  }
+
+  .app-pulse-grid { @apply mt-5 grid grid-cols-3 divide-x divide-border border-y border-border; }
+  .app-pulse-grid > div { @apply px-3 py-4 first:pl-0 last:pr-0; }
+  .app-pulse-grid dt { @apply text-[10px] font-semibold uppercase tracking-wide text-muted-foreground; }
+  .app-pulse-grid dd { @apply mt-1 font-[Manrope] text-sm font-bold tracking-tight; }
+
+  .workspace-grid { @apply grid items-start gap-5 xl:grid-cols-[minmax(0,1fr)_350px]; }
+  .workspace-panel { @apply rounded-[var(--radius)] border border-border bg-card; }
+  .workspace-panel-head { @apply flex flex-col gap-2 border-b border-border px-5 py-5 sm:flex-row sm:items-end sm:justify-between sm:px-6; }
+  .workspace-panel-body { @apply p-4 sm:p-6; }
+
+  .evidence-ledger { @apply overflow-hidden rounded-[var(--radius)] border border-border bg-card; }
+  .evidence-ledger-head { @apply flex items-center justify-between border-b border-border px-5 py-4; }
+  .evidence-ledger-list { @apply divide-y divide-border; }
+  .evidence-stage { @apply relative grid grid-cols-[36px_1fr_auto] gap-3 px-5 py-4; }
+  .evidence-stage-icon { @apply flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-secondary/55 text-muted-foreground; }
+  .evidence-stage[data-state="active"] .evidence-stage-icon,
+  .evidence-stage[data-state="complete"] .evidence-stage-icon { @apply border-accent/30 bg-accent/10 text-accent; }
+  .evidence-stage h3 { @apply text-sm font-bold tracking-[-0.02em]; }
+  .evidence-stage p { @apply mt-1 text-xs leading-5 text-muted-foreground; }
+  .evidence-stage-badge { @apply mt-0.5 h-fit rounded-full border border-border px-2 py-1 text-[9px] font-bold uppercase tracking-wide text-muted-foreground; }
+  .evidence-stage[data-state="active"] .evidence-stage-badge { @apply border-accent/30 bg-accent/10 text-accent; }
+
+  .inline-status { @apply inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.11em] text-accent; }
+  .inline-status::before { content: ""; @apply h-1.5 w-1.5 rounded-full bg-accent; }
+
+  .hero-gradient-text { @apply text-muted-foreground; }
+  .mobile-section { @apply scroll-mt-24; }
+  .pb-safe { padding-bottom: calc(0.5rem + env(safe-area-inset-bottom)); }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes ledger-enter {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-in-right { animation: slide-in-right 220ms ease-out; }
+.evidence-stage { animation: ledger-enter 420ms both; animation-delay: calc(var(--stage, 0) * 65ms); }
+
+@media (max-width: 639px) {
+  input, select, textarea, button { font-size: 16px !important; }
+  .app-main h1 { text-wrap: balance; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

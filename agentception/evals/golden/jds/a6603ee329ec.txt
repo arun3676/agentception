@@ -1,0 +1,45 @@
+Back to jobs Senior AI Engineer
+San Francisco Bay Area, CA Apply Why Weave Exists
+At Weave, our mission is to evolve how therapeutic knowledge is captured, transformed, and communicated throughout drug development. We do this by equipping human experts with AI instruments to enable drugs to be brought to patients as rapidly, safely, and inexpensively as possible.
+The Weave Platform streamlines regulatory workflows from start to finish by intelligently, creatively, and effectively infusing every step with AI. Together with our customers, Weave is designing and building the AI workbench for the entire therapeutic lifecycle.
+The Role & Your Mission
+We’re seeking a hands-on AI engineer who can bridge the gap between data and biomedical expertise while delivering robust backend code. Your primary focus will be building the LLM-facing components of our backend service, while ensuring the AI models consistently produce high-quality content under real-world load.
+The ideal candidate thrives in the full development cycle: taking concepts from initial conception through rigorous experimentation and testing, all the way to production deployment. You won't get lost in low-ROI side quests, but instead will maintain velocity with unwavering focus on the core value of your tasks.
+We value pragmatic problem-solving over flashy technology and buzz words, robustly tested solutions over demoware. We're building solutions that actually work—simple, thoroughly tested, and rock-solid reliable. If you believe the best technology is the one that consistently delivers results, you'll fit right in.
+What You'll Own
+Writing production-ready backend code for LLM-facing components of our backend service
+Writing tooling for automating the testing of LLM-in-the-loop code
+Designing and validating LLM-based solutions and proving their effectiveness with real data and meaningful metrics
+Developing test metrics for key functionality
+What You’ll Bring
+History of working at early-stage, product-based startups (<50 people)
+Scientist by disposition (and ideally by training); holds background knowledge or education in the biomedical space
+Extensive knowledge of LLMs in production
+Directly interacting with LLMs without abstraction libraries
+Humble, hungry, and smart
+Able to move quickly on tasks while producing high-quality results
+Pragmatic, analytical thinker. Efficient decision maker
+Bonus: work with web services and frameworks
+Bonus: work with ORMs
+Bonus: knows SQL
+What We Offer
+🎯 The opportunity to work at a modern, cutting-edge healthcare technology company devoted to meaningful positive impact on human life. Collaboration, velocity, and customer obsession are our baseline, demonstrations of craftsmanship and ROI are celebrated.
+🏆 Competitive salary ($175,000 to $215,000), bonus eligibility and equity packages.
+🧬 Comprehensive health, dental and vision insurance
+🏝️ Take care of you and yours: generous PTO, parental leave, OneMedical, TalkSpace, Teladoc.
+🚀 Career development opportunities within a company entering a growth phase.
+🌎 This position is based in San Francisco Bay Area, CA with flexibility to occasionally work remote.
+Equal Opportunity Employer: We are committed to creating a diverse environment and are proud to be an equal opportunity employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, gender, gender identity or expression, sexual orientation, national origin, genetics, disability, age, or veteran status.
+This organization participates in e-Verify:
+Notice of E-Verify Participation
+Notice of Right to Work
+Create a Job Alert
+Interested in building your career at Weave? Get future opportunities sent straight to your email.
+Create alert Apply for this job
+*
+indicates a required field
+Quick Apply with MyGreenhouse First Name * Last Name * Preferred First Name Email * Phone Country * Phone * Resume/CV * Attach Attach Dropbox Google Drive Enter manually Enter manually Accepted file types: pdf, doc, docx, txt, rtf
+Cover Letter Attach Attach Dropbox Google Drive Enter manually Enter manually Accepted file types: pdf, doc, docx, txt, rtf
+Education
+School * Select... Degree * Select... Discipline * Select... Add another LinkedIn Profile or Personal Website/Portfolio * Are you authorized to work in the US? * Select... Will you need sponsorship (work visa) now or in the future? * Select... City * State/Province * Select... Country * Select... Zip Code * Do you currently reside in the San Francisco Bay Area? * Select... Are you willing and able to work in our San Francisco office 3 days/week? * Select... Please note: we are not able to provide relocation assistance at this time.
+Do you have experience working in biotech or life sciences? * Select... Do you have experience working for a small (<50 employees), early stage (Seed or Series A) start-up company? * Select... Submit application
