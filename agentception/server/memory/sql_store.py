@@ -1,5 +1,6 @@
 from __future__ import annotations
 import os, sqlite3, datetime as dt, json, hashlib
+from contextlib import contextmanager
 from typing import Iterable, Any, Optional, Tuple
 from ..schemas import HousingLead, EventItem, PlaceItem
 import datetime as dt
@@ -12,9 +13,32 @@ DB_PATH = os.path.abspath(
     or os.path.join(os.path.dirname(__file__), "..", "..", "data", "agentception.db")
 )
 
+
+@contextmanager
 def _conn():
+    """A connection that is committed AND closed when the block exits.
+
+    This used to `return sqlite3.connect(...)`, so every call site did
+    `with _conn() as c:` believing that closed the handle. It does not:
+    `with` on a sqlite3 Connection is a *transaction* manager — it commits or
+    rolls back, and leaves the connection open. The handle then lived until the
+    garbage collector happened to reach it.
+
+    That is how a cursor escaping one of these blocks could keep a second
+    connection open against the same file (see job_application_update_status),
+    which on Windows made the DB file undeletable and, on any platform, invites
+    intermittent `database is locked` under concurrent writes.
+    """
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
-    return sqlite3.connect(DB_PATH)
+    conn = sqlite3.connect(DB_PATH)
+    try:
+        yield conn
+        conn.commit()
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
 
 def init():
     with _conn() as c:
@@ -582,7 +606,16 @@ def resource_bookmarks_list(user_id: str) -> list[dict]:
     ]
 
 # --------- Learning paths (SQLite backing) ---------
-def learning_path_save(path_id: str, user_id: Optional[str], title: str, topic: str, expertise_level: str, path_json: dict) -> None:
+def learning_path_save(path_id: str, user_id: str, title: str, topic: str, expertise_level: str, path_json: dict) -> None:
+    """Persist a learning path against its owner.
+
+    `user_id` is REQUIRED. A path saved with user_id=None was owned by nobody,
+    which made it invisible to its creator and visible to everyone through the
+    old unscoped list query.
+    """
+    if not user_id:
+        raise ValueError("user_id is required — refusing to save an unowned learning path")
+
     now = dt.datetime.utcnow().isoformat()
     with _conn() as c:
         try:
@@ -590,15 +623,24 @@ def learning_path_save(path_id: str, user_id: Optional[str], title: str, topic: 
                 "REPLACE INTO learning_paths (id, user_id, title, topic, expertise_level, path_json, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)",
                 (path_id, user_id, title, topic, expertise_level, json.dumps(path_json), now, now),
             )
-            c.commit()
         except Exception:
             pass
 
-def learning_path_get(path_id: str) -> Optional[dict]:
+def learning_path_get(path_id: str, user_id: str) -> Optional[dict]:
+    """A learning path, only if `user_id` owns it.
+
+    Scoped by owner in the SQL, not filtered after the fact: knowing (or
+    guessing) a path id used to be enough to read anyone's path. Callers get
+    None for both "no such path" and "not yours", so a 404 can be returned
+    without leaking whether the id exists.
+    """
+    if not user_id:
+        raise ValueError("user_id is required — refusing an unscoped learning-path read")
+
     with _conn() as c:
         row = c.execute(
-            "SELECT id, user_id, title, topic, expertise_level, path_json, created_at, updated_at FROM learning_paths WHERE id=?",
-            (path_id,),
+            "SELECT id, user_id, title, topic, expertise_level, path_json, created_at, updated_at FROM learning_paths WHERE id=? AND user_id=?",
+            (path_id, user_id),
         ).fetchone()
     if not row:
         return None
@@ -616,18 +658,19 @@ def learning_path_get(path_id: str) -> Optional[dict]:
     except Exception:
         return None
 
-def learning_path_list(user_id: Optional[str] = None, limit: int = 20) -> List[dict]:
+def learning_path_list(user_id: str, limit: int = 20) -> List[dict]:
+    """Every learning path owned by `user_id`.
+
+    `user_id` is REQUIRED. Omitting it used to return every user's paths.
+    """
+    if not user_id:
+        raise ValueError("user_id is required — refusing to list every user's learning paths")
+
     with _conn() as c:
-        if user_id:
-            rows = c.execute(
-                "SELECT id, user_id, title, topic, expertise_level, path_json, created_at, updated_at FROM learning_paths WHERE user_id=? ORDER BY updated_at DESC LIMIT ?",
-                (user_id, limit),
-            ).fetchall()
-        else:
-            rows = c.execute(
-                "SELECT id, user_id, title, topic, expertise_level, path_json, created_at, updated_at FROM learning_paths ORDER BY updated_at DESC LIMIT ?",
-                (limit,),
-            ).fetchall()
+        rows = c.execute(
+            "SELECT id, user_id, title, topic, expertise_level, path_json, created_at, updated_at FROM learning_paths WHERE user_id=? ORDER BY updated_at DESC LIMIT ?",
+            (user_id, limit),
+        ).fetchall()
     results: List[dict] = []
     for row in rows:
         try:
@@ -669,12 +712,21 @@ def progress_upsert(
 # --------- Application tracking ---------
 def job_application_add(
     app_id: str,
-    user_id: Optional[str],
+    user_id: str,
     company_name: str,
     job_title: str,
     job_url: str,
     application_status: str,
 ) -> dict:
+    """Save an application against its owner.
+
+    `user_id` is REQUIRED: now that reads are owner-scoped, a row stored with
+    user_id=None belongs to nobody and would be invisible to the person who
+    created it.
+    """
+    if not user_id:
+        raise ValueError("user_id is required — refusing to save an unowned application")
+
     now = dt.datetime.utcnow().isoformat()
     with _conn() as c:
         try:
@@ -682,7 +734,6 @@ def job_application_add(
                 "REPLACE INTO job_applications (id, user_id, company_name, job_title, job_url, application_status, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?)",
                 (app_id, user_id, company_name, job_title, job_url, application_status, now, now),
             )
-            c.commit()
         except Exception:
             pass
     return {
@@ -696,17 +747,21 @@ def job_application_add(
         "updated_at": now,
     }
 
-def job_applications_list(user_id: Optional[str] = None) -> list[dict]:
+def job_applications_list(user_id: str) -> list[dict]:
+    """Every application owned by `user_id`.
+
+    `user_id` is REQUIRED. Omitting it used to fall through to an unscoped
+    SELECT that returned every user's applications — one forgotten argument away
+    from a data leak.
+    """
+    if not user_id:
+        raise ValueError("user_id is required — refusing to list every user's applications")
+
     with _conn() as c:
-        if user_id:
-            rows = c.execute(
-                "SELECT id, user_id, company_name, job_title, job_url, application_status, created_at, updated_at FROM job_applications WHERE user_id=? ORDER BY created_at DESC",
-                (user_id,),
-            ).fetchall()
-        else:
-            rows = c.execute(
-                "SELECT id, user_id, company_name, job_title, job_url, application_status, created_at, updated_at FROM job_applications ORDER BY created_at DESC"
-            ).fetchall()
+        rows = c.execute(
+            "SELECT id, user_id, company_name, job_title, job_url, application_status, created_at, updated_at FROM job_applications WHERE user_id=? ORDER BY created_at DESC",
+            (user_id,),
+        ).fetchall()
     return [
         {
             "id": r[0],
@@ -721,30 +776,38 @@ def job_applications_list(user_id: Optional[str] = None) -> list[dict]:
         for r in rows or []
     ]
 
-def job_application_update_status(app_id: str, status: str, user_id: Optional[str] = None) -> Optional[dict]:
+def job_application_update_status(app_id: str, status: str, user_id: str) -> Optional[dict]:
+    """Update an application the caller owns. Returns None if it isn't theirs.
+
+    `user_id` is REQUIRED. There used to be an unscoped `WHERE id=?` branch for
+    when it was omitted, which meant a caller who simply forgot the argument
+    silently got cross-user writes. The ownership predicate is now the only path
+    — the security property is enforced by the signature, not by every caller
+    remembering to pass it.
+    """
+    if not user_id:
+        raise ValueError("user_id is required — refusing an unscoped application update")
+
     now = dt.datetime.utcnow().isoformat()
     with _conn() as c:
         try:
-            if user_id:
-                cursor = c.execute(
-                    "UPDATE job_applications SET application_status=?, updated_at=? WHERE id=? AND user_id=?",
-                    (status, now, app_id, user_id),
-                )
-            else:
-                cursor = c.execute(
-                    "UPDATE job_applications SET application_status=?, updated_at=? WHERE id=?",
-                    (status, now, app_id),
-                )
-            c.commit()
+            cursor = c.execute(
+                "UPDATE job_applications SET application_status=?, updated_at=? WHERE id=? AND user_id=?",
+                (status, now, app_id, user_id),
+            )
+            # Read rowcount INSIDE the block. Holding `cursor` past the `with`
+            # kept the connection alive while the follow-up read below opened a
+            # second one against the same file.
+            updated = cursor.rowcount
         except Exception:
             return None
-    if cursor.rowcount == 0:
+
+    if updated == 0:
         return None
-    # Fetch updated record
-    rows = job_applications_list(user_id=user_id)
-    for row in rows:
+    for row in job_applications_list(user_id=user_id):
         if row["id"] == app_id:
             return row
+    return None
     return None
 
 # --------- Readiness audit persistence ---------

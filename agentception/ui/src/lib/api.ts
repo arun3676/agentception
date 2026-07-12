@@ -6,10 +6,31 @@ import { supabase } from "@/lib/supabase";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
 
+/**
+ * There is no session, and the request needs one.
+ *
+ * This is a *type*, not a message, on purpose. A caller has to be able to tell
+ * "you aren't signed in" (retrying is futile — go sign in) apart from "the
+ * request failed" (retrying may well work), and it must not have to
+ * string-match an Error message to do it. Collapsing the two is exactly how a
+ * signed-out user ends up being told to "please try again" forever.
+ */
+export class AuthRequiredError extends Error {
+  constructor(message = "Sign in to continue.") {
+    super(message);
+    this.name = "AuthRequiredError";
+  }
+}
+
+/**
+ * Ownership always comes from the verified JWT — never from a value the browser
+ * supplies. Any endpoint that reads or writes a user's own data goes through here.
+ */
 async function authenticatedHeaders(): Promise<HeadersInit> {
   const result = supabase ? await supabase.auth.getSession() : { data: { session: null } };
-  if (!result.data.session?.access_token) throw new Error("Sign in to manage applications.");
-  return { "Content-Type": "application/json", Authorization: `Bearer ${result.data.session.access_token}` };
+  const token = result.data.session?.access_token;
+  if (!token) throw new AuthRequiredError();
+  return { "Content-Type": "application/json", Authorization: `Bearer ${token}` };
 }
 
 export interface RagRequest {
@@ -122,7 +143,8 @@ export interface LearningPathRequest {
   learning_style: string;
   time_commitment: string;
   goals: string[];
-  user_id?: string;
+  // No user_id. The server takes ownership from the bearer token; a client that
+  // could name its own owner could name someone else's.
 }
 
 export interface LearningPath {
@@ -323,10 +345,10 @@ export async function fetchResource(resourceId: string): Promise<AIResource> {
   return response.json();
 }
 
-export async function listLearningPaths(userId?: string): Promise<{ paths: Array<{ id: string; title: string; topic: string; expertise_level: string; created_at: string }> }> {
-  const url = new URL(`${BACKEND_URL}/api/v1/learning-paths`);
-  if (userId) url.searchParams.set("user_id", userId);
-  const response = await fetch(url.toString());
+export async function listLearningPaths(): Promise<{ paths: Array<{ id: string; title: string; topic: string; expertise_level: string; created_at: string }> }> {
+  const response = await fetch(`${BACKEND_URL}/api/v1/learning-paths`, {
+    headers: await authenticatedHeaders(),
+  });
   if (!response.ok) {
     throw new Error(`Failed to list learning paths: ${response.statusText}`);
   }
@@ -334,7 +356,9 @@ export async function listLearningPaths(userId?: string): Promise<{ paths: Array
 }
 
 export async function getLearningPath(pathId: string): Promise<LearningPath> {
-  const response = await fetch(`${BACKEND_URL}/api/v1/learning-paths/${pathId}`);
+  const response = await fetch(`${BACKEND_URL}/api/v1/learning-paths/${pathId}`, {
+    headers: await authenticatedHeaders(),
+  });
   if (!response.ok) {
     throw new Error(`Failed to get learning path: ${response.statusText}`);
   }
@@ -344,11 +368,52 @@ export async function getLearningPath(pathId: string): Promise<LearningPath> {
 export async function createLearningPath(request: LearningPathRequest): Promise<LearningPath> {
   const response = await fetch(`${BACKEND_URL}/api/v1/learning-paths/generate`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: await authenticatedHeaders(),
     body: JSON.stringify(request),
   });
   if (!response.ok) {
     throw new Error(`Failed to generate learning path: ${response.statusText}`);
+  }
+  return response.json();
+}
+
+/**
+ * Application outcomes. These used to be hand-rolled `fetch` calls in
+ * VerdictLoop.tsx that sent `user_id=<VITE_SUPABASE_DEFAULT_USER_ID || "demo-user">`
+ * — a browser-supplied owner, so anyone could read or write another user's
+ * outcomes by naming them. The owner now comes from the JWT, server-side.
+ */
+export interface OutcomePatterns {
+  ready: boolean;
+  reason?: string;
+  outcomes_count: number;
+  outcomes: Array<Record<string, unknown>>;
+  [key: string]: unknown;
+}
+
+export async function getOutcomePatterns(): Promise<OutcomePatterns> {
+  const response = await fetch(`${BACKEND_URL}/outcomes/patterns`, {
+    headers: await authenticatedHeaders(),
+  });
+  if (!response.ok) {
+    throw new Error(`Failed to load outcome patterns: ${response.statusText}`);
+  }
+  return response.json();
+}
+
+export async function logOutcome(payload: {
+  company: string;
+  role: string;
+  outcome: string;
+  audit_id?: string | null;
+}): Promise<{ ok: boolean; id?: string; storage?: string }> {
+  const response = await fetch(`${BACKEND_URL}/outcomes/log`, {
+    method: "POST",
+    headers: await authenticatedHeaders(),
+    body: JSON.stringify(payload),
+  });
+  if (!response.ok) {
+    throw new Error(`Failed to log outcome: ${response.statusText}`);
   }
   return response.json();
 }
@@ -370,7 +435,7 @@ export async function analyzeSkillGaps(payload: {
 }
 
 export async function createApplication(payload: {
-  user_id?: string;
+  // No user_id: the server derives the owner from the token.
   company_name: string;
   job_title: string;
   job_url: string;
@@ -387,7 +452,7 @@ export async function createApplication(payload: {
   return response.json();
 }
 
-export async function listApplications(user_id?: string): Promise<{ items: ApplicationRecord[] }> {
+export async function listApplications(): Promise<{ items: ApplicationRecord[] }> {
   const response = await fetch(`${BACKEND_URL}/api/v1/applications`, { headers: await authenticatedHeaders() });
   if (!response.ok) {
     throw new Error(`Failed to load applications: ${response.statusText}`);

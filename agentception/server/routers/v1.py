@@ -68,9 +68,13 @@ async def get_resource(resource_id: str):
 
 # --------- Learning paths ---------
 
+# Learning paths are user-owned rows, so every route here derives the owner from
+# the verified JWT. They previously took `user_id` from the query string / request
+# body, which meant anyone could list, read, or write as any user — no token needed.
+
 @router.get("/learning-paths")
-async def list_learning_paths(user_id: Optional[str] = None):
-    paths = sql_store.learning_path_list(user_id=user_id)
+async def list_learning_paths(user: User = Depends(require_user)):
+    paths = sql_store.learning_path_list(user_id=user.id)
     return {
         "paths": [
             {
@@ -86,17 +90,21 @@ async def list_learning_paths(user_id: Optional[str] = None):
 
 
 @router.get("/learning-paths/{path_id}")
-async def get_learning_path(path_id: str):
-    record = sql_store.learning_path_get(path_id)
+async def get_learning_path(path_id: str, user: User = Depends(require_user)):
+    record = sql_store.learning_path_get(path_id, user_id=user.id)
     if not record:
+        # 404 for both "no such path" and "not yours" — a 403 would confirm the
+        # id exists, which is itself a leak.
         raise HTTPException(404, "Learning path not found")
     return record["path"] or record
 
 
 @router.post("/learning-paths/generate")
-async def create_learning_path(req: LearningPathRequest):
+async def create_learning_path(req: LearningPathRequest, user: User = Depends(require_user)):
     try:
-        path = generate_learning_path(req)
+        # The owner comes from the token. `req.user_id` is ignored on purpose —
+        # trusting it would let a client file a path under someone else's id.
+        path = generate_learning_path(req, user_id=user.id)
         return path.model_dump()
     except Exception as e:
         raise HTTPException(500, f"Failed to generate learning path: {e}")
@@ -168,7 +176,8 @@ async def analyze_skill_gaps(body: SkillGapBody):
 # --------- Applications ---------
 
 class ApplicationCreateBody(BaseModel):
-    user_id: Optional[str] = None
+    # No user_id. Ownership comes from the verified JWT; a body field that looks
+    # like it sets the owner but is silently ignored is a trap for the next reader.
     company_name: str
     job_title: str
     job_url: str

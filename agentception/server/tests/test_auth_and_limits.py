@@ -1,10 +1,72 @@
 """Auth, rate limiting, and run persistence."""
 
+import gc
+import sqlite3
+
 import pytest
 from fastapi import HTTPException
+from fastapi.testclient import TestClient
 
+from server.app import app
+from server.auth import User, require_user
 from server.memory import sql_store
 from server.rate_limit import RateLimiter
+
+
+@pytest.fixture
+def client():
+    return TestClient(app)
+
+
+@pytest.fixture
+def as_user():
+    """Sign in as a given user id for the duration of a test."""
+
+    def _sign_in(user_id: str):
+        app.dependency_overrides[require_user] = lambda: User(id=user_id, is_anonymous=False)
+        return TestClient(app)
+
+    yield _sign_in
+    app.dependency_overrides.pop(require_user, None)
+
+
+class TestOutcomesOwnership:
+    """`/outcomes/*` took the owner from the client — body field on log, query
+    string on patterns, defaulting to "demo-user". So anyone could read or write
+    another user's application outcomes by naming them. Same hole as the v1
+    application and learning-path routes; it just lived on the root app, which is
+    why the first pass missed it.
+    """
+
+    def test_patterns_rejects_anonymous(self, client):
+        assert client.get("/outcomes/patterns").status_code == 401
+
+    def test_patterns_cannot_be_targeted_at_another_user(self, client):
+        # The old signature was `outcome_patterns(user_id: str = "demo-user")`.
+        # A query param must not be able to select whose outcomes come back.
+        assert client.get("/outcomes/patterns?user_id=victim").status_code == 401
+
+    def test_log_rejects_anonymous(self, client):
+        r = client.post(
+            "/outcomes/log",
+            json={"company": "Acme", "role": "AI Engineer", "outcome": "offer"},
+        )
+        assert r.status_code == 401
+
+    def test_log_ignores_a_client_supplied_owner(self, as_user):
+        # Even signed in, a user_id in the body must not choose the owner.
+        c = as_user("bob")
+        r = c.post(
+            "/outcomes/log",
+            json={
+                "user_id": "alice",  # attacker-controlled; must be ignored
+                "company": "Acme",
+                "role": "AI Engineer",
+                "outcome": "offer",
+            },
+        )
+        # Pydantic drops the unknown field; the route must still succeed as *bob*.
+        assert r.status_code == 200, r.text
 
 
 class TestRateLimiter:
@@ -100,3 +162,142 @@ class TestApplicationOwnership:
         assert sql_store.job_application_update_status("owned-application", "offer", user_id="other-user") is None
         owner_rows = sql_store.job_applications_list(user_id="owner")
         assert owner_rows[0]["application_status"] == "saved"
+
+
+class TestLearningPathOwnership:
+    """`GET /api/v1/learning-paths` used to take user_id from the QUERY STRING with
+    no auth at all, so anyone could list, target, or read any user's paths. Omitting
+    user_id returned *every* user's paths."""
+
+    def _seed_alice(self):
+        sql_store.init()
+        sql_store.learning_path_save(
+            path_id="lp-alice", user_id="alice", title="Alice's private roadmap",
+            topic="RAG", expertise_level="advanced", path_json={"secret": "alice"},
+        )
+
+    def test_listing_requires_a_token(self, client):
+        self._seed_alice()
+        assert client.get("/api/v1/learning-paths").status_code == 401
+
+    def test_listing_cannot_be_targeted_at_another_user_by_query_param(self, client):
+        # The original hole: ?user_id=alice with no token.
+        self._seed_alice()
+        assert client.get("/api/v1/learning-paths?user_id=alice").status_code == 401
+
+    def test_reading_a_path_by_id_requires_a_token(self, client):
+        self._seed_alice()
+        assert client.get("/api/v1/learning-paths/lp-alice").status_code == 401
+
+    def test_a_signed_in_user_sees_only_their_own_paths(self, as_user):
+        self._seed_alice()
+        bob = as_user("bob")
+        body = bob.get("/api/v1/learning-paths").json()
+        titles = [p["title"] for p in body["paths"]]
+        assert "Alice's private roadmap" not in titles
+
+    def test_a_user_cannot_read_another_users_path_by_id(self, as_user):
+        self._seed_alice()
+        bob = as_user("bob")
+        response = bob.get("/api/v1/learning-paths/lp-alice")
+        # 404, not 403: a 403 would confirm the id exists, which is itself a leak.
+        assert response.status_code == 404
+        assert "alice" not in response.text.lower()
+
+    def test_the_owner_can_still_read_their_own_path(self, as_user):
+        self._seed_alice()
+        alice = as_user("alice")
+        assert alice.get("/api/v1/learning-paths/lp-alice").status_code == 200
+        titles = [p["title"] for p in alice.get("/api/v1/learning-paths").json()["paths"]]
+        assert "Alice's private roadmap" in titles
+
+
+class TestOwnershipIsEnforcedBySignature:
+    """The store used to accept user_id=None and silently fall through to an
+    unscoped query. One forgotten argument was one data leak."""
+
+    def test_listing_applications_without_a_user_is_refused(self):
+        with pytest.raises(ValueError):
+            sql_store.job_applications_list(user_id="")
+
+    def test_updating_an_application_without_a_user_is_refused(self):
+        with pytest.raises(ValueError):
+            sql_store.job_application_update_status("some-app", "offer", user_id="")
+
+    def test_listing_learning_paths_without_a_user_is_refused(self):
+        with pytest.raises(ValueError):
+            sql_store.learning_path_list(user_id="")
+
+    def test_saving_an_unowned_learning_path_is_refused(self):
+        with pytest.raises(ValueError):
+            sql_store.learning_path_save(
+                path_id="lp-orphan", user_id="", title="t", topic="x",
+                expertise_level="beginner", path_json={},
+            )
+
+
+class TestConnectionHygiene:
+    """`with sqlite3.connect(...)` is a TRANSACTION manager: it commits, it does
+    NOT close. Holding a cursor past the block kept a connection alive while the
+    next call opened a second one against the same file — which made the DB file
+    undeletable on Windows and invites `database is locked` anywhere."""
+
+    @staticmethod
+    def _open_connections() -> int:
+        gc.collect()
+        still_open = 0
+        for obj in gc.get_objects():
+            if isinstance(obj, sqlite3.Connection):
+                try:
+                    obj.execute("SELECT 1")
+                    still_open += 1
+                except sqlite3.ProgrammingError:
+                    pass  # already closed — what we want
+                except sqlite3.Error:
+                    pass
+        return still_open
+
+    def test_conn_closes_the_handle_when_the_block_exits(self):
+        """The contract, asserted directly.
+
+        This is the test that pins the fix. The end-state checks below can be
+        satisfied by refcounting luck; this one cannot — if `_conn()` stops
+        closing, the handle is still usable here and the test fails.
+        """
+        with sql_store._conn() as c:
+            c.execute("SELECT 1")
+
+        with pytest.raises(sqlite3.ProgrammingError):
+            c.execute("SELECT 1")  # closed, so this must raise
+
+    def test_a_cursor_held_past_the_block_cannot_pin_the_connection(self):
+        """The exact shape of the original bug: `cursor` escapes the `with`."""
+        sql_store.init()
+        with sql_store._conn() as c:
+            cursor = c.execute("SELECT 1")
+
+        # `cursor` still references the connection — but the connection is closed,
+        # so it can no longer hold the database file open.
+        assert cursor is not None
+        with pytest.raises(sqlite3.ProgrammingError):
+            cursor.execute("SELECT 1")
+
+    def test_a_status_update_leaves_no_open_connection(self):
+        sql_store.init()
+        sql_store.job_application_add(
+            app_id="conn-app", user_id="conn-user", company_name="Acme",
+            job_title="AI Engineer", job_url="https://example.com/j", application_status="saved",
+        )
+        assert self._open_connections() == 0
+
+        sql_store.job_application_update_status("conn-app", "offer", user_id="conn-user")
+
+        # Before the fix this was 1: `cursor` escaped the `with` block and pinned
+        # the connection while job_applications_list() opened another.
+        assert self._open_connections() == 0
+
+    def test_reads_leave_no_open_connection(self):
+        sql_store.init()
+        sql_store.job_applications_list(user_id="conn-user")
+        sql_store.learning_path_list(user_id="conn-user")
+        assert self._open_connections() == 0

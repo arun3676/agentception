@@ -346,12 +346,13 @@ class AIResource(BaseModel):
 
 
 class LearningPathRequest(BaseModel):
+    # No user_id: ownership is derived from the verified JWT, never from the
+    # request body. A client-supplied owner let anyone file a path under any id.
     topic: str
     expertise_level: str
     learning_style: str
     time_commitment: str
     goals: List[str] = []
-    user_id: Optional[str] = None
 
 
 class LearningResourceItem(BaseModel):

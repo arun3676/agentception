@@ -82,7 +82,16 @@ def _build_milestones(topic: str, resources: List[LearningResourceItem], total_h
     return milestones
 
 
-def generate_learning_path(req: LearningPathRequest) -> LearningPath:
+def generate_learning_path(req: LearningPathRequest, user_id: str) -> LearningPath:
+    """Build and persist a learning path owned by `user_id`.
+
+    The owner is an explicit argument, not `req.user_id`: the request body is
+    client-controlled, so reading ownership from it let a caller file a path
+    under someone else's account.
+    """
+    if not user_id:
+        raise ValueError("user_id is required to generate a learning path")
+
     path_id = str(uuid.uuid4())
     total_hours = _estimate_total_hours(req.time_commitment)
     resources = _select_resources(req.topic)
@@ -107,7 +116,7 @@ def generate_learning_path(req: LearningPathRequest) -> LearningPath:
     )
     sql_store.learning_path_save(
         path_id=path_id,
-        user_id=req.user_id,
+        user_id=user_id,
         title=title,
         topic=req.topic,
         expertise_level=req.expertise_level,

@@ -13,7 +13,7 @@ from .schemas import TimelineEvent
 from .memory.state_store import Memory, TimelineBus
 from .memory import sql_store
 from .auth import User, current_user, require_user
-from .rate_limit import limit, llm_limiter, search_limiter
+from .rate_limit import limit, llm_limiter, read_limiter, search_limiter
 
 # Keep Unicode startup and diagnostic logs safe when Windows redirects output to
 # a file or launches the API without an interactive UTF-8 terminal.
@@ -63,7 +63,8 @@ class AuditStartBody(BaseModel):
     user_id: str = "demo-user"
 
 class OutcomeBody(BaseModel):
-    user_id: str = "demo-user"
+    # No user_id: the owner is the authenticated caller. A body field that looks
+    # like it sets ownership but is ignored is worse than no field at all.
     audit_id: str | None = None
     company: str
     role: str
@@ -163,18 +164,23 @@ async def readiness_one_thing(audit_id: str):
     from .workers.readiness_tasks import start_one_thing_task
     return await start_one_thing_task(audit)
 
-@app.post("/outcomes/log")
-async def create_outcome(body: OutcomeBody):
+# Ownership comes from the verified JWT, never from the client. Before this,
+# /outcomes/log took the owner from the request body and /outcomes/patterns took
+# it from the query string (defaulting to "demo-user"), so anyone could read or
+# write another user's application outcomes by naming them. Same hole the v1
+# application and learning-path routes just had.
+@app.post("/outcomes/log", dependencies=[Depends(limit(read_limiter))])
+async def create_outcome(body: OutcomeBody, user: User = Depends(require_user)):
     from .agents.readiness.verdict_loop import log_outcome
     return await log_outcome(
-        user_id=body.user_id, audit_id=body.audit_id, company=body.company,
+        user_id=user.id, audit_id=body.audit_id, company=body.company,
         role=body.role, outcome=body.outcome,
     )
 
-@app.get("/outcomes/patterns")
-async def outcome_patterns(user_id: str = "demo-user"):
+@app.get("/outcomes/patterns", dependencies=[Depends(limit(read_limiter))])
+async def outcome_patterns(user: User = Depends(require_user)):
     from .agents.readiness.verdict_loop import get_patterns
-    return await get_patterns(user_id)
+    return await get_patterns(user.id)
 
 @app.on_event("startup")
 async def _startup():
