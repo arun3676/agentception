@@ -56,6 +56,25 @@ describe("ATS job titles", () => {
     expect(card!.title.toLowerCase()).toContain("hophr");
   });
 
+  it("recovers the role from the SNIPPET when job_title is empty", () => {
+    // This is the shape production actually returns: job_title is unusable and
+    // the real role sits at the head of the blurb. Live, this rendered as
+    // "Open role at Anthropic" while the very next line of the card read
+    // "Job Application for Staff+ Software Engineer, Full-stack at Anthropic".
+    const card = normalizeJobCard(
+      {
+        company_name: "Anthropic",
+        job_url: "https://job-boards.greenhouse.io/anthropic/jobs/8611081002",
+        job_title: null,
+        blurb:
+          "Job Application for Staff+ Software Engineer, Full-stack at Anthropic. San Francisco, CA | New York City, NY | Seattle, WA.",
+      },
+      "",
+    );
+    expect(card!.title.toLowerCase()).toContain("software engineer");
+    expect(card!.title.toLowerCase()).not.toMatch(/^open role at/);
+  });
+
   it("does not emit a bare 'roles at ...' when no role was requested", () => {
     const card = normalizeJobCard(
       { company_name: "Pilothq", job_url: "https://job-boards.greenhouse.io/pilothq/jobs/1", job_title: "Application", blurb: "" },
