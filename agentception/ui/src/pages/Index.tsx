@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, type CSSProperties } from "react";
+import { useState, useEffect, useCallback, useRef, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { SearchForm } from "@/components/SearchForm";
 import { Timeline } from "@/components/Timeline";
@@ -48,6 +48,24 @@ const Index = () => {
   const [showTimeline, setShowTimeline] = useState(true);
   const { openStudy, studyDrawer } = useStudyDrawer();
 
+  // Results render *below the fold*. Without these, clicking Search leaves the
+  // viewport on the unchanged form while the page silently grows by ~700px —
+  // the search works, and the user is looking at the wrong part of the page and
+  // concludes it's broken. Scroll to the timeline immediately (so the run is
+  // visibly happening), then to the results when they land.
+  const timelineRef = useRef<HTMLElement>(null);
+  const resultsRef = useRef<HTMLElement>(null);
+  const scrolledToResults = useRef(false);
+
+  const revealResults = useCallback(() => {
+    if (scrolledToResults.current) return;
+    scrolledToResults.current = true;
+    // Wait a frame so the section is actually in the DOM before measuring.
+    requestAnimationFrame(() => {
+      resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }, []);
+
   const loadResults = useCallback(async (offset: number) => {
     if (!runId) return;
     setIsLoading(true);
@@ -62,6 +80,8 @@ const Index = () => {
       const displayCards = [...grouped.directRoles, ...grouped.listings];
       setJobCards((previous) => offset > 0 ? [...previous, ...displayCards] : displayCards);
       setHasMore(data.pagination.has_more);
+      // Only on the first page — "Load more" must not yank the user back up.
+      if (offset === 0 && displayCards.length > 0) revealResults();
     } catch (error) {
       console.error("[Index] Failed to load results:", error);
       toast({
@@ -72,7 +92,7 @@ const Index = () => {
     } finally {
       setIsLoading(false);
     }
-  }, [runId]);
+  }, [runId, revealResults]);
 
   const handleTimelineComplete = () => {
     window.setTimeout(() => { loadResults(0); }, 1000);
@@ -89,6 +109,10 @@ const Index = () => {
     setJobCards([]);
     setResults(null);
     setHasMore(false);
+    scrolledToResults.current = false;
+    requestAnimationFrame(() => {
+      timelineRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   };
 
   const handleResumeUploaded = (token: string, insights?: ResumeInsights, textPreview?: string, fileName?: string, structured?: ResumeStructured) => {
@@ -217,7 +241,7 @@ const Index = () => {
             </section>
 
             {runId && (
-              <section className="workspace-panel overflow-hidden">
+              <section ref={timelineRef} className="workspace-panel scroll-mt-6 overflow-hidden">
                 <div className="workspace-panel-head flex-row items-center">
                   <div><p className="section-label">Live timeline</p><h2 className="mt-2 text-lg font-extrabold tracking-[-0.03em]">Research in motion</h2></div>
                   <Button variant="ghost" size="sm" className="shrink-0 gap-1.5 rounded-lg text-xs" onClick={() => setShowTimeline((value) => !value)}>
@@ -231,7 +255,7 @@ const Index = () => {
             )}
 
             {(jobCards.length > 0 || isLoading) && (
-              <section className="pt-2">
+              <section ref={resultsRef} className="scroll-mt-6 pt-2">
                 <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                   <div>
                     <p className="section-label">Role evidence</p>
