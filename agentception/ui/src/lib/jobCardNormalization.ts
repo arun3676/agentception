@@ -797,7 +797,17 @@ function getDisplayTitle(params: {
     return toTitleCase(unwrapped);
   }
 
-  // Priority 2: try to recover a role from the snippet.
+  // Priority 2: the ATS often leaves job_title empty/"Application" and puts the
+  // real one at the head of the snippet — "Job Application for Staff+ Software
+  // Engineer, Full-stack at Anthropic. San Francisco, CA | ...". Same unwrap.
+  const fromSnippetHead = /^\s*job\s+application\s+for\s+/i.test(snippet)
+    ? unwrapAtsTitle(snippet)
+    : "";
+  if (fromSnippetHead.length >= 4) {
+    return toTitleCase(fromSnippetHead);
+  }
+
+  // Priority 3: try to recover a role from anywhere in the snippet.
   const roleFromSnippet = extractRoleFromSnippet(snippet);
   if (roleFromSnippet) {
     return roleFromSnippet;
