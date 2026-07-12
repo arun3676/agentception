@@ -1,0 +1,37 @@
+Back to jobs Lead Data Engineer
+New York, NY Apply What is Coast
+Coast is re-imagining the trillion-dollar U.S. B2B card payments infrastructure, with a focus on the country’s 500,000 commercial fleets, 40 million commercial vehicles, and many millions of commercial drivers. The incumbent technologies that cater to these customers are decades old, and businesses with fleets increasingly demand modern digital experiences and transparent financial services products. Coast’s mission is to deliver this at a transformational scale, beginning with the Coast Fleet and Fuel Card built on a cutting-edge spend management platform.
+About the Role
+We are looking for a leader of the Coast data engineering team to shape our company’s data culture and underlying infrastructure.
+At Coast, the success of our data platform is driving accelerating demand from all corners of the company. We’re looking for a key builder to help us meet this moment. In this role, you will drive the evolution of our modern, cloud-native data platform. This is a chance to lead a small, high-leverage team and make a definitive impact, building the systems that help us understand risk, acquire customers, and create a better financial product. You will be building on a solid foundation that lets you focus on high-impact work from day one. Our data engineering organization follows the federated model of data product ownership—the data platform serves as the foundation, not the first line of defense against data issues.
+We need you to help us establish a vision for the data ecosystem evolution while satisfying day to day demands of a rapidly growing early stage startup.
+You will report directly to the Head of Engineering and work from our NYC office.
+What You’ll Do
+lead design and implementation of all aspects of our data ecosystem — from obtaining third party data to building our own data products, from infrastructure architecture to end-user BI and data exploration toolchain;
+evangelize and implement the best practices, from reasoning about statistical significance to granting data access via AI tools, from source control and change management to database migrations;
+establish guardrails for self-serve ecosystem for the business users;
+help our product engineering teams evolve from treating data as exhaust to building DDD-based data products;
+enhance our ETL/ELT patterns, from landing zone to semantic layers;
+ensure that our metrics are built on top of consistent, curated data with clear stewardship;
+oversee our connected SaaS data landscape;
+own the budget for the data infrastructure and develop a sensible cost allocation model;
+safeguard our data, from tokenization and access controls, to retention and backups;
+remain relentlessly pragmatic and balance the daily demands or a fast-growing startup business with the needs of a well-managed platform;
+Requirements
+have 7-10+ years hands-on experience working across the data ecosystem, from modern ETL/ELT and orchestration to data warehouses and columnar stores, from BI tooling for less-technical business users to SQL optimization;
+have software engineering mindset, leading with the principles of source control, infrastructure as code, testing, modularity, automation, CICD, and observability;
+bring in a strong professional network, since it is impossible to know everything, and one must be able to tap others for advice;
+have experience working directly with product engineers as well as business users;
+be proficient in Python, since you would be expected to contribute data platform aspects into product engineering code as well as write your own tools;
+be able to figure stuff out - the modern data space is deep and complex, and there are many ways of solving the same problem; you need to be able to go off on your own, research and design a solution, implement technical spikes, and then deliver it through responsible change management;
+have an owner mindset and continuously look for, notice, and implement improvements to our data infrastructure, because small continuous improvements matter;
+be a thought-leader that keeps a finger on the pulse of the industry - vendor landscape, industry trends;
+work from our NYC SoHo office at least four days a week.
+Compensation and Benefits
+Our salary ranges are based on paying competitively for our size and industry, and are one part of our total compensation package that also includes benefits, signing bonus, and equity. Pay decisions are based on a number of factors, including scope and qualifications for the role, experience level, skillset, and balancing internal equity relative to other Coast employees. We expect the majority of candidates who are offered roles at Coast to fall healthily within the range based on these factors.
+Salary range : $170K-$220K
+Equity Grant : Meaningful potential upside given Coast’s early-stage trajectory
+Benefits Overview :
+Medical, dental and vision insurance
+Flexible paid time off (vacation, personal well being, paid holidays)
+Tools to

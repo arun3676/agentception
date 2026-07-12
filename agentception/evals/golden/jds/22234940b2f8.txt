@@ -1,0 +1,53 @@
+Back to jobs Manager, Data Operations
+Chicago, IL Apply
+How you’ll make an impact:
+As the Manager of Data Operations, you will lead a team responsible for the reliability, performance, and security of a mission-critical data platform spanning SQL Server, Azure SQL Database, Snowflake, and Microsoft Fabric.
+This is a hands-on leadership role. You will balance people management with deep technical engagement—guiding the team while also stepping in to solve complex performance issues, drive platform improvements, and ensure operational excellence across the environment.
+You’ll partner closely with engineering, analytics, and platform teams to ensure our data systems are scalable, cost-efficient, and ready to support advanced analytics and AI-driven workloads.
+Lead and Grow the Team
+Manage, mentor, and develop a team of data engineers and DBAs
+Set clear priorities and uphold high operational standards
+Coach on performance tuning, troubleshooting, and best practices
+Partner on hiring, workforce planning, and team development
+Own Platform Reliability and Security
+Ensure availability, performance, and security across all platforms
+Lead incident response and improve operational readiness
+Strengthen monitoring, alerting, and runbooks to reduce noise and speed response
+Support backup, recovery, and disaster recovery strategies
+Stay Hands-On
+Troubleshoot complex performance issues across CPU, memory, IO, and concurrency
+Optimize queries, indexing, and execution plans at scale
+Guide database design and performance with engineering teams
+Serve as an escalation point for critical production issues
+Drive Improvement and Modernization
+Identify opportunities to improve scalability, efficiency, and cost
+Support adoption of Snowflake, Microsoft Fabric, and modern data tools
+Partner to enable analytics, ML, and AI workloads
+Promote automation and standardization
+What we’re looking for:
+Strong SQL Server performance tuning experience in production environments, including execution plans, indexing, locking/blocking, and wait analysis
+Experience with Azure SQL and hybrid data platforms; familiarity with Snowflake and/or Microsoft Fabric is a plus
+Proficiency in SQL and scripting languages such as PowerShell or Python
+Experience with monitoring and observability tools like Query Store, Azure Monitor, or Datadog
+A solid understanding of how infrastructure decisions impact database performance, scalability, and cost
+Experience supporting analytics, reporting, or AI-driven data platforms
+Proven ability to lead technical teams while remaining hands-on when needed
+Strong decision-making skills, accountability, and a track record of improving operational practices
+Excellent collaboration and communication skills, especially during incidents, cross-functional initiatives, and technical decision-making discussions
+What Success Looks Like:
+A secure, high-performing, well-monitored data platform
+A team with clear ownership and reduced operational noise
+Effective incident response with continuous improvement
+Ongoing platform enhancements—not just maintenance
+A data environment ready to scale with analytics and AI needs
+Estimated Salary Range: $150,000-168,000
+Actual salary will be determined based on factors including, but not limited to, skill set and level of experience. This salary range is a good faith estimate of base pay. Strata also provides discretionary variable pay programs based on role. In addition, Strata provides a comprehensive benefits package including retirement benefits, health and welfare benefits, paid time off, parental leave, life and accident insurance, and other voluntary and well-being benefits.
+Find out more about Strata benefits  here .
+How we work:
+Our preferred location for open roles is Chicago, IL. We value in‑person connection and regularly host on‑campus events to create meaningful opportunities for our team to build relationships and collaborate
+Thinking about applying?
+Research shows that women and underrepresented groups tend to apply to jobs only when they check every box on a job posting. If you’re currently reading this and hesitating to click “Apply” for that reason, we encourage you to go for it! A true passion and excitement for making an impact is just as important as work experience.
+Should you require a reasonable accommodation in completing this application, interviewing, completing any pre-employment testing, or otherwise participating in the employee selection process, please reach out to careers@stratadecision.com.
+Here @ Strata…
+Our culture is driven by our people solving problems together. We embrace learning, collaboration, and continuous career growth. Together, we lift our customers, our products, our company, and our community.
+We believe that each of our team member’s unique perspectives and experiences is what drives innovation and positive change. Our individual differences are what make us a more forward-thinking organization. We foster a culture of inclusion, equity and belonging,

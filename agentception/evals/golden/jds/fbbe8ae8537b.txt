@@ -1,0 +1,30 @@
+Title: Senior Applied AI/ML Engineer, Claims Decisioning & Optimization
+
+About Pivotal Health
+Pivotal Health is the leading technology platform that helps healthcare providers get paid fairly in an increasingly complex reimbursement landscape.
+Today, many providers face persistent underpayment from health insurance companies, despite delivering high-quality care. While processes like IDR (Independent Dispute Resolution) were designed to promote fairness, they’re often administrative-heavy, time-consuming, and difficult to navigate without the right tools.
+Pivotal Health combines software, data, and service into a seamlessly integrated, AI-driven platform that simplifies these complex reimbursement workflows. We help providers efficiently dispute underpaid claims, reduce administrative burden, and recover the reimbursement they’re entitled to; without adding more work to already stretched teams.
+Our full-service IDR solution is just the starting point. We’re building solutions that enable providers to operate with clarity, control, and confidence across the reimbursement journey.
+About The Role
+Pivotal Health is investing heavily in AI as a core strategic capability to transform healthcare operations. We are building intelligent systems that automate complex workflows, improve decision-making, and drive measurable business outcomes across the organization.
+As a Senior Applied AI/ML Engineer focused on the Offer Engine, you will design, build, and improve production AI systems that generate optimal, fair, and defensible offers for insurance claims. Reporting to the Head of AI/ML Engineering, you will work at the intersection of machine learning, software engineering, product workflows, and business strategy to solve complex decision-making problems at scale.
+This role is focused on applied AI engineering—not research in isolation. You will own systems end-to-end, from experimentation and model development to deployment, evaluation, and operational improvement. Your work will directly influence claim outcomes, negotiation workflows, and the quality of critical business decisions.
+We are looking for product-oriented engineers who thrive in ambiguous environments, move quickly from idea to execution, and are excited to build AI systems that create measurable impact. Whether your background is rooted in machine learning engineering, optimization, decision science, marketplace dynamics, or experimentation-heavy environments, success in this role comes from a strong bias toward shipping and continuous improvement.
+What You'll Do
+Own and improve production AI systems. Design, deploy, and optimize AI/ML solutions that influence critical claims and negotiation workflows.
+Build offer optimization models. Develop and improve models that generate optimal, fair, and explainable offers while balancing business objectives, customer outcomes, and operational constraints.
+Develop AI-powered decisioning systems. Build and refine production workflows involving generation, retrieval, evaluation, orchestration, and automated decision-making.
+Improve core product capabilities. Work on systems including position statement generation, offer engine enhancements, open negotiation agents, and configurable decisioning frameworks.
+Design evaluation and experimentation frameworks. Create robust testing methodologies and experiments that improve model quality, workflow performance, and business outcomes.
+Translate business problems into scalable systems. Partner with product, operations, and engineering teams to define success metrics and convert complex requirements into production-ready solutions.
+Optimize model and workflow behavior. Improve prompts, retrieval strategies, model performance, and decisioning logic through continuous experimentation and feedback loops.
+Drive engineering excellence. Contribute to architecture, observability, testing, rollout safety, and operational reliability across AI-powered systems.
+Accelerate AI adoption across the organization. Leverage AI tools and best practices to improve team productivity and establish scalable AI-native ways of working.
+Balance speed with rigor. Deliver impactful systems quickly while maintaining high standards for reliability, fairness, and maintainability.
+Who You Are
+5–8+ years of experience building software systems in production environments, with a strong track record of owning and delivering complex technical solutions.
+Experience building and operating applied AI, machine learning, LLM, agentic, or decisioning systems in production.
+Experience designing and interpreting experiments, evaluation frameworks, optimization loops, or performance measurement systems.
+Strong software engineering background with Python and backend systems supporting production-scale AI applications.
+Proven ability to translate complex operational requirements and real-world data into reliable, shipped products.
+Experience working in domains where optimization, pricing, matching, decisioning, or ma

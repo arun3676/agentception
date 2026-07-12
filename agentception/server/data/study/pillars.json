@@ -1,0 +1,89 @@
+{
+  "_description": "12 career pillars. Each maps a role to the keywords that identify it, the gold_resources categories whose domains are trusted for that role, and a display label. Keys match role_resources.json.",
+  "pillars": [
+    {
+      "key": "ai_engineer",
+      "label": "AI Engineer",
+      "gold_categories": ["deep_learning_ai", "data_science_ml", "python_general", "api_backend"],
+      "keywords": ["ai", "llm", "rag", "genai", "generative", "prompt", "langchain", "embedding", "vector database", "fine-tuning", "transformer", "agent", "openai", "hugging face", "nlp", "chatbot"]
+    },
+    {
+      "key": "data_scientist",
+      "label": "Data Scientist",
+      "gold_categories": ["data_science_ml", "python_general", "deep_learning_ai"],
+      "keywords": ["data science", "statistics", "pandas", "numpy", "regression", "a/b testing", "causal inference", "machine learning", "scikit-learn", "eda", "jupyter", "feature engineering"]
+    },
+    {
+      "key": "data_engineer",
+      "label": "Data Engineer",
+      "gold_categories": ["data_science_ml", "cloud_devops", "python_general"],
+      "keywords": ["data engineering", "etl", "elt", "airflow", "dbt", "spark", "kafka", "snowflake", "bigquery", "data warehouse", "data pipeline", "flink", "data mesh"]
+    },
+    {
+      "key": "full_stack_developer",
+      "label": "Full Stack Developer",
+      "gold_categories": ["web_dev", "api_backend", "cloud_devops"],
+      "keywords": ["full stack", "fullstack", "next.js", "react", "node", "express", "prisma", "web development", "javascript", "typescript"]
+    },
+    {
+      "key": "backend_engineer",
+      "label": "Backend Engineer",
+      "gold_categories": ["api_backend", "cloud_devops", "python_general"],
+      "keywords": ["backend", "api", "rest", "grpc", "graphql", "microservices", "redis", "rabbitmq", "distributed systems", "database", "sharding", "fastapi", "django", "flask"]
+    },
+    {
+      "key": "frontend_engineer",
+      "label": "Frontend Engineer",
+      "gold_categories": ["web_dev"],
+      "keywords": ["frontend", "css", "tailwind", "html", "react", "vue", "angular", "svelte", "accessibility", "web vitals", "redux", "zustand", "ui"]
+    },
+    {
+      "key": "devops_engineer",
+      "label": "DevOps Engineer",
+      "gold_categories": ["cloud_devops"],
+      "keywords": ["devops", "docker", "kubernetes", "ci/cd", "terraform", "ansible", "jenkins", "observability", "prometheus", "grafana", "sre", "gitops", "helm"]
+    },
+    {
+      "key": "cloud_architect",
+      "label": "Cloud Architect",
+      "gold_categories": ["cloud_devops", "api_backend"],
+      "keywords": ["cloud", "aws", "azure", "gcp", "serverless", "lambda", "solution architect", "well-architected", "cloud migration", "iam"]
+    },
+    {
+      "key": "product_manager",
+      "label": "Product Manager",
+      "gold_categories": [],
+      "keywords": ["product management", "product manager", "roadmap", "user research", "prd", "prioritization", "okr", "stakeholder", "product strategy", "discovery"]
+    },
+    {
+      "key": "ui_ux_designer",
+      "label": "UI/UX Designer",
+      "gold_categories": ["web_dev"],
+      "keywords": ["ux", "ui design", "figma", "design system", "wireframe", "prototype", "usability", "interaction design", "typography", "user research"]
+    },
+    {
+      "key": "mobile_developer",
+      "label": "Mobile Developer",
+      "gold_categories": ["web_dev", "api_backend"],
+      "keywords": ["mobile", "ios", "android", "swift", "kotlin", "react native", "flutter", "swiftui", "jetpack compose", "app store"]
+    },
+    {
+      "key": "cybersecurity_analyst",
+      "label": "Cybersecurity Analyst",
+      "gold_categories": ["cloud_devops"],
+      "keywords": ["security", "cybersecurity", "penetration testing", "pentest", "siem", "threat", "vulnerability", "owasp", "incident response", "malware", "cryptography", "zero trust"]
+    }
+  ],
+  "course_domains": [
+    "coursera.org", "udemy.com", "udacity.com", "datacamp.com", "deeplearning.ai",
+    "fast.ai", "frontendmasters.com", "codecademy.com", "edx.org", "pluralsight.com",
+    "khanacademy.org", "educative.io", "boot.dev", "scrimba.com"
+  ],
+  "docs_domains": [
+    "docs.python.org", "python.langchain.com", "pytorch.org", "tensorflow.org",
+    "kubernetes.io", "developer.mozilla.org", "react.dev", "learn.microsoft.com",
+    "docs.aws.amazon.com", "aws.amazon.com", "cloud.google.com", "fastapi.tiangolo.com",
+    "flask.palletsprojects.com", "docs.djangoproject.com", "expressjs.com",
+    "huggingface.co", "hashicorp.com", "python.org", "openai.com", "docs.github.com"
+  ]
+}

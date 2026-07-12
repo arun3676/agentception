@@ -1,0 +1,30 @@
+Title: Forward Deployed Engineer, Machine Learning
+
+About Tenex
+The Fortune 500 is rebuilding itself right now. Every company over a billion in revenue is asking the same question: what does it mean to run this business if AI does half the work in five years? Most don't know how to answer. That's why they call us.
+Tenex is the partner ambitious companies hire when the stakes are too high to get AI wrong. We embed elite teams directly into their operations, find the bets that actually move the business, and ship the work that makes them AI-native. The clients are sharp. The problems are unforgiving. The work has to land.
+We get to do this work alongside the people building the frontier. Anthropic and OpenAI are formal partners, and we sit in the room with their Applied AI teams on real client problems. Vercel, Lovable, and a growing list of the most important companies in AI are partners too. We were the partner Anthropic named on the Claude for Small Business launch , delivering AI fluency training in ten US cities, and workflows we built ship inside Claude for Small Business today.
+The bar for joining is high. We hire people with high agency and high urgency, who care less about where they trained and more about what they've built. If you want to spend the next chapter of your career shipping production AI systems alongside the best engineers in the industry and the labs building the technology, this is the place.
+About the Role
+At Tenex, Strategists scope and prioritize the bets. Forward Deployed Engineers make them real.
+You are the engineer who walks into a client codebase and ships the AI workflow that changes how thousands of people do their job. The plan becomes the running system because you built it.
+You work close to the problem and close to the client. Architecture decisions are yours. The code is yours. The credit and the consequences are yours. You partner with Strategists to choose the right bets, with client engineering teams to ship inside their stack, and with the latest agentic coding tools to move at speeds that weren't possible a year ago.
+The bar for the work is that it ships and it lands. Demos don't count. Prototypes that never make it to production don't count. What counts is the workflow running on Monday morning when nobody from Tenex is in the room, the business outcome it drives, and the story the client tells about what changed.
+Compensation reflects this. Your base is guaranteed, your variable pay is uncapped, and your throughput is measured directly. Engineers in good standing make significantly more than base.
+You'll work alongside AI Strategists and our partner teams at Anthropic, OpenAI, Vercel, and beyond. Plan on traveling to client sites about once a month.
+What You'll Do
+A few engagements in flight today, to give you a sense of the work:
+A national insurer needs an agent that handles tier-1 claims disputes inside a fifteen-year-old claims platform. The Forward Deployed Engineer on the engagement learns the stack, ships the agent, and stays on to iterate as volume scales.
+A healthcare system has the data and the strategy and needs the workflow. An FDE designs the routing layer, prototypes it with Claude, and partners with the client's engineering team to roll it out across three hospitals.
+A private equity firm wants an internal tool that gives the portfolio support team an agentic copilot over every company in the portfolio. One FDE builds the v1, ships it into production, and iterates with the team that uses it.
+Across engagements, you'll:
+Own features end-to-end. Architecture, implementation, deploy, the relationship with the client engineer reviewing your PR. Nothing gets handed off
+Use every agentic coding tool that gives you leverage. Claude Code, Codex, Cursor, whatever ships next week. Your throughput is measured and your pay scales with it
+Ramp into unfamiliar codebases. Sometimes a Fortune 500 monolith in a language you haven't touched in years. Sometimes a stack that was built last quarter. You get productive without a lot of hand-holding
+Design agent systems that are reliable, auditable, and keep humans in the loop where they belong. The work has to run when nobody from Tenex is in the room
+Make the team better. The workflow refinements you discover on one engagement get adopted across every other engagement. Your wins compound across the firm
+What You'll Bring
+3 to 8 years building and shipping production software end-to-end, with a track record of turning complex problems into clean, scalable systems
+AI as a core part of how you work. You use agentic coding tools to raise the quality and the throughput of everything you ship
+Intellectual curiosity and range. You track how the AI landscape evolves (new models, new tools, new techniques) and you bring what you learn back to the team
+Operational discipline. You manage parallel workstreams across multiple clients without losing clarity or quality. You prioritize well, context-switch cleanly, and sustain output

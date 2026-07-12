@@ -1,0 +1,35 @@
+Title: Senior Machine Learning Engineer
+
+About Us:
+DailyPay is transforming the way people get paid. As a worktech company and the industry’s leading on demand pay solution, DailyPay uses an award-winning technology platform to help America’s top employers build stronger relationships with their employees. This voluntary employee benefit enables workers everywhere to feel more motivated to work harder and stay longer on the job while supporting their financial well-being outside of the workplace.
+DailyPay is headquartered in New York City, with operations throughout the United States as well as in Belfast. For more information, visit DailyPay's Press Center.
+The Role:
+We are seeking a Senior Machine Learning Engineer to join our AI & ML team in New York City. You will play a key role in maturing and scaling our machine learning infrastructure, ensuring the reliability, performance, and scalability of ML models in production. This role requires deep hands-on experience with MLOps principles, cloud infrastructure, and a track record of delivering robust ML systems in a fast-moving environment.
+You will work closely with data scientists, engineers, and product stakeholders to deliver high-quality ML solutions that directly impact DailyPay's core products. You are expected to operate with significant autonomy: defining work, identifying dependencies, and raising the bar for the team around you.
+How You Will Make an Impact:
+Platform Ownership: Help architect and build DailyPay's unified ML platform - a unified system for model development, deployment, and monitoring that serves as the backbone for every AI and ML capability at the company.
+MLOps Architecture & Delivery: Design and implement scalable ML pipelines covering model training, deployment, monitoring, and retraining. Own the delivery of end-to-end MLOps solutions with minimal oversight.
+Cloud Infrastructure: Manage and optimize AWS infrastructure for machine learning workloads, balancing cost-effectiveness, security, and availability.
+CI/CD Pipeline Development: Build and maintain robust CI/CD pipelines for continuous integration and deployment of ML models and related infrastructure.
+Monitoring & Observability: Design monitoring and alerting systems for ML infrastructure and models using tools like Datadog. Proactively identify and resolve issues before they impact production.
+Technical Leadership: Lead design discussions, contribute to architectural decisions, and establish team norms for how ML systems are built, tested, and maintained. Help identify and remove blockers.
+Mentorship: Mentor junior engineers. Share domain knowledge and help build genuine technical depth on the team.
+Security & Compliance: Approach all engineering work with a security lens. Actively look for vulnerabilities in code and during peer reviews. Ensure ML pipelines handle sensitive data in accordance with company policy.
+What You Bring to the Team:
+5+ years of experience in machine learning engineering, MLOps, or data engineering
+Strong cloud platform proficiency: AWS preferred (SageMaker, Lambda, S3, EC2, IAM, ECS), or equivalent GCP (Vertex AI, Cloud Functions, GCS, Compute Engine, Cloud Run) or Azure (Azure ML, Functions, Blob Storage, VMs, AKS) experience
+Proficiency in Python and experience with ML frameworks (scikit-learn, TensorFlow, PyTorch)
+Solid CI/CD experience: GitHub Actions or equivalent; designing and operating deployment pipelines
+Experience with infrastructure-as-code (Terraform or CloudFormation)
+Knowledge of event streaming platforms (Apache Kafka or equivalent)
+Experience with monitoring and observability tooling (Datadog, Prometheus, or Grafana)
+Strong SQL skills and experience with data pipeline tooling (dbt, Glue, Snowflake)
+Excellent communication skills; comfortable working across data science, engineering, and product teams
+Nice to Haves:
+Experience with containerization and orchestration (Docker, Kubernetes)
+Familiarity with microservices architecture and RESTful API design
+Experience in fintech or regulated industries
+Contributions to open-source ML or MLOps projects
+High-performing cultures aren't built in silos, they thrive on partnership. At DailyPay, we Commit Together to an inclusive, professional environment where multifaceted perspectives are our greatest competitive advantage. We recognize that our team members don’t live “single-issue lives,” and we lean into the wide-ranging backgrounds and life stages that sharpen our collective decision-making.
+In our high-trust environment, we empower you to Challenge Norms . We’ve created a space where it is safe to ask difficult questions, disrupt the status quo, and share bold perspectives without fear of professional fallout. We believe that by checking our own assumptions and staying curious about the experiences of others, we arrive at better, more innovative results.
+We provide the space for you to do your best work through peer advocacy and transparent career development. If you are looking for

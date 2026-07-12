@@ -1,0 +1,43 @@
+Title: Lead Backend Engineer (BFF)
+
+BFF is a platform for finding friends and building communities online - and bringing those connections into real life. We provide a rich suite of tools that empower users to discover communities, connect meaningfully, and organize IRL gatherings. Simply put: find your people online, get together offline.
+Plans is an IRL platform for meeting you people. Sign up and get invited to events. The Plans platform then matches users into small groups optimized for compatibility. Simply put: meet first, match later.
+As a member of the BFF/Plans backend team , you’ll play a key role in building and scaling the services that power this experience. You’ll work across TypeScript and Go, developing and maintaining GraphQL/REST APIs to serve millions of users. This is a high-impact role with real product influence - you’ll collaborate closely with product, design, and outreach teams to shape features from concept to launch.
+If you’re someone who loves building systems that scale, shaping product direction, and collaborating across disciplines to deliver world-class user experiences, you’ll thrive here.
+\n
+What you’ll do
+Design, build, and maintain horizontally scalable backend systems using TypeScript and Go to support millions of concurrent users.
+Develop GraphQL and REST APIs powering our iOS, Android, and web clients.
+Lead features through the full lifecycle - from ideation and design to implementation, deployment, and maintenance.
+Define and uphold a robust testing strategy across unit, integration, and end-to-end layers.
+Collaborate with product, design, and client engineers to translate product requirements into scalable and performant backend solutions.
+Contribute to architecture discussions, code reviews, and process improvements that raise the quality bar for the entire team.
+Minimum requirements
+7+ years of experience in backend development, with strong proficiency in Go .
+Solid understanding of both SQL and NoSQL databases (e.g. Redis, DynamoDB).
+Deep knowledge of testing best practices and frameworks.
+Experience owning features end-to-end, from conception, through development, to production.
+Strong grasp of system design principles and a practical approach to scaling products that serve millions of users.
+Excellent problem-solving, analytical, and communication skills.
+Enjoys working collaboratively in cross-functional teams and thrives in fast-paced, product-driven environments.
+Familiarity with cloud platforms (AWS, GCP, or similar) and containerization technologies (Docker, Kubernetes).
+Why Join Us
+Help BFF find product market fit.
+Opportunity to shape the roadmap, engineers work closely with product and design throughout the entire product development process
+Drive architecture decisions, have a wide impact on how BFF is built
+Be part of a culture that values respect, excellence, curiosity, courage and joy.
+Enjoy competitive compensation, equity, and world-class benefits.
+Location
+This role is based in Austin or New York, and we ask that you’re within a commutable distance to this office, so that you’re able to come onsite regularly to collaborate across engineering teams.
+Please note: We are unable to offer Visa sponsorship at this time
+\n $225,000 - $255,000 a year For base compensation, we set standard ranges for all roles based on function, level, and geographic location. This position is also typically eligible to participate in our short- and long-term incentive programs. Benefits include Medical, Dental, Vision, 401(k) match, Unlimited Paid Time Off Policy.
+Maven Fertility: $10,000 lifetime benefit for fertility, adoption, abortion care, and more.
+26 Weeks Parental Leave: For both primary and secondary caregivers.
+Family & Compassionate Leave: Inclusive of domestic violence recovery.
+Unlimited Paid Time Off: Take the time you need.
+Company-wide Week Off: Annual collective rest for the entire company.
+Focus Fridays: No meetings, emails, or deadlines—just deep work. \n About Us
+Bumble Inc. is the parent company of Bumble Date, BFF, and Badoo. The Bumble platform enables people to build healthy and equitable relationships, through Kind Connections. Founded by Whitney Wolfe Herd in 2014, Bumble was one of the first dating apps built with women at the center and connects people across dating (Bumble Date) and friendship (BFF). BFF is a friendship app where people in all stages of life can meet people nearby and create meaningful platonic connections and community based on shared interests. Badoo, which was founded in 2006, is one of the pioneers of web and mobile dating products.
+AI Fluency
+AI is important to us. We’re excited by people who are curious and experimental, and who think thoughtfully about how AI can amplify their impact and outcomes.
+We encourage you to use AI responsibly as you prepare your application. Please don’t use it to fabricate experiences or answer questions live in interviews. We care deeply about authenticity and want to understand your real sk

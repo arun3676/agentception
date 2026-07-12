@@ -1,0 +1,50 @@
+Back to jobs New Site Reliability Engineer II
+Canada - Vancouver, BC Apply About Ping Identity:
+At Ping Identity, we believe in making digital experiences both secure and seamless for all users, without compromise. We call this digital freedom. And it's not just something we provide our customers. It's something that inspires our company. People don't come here to join a culture that's built on digital freedom. They come to cultivate it.
+Our intelligent, cloud identity platform lets people shop, work, bank, and interact wherever and however they want. Without friction. Without fear.
+While protecting digital identities is at the core of our technology, protecting individual identities is at the core of our culture.  We champion every identity. One of our core values, Respect Individuality, reminds us to celebrate differences so you are empowered to bring your authentic self to work.
+We're headquartered in Denver, Colorado and we have offices and employees around the globe. We serve the largest, most demanding enterprises worldwide, including more than half of the Fortune 100. At Ping Identity, we're changing the way people and businesses think about cybersecurity, digital experiences, and identity and access management.
+You will:
+Manage multiple AWS accounts with tools like AWS Control Tower and Terraform
+You will deploy and debug cloud stacks, educating teams on new cloud projects, and ensuring the security of the cloud infrastructure
+As a SRE, you can identify the most optimal cloud-based solutions for our internal users,  and maintain cloud infrastructures following industry leading practices and company security policies
+This is a 24/7 on-call position with a rotation schedule
+You have:
+3+ years of experience with Linux/UNIX systems administration
+3+ years of experience with Amazon Web Services (AWS)
+2+ years experience in scripting skills in Python / Ruby / Bash / Go
+Experience provisioning public cloud resources using frameworks such as CloudFormation and Terraform
+Solid experience with server configuration with Ansible / Puppet / Chef / Salt
+Experience using Git in a team environment (merge requests, branching, push, and pulls)
+You'll have an advantage if you have:
+Experience with Docker and container orchestration (Kubernetes)
+Experience with DevOps automation platforms such as Jenkins and Artifactory
+2+ years of experience with AWS Control Tower and Terraform
+Developed monitoring solutions and analysis across multiple data centers
+Compensation Range: CAD 87,000 – 105,000
+In accordance with Pay Transparency Act the approximate compensation range for this role in Canada is listed above. Final compensation for this role will be determined by various factors, such as knowledge, skills, and abilities.
+Life at Ping:
+We believe in and facilitate a flexible, collaborative work environment. We’re growing quickly, but remain true to the innovative, can-do startup values that got us here. Most importantly, we keep hiring talented, smart, fun, and genuinely nice people because that’s who we want to succeed with every day.
+Here are just a few of the things that make Ping special:
+A company culture that empowers you to do your best work.
+Employee Resource Groups that create a sense of belonging for everyone.
+Regular company and team bonding events.
+Competitive benefits and perks.
+Global volunteering and community initiatives
+Our Benefits:
+Generous PTO & Holiday Schedule
+Parental Leave
+Progressive Healthcare Options
+Retirement Programs
+Opportunity for Education Reimbursement
+Commuter Offset (Specific locations)
+Ping is the collective sum of all our individual experiences, backgrounds and influences and we pride ourselves in growing and learning together. We are committed to building an inclusive and diverse environment where everyone’s individuality is respected and everyone has an Identity. In recruiting for new colleagues, we welcome the unique contributions you can bring and encourage you to be your best self.
+We are an Equal Opportunity/Affirmative Action employer.  All qualified applicants will receive consideration for employment without regard to race, color, religion, sex including sexual orientation and gender identity, national origin, disability, protected Veteran Status, or any other characteristic protected by applicable federal, state, or local law.
+Create a Job Alert
+Interested in building your career at Ping Identity? Get future opportunities sent straight to your email.
+Create alert Apply for this job
+*
+indicates a required field
+Quick Apply with MyGreenhouse First Name * Last Name * Preferred First Name * Email * Phone Country * Phone * Location (City) * Locate me Resume/CV * Attach Attach Dropbox Google Drive Enter manually Enter manually Accepted file types: pdf, doc, docx, txt, rtf
+Cover Letter Attach Attach Dropbox Google Drive Enter manually Enter manually Accepted file types: pdf, doc, docx, txt, rtf
+LinkedIn Profile * Will you now or in the future require sponsorship to work in the country

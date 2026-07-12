@@ -1,0 +1,638 @@
+{
+  "ai_engineer": {
+    "beginner": [
+      {
+        "title": "RAG Chatbot with PDF Support",
+        "description": "Build a chatbot that can read your own PDF documents and answer questions using OpenAI and LangChain.",
+        "skills": ["Python", "LangChain", "OpenAI API", "ChromaDB"]
+      },
+      {
+        "title": "Fine-Tuning a Small LLM",
+        "description": "Take a base model (like TinyLlama) and fine-tune it on a specific dataset using Google Colab.",
+        "skills": ["HuggingFace", "PyTorch", "LoRA", "Google Colab"]
+      },
+      {
+        "title": "AI Agent Swarm",
+        "description": "Build a multi-agent system where one AI researches and another writes the report.",
+        "skills": ["CrewAI", "Serper API", "AgentOps", "Docker"]
+      }
+    ],
+    "intermediate": [
+      {
+        "title": "Voice-to-Voice AI Assistant",
+        "description": "Create a real-time voice assistant using Whisper (STT) and ElevenLabs (TTS) with ultra-low latency.",
+        "skills": ["OpenAI Whisper", "ElevenLabs API", "WebSockets", "FastAPI"]
+      },
+      {
+        "title": "Local RAG with Ollama",
+        "description": "Build a completely private RAG system running on your local machine without API keys.",
+        "skills": ["Ollama", "Llama 3", "PrivateGPT", "Streamlit"]
+      },
+      {
+        "title": "AI Code Reviewer Agent",
+        "description": "An agent that connects to GitHub, reads Pull Requests, and automatically comments code improvements.",
+        "skills": ["GitHub API", "LangGraph", "Pydantic", "CI/CD"]
+      }
+    ],
+    "advanced": [
+      {
+        "title": "Enterprise RAG with Graph Database",
+        "description": "Build a GraphRAG system that understands relationships between entities, not just vector similarity.",
+        "skills": ["Neo4j", "GraphRAG", "Knowledge Graphs", "Azure AI"]
+      },
+      {
+        "title": "Custom LLM Inference Engine",
+        "description": "Deploy a high-performance inference server using vLLM or TGI for production traffic.",
+        "skills": ["vLLM", "Docker", "Kubernetes", "Prometheus"]
+      },
+      {
+        "title": "Multimodal Search Engine",
+        "description": "Build a search engine that can search images and video using text queries (CLIP model).",
+        "skills": ["CLIP", "Vector Search", "React", "FastAPI"]
+      }
+    ]
+  },
+  "data_scientist": {
+    "beginner": [
+      {
+        "title": "Exploratory Data Analysis Dashboard",
+        "description": "Visualize a Kaggle dataset (e.g., Housing Prices) using interactive charts.",
+        "skills": ["Pandas", "Streamlit", "Plotly", "Statistics"]
+      },
+      {
+        "title": "Customer Churn Predictor",
+        "description": "Train a logistic regression model to predict which customers will cancel their subscription.",
+        "skills": ["Scikit-Learn", "Logistic Regression", "Matplotlib", "Jupyter"]
+      },
+      {
+        "title": "Movie Recommendation System",
+        "description": "Build a content-based filtering system to recommend movies based on user history.",
+        "skills": ["Cosine Similarity", "NumPy", "Python", "Data Cleaning"]
+      }
+    ],
+    "intermediate": [
+      {
+        "title": "End-to-End ML Pipeline",
+        "description": "Build a pipeline that trains, evaluates, and deploys a model automatically.",
+        "skills": ["MLflow", "Docker", "FastAPI", "Sklearn"]
+      },
+      {
+        "title": "Credit Risk Scoring Model",
+        "description": "Build a robust XGBoost model to assess loan eligibility, focusing on feature engineering.",
+        "skills": ["XGBoost", "Feature Engineering", "Imbalanced Data", "SHAP"]
+      },
+      {
+        "title": "Computer Vision Classifier",
+        "description": "Train a CNN to classify X-Ray images or detect objects in video.",
+        "skills": ["TensorFlow/Keras", "Deep Learning", "CNNs", "OpenCV"]
+      }
+    ],
+    "advanced": [
+      {
+        "title": "Real-Time Fraud Detection System",
+        "description": "Process streaming transaction data to detect anomalies in milliseconds.",
+        "skills": ["Apache Kafka", "Spark Streaming", "Isolation Forests", "API Design"]
+      },
+      {
+        "title": "LLM-Powered Data Analyst",
+        "description": "Build an agent that can take a CSV and answer plain-English questions about it.",
+        "skills": ["LangChain", "PandasAI", "OpenAI", "Streamlit"]
+      },
+      {
+        "title": "A/B Testing Experimentation Platform",
+        "description": "Simulate and analyze A/B test results using Bayesian statistics.",
+        "skills": ["Bayesian Stats", "PyMC3", "Experiment Design", "Python"]
+      }
+    ]
+  },
+  "full_stack_developer": {
+    "beginner": [
+      {
+        "title": "Personal Portfolio & Blog",
+        "description": "Build a high-performance portfolio site with a markdown-based blog.",
+        "skills": ["React", "Tailwind CSS", "Next.js", "Vercel"]
+      },
+      {
+        "title": "Task Management App",
+        "description": "Create a Trello clone with drag-and-drop functionality.",
+        "skills": ["React", "dnd-kit", "LocalStorage", "CSS Modules"]
+      },
+      {
+        "title": "Weather Dashboard",
+        "description": "Fetch real-time data from an API and display it with beautiful charts.",
+        "skills": ["Fetch API", "Chart.js", "JavaScript", "CSS Grid"]
+      }
+    ],
+    "intermediate": [
+      {
+        "title": "E-Commerce Store",
+        "description": "A full online store with shopping cart, checkout, and payment processing.",
+        "skills": ["Next.js", "Stripe API", "Supabase", "Zustand"]
+      },
+      {
+        "title": "Real-Time Chat Application",
+        "description": "Build a Slack clone where users can create rooms and chat instantly.",
+        "skills": ["Socket.io", "Node.js", "Express", "MongoDB"]
+      },
+      {
+        "title": "SaaS Dashboard with Auth",
+        "description": "A subscription-based SaaS starter kit with user login and protected routes.",
+        "skills": ["Clerk Auth", "Prisma", "PostgreSQL", "Next.js App Router"]
+      }
+    ],
+    "advanced": [
+      {
+        "title": "Collaborative Whiteboard",
+        "description": "A Figma-style whiteboard where multiple users can draw in real-time.",
+        "skills": ["Liveblocks", "Canvas API", "React", "Performance Opt"]
+      },
+      {
+        "title": "Video Streaming Platform",
+        "description": "Build a YouTube clone with video uploading, transcoding, and playback.",
+        "skills": ["FFmpeg", "AWS S3", "CloudFront", "React Player"]
+      },
+      {
+        "title": "AI-Powered CMS",
+        "description": "A content management system that uses AI to generate and tag content automatically.",
+        "skills": ["OpenAI API", "Next.js", "Postgres", "Redis"]
+      }
+    ]
+  },
+  "backend_engineer": {
+    "beginner": [
+      {
+        "title": "RESTful API for Todo App",
+        "description": "Build a robust API with CRUD operations, pagination, and filtering.",
+        "skills": ["Node.js", "Express", "MongoDB", "Postman"]
+      },
+      {
+        "title": "Authentication System",
+        "description": "Implement secure signup, login, and password reset using JWTs.",
+        "skills": ["JWT", "Bcrypt", "Security", "Node.js"]
+      },
+      {
+        "title": "File Upload Service",
+        "description": "Create an API that handles image uploads, resizing, and storage.",
+        "skills": ["Multer", "Sharp", "AWS S3", "API Design"]
+      }
+    ],
+    "intermediate": [
+      {
+        "title": "Scalable URL Shortener",
+        "description": "System design classic: Build a Bit.ly clone that handles high traffic.",
+        "skills": ["Redis", "PostgreSQL", "Docker", "System Design"]
+      },
+      {
+        "title": "Rate Limiter Middleware",
+        "description": "Build a custom rate limiter to protect your API from abuse.",
+        "skills": ["Redis", "Middleware", "Node.js", "Algorithms"]
+      },
+      {
+        "title": "Booking System API",
+        "description": "A complex API for booking appointments, handling timezones and conflicts.",
+        "skills": ["SQL Transactions", "PostgreSQL", "FastAPI", "Pytest"]
+      }
+    ],
+    "advanced": [
+      {
+        "title": "Distributed Message Queue",
+        "description": "Build a system where services communicate asynchronously using queues.",
+        "skills": ["RabbitMQ", "Microservices", "Docker Compose", "Go"]
+      },
+      {
+        "title": "Real-Time Notification Service",
+        "description": "A centralized service that pushes notifications to mobile, web, and email.",
+        "skills": ["WebSockets", "Kafka", "Firebase FCM", "System Design"]
+      },
+      {
+        "title": "Custom Search Engine",
+        "description": "Build a search backend using Elasticsearch to index and query massive datasets.",
+        "skills": ["Elasticsearch", "Python", "Data Ingestion", "API Performance"]
+      }
+    ]
+  },
+  "frontend_engineer": {
+    "beginner": [
+      {
+        "title": "Responsive Landing Page",
+        "description": "Pixel-perfect implementation of a Figma design using modern CSS.",
+        "skills": ["HTML5", "CSS Grid/Flexbox", "Responsive Design", "Accessibility"]
+      },
+      {
+        "title": "Interactive Quiz App",
+        "description": "A React app with state management, timers, and score calculation.",
+        "skills": ["React", "useState", "useEffect", "CSS Animations"]
+      },
+      {
+        "title": "Country Explorer",
+        "description": "Fetch data from REST Countries API and implement search and filtering.",
+        "skills": ["Fetch API", "JavaScript", "DOM Manipulation", "Async/Await"]
+      }
+    ],
+    "intermediate": [
+      {
+        "title": "Kanban Board",
+        "description": "A drag-and-drop project management board similar to Trello.",
+        "skills": ["React Beautiful DnD", "Redux Toolkit", "Optimistic UI", "Tailwind"]
+      },
+      {
+        "title": "Interactive Data Dashboard",
+        "description": "Visualize complex datasets using D3.js or Recharts with date pickers.",
+        "skills": ["D3.js", "Recharts", "React Context", "Data Viz"]
+      },
+      {
+        "title": "Multi-Step Form Wizard",
+        "description": "A complex registration form with validation, persistence, and animations.",
+        "skills": ["React Hook Form", "Zod", "Framer Motion", "UX Patterns"]
+      }
+    ],
+    "advanced": [
+      {
+        "title": "Video Editor in Browser",
+        "description": "Build a web-based video editor using WebAssembly and Canvas.",
+        "skills": ["WebAssembly", "FFmpeg.wasm", "Canvas API", "Performance"]
+      },
+      {
+        "title": "3D Product Configurator",
+        "description": "An interactive 3D scene where users can customize a car or shoe.",
+        "skills": ["Three.js", "React Three Fiber", "WebGL", "3D Modeling"]
+      },
+      {
+        "title": "Micro-Frontend Architecture",
+        "description": "Build a host app that loads remote components dynamically.",
+        "skills": ["Webpack Module Federation", "Micro-frontends", "React", "System Design"]
+      }
+    ]
+  },
+  "devops_engineer": {
+    "beginner": [
+      {
+        "title": "Dockerize a Web App",
+        "description": "Take a simple Node.js/Python app and create a production-ready Dockerfile.",
+        "skills": ["Docker", "Containers", "Linux", "Bash Scripting"]
+      },
+      {
+        "title": "Static Site CI Pipeline",
+        "description": "Automate the deployment of a website to S3 whenever code is pushed.",
+        "skills": ["GitHub Actions", "AWS S3", "CI/CD", "YAML"]
+      },
+      {
+        "title": "Linux Server Hardening",
+        "description": "Provision a VPS and secure it with firewalls, SSH keys, and Fail2Ban.",
+        "skills": ["Linux CLI", "SSH", "UFW", "Security Basics"]
+      }
+    ],
+    "intermediate": [
+      {
+        "title": "Full CI/CD Pipeline",
+        "description": "Build a pipeline that tests, builds, and deploys a backend API to a server.",
+        "skills": ["Jenkins/GitHub Actions", "Docker Compose", "Testing", "Bash"]
+      },
+      {
+        "title": "Infrastructure as Code (IaC)",
+        "description": "Provision a complete AWS environment (VPC, EC2, RDS) using Terraform.",
+        "skills": ["Terraform", "AWS", "HCL", "Infrastructure Design"]
+      },
+      {
+        "title": "Monitoring Stack",
+        "description": "Set up Prometheus and Grafana to monitor server metrics and alert on downtime.",
+        "skills": ["Prometheus", "Grafana", "AlertManager", "Linux"]
+      }
+    ],
+    "advanced": [
+      {
+        "title": "Kubernetes Cluster Deployment",
+        "description": "Deploy a microservices app to a K8s cluster with Ingress and Auto-scaling.",
+        "skills": ["Kubernetes", "Helm", "EKS/GKE", "Networking"]
+      },
+      {
+        "title": "GitOps with ArgoCD",
+        "description": "Implement GitOps workflow where infrastructure state is synced from Git.",
+        "skills": ["ArgoCD", "GitOps", "Kubernetes", "CI/CD"]
+      },
+      {
+        "title": "DevSecOps Pipeline",
+        "description": "Integrate security scanning (SAST/DAST) into your build pipeline automatically.",
+        "skills": ["SonarQube", "Trivy", "Security", "Automation"]
+      }
+    ]
+  },
+  "cloud_architect": {
+    "beginner": [
+      {
+        "title": "Static Website on AWS",
+        "description": "Host a secure, fast website using S3, CloudFront (CDN), and Route53.",
+        "skills": ["AWS S3", "CloudFront", "DNS", "SSL/TLS"]
+      },
+      {
+        "title": "Cloud Resume Challenge",
+        "description": "Build a resume site with a visitor counter using Lambda and DynamoDB.",
+        "skills": ["AWS Lambda", "DynamoDB", "API Gateway", "HTML/CSS"]
+      },
+      {
+        "title": "Virtual Private Cloud (VPC)",
+        "description": "Design a secure network with public/private subnets and a NAT Gateway.",
+        "skills": ["Networking", "VPC", "CIDR", "Security Groups"]
+      }
+    ],
+    "intermediate": [
+      {
+        "title": "Serverless Image Processor",
+        "description": "Architecture where image uploads trigger Lambda functions to resize them.",
+        "skills": ["Event-Driven Arch", "Lambda", "S3 Triggers", "SNS/SQS"]
+      },
+      {
+        "title": "Three-Tier Architecture",
+        "description": "Deploy a web, app, and db layer on EC2/RDS with auto-scaling groups.",
+        "skills": ["EC2 Auto Scaling", "Load Balancers", "RDS", "High Availability"]
+      },
+      {
+        "title": "Containerized Deployment",
+        "description": "Deploy a Docker app to AWS ECS (Fargate) or Google Cloud Run.",
+        "skills": ["ECS/Fargate", "Docker", "IAM Roles", "Logging"]
+      }
+    ],
+    "advanced": [
+      {
+        "title": "Multi-Region Disaster Recovery",
+        "description": "Architect a system that fails over to a different continent if Region A goes down.",
+        "skills": ["Route53 Failover", "Global Database", "Replication", "DR Strategy"]
+      },
+      {
+        "title": "Hybrid Cloud Network",
+        "description": "Simulate a connection between on-premise data center and cloud using VPN.",
+        "skills": ["Site-to-Site VPN", "Direct Connect", "Hybrid Cloud", "Networking"]
+      },
+      {
+        "title": "FinOps Dashboard",
+        "description": "Build a dashboard to track, analyze, and optimize cloud costs automatically.",
+        "skills": ["Cost Explorer API", "QuickSight", "Python", "Cost Optimization"]
+      }
+    ]
+  },
+  "mobile_developer": {
+    "beginner": [
+      {
+        "title": "Weather App",
+        "description": "Build a beautiful weather app fetching data based on user location.",
+        "skills": ["React Native/Flutter", "Geolocation", "API Integration", "UI Design"]
+      },
+      {
+        "title": "To-Do List with Local Storage",
+        "description": "Create a task manager that persists data on the device.",
+        "skills": ["AsyncStorage", "State Management", "CRUD", "Mobile UI"]
+      },
+      {
+        "title": "Recipe Finder",
+        "description": "App to search recipes, view details, and save favorites.",
+        "skills": ["Navigation", "Lists/Grid View", "Image Handling", "API"]
+      }
+    ],
+    "intermediate": [
+      {
+        "title": "Social Media Feed",
+        "description": "Instagram-style feed with infinite scroll, image uploads, and likes.",
+        "skills": ["Firebase Auth", "Firestore", "Camera API", "Performance"]
+      },
+      {
+        "title": "Chat Application",
+        "description": "Real-time messaging app with push notifications and online status.",
+        "skills": ["WebSockets", "Push Notifications", "Backend Integration", "UI/UX"]
+      },
+      {
+        "title": "Fitness Tracker",
+        "description": "Track runs using GPS and visualize progress with charts.",
+        "skills": ["Maps API", "Sensors", "Data Visualization", "Background Tasks"]
+      }
+    ],
+    "advanced": [
+      {
+        "title": "Uber/Lyft Clone",
+        "description": "Complex app with real-time location tracking, routing, and payments.",
+        "skills": ["Maps SDK", "Real-Time Geo", "Stripe Mobile", "System Design"]
+      },
+      {
+        "title": "Offline-First Notes App",
+        "description": "App that works perfectly offline and syncs when back online.",
+        "skills": ["SQLite/Realm", "Sync Architecture", "Conflict Resolution", "Local-First"]
+      },
+      {
+        "title": "AR Interior Design App",
+        "description": "Use Augmented Reality to place furniture in a room.",
+        "skills": ["ARKit/ARCore", "3D Rendering", "Device Hardware", "Computer Vision"]
+      }
+    ]
+  },
+  "cybersecurity_analyst": {
+    "beginner": [
+      {
+        "title": "Python Keylogger",
+        "description": "Write a script to log keystrokes (Ethical/Educational purpose only).",
+        "skills": ["Python", "System Libraries", "File Handling", "Ethics"]
+      },
+      {
+        "title": "Network Packet Sniffer",
+        "description": "Use Wireshark/Python to capture and analyze network traffic.",
+        "skills": ["Wireshark", "TCP/IP", "Networking Protocols", "Analysis"]
+      },
+      {
+        "title": "Password Strength Checker",
+        "description": "Tool to evaluate password complexity and check against leaked DBs.",
+        "skills": ["Python", "Hashing", "API Integration", "Security Basics"]
+      }
+    ],
+    "intermediate": [
+      {
+        "title": "Vulnerability Scanner",
+        "description": "Build a tool that scans a network for open ports and known vulnerabilities.",
+        "skills": ["Nmap", "Socket Programming", "Scripting", "Reconnaissance"]
+      },
+      {
+        "title": "Secure File Storage System",
+        "description": "Build a file vault with AES-256 encryption and secure key management.",
+        "skills": ["Encryption/Decryption", "Cryptography", "Key Management", "Python"]
+      },
+      {
+        "title": "Phishing Detection Tool",
+        "description": "ML model to analyze URLs and emails to detect phishing attempts.",
+        "skills": ["Machine Learning", "Feature Extraction", "Email Header Analysis", "Scikit"]
+      }
+    ],
+    "advanced": [
+      {
+        "title": "SIEM Lab Environment",
+        "description": "Set up Splunk or ELK stack to ingest logs and detect attacks in real-time.",
+        "skills": ["Splunk/ELK", "Log Analysis", "Incident Response", "Linux"]
+      },
+      {
+        "title": "Malware Analysis Sandbox",
+        "description": "Create an isolated environment to safely detonate and analyze malware.",
+        "skills": ["Virtualization", "Reverse Engineering", "Assembly", "Forensics"]
+      },
+      {
+        "title": "Automated Pentesting Bot",
+        "description": "Script that automates recon, scanning, and reporting for a target.",
+        "skills": ["Bash/Python", "Metasploit", "Automation", "Reporting"]
+      }
+    ]
+  },
+  "data_engineer": {
+    "beginner": [
+      {
+        "title": "Automated ETL Script",
+        "description": "Python script that extracts data from an API, transforms it, and saves to SQL.",
+        "skills": ["Python", "SQL", "Pandas", "Cron Jobs"]
+      },
+      {
+        "title": "Web Scraper Pipeline",
+        "description": "Scrape real estate or job data daily and store it in a structured database.",
+        "skills": ["BeautifulSoup/Selenium", "Database Design", "Automation", "Python"]
+      },
+      {
+        "title": "SQL Data Warehouse",
+        "description": "Design a Star Schema warehouse and populate it with business data.",
+        "skills": ["Data Modeling", "PostgreSQL", "Star Schema", "SQL"]
+      }
+    ],
+    "intermediate": [
+      {
+        "title": "Orchestrated Data Pipeline",
+        "description": "Use Apache Airflow to schedule and monitor complex data workflows.",
+        "skills": ["Apache Airflow", "Docker", "Python", "Workflow Management"]
+      },
+      {
+        "title": "Modern Data Stack Project",
+        "description": "Load data with Airbyte, transform with dbt, and analyze in Metabase.",
+        "skills": ["dbt", "Airbyte", "BigQuery/Snowflake", "Analytics Engineering"]
+      },
+      {
+        "title": "Data Lake Implementation",
+        "description": "Build a data lake on S3 with Glue catalog and Athena for querying.",
+        "skills": ["AWS S3", "AWS Glue", "Athena", "Cloud Data"]
+      }
+    ],
+    "advanced": [
+      {
+        "title": "Real-Time Streaming Pipeline",
+        "description": "Process live data (e.g., Twitter/Stock) using Kafka and Spark Streaming.",
+        "skills": ["Apache Kafka", "Spark Streaming", "Scala/Python", "Distributed Systems"]
+      },
+      {
+        "title": "Big Data Analysis Platform",
+        "description": "Analyze terabytes of data using PySpark on a Databricks/EMR cluster.",
+        "skills": ["PySpark", "Big Data", "Cluster Management", "Optimization"]
+      },
+      {
+        "title": "Data Quality & Governance Framework",
+        "description": "Build a system to automatically validate data quality (Great Expectations).",
+        "skills": ["Great Expectations", "Data Governance", "CI/CD for Data", "Python"]
+      }
+    ]
+  },
+  "product_manager": {
+    "beginner": [
+      {
+        "title": "Product Teardown Case Study",
+        "description": "Deep dive analysis of a popular app (e.g., Spotify) improving one feature.",
+        "skills": ["UX Analysis", "Figma", "Presentation", "User Psychology"]
+      },
+      {
+        "title": "Market Research Report",
+        "description": "Analyze a market segment and propose a new product opportunity.",
+        "skills": ["Market Research", "Competitor Analysis", "Data Viz", "Writing"]
+      },
+      {
+        "title": "Feature Spec (PRD)",
+        "description": "Write a professional Product Requirements Document for a hypothetical feature.",
+        "skills": ["Technical Writing", "User Stories", "Requirements Gathering", "Jira"]
+      }
+    ],
+    "intermediate": [
+      {
+        "title": "No-Code MVP Launch",
+        "description": "Build and launch a functional product using tools like Bubble or Glide.",
+        "skills": ["No-Code", "Product Launch", "User Acquisition", "Analytics"]
+      },
+      {
+        "title": "Growth Experiment Design",
+        "description": "Design an A/B test to improve conversion rates for a specific funnel.",
+        "skills": ["A/B Testing", "Data Analysis", "Experiment Design", "Hypothesis"]
+      },
+      {
+        "title": "Product Roadmap Strategy",
+        "description": "Create a strategic 6-month roadmap for a startup product.",
+        "skills": ["Roadmapping", "Prioritization Frameworks", "Strategy", "Leadership"]
+      }
+    ],
+    "advanced": [
+      {
+        "title": "End-to-End Product Lifecycle",
+        "description": "Simulate the entire lifecycle: Discovery -> Build -> Launch -> Iterate.",
+        "skills": ["Full Lifecycle", "Cross-functional Leadership", "Go-to-Market", "Metrics"]
+      },
+      {
+        "title": "AI Product Strategy",
+        "description": "Design the strategy for integrating GenAI into a legacy product.",
+        "skills": ["AI Strategy", "Technical Feasibility", "Ethics", "Business Model"]
+      },
+      {
+        "title": "Product Analytics Dashboard",
+        "description": "Set up a Mixpanel/Amplitude dashboard to track retention and cohorts.",
+        "skills": ["Product Analytics", "SQL", "KPI Definition", "Data-Driven Decisions"]
+      }
+    ]
+  },
+  "ui_ux_designer": {
+    "beginner": [
+      {
+        "title": "Mobile App Wireframes",
+        "description": "Design the low-fidelity wireframes for a food delivery app.",
+        "skills": ["Figma", "Wireframing", "User Flow", "Layout"]
+      },
+      {
+        "title": "Landing Page Redesign",
+        "description": "Take a local business website and redesign it for better conversion.",
+        "skills": ["UI Design", "Typography", "Color Theory", "Responsiveness"]
+      },
+      {
+        "title": "User Persona & Journey Map",
+        "description": "Create detailed personas and journey maps for a travel app.",
+        "skills": ["User Research", "Empathy Mapping", "Storytelling", "Miro"]
+      }
+    ],
+    "intermediate": [
+      {
+        "title": "High-Fidelity Mobile Prototype",
+        "description": "Create a clickable, interactive prototype of a fintech app.",
+        "skills": ["Prototyping", "Interaction Design", "Figma", "Micro-interactions"]
+      },
+      {
+        "title": "E-Commerce Checkout Flow",
+        "description": "Optimize a checkout experience based on usability heuristics.",
+        "skills": ["Usability Testing", "UI Patterns", "Conversion Design", "Accessibility"]
+      },
+      {
+        "title": "Web App Design System",
+        "description": "Create a reusable component library (Buttons, Inputs, Cards).",
+        "skills": ["Design Systems", "Components", "Documentation", "Consistency"]
+      }
+    ],
+    "advanced": [
+      {
+        "title": "Complex SaaS Dashboard",
+        "description": "Design a data-heavy analytics dashboard for enterprise users.",
+        "skills": ["Information Architecture", "Data Viz", "Complex UI", "Product Thinking"]
+      },
+      {
+        "title": "AR/VR Interface Design",
+        "description": "Design the UI for a spatial computing application (Vision Pro style).",
+        "skills": ["Spatial Design", "3D UI", "Innovation", "Human Interface Guidelines"]
+      },
+      {
+        "title": "Accessibility Audit & Fix",
+        "description": "Audit a major site for WCAG compliance and design the fixes.",
+        "skills": ["Accessibility (a11y)", "WCAG", "Inclusive Design", "Auditing"]
+      }
+    ]
+  }
+}

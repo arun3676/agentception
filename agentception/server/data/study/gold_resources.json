@@ -1,0 +1,32 @@
+[
+  {
+    "category": "python_general",
+    "domains": ["realpython.com", "python.org", "w3schools.com", "programiz.com"],
+    "description": "Core language syntax and basic scripting"
+  },
+  {
+    "category": "web_dev",
+    "domains": ["freecodecamp.org", "developer.mozilla.org", "css-tricks.com", "smashingmagazine.com", "react.dev", "theodinproject.com"],
+    "description": "Frontend, Backend, HTML/CSS/JS, React"
+  },
+  {
+    "category": "data_science_ml",
+    "domains": ["towardsdatascience.com", "kaggle.com", "machinelearningmastery.com", "kdnuggets.com", "analyticsvidhya.com"],
+    "description": "General DS, ML algorithms, statistics"
+  },
+  {
+    "category": "deep_learning_ai",
+    "domains": ["pytorch.org", "huggingface.co", "tensorflow.org", "paperswithcode.com", "distill.pub", "openai.com", "python.langchain.com"],
+    "description": "Neural networks, NLP, Computer Vision, LLMs, Transformers"
+  },
+  {
+    "category": "cloud_devops",
+    "domains": ["aws.amazon.com", "docs.aws.amazon.com", "learn.microsoft.com", "cloud.google.com", "digitalocean.com", "hashicorp.com", "kubernetes.io"],
+    "description": "Cloud platforms, Docker, Kubernetes, DevOps"
+  },
+  {
+    "category": "api_backend",
+    "domains": ["fastapi.tiangolo.com", "flask.palletsprojects.com", "docs.djangoproject.com", "expressjs.com"],
+    "description": "API development, backend frameworks"
+  }
+]

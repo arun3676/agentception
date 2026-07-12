@@ -1,0 +1,4 @@
+"""
+Template package initialization.
+"""
+

@@ -1,0 +1,28 @@
+Back to jobs Systems Engineer - CAD
+Englewood, CO; Framingham, MA; New Kensington, PA; Rock Hill, SC Apply
+About Re:Build Manufacturing
+Re:Build Manufacturing is a growing family of industrial and engineering businesses combining enabling technologies, operational superiority, and strategic M&A to build America’s next generation industrial company. At Re:Build we deploy deep expertise in engineering, operations management, and technology to supercharge the performance of our member companies. We leverage deep professional expertise and a candid, principled operating culture to drive differentiated outcomes. Ours is a fast-paced environment where individuals can stretch and be challenged to pursue their fullest potential.
+Re:Build was founded to pioneer a profitable model for the revitalization of US manufacturing. We’ve assembled a powerful set of complimentary capabilities and lines of business that enable us to pursue a wide range of end markets. Our acquired businesses are grounded in build-to-print and by-the-hour engineering and design services, and we’re leveraging their combined expertise to migrate to increasingly sophisticated program development and production, as well as the generation of our own products. Our unique set of capabilities lend themselves to highly complex systems and products, and we offer customers a range of services including product and systems design, automation, fabrication, assembly, and large volume contract manufacturing. Our customers span a wide array of industries including aerospace, defense, mobility, healthcare, pharma, biotech, clean tech, chemicals, energy, lifestyle, food production, and industrial equipment.
+Who we are looking for
+Using emotional intelligence, compassion, and a strong voice‑of‑the‑customer approach, this role is responsible for crafting, setting up, building, maintaining, and supporting Re:Build’s enterprise engineering systems like CAD, PDM, and PLM ecosystems—including SolidWorks, Siemens NX, CATIA, Teamcenter, and supporting engineering applications such as MATLAB. The CAD Systems Engineer ensures that our engineering and production teams have reliable, performant, secure, and well‑integrated tools that enable high‑quality design, collaboration, and product development aligned with business goals.
+This senior‑level role collaborates closely with engineering, cybersecurity, and manufacturing teams to deliver stable and scalable engineering systems. Responsibilities also include mentoring team members, producing and maintaining accurate documentation, delivering work within defined SLAs, defining detailed work plans, and leading automation and continuous‑improvement initiatives that enhance engineering productivity and system reliability across all Re:Build sites.
+The ideal candidate brings a blend of CAD/PLM technical depth, systems engineering expertise, and the ability to support a fast-paced, multi-site engineering environment. This role is expected to use AI to streamline all aspects of Engineering systems administration and capabilities.
+What you get to do
+Understand and analyze all organization requirements, i.e. performance, scalability, availability, and security requirements
+Design, configure, optimize all CAD systems/solutions, including all on-premise (manufacturing, office, remote, etc.) and cloud (Azure, AWS, SaaS, etc.) to meet organizational goals and needs
+Lead and maintain CAD systems/solutions (servers, storage, security, end point management, virtualization, application management, licensing, etc.)
+Provide fixing and support to accurately resolve CAD system issues to keep our business successfully running, while keeping customers informed with regular status updates as needed
+Monitor CAD system performance and proactively solve issues using infrastructure system monitoring and inspection tools
+Perform regular system updates and patching
+Provide reporting and clear explanation of CAD system utilization and licensing on a regular basis
+Collaborate with other IT engineers and security team to ensure systems are available, interoperable, performant, and meet cybersecurity and compliance requirements
+Collaborate, mentor, and work with team members where cross team needs exist
+Finish the accurate documentation, i.e. build, configurations, ticketing, work updates, status reports, runbooks, knowledge base articles, etc.
+Provide timely and accurate updates of work status
+Define and document work plans and time/date estimates to complete work
+Deliver all work within service level agreements, commitments, and quality standards
+Automate work via scripting and other methods
+Identify and implement continuous improvement opportunities
+What you bring to the Team
+5+ years of experience designing, implementing, managing, and supporting enterprise CAD, PDM, and PLM environments, including SolidWorks, Siemens NX, and CATIA, along with associated data management systems.
+5+ years of demonstrated engineering IT support experience, delivering and s

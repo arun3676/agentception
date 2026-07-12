@@ -1,0 +1,32 @@
+# AI Engineer Preferences
+
+## Domain Focus
+- Focus on LLMs, RAG, and agents - prefer examples and solutions in this space
+
+## Tech Stack
+- Primary stacks: Python and TypeScript + React/Next.js
+- Use idiomatic patterns in these languages first
+
+## Code Style
+- Write full working code (not hints) - I'm still learning programming
+- Avoid abstract hints or partial solutions
+
+## Explanations
+- Explain the logic: what changed, why it works, and how the pieces connect
+- Prioritize the "thinking process" more than syntax
+- Use short, step-by-step explanations with tiny real examples from LLM/RAG or web apps
+- Avoid abstract theory - use concrete examples
+
+## Error Handling
+- When fixing errors: first explain the root cause in simple terms
+- Then show the exact code changes needed
+- Break down why the error happened and how the fix resolves it
+
+## Scope
+- Keep answers focused on the current file or problem
+- Avoid generic boilerplate, huge rewrites, or long unrelated explanations
+
+## Multiple Solutions
+- When there are multiple ways to solve something, give at most 2 options
+- Include a one-line tradeoff for each option
+

@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentception"
+version = "0.1.1"
+description = "Multi-agent orchestrator (Wow + Real modes) with RAG"
+readme = "README.md"
+authors = [{ name = "Arun Kumar Chukkala" }]
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "pydantic>=2.7",
+  "python-multipart>=0.0.9",
+  "lancedb>=0.14.0",
+  "numpy>=1.26",
+  "pandas>=2.0",
+  "httpx>=0.27",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.pytest.ini_options]
+# Explicit paths: pytest imports every `test_*.py` it discovers, and a stray
+# script that calls an API at import time would then run on every test invocation.
+# `evals/` is deliberately excluded — it measures model quality against a golden
+# set (slow, some of it paid) and is invoked explicitly: `pytest evals/`.
+testpaths = ["server/tests", "server/agents"]
+python_files = ["test_*.py"]
+addopts = "--strict-markers"
+markers = [
+  "eval: offline quality metric against the golden set (runs in CI)",
+  "judge: LLM-as-judge metric (costs money; nightly only)",
+]

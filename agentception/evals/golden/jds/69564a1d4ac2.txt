@@ -1,0 +1,40 @@
+Full Stack Software Engineer
+Austin, TX Apply
+About us
+At Auctane, we are united by a passion to help businesses deliver — whatever their size, wherever they are, and however they operate. We make it possible for businesses to meet the ever-changing requirements of their industry and customer expectations. Auctane products enable hundreds of thousands of businesses to annually mail and ship billions of items — over $200 billion worth — to recipients around the globe.
+The Auctane family of mailing and shipping software products includes ShipStation, Stamps.com, ShipStation API, Metapack, GlobalPost, and Packlink. Our partners include Amazon, UPS, USPS, eBay, BigCommerce, Shopify, WooCommerce, and Walmart.
+Our values
+Win as One. Delight Customers. Deliver Great Outcomes.
+About the role
+As a Full Stack Software Engineer on the ShipStation team, you'll own the development of data-driven features that turn shipping and logistics data into actionable insights for our customers. You'll work across the full stack—building responsive, intuitive interfaces with ReactJS and developing performant backend services in .NET—while applying data analysis and machine learning techniques to help merchants improve their business and shipping efficiency. You'll collaborate with product managers, designers, data scientists, and fellow engineers to deliver scalable solutions from conception through deployment.
+About the team
+The Auctane Software Development team is empowered with enhancing, modifying, and maintaining features and functionality associated with the Auctane suite of software products.
+What will you be doing?
+Design and build full-stack features for the ShipStation Intelligence product line, delivering data-driven insights that help customers optimize their shipping operations.
+Develop and maintain machine learning pipelines and models that surface patterns, predictions, and recommendations from large-scale shipping and logistics data.
+Build dynamic, responsive user interfaces with ReactJS that present complex data and analytics in clear, actionable ways.
+Architect and optimize robust backend services using .NET, ensuring scalability, reliability, and performance under high data throughput.
+Perform exploratory data analysis to identify opportunities for new intelligence features and validate hypotheses before engineering solutions.
+Design and implement RESTful APIs and data contracts that support both real-time and batch analytics workloads.
+Use AI coding/testing tools to accelerate tasks; practice safe prompting, validate results with peers, and contribute learnings and tips to team docs.
+Lead design review discussions for your area of ownership; drive technical decisions and communicate tradeoffs clearly to stakeholders.
+Proactively identify technical debt, performance bottlenecks, and reliability risks, and advocate for addressing them.
+Collaborate with cross-functional teams to define, design, and ship new features across the Auctane platform.
+Write comprehensive automated tests—unit, integration, and end-to-end—to ensure correctness of data transformations and ML outputs.
+Participate in and provide thorough code reviews, maintaining high code quality and encouraging best practices across the team.
+Stay current with emerging trends in data engineering, machine learning, .NET, and ReactJS ecosystems, and bring relevant innovations back to the team.
+Contribute to the evolution of team engineering practices, tooling, and architecture standards.
+Other duties as assigned.
+What are we looking for?
+Bachelor's degree in Computer Science, Data Science, Information Systems, or equivalent years of relevant work experience.
+4+ years of professional software development experience, with a strong background in .NET for backend development and ReactJS for frontend development.
+Strong proficiency in both frontend development (ReactJS) and backend development (.NET/C#), with the ability to independently deliver end-to-end features.
+Demonstrated experience with data analysis, statistical methods, or machine learning—comfortable working with large datasets to extract insights.
+Familiarity with ML frameworks and libraries (e.g., ML.NET, scikit-learn, TensorFlow, or PyTorch) and an understanding of when and how to apply common algorithms.
+Exceptional communication skills with the ability to explain complex technical and analytical concepts to both technical and non-technical audiences.
+Strong understanding of SQL, relational database systems, and ORM frameworks, with experience writing performant queries against large datasets.
+Experience designing and consuming RESTful APIs at scale.
+Deep understanding of object-oriented design, SOLID principles, and software architecture patterns.
+Experience with creating and maintaining automated tests in a test-driven development environment.
+Experience with source control systems (Git), branching strategies, and CI/CD pipelines.
+Comfortable working in an Agile development environment with a trac

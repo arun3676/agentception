@@ -1,0 +1,51 @@
+Title: CCSI Systems Senior Engineer
+
+At AlixPartners, we solve the most complex and critical challenges by moving quickly from analysis to action when it really matters; creating value that has a lasting impact on companies, their people, and the communities they serve.&nbsp;By understanding, respecting, and honoring the needs of our employees, clients, and communities, AlixPartners actively promotes an inclusive environment. We strongly believe in the value that diversity brings to our experiences and are committed to the perpetual enhancements of initiatives, policies, and practices. We hold ourselves accountable by providing space for authenticity, growth, and equity for everyone.
+Location: Southfield, MI, Chicago, IL, Dallas/Houston, TX, or New York, NY (hybrid)
+About the Role
+In this critical role on AlixPartners’ Corporate Services team, you will support the Information Technology function as part of the CCSI (Cloud, Client Services, and Innovation) Team. This position is a hands-on cloud and platform engineering role with a strong focus on AI-enabled platforms, GitHub-based delivery, GitOps operating models, Infrastructure as Code (Terraform), and containerized workloads, primarily within Microsoft Azure.
+The CCSI Systems Senior Engineer is a full-time role located in Southfield, MI, Chicago, IL, Dallas/Houston, TX, or New York, NY and reports to the Cloud Platform Delivery and Operations Director. Paid relocation is not available for this position.
+What you’ll do
+AI Platforms &amp; Cloud Engineering
+
+Support the deployment, operation, and ongoing improvement of AI-enabled platforms and large language model (LLM) services using Azure-native capabilities.
+Participate in the engineering and operations of cloud platforms across Azure (primary),AWS, and GCP, with an emphasis on Azure PaaS, AI services, and automation-first designs.
+Assist in monitoring, analyzing, and remediating performance, reliability, and cost optimization issues across AI and non-AI cloud workloads.
+Support platform scalability, security, and compliance requirements for production cloud environments.
+
+GitHub, GitOps &amp; Infrastructure as Code
+
+Contribute to GitHub-based delivery workflows, treating Git repositories as the system of record for infrastructure and configuration changes.
+Implement and maintain GitOps-aligned CI/CD pipelines using GitHub Actions and/or Azure DevOps.
+Author, update, and maintain Terraform-based Infrastructure as Code, supporting repeatable, auditable, and environment-consistent deployments.
+Follow established standards for IaC using Terraform, ARM, Bicep, JSON, and PowerShell.
+
+Containers &amp; Cloud-Native Operations
+
+Support the deployment and operation of containerized platforms and workloads, including day-to-day administration and troubleshooting.
+Assist application and platform teams with adopting cloud-native and microservices-based architectures.
+Integrate container workflows into CI/CD and GitOps processes.
+Participate in 24x7x365 production support for mission-critical systems.
+
+Operations, Governance &amp; Documentation
+
+Provide day-to-day technical support for cloud platforms, SaaS services, and enterprise systems.
+Assist in maintaining system documentation, including architecture diagrams, runbooks, and operational procedures.
+Support compliance-aligned environments such as SOC2, ISO27001, and HIPAA.
+Collaborate with cloud architecture, security, and operations teams to implement platform standards and improvements.
+Communicate clearly with stakeholders and leadership regarding platform health, incidents, and operational activities.
+
+Additional responsibilities as identified. This description is not designed to encompass a comprehensive listing of required activities, duties, or responsibilities.
+What you’ll bring
+
+BS or BA in Computer Science, Management Information Systems, or related field preferred; equivalent experience may be considered in lieu of degree.
+Minimum three (3) years of progressive experience supporting and operating cloud platforms, preferably in a Microsoft Azure–centric environment.
+Hands-on experience supporting AI-enabled or data-intensive platforms, including exposure to Azure AI or LLM services.
+Practical experience with Terraform and Infrastructure as Code, supporting multi-environment deployments.
+Experience using GitHub for source control and CI/CD, with exposure to GitOps-style workflows.
+Experience supporting containerized workloads and cloud-native application platforms.
+Exposure to data, analytics, or AI-adjacent technologies (e.g., Microsoft Fabric, Databricks) preferred.
+Familiarity with AWS and/or GCP is a plus.
+Experience operating in production-oriented service environments, including participation in on-call or 24x7 support models.
+Highly organized with excellent organizational skills with experience operating in time-sensitive, ambiguous environments, balancing competing priorities with sound judgment and discretion.
+Strong analytical, technical, and p

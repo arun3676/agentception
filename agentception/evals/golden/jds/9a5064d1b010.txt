@@ -1,0 +1,48 @@
+Title: Sr. Platform & Infrastructure Engineer
+
+We require people to be on-site, 4 days/week at our Denver or NYC office and are unable to offer relocation support.
+LG Ad Solutions
+LG Ad Solutions is a global leader in connected TV (CTV) and cross-screen advertising. We pride ourselves on delivering state-of-the-art advertising solutions that integrate seamlessly with today's ever-evolving digital media landscape.
+The Opportunity
+We're moving to a hybrid infrastructure model. Our team has deep AWS expertise; what we're building now is the on-premises layer — bare metal compute, network fabric, storage, and the tooling to manage it all as code alongside our cloud footprint. This role is for someone who has lived in data centers and cloud environments equally, understands the tradeoffs deeply, and can help us architect something that's genuinely best-of-both.
+You'll be a key technical voice in decisions about what lives on-prem versus cloud, how we bridge the two, and how we keep developers moving fast regardless of where their workloads run.
+A note on what we're not looking for: If your entire career has been cloud-native, this probably isn't the right fit. We're building something that bridges two worlds, and we need someone who genuinely enjoys the physical infrastructure side — not just tolerates it.
+Responsibilities
+Hybrid Infrastructure Engineering
+Design, deploy, and maintain on-premises compute, storage, and networking infrastructure alongside our AWS environment
+Own bare metal provisioning and lifecycle management — from rack and stack through OS deployment, patching, and decommission
+Build and manage the network fabric connecting on-prem and cloud: VLANs, VPNs, BGP routing, firewall policy
+Architect and maintain storage systems (SAN/NAS) and evaluate tradeoffs between on-prem storage and cloud-native alternatives
+Platform & Automation
+Extend our Infrastructure as Code practices to cover on-prem resources using Terraform and Pulumi alongside AWS tooling
+Build and maintain CI/CD pipelines that work seamlessly across hybrid environments
+Manage container orchestration (Kubernetes) across both bare metal and EKS — including cluster provisioning, networking, and storage across environments
+Automate provisioning, configuration management, and drift detection at scale
+Security & Compliance
+Implement consistent security controls across on-prem and cloud: network segmentation, identity management, and secrets management
+Contribute to audit and SOC 2 compliance efforts
+Maintain compliance with enterprise security standards across the full stack
+Monitoring & Incident Response
+Build unified observability across hybrid environments — metrics, logs, and traces from on-prem and cloud in a single pane of glass
+Participate in on-call rotation and lead incident response for infrastructure-layer issues regardless of where they originate
+Define and maintain SLOs for platform reliability across the hybrid footprint
+Collaboration & Documentation
+Partner with engineering teams to help them understand the tradeoffs between on-prem and cloud for their workloads
+Maintain thorough runbooks, architecture diagrams, and operational documentation
+Contribute to infrastructure cost optimization across both environments
+Requirements
+7+ years of experience in Platform Engineering, DevOps, or Infrastructure roles
+Demonstrated hands-on experience managing physical server infrastructure — bare metal provisioning, data center operations, and hardware lifecycle
+Strong Linux systems administration: networking stack, storage management, kernel configuration, performance tuning
+Solid networking fundamentals: TCP/IP, DNS, VLANs, firewalls, load balancers
+Proficiency with Infrastructure as Code across both on-prem and cloud using Terraform and Pulumi
+Experience running Kubernetes on bare metal as well as managed cloud (EKS)
+Hands-on AWS experience: EC2, EKS, VPC networking, IAM, RDS, and related services
+Familiarity with hybrid connectivity patterns: Direct Connect, Site-to-Site VPN, private link architectures
+Experience with unified observability tooling: Prometheus/Grafana, ELK, or similar across mixed environments
+Strong scripting in Python or Go for automation and tooling
+LG Ad Solutions provides equal work opportunities to all team members and applicants, and it prohibits discrimination and harassment of any type on the basis of race, color, ethnicity, caste, religion, age, sex (including pregnancy), national origin, disability status, genetics, protected veteran status, sexual orientation, gender identity or expression, or any other characteristic protected by our policies or federal, state, or local laws.
+We want to ensure that our hiring process is accessible. If you need reasonable accommodation for any part of the application process because of a medical condition or disability, please send an email to careers@lgads.tv to let us know the nature of your request.
+Application Deadline: July 7, 2026
+Compensation & Benefits
+Tier 1* (San Fra

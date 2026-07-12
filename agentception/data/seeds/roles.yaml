@@ -1,0 +1,89 @@
+AI Engineer:
+  keywords: ["LLM", "RAG", "agents", "Python", "MLOps", "vector database", "prompt engineering", "LangChain", "LlamaIndex", "fine-tuning", "OpenAI API"]
+  value_props: ["built personal agentic LLM projects", "experience with RAG + vector DBs", "deploying models with FastAPI / cloud", "evaluating LLM outputs"]
+  hooks: ["LLM agents", "RAG pipelines", "vector search", "autonomous agents", "generative AI"]
+  proofs: ["built RAG system for documentation", "fine-tuned Llama-2 on custom dataset", "developed multi-agent workflow with LangGraph"]
+
+Full-Stack Developer:
+  keywords: ["React", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "GraphQL", "Tailwind CSS", "AWS", "serverless"]
+  value_props: ["shipping end-to-end features", "responsive UI development", "scalable backend API design", "database schema optimization"]
+  hooks: ["full-stack development", "modern web apps", "scalable architecture", "user-centric design"]
+  proofs: ["built e-commerce platform with Next.js", "optimized database queries reducing load by 40%", "integrated Stripe payments"]
+
+Java Developer:
+  keywords: ["Java", "Spring Boot", "Microservices", "Kafka", "Hibernate", "AWS", "REST API", "Docker", "Kubernetes"]
+  value_props: ["high-performance backend systems", "scalable microservices architecture", "robust API development", "legacy system modernization"]
+  hooks: ["backend systems", "enterprise Java", "distributed systems", "cloud-native development"]
+  proofs: ["migrated monolith to microservices", "implemented event-driven architecture with Kafka", "optimized JVM performance"]
+
+Data Analyst:
+  keywords: ["SQL", "dbt", "dashboards", "Tableau", "Power BI", "A/B testing", "experimentation", "data visualization", "Python", "pandas"]
+  value_props: ["turning data into actionable insights", "designing rigorous experiments", "automating reporting workflows", "communicating metrics to stakeholders"]
+  hooks: ["data-driven decision making", "business intelligence", "performance metrics", "product analytics"]
+  proofs: ["automated weekly reporting saving 10 hours", "identified 15% revenue opportunity through cohort analysis", "built executive dashboards"]
+
+Data Engineer:
+  keywords: ["Python", "SQL", "Spark", "Airflow", "dbt", "Snowflake", "BigQuery", "AWS Glue", "ETL", "data pipelines"]
+  value_props: ["building scalable data pipelines", "ensuring data quality and reliability", "optimizing warehouse costs", "real-time data processing"]
+  hooks: ["modern data stack", "reliable ETL", "data infrastructure", "cloud data warehouses"]
+  proofs: ["reduced data processing latency by 50%", "architected modern data lakehouse", "implemented data quality checks with Great Expectations"]
+
+Machine Learning Engineer:
+  keywords: ["Python", "PyTorch", "TensorFlow", "MLOps", "Docker", "Kubernetes", "AWS SageMaker", "model serving", "scikit-learn"]
+  value_props: ["deploying ML models to production", "optimizing inference latency", "building training pipelines", "monitoring model drift"]
+  hooks: ["production ML", "scalable inference", "model deployment", "AI infrastructure"]
+  proofs: ["deployed recommender system serving 1M users", "reduced model inference cost by 30%", "automated model retraining pipeline"]
+
+DevOps Engineer:
+  keywords: ["Terraform", "Kubernetes", "AWS", "CI/CD", "GitHub Actions", "Docker", "Prometheus", "Grafana", "Python", "Go"]
+  value_props: ["automating infrastructure as code", "ensuring 99.9% system uptime", "optimizing cloud costs", "streamlining deployment pipelines"]
+  hooks: ["infrastructure automation", "site reliability", "platform engineering", "cloud operations"]
+  proofs: ["migrated on-premise to AWS", "reduced deployment time from 1 hour to 5 mins", "implemented zero-trust security model"]
+
+Cloud Engineer:
+  keywords: ["AWS", "Azure", "GCP", "Terraform", "Serverless", "Lambda", "IAM", "Networking", "Python", "Bash"]
+  value_props: ["designing secure cloud architecture", "implementing serverless solutions", "managing multi-cloud environments", "automating cloud operations"]
+  hooks: ["cloud architecture", "serverless computing", "cloud security", "infrastructure modernization"]
+  proofs: ["architected multi-region DR solution", "reduced cloud spend by 25% via rightsizing", "automated compliance auditing"]
+
+Cybersecurity Engineer:
+  keywords: ["Network Security", "Penetration Testing", "SIEM", "Splunk", "Python", "OWASP", "Vulnerability Management", "Incident Response"]
+  value_props: ["identifying and mitigating security threats", "securing cloud infrastructure", "automating security compliance", "leading incident response"]
+  hooks: ["information security", "threat hunting", "security operations", "application security"]
+  proofs: ["led response to major security incident", "implemented automated vulnerability scanning", "secured Kubernetes clusters"]
+
+Product Manager:
+  keywords: ["Product Strategy", "Roadmap Planning", "Agile", "User Research", "Jira", "SQL", "Product Analytics", "Stakeholder Management"]
+  value_props: ["defining product vision and strategy", "prioritizing features based on data", "leading cross-functional teams", "driving user growth"]
+  hooks: ["product leadership", "user-centric product", "growth hacking", "agile product management"]
+  proofs: ["launched feature increasing retention by 20%", "managed roadmap for $5M ARR product", "conducted 50+ user interviews"]
+
+Software Architect:
+  keywords: ["System Design", "Microservices", "Event-Driven Architecture", "Cloud Patterns", "Scalability", "API Governance", "Technical Leadership"]
+  value_props: ["designing scalable distributed systems", "defining technical standards", "mentoring engineering teams", "solving complex architectural problems"]
+  hooks: ["system architecture", "distributed systems", "technical strategy", "software design"]
+  proofs: ["designed system scaling to 10M users", "defined company-wide API standards", "led migration to microservices"]
+
+Backend Engineer:
+  keywords: ["Python", "Go", "Java", "PostgreSQL", "Redis", "gRPC", "REST", "System Design", "Concurrency"]
+  value_props: ["building high-throughput APIs", "optimizing database performance", "designing fault-tolerant systems", "writing clean maintainable code"]
+  hooks: ["backend development", "API engineering", "distributed systems", "server-side programming"]
+  proofs: ["scaled API to handle 10k RPS", "optimized complex SQL queries", "implemented distributed caching strategy"]
+
+Frontend Engineer:
+  keywords: ["React", "TypeScript", "UI", "JavaScript", "frontend", "Next.js", "SPA", "CSS Modules", "Redux", "performance optimization"]
+  value_props: ["creating pixel-perfect user interfaces", "optimizing frontend performance", "building reusable component libraries", "ensuring accessibility (a11y)"]
+  hooks: ["modern frontend", "user interface engineering", "web performance", "interactive experiences"]
+  proofs: ["improved Lighthouse score to 95+", "built component library used by 5 teams", "migrated legacy app to React"]
+
+Mobile Developer:
+  keywords: ["Swift", "Kotlin", "React Native", "Flutter", "iOS", "Android", "Mobile Architecture", "App Store Deployment"]
+  value_props: ["building native-quality mobile experiences", "optimizing app performance", "managing app store releases", "implementing offline-first functionality"]
+  hooks: ["mobile app development", "cross-platform development", "mobile UX", "app store optimization"]
+  proofs: ["launched app with 4.8 star rating", "reduced app launch time by 50%", "implemented real-time chat feature"]
+
+Blockchain Developer:
+  keywords: ["Solidity", "Ethereum", "Web3.js", "Smart Contracts", "DeFi", "Hardhat", "Truffle", "Rust", "Cryptography"]
+  value_props: ["developing secure smart contracts", "auditing blockchain protocols", "building decentralized applications (dApps)", "optimizing gas costs"]
+  hooks: ["web3 development", "blockchain engineering", "decentralized finance", "smart contract security"]
+  proofs: ["deployed smart contract with $10M TVL", "audited DeFi protocol for security flaws", "built NFT marketplace"]

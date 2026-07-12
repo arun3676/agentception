@@ -1,0 +1,48 @@
+Back to jobs New Senior DevOps Engineer
+US - Remote Apply
+About Waymark
+Waymark is a mission-driven team of healthcare providers, technologists, and builders working to transform care for people with Medicaid benefits. We partner with communities to deliver technology-enabled, human-centered support that helps patients stay healthy and thrive. We’re designing tools and systems that bring care directly to those who need it most—removing barriers and reimagining what’s possible in Medicaid healthcare delivery. Our Values At Waymark, our values are the foundation of how we work, grow, and support one another:
+Bold Builders: We tackle the toughest challenges in care delivery by harnessing the power of community and technology.
+Humble Learners: We seek feedback, embrace diverse perspectives, and welcome challenges to our assumptions.
+Experiment to Improve: We use data to inform decisions and continuously assess our performance.
+Focused Urgency: Our mission drives us to act swiftly and relentlessly in pursuit of meaningful results.
+If this resonates with you, we invite you to bring your creativity, energy, and curiosity to Waymark.
+About this role
+At Waymark, our infrastructure directly enables care delivery — the tools built and operated here are used every day by community health workers, social workers, pharmacists, and care coordinators supporting patients with Medicaid benefits.As a Senior DevOps Engineer, you'll own projects from design through delivery, working closely with software and data engineers to keep our systems (dBt, Redshift) reliable and our teams moving. You communicate proactively, mentor junior engineers, and bring new ideas to the team — not just implementing what's asked, but helping shape how we build and operate.This is a role for someone who wants to do meaningful work at the intersection of technology and healthcare equity.Key Responsibilities
+Build, deploy, and maintain scalable, highly available systems on AWS
+Own CI/CD pipelines and drive improvements to deployment automation
+Own and evolve infrastructure as code using Terraform and Ansible
+Research new tools and technologies, develop proofs of concept, and introduce validated practices to the team
+Improve system reliability — sharpen alerting, build out runbooks, and deepen observability across our stack (Grafana, Loki, Mimir, Tempo)
+Participate in an on-call rotation; off-hours incidents are rare thanks to extensive automation and self-healing — occasional evening work is limited to planned maintenance and system upgrades
+Maintain process documentation, operational runbooks, and infrastructure diagrams
+Help maintain and manage systems for other teams
+dBt and Redshift – to support our Analytics Team
+SageMaker – to support our Data Science Team
+Raise the DevOps literacy of the engineering team — mentoring junior engineers and helping non-infrastructure engineers build good practices around deployments, observability, and reliability
+Collaborate with engineering teams on infrastructure design decisions
+Minimum Qualifications
+5+ years of experience designing, implementing, and operating highly available, fault-tolerant systems in cloud environments
+Hands-on experience with AWS (EC2, ECR, CloudFront, Route 53, etc)
+Experience with containerization and workload orchestration (Docker, Nomad)
+Proficiency with infrastructure as code tools (Terraform, Ansible)
+Strong knowledge of CI/CD practices including automated testing and deployment automation
+Strong Linux and shell/bash scripting skills
+Experience with relational databases (PostgreSQL) and messaging systems (RabbitMQ)
+Experience working in a regulated or compliance-driven environment (e.g. HIPAA, SOC 2, PCI, FedRAMP)
+Preferred Qualifications
+Experience with service mesh and secrets management (Consul, Vault)
+Experience with data platforms and pipelines (dBt, SageMaker, Redshift)
+Experience with networking and DNS
+Experience with image building and provisioning automation (Packer)
+Programming experience (Python, Elixir, TypeScript)
+Exposure to Google Cloud (GCP)
+Hiring Range
+US Employees in San Francisco/Bay Area, New York City - $140,000 - $194,000
+US Employees in Boston, Los Angeles, Seattle, Washington DC - $129,000 - $179,000
+US Employees in Arlington, Denver, San Diego, Sacramento - $123,000 - $172,000
+US Employees in Albany, Atlanta, Austin, Baltimore, Central/Southern, Charlotte, Chicago, Dallas/Fort Worth, Detroit, Houston, Las Vegas, Miami, Milwaukee, Philadelphia, Portland, Research Triangle, Salt Lake City, Twin Cities - $112,000 - $156,000
+US Employees in Baton Rouge, Birmingham, Charleston, Cincinnati, Cleveland, Daytona Beach, Indianapolis, Nashville, New Orleans, Omaha, Phoenix, Pittsburgh, St. Louis, Tampa - $109,000 - $151,000
+In addition to salary, we offer a comprehensive benefits package. Here’s what you can expect:
+Stock Options:  Opportunity to invest in the company’s growth.
+Work-from-Home Stipend:  A dedicated stipend for your first year to help set up your home

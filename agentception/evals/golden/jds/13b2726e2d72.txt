@@ -1,0 +1,31 @@
+Back to jobs Principal DevOps Engineer
+Remote - United States Apply About the Principal DevOps Engineer at Headspace:
+Our mission at Headspace is to Provide every person access to lifelong mental health support. As a Principal DevOps Engineer, your leadership will be essential in helping us make the mission matter by guaranteeing a secure, reliable, and highly scalable platform for over 65 million users worldwide. You will be expected to own the outcome as you lead the charge in defining and refining our cloud strategies, driving technical excellence, and ensuring our infrastructure is efficient and poised for growth. We embrace the principle of iterate to great; you will continuously leverage cutting-edge technologies to simplify and optimize our cloud solutions, accelerating our ability to deliver innovative features and a better experience for our members. Join us and use your expertise to build a world where we can all care for our minds.
+You will support our efforts to bring innovative features to life, leverage cutting-edge technologies, and ensure our platform's reliability and scalability for over 65 million users. A big goal needs talented leadership, so come join us and give your career a sense of purpose!
+What you will do:
+Define the long-term technical vision for our cloud platform, advising leadership on architectural strategy, investment priorities, and systemic risk
+Set organizational standards for cloud reliability, observability, and operational excellence, including SLO/SLI frameworks, incident management practices, and the platform tooling that underpins them
+Serve as the senior solutions engineering authority for partner teams: translating cross-functional requirements into platform strategy and driving prioritization of developer experience investments
+Own the developer experience roadmap, identifying and closing systemic gaps in self-service infrastructure, CI/CD workflows, and operational visibility across engineering
+Proactively surface systemic risks in our AWS infrastructure, IaC practices, and delivery pipelines, and drive organizational action before issues become incidents
+Translate complex infrastructure risk and platform strategy into clear, business-aligned narratives for Director-level and executive stakeholders to drive resourcing and prioritization decisions
+Mentor Staff (T4) and Senior (T3) engineers and model the culture of engineering rigor, documentation, and cross-functional accountability expected across the organization
+What you will bring :
+Required Skills:
+Bachelor’s Degree in Computer Science, Engineering, or equivalent
+8+ years of cloud platform or infrastructure engineering experience with demonstrated org-level technical impact
+Expert AWS knowledge across compute (EC2, ECS, Lambda), networking (VPCs, Transit Gateway, Route 53, CloudFront), data (RDS, S3), and security (IAM, Secrets Manager, Systems Manager), with a track record of high-stakes architectural decisions
+Deep expertise in cloud reliability and operational excellence: SLO/SLI design, centralized observability, alerting strategy, and incident lifecycle management at production scale
+Expert-level Terraform and IaC platform leadership: organizational module strategy, policy-as-code, and self-service provisioning standards that scale across teams with varying infrastructure maturity
+Proven solutions engineering partner and developer experience advocate: working across teams to discover needs, set priorities, and ship platform capabilities that reduce toil and improve engineering velocity
+Executive-level communicator: able to translate infrastructure risk and platform strategy into business-aligned narratives for Director and VP audiences, and drive alignment without formal authority
+Track record of mentoring Staff and Senior engineers, setting org-wide engineering standards, and building a culture of technical accountability and documentation rigor
+Ability to translate business goals and organizational risk into multi-year platform roadmaps, sequencing initiatives by strategic impact and building the case for long-horizon technical investment
+Experience setting CI/CD governance models and delivery philosophy at an organizational level, defining the standards and self-service patterns that teams build on, not owning pipeline implementation directl
+Preferred Skills:
+Experience with healthcare
+Location: This role is open to candidates across the US. Candidates must permanently reside in the US full-time.
+Pay & Benefits :
+The anticipated new hire base salary range for this full-time position is $162,000-$225,000 + equity + benefits.
+For candidates based in San Francisco, New York City, or Seattle, a separate salary range of $[premium min to premium mid] applies, consistent with our location-based compensation philosophy.
+Our salary ranges are based on the job, level, and location, and reflect the lowest to highest geographic markets where we are hiring for this role within the United States. Within this ran

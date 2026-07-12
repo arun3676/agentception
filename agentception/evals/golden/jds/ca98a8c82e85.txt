@@ -1,0 +1,83 @@
+# Data Engineer @ Cape
+
+**Location:** New York, NY
+**Type:** FullTime
+**Workplace:** Hybrid
+**Team:** Platform Services
+**Published:** 2026-07-02
+
+## **About Cape**
+
+Cape is America’s privacy-first mobile carrier. Our mission is to be a force for good in global wireless. Cape was founded in 2022 by people who believe privacy is a fundamental right, not a luxury to be traded away. Our journey began when our founder recognized a critical vulnerability in our modern world: everyone relies on the same stagnant cellular infrastructure and legacy systems that track our every movement, monitor and profile our connections, and lose and sell our personal data.
+
+Instead of accepting the status quo, we decided to fix it. National security professionals, journalists, parents, and everyone in between can stay connected *and* have privacy.
+
+We didn’t just build a layer on top of old tech; we built America’s most private and secure mobile carrier from the ground up. By building our own network from scratch, we are able to design and build a suite of privacy and security features that no other carrier on the planet can offer.
+
+Today, Cape provides our secure network to consumers, businesses, and government agencies alike. We closed our Series C in March 2026, and we are scaling rapidly, with the goal of giving people back control of their most personal information.
+
+## **The Team**
+
+At Cape, we are the architects of a privacy-centric movement that is just getting started. We are relentless builders, constantly innovating at the edge of what's possible in telecommunications. We operate on a foundation of high trust and high expectations. Our structure is flat, and collaboration matters more than hierarchy. As a member of our team, you will collaborate with world-class engineers, architects, and visionaries, and work across organizational lines to solve "impossible" problems and deliver mission-critical results for our users every single day.
+
+As a Data Engineer at Cape, your mission is to build the analytics and reporting infrastructure that lets us understand our product and business without compromising the privacy guarantees we make to our customers. Privacy isn't a constraint layered on top of our data systems; it's a design requirement baked into them from the start.
+
+You'll chart the course for Cape’s data infrastructure and your work will give the business first-class visibility into growth, operations, and product health built the right way from day one.
+
+**Here are some ways you’ll make an impact**
+
+- **Own the Infrastructure: **Design and build Cape's data platform from the ground up, spanning the warehouse, query layer, and pipeline orchestration, built with privacy as a first-class requirement from day one.
+
+- **Privacy-First by Default:** Work closely with engineering to establish privacy-preserving patterns and practices that the rest of the company builds on.
+
+- **Enable the Business:** Give product, operations, and leadership the self-serve analytics they need such as dashboards, metrics, and reports that answer real questions.
+
+- **Set the Standard:** Establish the data engineering practices Cape will build on such as pipeline conventions, testing, documentation, and a culture of treating data infrastructure with the same rigor we apply to our telecom stack.
+
+**Are you the candidate we are looking for?
+
+Preferred**
+
+- 4+ years of professional data engineering or software engineering experience, with meaningful time building data pipelines and warehouses.
+
+- Strong SQL and data modeling skills, with experience designing schemas for analytics workloads.
+
+- Fluency in Python, Go, or another backend language.
+
+- Hands-on experience with a cloud data warehouse such as Snowflake, BigQuery, MongoDB or Redshift.
+
+- Familiarity with ETL/ELT frameworks and workflow orchestration tools.
+
+- A solid understanding of privacy-preserving data practices including access control, data minimization, and identifier management.
+
+- Strong written and verbal communication skills, with the ability to work effectively across engineering, product, and business stakeholders.
+
+**Nice to Have**
+
+- Experience in a regulated or privacy-sensitive industry (telecom, healthcare, fintech).
+
+- Background in differential privacy, k-anonymity, or other formal privacy models.
+
+**Compensation**
+
+We offer competitive compensation that is geo-adjusted based on your location, along with meaningful equity so you share in the value you help create. Salary range for this role in New York, New York is $180,000-$235,000 depending on experience and interview performance.
+
+Our benefits include:
+
+- 401(k) match
+
+- 100% coverage of medical, dental, and vision premiums for you and your dependents
+
+- 12 weeks paid parental leave (for all parents, no waiting period)
+
+- Stipends for
+
+- Family-forming needs
+
+- Gender-affirming care
+
+- Unlimited PTO
+
+## **Our Culture & Values**
+
+- We hire excellent people, give them outsized responsibility, and trust them to execu

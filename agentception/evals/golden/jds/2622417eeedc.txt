@@ -1,0 +1,32 @@
+Back to jobs Senior Backend Engineer, Data Platform
+Remote - US Apply About the Job:
+Software powers the world, and LaunchDarkly empowers teams to deliver and control it safely. As a Senior Backend Engineer on the Data Platform team, you will help build and operate the distributed data infrastructure that moves, stores, and serves large volumes of product data across LaunchDarkly.
+Our systems support customer-facing product capabilities across Experimentation, Metrics, Release Guardian, Observability, AgentControl, and other areas that depend on reliable data. You will work on streaming and batch processing systems, analytical data stores, warehouse export infrastructure, and the operational foundations needed to keep these systems reliable at scale.
+To support this work, we use technologies such as Kinesis, Airflow, Spark, Lambda, Flink, Athena, ClickHouse, Postgres, Elasticsearch, Glue/Iceberg/S3, Terraform, and Datadog. Exact tool match is less important than strong backend engineering experience, distributed systems judgment, and a track record of owning production systems. As part of our you-build-it-you-run-it culture, engineers support the systems they build in production, including through an on-call rotation.
+Responsibilities:
+Design, build, and operate distributed, data-intensive backend systems that power Data Platform capabilities across Experimentation, Metrics, Release Guardian, Observability, Agent Control, and other product areas.
+Own and improve production data infrastructure, including streaming and batch pipelines, analytical data stores, warehouse export systems, observability, alerting, reliability, and performance.
+Debug and resolve complex production issues across data pipelines, databases, cloud infrastructure, and distributed systems, including participating in the team’s on-call rotation.
+Partner with product managers, frontend engineers, UX designers, and other product engineering teams to deliver reliable customer-facing data capabilities.
+Write and review technical proposals, contribute to architecture decisions, and help the team make thoughtful trade-offs around scalability, reliability, cost, and operability.
+Improve engineering standards, testing practices, deployment safety, observability, tooling, and operational processes for Data Platform systems.
+Write maintainable, well-tested code and actively participate in code reviews, design reviews, and production readiness discussions.
+Qualifications:
+6+ years of professional backend software engineering experience, including significant experience with infrastructure, data platform, distributed systems, or data-intensive production systems.
+Experience designing, building, operating, and debugging reliable production systems that move, store, process, or query large volumes of data.
+Hands-on experience with data pipeline, streaming, orchestration, or batch-processing technologies such as Kinesis, Airflow, Spark, Lambda, Flink, Athena, Kafka, or equivalent systems.
+Experience working with analytical, event, warehouse, or operational data stores such as ClickHouse, Postgres, Elasticsearch, Timestream, Glue/Iceberg/S3, Redshift, Databricks, or equivalent systems.
+Strong programming experience in Go, Python, SQL, Scala, or similar backend languages.
+Familiarity with distributed systems and backend engineering fundamentals such as concurrency, data modeling, failure handling, retries, idempotency, partitioning, backpressure, and high-throughput processing.
+Experience with infrastructure-as-code tools such as Terraform or equivalent, and observability tools such as Datadog, New Relic, or equivalent.
+A strong ownership mindset for production systems, including maintainability, testing, operational excellence, code quality, collaboration, and clear technical communication.
+Pay:
+Target pay ranges based on Geographic Zones* for Level 4:
+Zone 1: San Francisco/Bay Area or NYC Metropolitan Area, Boston, Seattle - $187,000 - $257,000**
+Zone 2: Irvine, LA, Monterey, Santa Barbara, Santa Rosa, Austin, Portland, Philadelphia, Chicago - $168,000 - $231,000**
+Zone 3: All other US locations - $158,000 - $218,000**
+LaunchDarkly operates from a place of high trust and transparency; we are happy to state the pay range for our open roles to best align with your needs. Exact compensation may vary based on skills, experience, and location.
+*Within the United States, our geographic pay zones are defined by counties surrounding major metropolitan areas.
+**Restricted Stock Units (RSUs), health, vision, and dental insurance, and mental health benefits in addition to salary.
+About LaunchDarkly:
+Modern software delivery was supposed to be the foundation for a thriving digital business but reality has proven otherwise. Slow, inefficient development cycles, costly outages, and fragmented customer experiences are preventing developers from building their best software. The LaunchDarkly platform helps developers innovate on new features faster while protecting the

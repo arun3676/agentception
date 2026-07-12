@@ -1,0 +1,34 @@
+Back to jobs Senior Platform Engineer
+Denver, CO (Hybrid) Apply Simplesense builds, deploys, and sustains the Installation Resilience Platform that enables mission operators to rapidly adapt and respond. The Platform protects critical infrastructure from cyber attack while unlocking previously siloed information to monitor, diagnose, and improve response times to incidents. Our adversaries rapidly adopt the latest technology: we help defense users respond in kind.
+Simplesense is a non-traditional defense contractor and prime on the Air Force's Installation Resilience Operations Command and Control (IROC) program, which is now expanding to five additional Air Force, Space Force, and Army installations from the one prototype installation, Tyndall Air Force Base.
+Our team combines over 100 years of direct mission experience solving hard problems with 50 years technical expertise deploying DevSecOps, cybersecurity, and cloud infrastructure, giving us a deep appreciation for our customers’ mission and end users’ priorities. We build for scale, architecting and prioritizing technical work for long term sustainability.
+Senior Platform Engineer
+Location: Denver, CO (Hybrid)
+About the Role
+As the Senior Platform Engineer, you are responsible for leading the production reliability of our cloud-hosted applications. You will act as the technical owner for specific cloud systems, transitioning them from reactive support to a proactive model that prioritizes automation, system optimization, and stability.  This position is a powerhouse focused on supporting application delivery and ensuring the cloud infrastructure is a "paved road" for our development teams.  We recognize that talent comes in many forms. If you’re excited about this mission but your path hasn’t perfectly mirrored our requirements list, apply anyway. We value skills, grit, and potential.
+Work Model: We prioritize candidates in the Denver, CO area but are open to remote talent.
+Locals: In person for sprint planning and quarterly planning meetings.
+Remote: Quarterly travel for team meetings.
+What You’ll Do
+Solution Ownership: Collaborate with operations team members and Principal and Staff Engineers to understand desired system level outcomes and operational requirements. Investigate, design, test, deploy and support core cloud platform components, including networking, applications, security and resilience features, logging, monitoring, and infrastructure-as-code (IaC) features, to ensure success.
+Network Infrastructure Design: Manage scalable cloud network topologies, including transit gateways, VPCs, subnets, security groups, and route tables, ensuring low-latency and secure communication between distributed services
+Implement  CI/CD & Automation: Design and maintain automated delivery pipelines (Infrastructure as Code) to ensure repeatable, secure feature deployments.
+Technical Design: Provide technical input and guidance regarding responsible components during planning and design sessions with Principal and Staff Engineers to ensure the success of the larger integrated system (e.g., service and resource deployment patterns, security controls, cost optimization).
+Individual Contributor: Provide hands-on technical contributions to the infrastructure design and deployment with a time allocation of approximately 80% on solving technical problems (coding IaC, system design, reviews, troubleshooting) and 20% mentoring, coordinating with Staff and Principal Engineers, and supporting operations.
+Tier 3 Support & RCA: Act as the second escalation point for complex incidents, leading thorough root cause analysis (RCA) and implementing systemic, long-term fixes.
+What You Bring
+Required Qualifications:
+Experience: 5+ years in cloud operations, or DevOps, with a heavy focus on managing production workloads in mission-critical environments.
+Technical Mastery: Advanced proficiency in AWS (EC2, VPC, IAM), CloudFormation or Terraform, and CI/CD tools such as GitHub Actions.
+Cloud Networking: Deep understanding of VPC design, subnetting, Route53, PrivateLink and related AWS technologies; experience troubleshooting complex connectivity issues across multi-account or hybrid on-prem/cloud environments.
+Ownership: Demonstrated ability to take ownership of a problem and deliver a production-ready solution.
+Software Development:   Proficient in one or more software languages such as Node.js or Python.
+Observability: Strong experience with observability stacks (e.g., Splunk, DataDog, or CloudWatch) including logging, tracing, and metrics tuning.
+Travel: You will be required to travel quarterly to Product Increment planning.
+Must be a U.S. Citizen and able to obtain a DoD NIPR network account and Common Access Card (CAC)
+Must have, or be able to obtain, a Secret Clearance.
+Preferred Qualifications:
+Based in the Denver, CO area.
+Experience working within DoD, Air Force, or Federal contractor environments.
+Solutions Architect, CloudOps, DevOps or similar AWS certification.
+Our C

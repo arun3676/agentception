@@ -1,0 +1,35 @@
+Back to jobs Senior/Principal Product Manager, Open Source
+Seattle, WA Apply Who We Are
+Pulumi is the cloud infrastructure platform engineers love and enterprises trust. We help teams build, secure, and operate modern cloud applications using real programming languages, backed by an open-source foundation and a powerful SaaS platform. Industry leaders like Snowflake, NVIDIA and Supabase rely on Pulumi to turn cloud infrastructure into a competitive advantage.
+Pulumi enables developers and infrastructure engineers to unlock the full power of cloud services with secure, repeatable, production-grade infrastructure across AWS, Azure, Google Cloud, Datadog, GitHub, and more. As an AI-first organization, we’re a leader in the AI Infrastructure space and have our own autonomous infrastructure engineering agent that brings AI-driven operations directly into the cloud engineering workflow.
+While Pulumi is headquartered in Seattle, WA., we are dedicated to being a remote first company. This role will be located remotely preferably in Seattle, WA.
+About the Role
+Pulumi Core and the Pulumi Providers ecosystem are the open source foundation that millions of developers rely on to manage cloud infrastructure. We're looking for a deeply technical Product Manager to own the roadmap for both to shape what cloud engineering looks like for the next decade.
+This role sits at the intersection of three things that are hard to do well together:
+CLI and developer UX craft — every keystroke matters when developers live in your tool all day.
+Deep technical product thinking — the engine, SDKs across multiple languages, and our extensive provider ecosystem are a serious technical surface.
+Open source community leadership — your roadmap lives in public, and your users are also your contributors.
+If that combination sounds like the job you've been looking for, we want to talk to you.
+In This Role You Will:
+Own the product roadmap for Pulumi Core (engine, CLI, SDKs) and the Providers ecosystem, partnering with engineering to balance long-term architectural bets with near-term community needs.
+Obsess over CLI and developer UX — the small frictions that compound over thousands of pulumi up runs, the error messages that make or break trust, the defaults that shape how people think about infrastructure. You’re ready to understand how agents use our product, and create agent-ready interfaces.
+Engage directly with the Pulumi community — contributing to community-sourced GitHub issues, joining community calls, participating in Slack discussions, and turning real user pain into roadmap priorities.
+Build in public: shape RFCs, write roadmap posts, and represent Pulumi's open source direction to contributors, customers, and the broader cloud-native ecosystem.
+Partner with the providers team on the strategy for our large provider ecosystem — what we build first-party, where we invest in tooling for contributors, and how we keep coverage broad and quality high.
+Translate enterprise customer needs into open source product decisions without compromising what makes Pulumi loved by individual developers.
+Define success metrics that work for OSS (adoption, contribution velocity, issue resolution time, community health) alongside traditional product metrics, and feed insights directly back into roadmap decisions.
+Drive end-to-end product delivery from idea to GA and adoption by collaborating with Engineering, Design, Marketing, Sales, Support, and the open-source community.
+We're Looking For Someone With:
+7+ years of experience in product management, engineering, or technical program management, with significant time spent on developer tools or infrastructure products.
+Experience building developer tools or platforms (CLI, SDKs, APIs, infrastructure products).
+Strong intuition for CLI and terminal UX — you have opinions about good error messages, sensible defaults, progressive disclosure, and when interactivity helps vs. gets in the way.
+Experience working with or shipping in open source — whether as a maintainer, contributor, or PM on an OSS product — and comfort operating in public. Your roadmaps, decisions, and tradeoffs will be visible to a large community, and you're energized rather than drained by that.
+Hands-on familiarity with modern cloud technologies (containers, Kubernetes, serverless, cloud APIs).
+Strong technical instincts with the ability to work closely with senior engineers and reason about architectural tradeoffs. Proven ability to ramp quickly in new technical domains and form strong product opinions.
+Demonstrated ability to ship high-quality products in ambiguous or complex problem spaces.
+Experience working cross-functionally with Sales, Marketing, and Support in a product-led growth environment.
+Excellent written and verbal communication skills.
+A commitment to building inclusive, collaborative teams.
+Nice to Haves
+Background as a maintainer or significant contributor to a well-known open source project.
+Background in cloud infrastruc

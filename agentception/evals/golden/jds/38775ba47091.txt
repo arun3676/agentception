@@ -1,0 +1,53 @@
+# Principal Software Engineer- Site Reliability @ UiPath
+...
+**Location:** Bangalore - Engineering
+**Type:** FullTime
+**Workplace:** OnSite
+**Team:** Engineering
+**Published:** 2026-07-01
+...
+At UiPath's Site Reliability team, we build the platforms and systems the entire company depends on to deliver on our compliance and SLA promises to customers. These span services and tools that enforce cloud access policies, cost governance, observability, operational excellence, and reliability across UiPath. We are scaling each of these pillars, and building the next generation of capabilities on each, powered by AI.
+...
+This is a software engineering role. You will not be the person who identifies a reliability gap and files a ticket for another team to fix. You are the engineer who identifies the gaps across teams, designs the system that closes it, builds it, ships it, and drives its adoption — often by doing the integration work yourself rather than asking other teams to come to you. You build platforms that other engineers depend on in their critical path, and you hold yourself accountable to outcomes, not outputs.
+...
+be doing at UiPath
+...
+As a Principal Software Engineer, you will 
+
+- Design, engineer, and build SRE platform systems and capabilities with cutting-edge AI, treating them as products that other engineering teams depend on in their critical path.
+...
+technical deliverables meet
+...
+exceed expectations on reliability
+...
+scalability, quality
+...
+needle on these dimensions.
+...
+**What youʼll bring to UiPath**
+...
+- Proven track record (10+ years) of architecting and engineering world-class, large-scale, distributed commercial applications and services, and ensuring customer success. 
+
+- Experience building large-scale, complex internal platforms adopted by 10+ teams in their critical path at a large company — systems that have stood the test of time, not prototypes that were handed off or abandoned. 
+
+- Demonstrated ability to drive adoption of your systems by doing the hard work yourself: writing integrations, removing friction for other teams, and measuring success by outcomes delivered — not features shipped. 
+
+- Experience building and maintaining complex AI-powered applications in production. 
+
+- Proficiency in one or more object-oriented languages (such as C#, C++, Go, or Python), backed by solid computer science fundamentals. 
+
+- Deep understanding of data structures, algorithms, multithreading, synchronization, asynchronous patterns, and cloud programming. 
+
+- Experience with service-oriented and microservice-based architectures, HTTP applications, and web services development. 
+
+- Familiarity with modern engineering practices including agile development, CI/CD, and DevOps. Ability to work with globally distributed teams. 
+
+- Experience working with or managing production Kubernetes infrastructure is a plus. 
+
+- Experience with any of the cloud providers (Azure, AWS, GCP) and managed services (AKS, GKE, etc.) is a must. 
+
+- Experience with database backends (e.g., Azure SQL, CosmosDB, Azure Data Lake, Power BI, MongoDB, MySQL, DynamoDB, etc.)
+...
+Many of our roles allow for flexibility in when and where work gets done. Depending on the needs of the business and the role, the number of hybrid, office-based, and remote workers will vary from team to team. Applications are assessed on a rolling basis and there is no fixed deadline for this requisition. The application window may change depending on the volume of applications received or may close immediately if a qualified candidate is selected.
+...
+[Apply here](https://jobs.ashbyhq.com/uipath/cb9803bf-6b0c-464a-8bf2-d4a340b4e3cd/application)

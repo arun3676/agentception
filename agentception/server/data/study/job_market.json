@@ -1,0 +1,86 @@
+{
+  "ai_engineer": {
+    "title": "AI Engineer",
+    "salary": "$145k - $210k",
+    "companies": ["OpenAI", "Anthropic", "Tesla"],
+    "icon": "🤖",
+    "description": "Build the brains behind modern software using LLMs and Neural Networks."
+  },
+  "data_scientist": {
+    "title": "Data Scientist",
+    "salary": "$130k - $190k",
+    "companies": ["Netflix", "Spotify", "Google"],
+    "icon": "📊",
+    "description": "Turn messy data into actionable insights and predictive models."
+  },
+  "full_stack_dev": {
+    "title": "Full Stack Developer",
+    "salary": "$120k - $170k",
+    "companies": ["Stripe", "Airbnb", "Uber"],
+    "icon": "💻",
+    "description": "Master both frontend and backend to build complete products."
+  },
+  "backend_engineer": {
+    "title": "Backend Engineer",
+    "salary": "$125k - $180k",
+    "companies": ["Amazon", "Twitch", "Discord"],
+    "icon": "⚙️",
+    "description": "Design scalable systems that power the internet's heaviest traffic."
+  },
+  "frontend_engineer": {
+    "title": "Frontend Engineer",
+    "salary": "$115k - $165k",
+    "companies": ["Vercel", "Linear", "Notion"],
+    "icon": "🎨",
+    "description": "Craft beautiful, responsive user interfaces that users love."
+  },
+  "devops_engineer": {
+    "title": "DevOps Engineer",
+    "salary": "$130k - $185k",
+    "companies": ["Datadog", "HashiCorp", "AWS"],
+    "icon": "🚀",
+    "description": "Automate deployment pipelines and keep production servers alive."
+  },
+  "cloud_architect": {
+    "title": "Cloud Architect",
+    "salary": "$150k - $220k",
+    "companies": ["Microsoft", "Oracle", "IBM"],
+    "icon": "☁️",
+    "description": "Design secure, scalable cloud infrastructure for enterprise systems."
+  },
+  "product_manager": {
+    "title": "Product Manager",
+    "salary": "$135k - $195k",
+    "companies": ["Atlassian", "Slack", "Zoom"],
+    "icon": "📅",
+    "description": "Bridge the gap between business, design, and engineering."
+  },
+  "ui_ux_designer": {
+    "title": "UI/UX Designer",
+    "salary": "$110k - $160k",
+    "companies": ["Figma", "Apple", "Airbnb"],
+    "icon": "✨",
+    "description": "Design intuitive digital experiences and user flows."
+  },
+  "mobile_developer": {
+    "title": "Mobile Developer",
+    "salary": "$120k - $175k",
+    "companies": ["Snapchat", "Uber", "Instagram"],
+    "icon": "📱",
+    "description": "Build native iOS and Android apps used by millions."
+  },
+  "cybersecurity_analyst": {
+    "title": "Cybersecurity Analyst",
+    "salary": "$115k - $170k",
+    "companies": ["CrowdStrike", "Palo Alto Networks", "NSA"],
+    "icon": "🔒",
+    "description": "Protect critical infrastructure from hackers and cyber threats."
+  },
+  "data_engineer": {
+    "title": "Data Engineer",
+    "salary": "$130k - $185k",
+    "companies": ["Snowflake", "Databricks", "Uber"],
+    "icon": "🗄️",
+    "description": "Build the pipelines that transport and store massive datasets."
+  }
+}

@@ -1,0 +1,37 @@
+Title: Software Engineer, Product (Frontend-leaning)
+
+About Assembled
+Great customer support requires human agents and AI in perfect balance, and Assembled is the only unified platform that orchestrates both at scale. Companies like Canva, Etsy, and Robinhood use Assembled to coordinate their entire support operation — in-house agents, BPOs, and AI — in a single operating system. With AI Agents that resolve cases end-to-end, AI Copilot for agent assistance, and AI-powered workforce management that optimizes both human and AI capacity, Assembled helps teams deliver faster, better service while making smarter decisions about how to staff and automate. Backed by $71M from NEA, Emergence Capital, and Stripe, we're building the platform that makes AI and human collaboration actually work.
+The role
+We're looking for a full-stack product engineer with deep frontend expertise.
+You'll work across the stack to ship customer-facing product experiences, from polished interfaces to the backend systems, APIs, and AI-powered workflows that power them. You'll partner closely with product and design, move quickly from idea to production, and help shape both what we build and how we build it.
+We're looking for a product-minded engineer who can own outcomes end-to-end, but who also brings strong frontend engineering fundamentals, exceptional product instincts, and a high bar for user experience.
+What you'll own
+Build product experiences end to end — Own customer-facing features from concept through production across frontend, backend, APIs, data models, and AI-powered workflows.
+Lead frontend implementation for complex products — Build intuitive, performant user experiences while bringing strong judgment around frontend architecture, state management, and application design.
+Strengthen our frontend foundations — Improve performance, maintainability, developer experience, and technical quality across our React application. Drive major upgrades and architectural improvements when needed.
+Create reusable systems and patterns — Build thoughtful abstractions, components, and frameworks that help the team move faster without sacrificing product quality.
+Partner deeply with product and design — Turn ambiguous customer problems into elegant product experiences and iterate quickly based on customer feedback.
+Shape the future of AI-assisted software development — Evaluate, experiment with, and operationalize AI coding agents and development workflows. Help us determine how engineers and AI work together to build products faster, with higher quality, and greater leverage.
+What excites us
+4+ years of software engineering experience building and shipping production software.
+Strong full-stack engineering skills , with the ability to comfortably move between frontend, backend, APIs, databases, and infrastructure.
+Exceptional frontend engineering fundamentals , including experience building large React applications and making sound decisions around architecture, performance, maintainability, and developer experience.
+A strong product mindset and track record of owning customer-facing features from idea through launch.
+Experience partnering closely with product managers and designers to turn ambiguous problems into polished user experiences.
+Strong communication skills , both written and verbal.
+Bias toward ownership and shipping , especially in fast-moving environments where priorities evolve quickly.
+Experience using AI coding agents in your daily workflow and excitement about how AI is changing software development.
+Nice to haves
+Experience with our full stack: TypeScript, React, Storybook, and data visualization libraries such as Visx, D3, Chart.js, or similar.
+Experience improving frontend performance, application architecture, build systems, or developer experience at scale.
+Experience working on B2B SaaS, operational software, support tooling, or workflow-heavy products.
+Our U.S. benefits
+Generous medical, dental, and vision benefits
+Paid company holidays, sick time, and unlimited time off
+Monthly credits to spend on each: professional development, general wellness, Assembled customers, and commuting
+Paid parental leave
+Catered lunches every day (M-F) and fully stocked kitchen
+401(k) plan enrollment
+The estimated base salary range for this role is $140,000 - $210,000 per year. The base pay offered may vary depending on location, job-related knowledge, skills, and experience. Stock options are provided as part of the compensation package, in addition to a full range of medical, financial, and/or other benefits, dependent on the position offered.
+We know great candidates don’t always meet every requirement listed in a job description. If the role excites you and you believe you can make an impact at Assembled, we encourage you to apply. We value diverse perspectives and are committed to building an inclusive workplace where everyone feels like they belong and has the opportunity to do their best work. We look forward to hearing from you

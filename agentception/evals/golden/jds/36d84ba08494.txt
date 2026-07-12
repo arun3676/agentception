@@ -1,0 +1,41 @@
+Back to jobs New Software Engineer, Content Data Products
+New York, NY Apply
+The mission of The New York Times is to seek the truth and help people understand the world. That means independent journalism is at the heart of all we do as a company. It’s why we have a world-renowned newsroom that sends journalists to report on the ground from nearly 160 countries. It’s why we focus deeply on how our readers will experience our journalism, from print to audio to a world-class digital and app destination. And it’s why our business strategy centers on making journalism so good that it’s worth paying for.
+About the Role:
+The New York Times is looking for a Software Engineer to join the Content Data Products team. You will report to an engineering manager and partner with engineers, product and project managers, data scientists, newsroom along with others to build systems that turn NYT's archive of publishing content into data products. Our teams and external partners will use these tools to obtain insights and build experiences based on NYT content.
+The Content Data Products team sits within the Publishing group at the New York Times. The Publishing group is responsible for the content management system for all of the Times. It empowers development teams to build and evolve experiences with speed, and provides editors and creators with a unified suite of tools they can use with confidence to make the world's best journalism.
+This is a hybrid role based in our New York City headquarters. You can typically expect to come into the office 2 days/week.
+Responsibilities:
+Collaborate with product, design, other engineers, and newsroom partners to build content data products and APIs within the NYT's publishing platform, including internal data solutions and external offerings
+Take ownership of features or components, driving them from requirements gathering through design, implementation, QA, deployment, and monitoring
+Use AI to process our archive and turn unstructured data into structured data, while developing a deep understanding of what we're building and how to use it
+Ensure a high degree of code quality, security, and system observability
+Drive architectural excellence by establishing best practices for high concurrency, data-intensive systems
+Champion a "quality-first" culture by architecting automated testing frameworks that ensure service reliability at scale
+Demonstrate support and understanding of our value of journalistic independence and a commitment to our mission to seek the truth and help people understand the world.
+Basic Qualifications:
+2+ years of software engineering experience
+Fluency in backend technologies (Go, Python, Java or similar) and SQL databases
+Experience designing and building data backend services and APIs that other teams can build on
+Experience with data feeds development
+Experience with CI/CD concepts and tooling
+Experience with infrastructure orchestration and familiarity with cloud computing platforms like GCP or AWS
+Understanding of application and data security best practices
+Demonstrated experience working collaboratively as a part of a cross-functional team
+Preferred Qualifications:
+Front-end familiarity (JavaScript, React) to contribute across the stack when needed
+Understanding of data modeling, data warehousing, ETL/ELT processes, data pipelines, and data architecture
+Experience with AI/ML
+Experience with Content Management Systems
+Experience with metadata and tagging
+Familiarity with extracting or digitizing content from multiple sources
+#LI-Hybrid
+REQ-020306
+The annual base pay range for this role is between:
+$110,000 - $130,000 USD
+For roles in the U.S., dependent on your role, you may be eligible for variable pay, such as an annual bonus and restricted stock. Benefits may include medical, dental and vision benefits, Flexible Spending Accounts (F.S.A.s), a company-matching 401(k) plan, paid vacation, paid sick days, paid parental leave, tuition reimbursement and professional development programs.
+For roles outside of the U.S., information on benefits will be provided during the interview process.
+We’re excited to learn more about you and your experience. To keep our hiring process as fair and authentic as possible, we ask that you submit your own work and not use GenAI tools to generate substantive content during the application and interview process.
+If you’re an Engineering candidate, we’ll let you know what specific GenAI tools you are permitted to use for your technical assessment.
+The New York Times Company is committed to being the world’s best source of independent, reliable and quality journalism. To do so, we embrace a diverse workforce that has a broad range of backgrounds and experiences across our ranks, at all levels of the organization. We encourage people from all  backgrounds to apply.
+We are  an Equal Opportunity Employer and do not discriminate on the basis of an individual's sex, age, race, color, creed, national origin, alienage, religion, marital stat

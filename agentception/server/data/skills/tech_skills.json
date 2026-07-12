@@ -1,0 +1,2214 @@
+{
+ "version": "onet-29.0-hot+curated",
+ "count": 368,
+ "skills": [
+  {
+   "name": "A/B Testing",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Accessibility",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Adobe After Effects",
+   "source": "onet",
+   "hot": true,
+   "category": "Video creation and editing software"
+  },
+  {
+   "name": "Adobe Creative Cloud software",
+   "source": "onet",
+   "hot": true,
+   "category": "Graphics or photo imaging software"
+  },
+  {
+   "name": "Agents",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Airflow",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "AJAX",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "Alteryx software",
+   "source": "onet",
+   "hot": true,
+   "category": "Business intelligence and data analysis software"
+  },
+  {
+   "name": "Amazon DynamoDB",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base management system software"
+  },
+  {
+   "name": "Amazon Elastic Compute Cloud EC2",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "Amazon Redshift",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "Amazon Simple Storage Service S3",
+   "source": "onet",
+   "hot": true,
+   "category": "Storage networking software"
+  },
+  {
+   "name": "Amazon Web Services AWS CloudFormation",
+   "source": "onet",
+   "hot": true,
+   "category": "Cloud-based management software"
+  },
+  {
+   "name": "Amazon Web Services AWS software",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "Angular",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Anomaly Detection",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Ansible",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Ansible software",
+   "source": "onet",
+   "hot": true,
+   "category": "Expert system software"
+  },
+  {
+   "name": "Anthropic",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Apache Airflow",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Procedure management software"
+  },
+  {
+   "name": "Apache Cassandra",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base management system software"
+  },
+  {
+   "name": "Apache Hadoop",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base management system software"
+  },
+  {
+   "name": "Apache Hive",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base management system software"
+  },
+  {
+   "name": "Apache Kafka",
+   "source": "onet+curated",
+   "hot": true,
+   "category": "Development environment software"
+  },
+  {
+   "name": "Apache Maven",
+   "source": "onet",
+   "hot": true,
+   "category": "Development environment software"
+  },
+  {
+   "name": "Apache Spark",
+   "source": "onet+curated",
+   "hot": true,
+   "category": "Business intelligence and data analysis software"
+  },
+  {
+   "name": "Apache Subversion SVN",
+   "source": "onet",
+   "hot": true,
+   "category": "File versioning software"
+  },
+  {
+   "name": "Apache Tomcat",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "API Design",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Apple iOS",
+   "source": "onet",
+   "hot": true,
+   "category": "Operating system software"
+  },
+  {
+   "name": "Apple macOS",
+   "source": "onet",
+   "hot": true,
+   "category": "Operating system software"
+  },
+  {
+   "name": "Argo CD",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "ASP",
+   "source": "onet:acronym",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "Athena",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Atlassian Bamboo",
+   "source": "onet",
+   "hot": true,
+   "category": "Enterprise application integration software"
+  },
+  {
+   "name": "Atlassian Bitbucket",
+   "source": "onet",
+   "hot": true,
+   "category": "Application server software"
+  },
+  {
+   "name": "Atlassian Confluence",
+   "source": "onet",
+   "hot": true,
+   "category": "Project management software"
+  },
+  {
+   "name": "Atlassian JIRA",
+   "source": "onet",
+   "hot": true,
+   "category": "Content workflow software"
+  },
+  {
+   "name": "Authentication",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Authorization",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Autodesk AutoCAD",
+   "source": "onet",
+   "hot": true,
+   "category": "Computer aided design CAD software"
+  },
+  {
+   "name": "Autodesk AutoCAD Civil 3D",
+   "source": "onet",
+   "hot": true,
+   "category": "Computer aided design CAD software"
+  },
+  {
+   "name": "Autodesk Revit",
+   "source": "onet",
+   "hot": true,
+   "category": "Computer aided design CAD software"
+  },
+  {
+   "name": "AWS",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Azure",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Bash",
+   "source": "onet",
+   "hot": true,
+   "category": "Operating system software"
+  },
+  {
+   "name": "Batch Processing",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Bedrock",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Bentley MicroStation",
+   "source": "onet",
+   "hot": true,
+   "category": "Computer aided design CAD software"
+  },
+  {
+   "name": "BGP",
+   "source": "onet:acronym",
+   "hot": true,
+   "category": "Switch or router software"
+  },
+  {
+   "name": "BI",
+   "source": "onet:acronym",
+   "hot": true,
+   "category": "Business intelligence and data analysis software"
+  },
+  {
+   "name": "BigQuery",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "Bootstrap",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "Border Gateway Protocol BGP",
+   "source": "onet",
+   "hot": true,
+   "category": "Switch or router software"
+  },
+  {
+   "name": "C#",
+   "source": "onet",
+   "hot": true,
+   "category": "Object or component oriented development software"
+  },
+  {
+   "name": "C++",
+   "source": "onet",
+   "hot": true,
+   "category": "Object or component oriented development software"
+  },
+  {
+   "name": "Caching",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Canva",
+   "source": "onet",
+   "hot": true,
+   "category": "Graphics or photo imaging software"
+  },
+  {
+   "name": "Cascading style sheets CSS",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "Cassandra",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Change Data Capture",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Chef",
+   "source": "onet",
+   "hot": true,
+   "category": "Configuration management software"
+  },
+  {
+   "name": "Chroma",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "CI/CD",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "CircleCI",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Cisco Webex",
+   "source": "onet",
+   "hot": true,
+   "category": "Video conferencing software"
+  },
+  {
+   "name": "Classification",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Claude",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Claude Code",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "CloudFormation",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "CloudWatch",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Clustering",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Component libraries",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Development environment software"
+  },
+  {
+   "name": "Computer Vision",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Context Window",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Copilot",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "CSS",
+   "source": "onet:acronym",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "Cursor",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Dassault Systemes SolidWorks",
+   "source": "onet",
+   "hot": true,
+   "category": "Computer aided design CAD software"
+  },
+  {
+   "name": "Data Drift",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Data Lake",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Data Modeling",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Data Pipelines",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Data Quality",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Data Warehouse",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Databricks",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Datadog",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "dbt",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Deep Learning",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Design Systems",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Diffusion Models",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Dimensional Modeling",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Distributed Systems",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Django",
+   "source": "onet+curated",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "Docker",
+   "source": "onet+curated",
+   "hot": true,
+   "category": "Application server software"
+  },
+  {
+   "name": "Drupal",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "DynamoDB",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "EC2",
+   "source": "onet+curated",
+   "hot": true,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "eClinicalWorks EHR software",
+   "source": "onet",
+   "hot": true,
+   "category": "Medical software"
+  },
+  {
+   "name": "Eclipse IDE",
+   "source": "onet",
+   "hot": true,
+   "category": "Development environment software"
+  },
+  {
+   "name": "Eclipse Jersey",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "ECS",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Application server software"
+  },
+  {
+   "name": "EKS",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Elasticsearch",
+   "source": "onet+curated",
+   "hot": true,
+   "category": "Data base management system software"
+  },
+  {
+   "name": "ELT",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Embeddings",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "End-to-End Testing",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Epic Systems",
+   "source": "onet",
+   "hot": true,
+   "category": "Medical software"
+  },
+  {
+   "name": "ESRI ArcGIS software",
+   "source": "onet",
+   "hot": true,
+   "category": "Geographic information system"
+  },
+  {
+   "name": "ETL",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Evaluation Harness",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Event-Driven Architecture",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Experimentation",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "EXPO",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Financial analysis software"
+  },
+  {
+   "name": "Express",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Extensible markup language XML",
+   "source": "onet",
+   "hot": true,
+   "category": "Enterprise application integration software"
+  },
+  {
+   "name": "FAISS",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Fargate",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "FastAPI",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Feature Engineering",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Feature Store",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Figma",
+   "source": "onet",
+   "hot": true,
+   "category": "Graphical user interface development software"
+  },
+  {
+   "name": "Fine-tuning",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Flask",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Development environment software"
+  },
+  {
+   "name": "Flink",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Flutter",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "GDPR",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Gemini",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Git",
+   "source": "onet",
+   "hot": true,
+   "category": "File versioning software"
+  },
+  {
+   "name": "GitHub",
+   "source": "onet",
+   "hot": true,
+   "category": "Application server software"
+  },
+  {
+   "name": "GitHub Actions",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "GitLab",
+   "source": "onet",
+   "hot": true,
+   "category": "Application server software"
+  },
+  {
+   "name": "GitLab CI",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "GitOps",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Glue",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Go",
+   "source": "onet",
+   "hot": true,
+   "category": "Development environment software"
+  },
+  {
+   "name": "Google Analytics",
+   "source": "onet",
+   "hot": true,
+   "category": "Data mining software"
+  },
+  {
+   "name": "Google Android",
+   "source": "onet",
+   "hot": true,
+   "category": "Operating system software"
+  },
+  {
+   "name": "Google Angular",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "Google Cloud Platform",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Google Docs",
+   "source": "onet",
+   "hot": true,
+   "category": "Word processing software"
+  },
+  {
+   "name": "Google Sheets",
+   "source": "onet",
+   "hot": true,
+   "category": "Spreadsheet software"
+  },
+  {
+   "name": "Google Workspace software",
+   "source": "onet",
+   "hot": true,
+   "category": "Office suite software"
+  },
+  {
+   "name": "GPT-4",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Gradient Boosting",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Grafana",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "GraphQL",
+   "source": "onet+curated",
+   "hot": true,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "gRPC",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Guardrails",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Hallucination",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Helm",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Henry Schein Dentrix",
+   "source": "onet",
+   "hot": true,
+   "category": "Medical software"
+  },
+  {
+   "name": "Hibernate ORM",
+   "source": "onet",
+   "hot": true,
+   "category": "Object oriented data base management software"
+  },
+  {
+   "name": "HIPAA",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "HTML",
+   "source": "onet:acronym",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "HubSpot software",
+   "source": "onet",
+   "hot": true,
+   "category": "Sales and marketing software"
+  },
+  {
+   "name": "Hugging Face",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Hypertext markup language HTML",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "IAM",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "IBM DB2",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "IBM SPSS Statistics",
+   "source": "onet",
+   "hot": true,
+   "category": "Analytical or scientific software"
+  },
+  {
+   "name": "IBM Terraform",
+   "source": "onet",
+   "hot": true,
+   "category": "Configuration management software"
+  },
+  {
+   "name": "IBM WebSphere MQ",
+   "source": "onet",
+   "hot": true,
+   "category": "Cloud-based management software"
+  },
+  {
+   "name": "Idempotency",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Incident Response",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Inference",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Informatica software",
+   "source": "onet",
+   "hot": true,
+   "category": "Metadata management software"
+  },
+  {
+   "name": "Infrastructure as Code",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Integration Testing",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "JavaScript",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "JavaScript Object Notation JSON",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "JAX",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Jenkins",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Jenkins CI",
+   "source": "onet",
+   "hot": true,
+   "category": "Enterprise application integration software"
+  },
+  {
+   "name": "Jetpack Compose",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "jQuery",
+   "source": "onet",
+   "hot": true,
+   "category": "Object or component oriented development software"
+  },
+  {
+   "name": "JSON",
+   "source": "onet:acronym",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "JSP",
+   "source": "onet:acronym",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "JUnit",
+   "source": "onet",
+   "hot": true,
+   "category": "Program testing software"
+  },
+  {
+   "name": "JWT",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Kafka",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Keras",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Operating system software"
+  },
+  {
+   "name": "Kinesis",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Kronos Workforce Timekeeper",
+   "source": "onet",
+   "hot": true,
+   "category": "Time accounting software"
+  },
+  {
+   "name": "Kubeflow",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Analytical or scientific software"
+  },
+  {
+   "name": "Kubernetes",
+   "source": "onet+curated",
+   "hot": true,
+   "category": "Application server software"
+  },
+  {
+   "name": "Lakehouse",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Lambda",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "LangChain",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "LangGraph",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Large Language Models",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "LightGBM",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Linux",
+   "source": "onet",
+   "hot": true,
+   "category": "Operating system software"
+  },
+  {
+   "name": "LlamaIndex",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "LLM",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "LLMOps",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Load Balancing",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "LoRA",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Machine Learning",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Marketo Marketing Automation",
+   "source": "onet",
+   "hot": true,
+   "category": "Sales and marketing software"
+  },
+  {
+   "name": "MATLAB",
+   "source": "onet:acronym",
+   "hot": true,
+   "category": "Analytical or scientific software"
+  },
+  {
+   "name": "MEDITECH software",
+   "source": "onet",
+   "hot": true,
+   "category": "Medical software"
+  },
+  {
+   "name": "Message Queue",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Microservices",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Microsoft .NET Framework",
+   "source": "onet",
+   "hot": true,
+   "category": "Development environment software"
+  },
+  {
+   "name": "Microsoft Active Directory",
+   "source": "onet",
+   "hot": true,
+   "category": "Internet directory services software"
+  },
+  {
+   "name": "Microsoft Active Server Pages ASP",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "Microsoft ASP.NET",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "Microsoft Azure software",
+   "source": "onet",
+   "hot": true,
+   "category": "Development environment software"
+  },
+  {
+   "name": "Microsoft Dynamics",
+   "source": "onet",
+   "hot": true,
+   "category": "Enterprise resource planning ERP software"
+  },
+  {
+   "name": "Microsoft Power BI",
+   "source": "onet",
+   "hot": true,
+   "category": "Business intelligence and data analysis software"
+  },
+  {
+   "name": "Microsoft PowerShell",
+   "source": "onet",
+   "hot": true,
+   "category": "Development environment software"
+  },
+  {
+   "name": "Microsoft Project",
+   "source": "onet",
+   "hot": true,
+   "category": "Project management software"
+  },
+  {
+   "name": "Microsoft SharePoint",
+   "source": "onet",
+   "hot": true,
+   "category": "Cloud-based data access and sharing software"
+  },
+  {
+   "name": "Microsoft SQL Server",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "Microsoft Team Foundation Server",
+   "source": "onet",
+   "hot": true,
+   "category": "Project management software"
+  },
+  {
+   "name": "Microsoft Teams",
+   "source": "onet",
+   "hot": true,
+   "category": "Project management software"
+  },
+  {
+   "name": "Microsoft Visio",
+   "source": "onet",
+   "hot": true,
+   "category": "Process mapping and design software"
+  },
+  {
+   "name": "Microsoft Visual Basic",
+   "source": "onet",
+   "hot": true,
+   "category": "Development environment software"
+  },
+  {
+   "name": "Microsoft Visual Studio",
+   "source": "onet",
+   "hot": true,
+   "category": "Development environment software"
+  },
+  {
+   "name": "Microsoft Windows",
+   "source": "onet",
+   "hot": true,
+   "category": "Operating system software"
+  },
+  {
+   "name": "Microsoft Windows Server",
+   "source": "onet",
+   "hot": true,
+   "category": "Application server software"
+  },
+  {
+   "name": "Milvus",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Mistral",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Mlflow",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Analytical or scientific software"
+  },
+  {
+   "name": "MLOps",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Model Evaluation",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Model Registry",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Model Serving",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Model Training",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "MongoDB",
+   "source": "onet+curated",
+   "hot": true,
+   "category": "Data base management system software"
+  },
+  {
+   "name": "MQ",
+   "source": "onet:acronym",
+   "hot": true,
+   "category": "Cloud-based management software"
+  },
+  {
+   "name": "MySQL",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "Natural Language Processing",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "NestJS",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Neural Networks",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "New Relic",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Next.js",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "NLP",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Node.js",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "NoSQL",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base management system software"
+  },
+  {
+   "name": "NumPy",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "OAuth",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Objective C",
+   "source": "onet",
+   "hot": true,
+   "category": "Object or component oriented development software"
+  },
+  {
+   "name": "Observability",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Ollama",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "OpenAI API",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "OpenAPI",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "OpenSearch",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Oracle Cloud software",
+   "source": "onet",
+   "hot": true,
+   "category": "Cloud-based management software"
+  },
+  {
+   "name": "Oracle Database",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "Oracle Java",
+   "source": "onet",
+   "hot": true,
+   "category": "Object or component oriented development software"
+  },
+  {
+   "name": "Oracle JavaServer Pages JSP",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "Oracle PL/SQL",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base management system software"
+  },
+  {
+   "name": "Oracle SQL Developer",
+   "source": "onet",
+   "hot": true,
+   "category": "Development environment software"
+  },
+  {
+   "name": "Orchestration",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "PagerDuty",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "pandas",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "PCI DSS",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Penetration Testing",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Perl",
+   "source": "onet",
+   "hot": true,
+   "category": "Object or component oriented development software"
+  },
+  {
+   "name": "pgvector",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "PHP",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "Pinecone",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Polars",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "PostgreSQL",
+   "source": "onet",
+   "hot": true,
+   "category": "Object oriented data base management software"
+  },
+  {
+   "name": "Postman",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Operating system software"
+  },
+  {
+   "name": "Procore software",
+   "source": "onet",
+   "hot": true,
+   "category": "Analytical or scientific software"
+  },
+  {
+   "name": "Progressive Web Apps",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Prometheus",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "Prompt Engineering",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Protobuf",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Pub/Sub",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Pulumi",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Puppet",
+   "source": "onet",
+   "hot": true,
+   "category": "Configuration management software"
+  },
+  {
+   "name": "Python",
+   "source": "onet",
+   "hot": true,
+   "category": "Object or component oriented development software"
+  },
+  {
+   "name": "PyTorch",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "Qdrant",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "RAG",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Rails",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Ranking",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Rate Limiting",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Ray",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "React",
+   "source": "onet+curated",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "React Native",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "Recommendation Systems",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Red Hat OpenShift",
+   "source": "onet",
+   "hot": true,
+   "category": "Application server software"
+  },
+  {
+   "name": "Redis",
+   "source": "onet+curated",
+   "hot": true,
+   "category": "Data base management system software"
+  },
+  {
+   "name": "Redshift",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Reinforcement Learning",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Responsive Design",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "REST",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "REST API",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Retrieval-Augmented Generation",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Ruby",
+   "source": "onet",
+   "hot": true,
+   "category": "Development environment software"
+  },
+  {
+   "name": "Ruby on Rails",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "S3",
+   "source": "onet+curated",
+   "hot": true,
+   "category": "Storage networking software"
+  },
+  {
+   "name": "SageMaker",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Salesforce software",
+   "source": "onet",
+   "hot": true,
+   "category": "Customer relationship management CRM software"
+  },
+  {
+   "name": "SAS",
+   "source": "onet",
+   "hot": true,
+   "category": "Analytical or scientific software"
+  },
+  {
+   "name": "Scala",
+   "source": "onet",
+   "hot": true,
+   "category": "Object or component oriented development software"
+  },
+  {
+   "name": "Scikit-learn",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Development environment software"
+  },
+  {
+   "name": "Selenium",
+   "source": "onet",
+   "hot": true,
+   "category": "Program testing software"
+  },
+  {
+   "name": "Semantic Search",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Sentry",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Server-Side Rendering",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "ServiceNow",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "Shell script",
+   "source": "onet",
+   "hot": true,
+   "category": "Operating system software"
+  },
+  {
+   "name": "SIEM",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Network monitoring software"
+  },
+  {
+   "name": "Site Reliability Engineering",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Slack",
+   "source": "onet",
+   "hot": true,
+   "category": "Cloud-based data access and sharing software"
+  },
+  {
+   "name": "Snowflake",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "SNS",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "SOC 2",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Spark",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Splunk",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Splunk Enterprise",
+   "source": "onet",
+   "hot": true,
+   "category": "Cloud-based management software"
+  },
+  {
+   "name": "Spring Boot",
+   "source": "onet+curated",
+   "hot": true,
+   "category": "Application server software"
+  },
+  {
+   "name": "Spring Framework",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "SQL",
+   "source": "onet+curated",
+   "hot": true,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "SQS",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "State Management",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Step Functions",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Storybook",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Streaming",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Structured query language SQL",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "Supervised Learning",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Svelte",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "SVN",
+   "source": "onet:acronym",
+   "hot": true,
+   "category": "File versioning software"
+  },
+  {
+   "name": "Swagger",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Swift",
+   "source": "onet",
+   "hot": true,
+   "category": "Object or component oriented development software"
+  },
+  {
+   "name": "SwiftUI",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "System Design",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Tableau",
+   "source": "onet",
+   "hot": true,
+   "category": "Business intelligence and data analysis software"
+  },
+  {
+   "name": "Tailwind CSS",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "TDD",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "TensorFlow",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Industrial control software"
+  },
+  {
+   "name": "Teradata Database",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base management system software"
+  },
+  {
+   "name": "Terraform",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Terragrunt",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "The MathWorks MATLAB",
+   "source": "onet",
+   "hot": true,
+   "category": "Analytical or scientific software"
+  },
+  {
+   "name": "Threat Modeling",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Time Series",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Transact-SQL",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "Transformers",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Trimble SketchUp Pro",
+   "source": "onet",
+   "hot": true,
+   "category": "Graphics or photo imaging software"
+  },
+  {
+   "name": "Triton",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "TypeScript",
+   "source": "onet",
+   "hot": true,
+   "category": "Object or component oriented development software"
+  },
+  {
+   "name": "Unit Testing",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "UNIX",
+   "source": "onet",
+   "hot": true,
+   "category": "Operating system software"
+  },
+  {
+   "name": "UNIX Shell",
+   "source": "onet",
+   "hot": true,
+   "category": "Operating system software"
+  },
+  {
+   "name": "Vault",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Vector Database",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Vertex AI",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "vLLM",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "VPC",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Vue",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Vue.js",
+   "source": "onet",
+   "hot": true,
+   "category": "Web platform development software"
+  },
+  {
+   "name": "Weaviate",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Web Vitals",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "WebSockets",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "Weights & Biases",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  },
+  {
+   "name": "WordPress",
+   "source": "onet",
+   "hot": true,
+   "category": "Web page creation and editing software"
+  },
+  {
+   "name": "Workday software",
+   "source": "onet",
+   "hot": true,
+   "category": "Enterprise resource planning ERP software"
+  },
+  {
+   "name": "XGBoost",
+   "source": "onet+curated",
+   "hot": false,
+   "category": "Development environment software"
+  },
+  {
+   "name": "XML",
+   "source": "onet:acronym",
+   "hot": true,
+   "category": "Enterprise application integration software"
+  },
+  {
+   "name": "Yardi software",
+   "source": "onet",
+   "hot": true,
+   "category": "Data base user interface and query software"
+  },
+  {
+   "name": "Zero Trust",
+   "source": "curated",
+   "hot": true,
+   "category": "concept"
+  }
+ ]
+}

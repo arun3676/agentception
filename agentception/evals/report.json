@@ -1,0 +1,10 @@
+{
+  "match_auroc": 0.7024,
+  "resume_field_accuracy": 0.9643,
+  "skill_extraction_f1": 0.5348,
+  "skill_extraction_precision": 0.7284,
+  "skill_extraction_recall": 0.4225,
+  "match_auroc_pvalue": 0.0168,
+  "skill_extraction_recall_ceiling": 0.5719,
+  "resume_field_accuracy_fallback": 0.7143
+}
