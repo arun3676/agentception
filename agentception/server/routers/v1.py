@@ -7,7 +7,7 @@ from urllib.parse import quote_plus
 
 import httpx
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from pydantic import BaseModel
 
 from ..memory import sql_store
@@ -16,6 +16,7 @@ from ..schemas import LearningPathRequest
 from ..tools.resume_parser import _parse_skills
 from ..tools.resume_store import TECH_SKILLS_KEYWORDS, _extract_keywords
 from ..agentception2 import _role_seed_skills, summarize_applications
+from ..auth import User, require_user
 from .cache import cached_search
 
 router = APIRouter(prefix="/api/v1")
@@ -191,10 +192,10 @@ async def _check_listing(url: str) -> dict:
 
 
 @router.post("/applications")
-async def create_application(body: ApplicationCreateBody):
+async def create_application(body: ApplicationCreateBody, user: User = Depends(require_user)):
     record = sql_store.job_application_add(
         app_id=str(uuid.uuid4()),
-        user_id=body.user_id,
+        user_id=user.id,
         company_name=body.company_name,
         job_title=body.job_title,
         job_url=body.job_url,
@@ -204,27 +205,27 @@ async def create_application(body: ApplicationCreateBody):
 
 
 @router.get("/applications")
-async def list_applications(user_id: Optional[str] = None):
-    items = sql_store.job_applications_list(user_id=user_id)
+async def list_applications(user: User = Depends(require_user)):
+    items = sql_store.job_applications_list(user_id=user.id)
     return {"items": items, "summary": summarize_applications(items)}
 
 
 @router.put("/applications/{application_id}")
-async def update_application(application_id: str, body: ApplicationUpdateBody):
-    record = sql_store.job_application_update_status(application_id, body.application_status)
+async def update_application(application_id: str, body: ApplicationUpdateBody, user: User = Depends(require_user)):
+    record = sql_store.job_application_update_status(application_id, body.application_status, user_id=user.id)
     if not record:
         raise HTTPException(404, "Application not found")
     return record
 
 
 @router.post("/applications/refresh-listings")
-async def refresh_application_listings(user_id: Optional[str] = None):
+async def refresh_application_listings(user: User = Depends(require_user)):
     """Refresh public job-posting availability for saved applications.
 
     Recruiter-stage changes are intentionally left to the user unless an email or
     ATS integration is connected; public pages only expose whether a role is live.
     """
-    apps = sql_store.job_applications_list(user_id=user_id)
+    apps = sql_store.job_applications_list(user_id=user.id)
     checks = await asyncio.gather(*[_check_listing(app["job_url"]) for app in apps]) if apps else []
     return {"items": [{"id": app["id"], **check} for app, check in zip(apps, checks)]}
 

@@ -2,7 +2,15 @@
  * API utilities for connecting to the FastAPI backend
  */
 
+import { supabase } from "@/lib/supabase";
+
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
+
+async function authenticatedHeaders(): Promise<HeadersInit> {
+  const result = supabase ? await supabase.auth.getSession() : { data: { session: null } };
+  if (!result.data.session?.access_token) throw new Error("Sign in to manage applications.");
+  return { "Content-Type": "application/json", Authorization: `Bearer ${result.data.session.access_token}` };
+}
 
 export interface RagRequest {
   city: string;
@@ -370,7 +378,7 @@ export async function createApplication(payload: {
 }): Promise<ApplicationRecord> {
   const response = await fetch(`${BACKEND_URL}/api/v1/applications`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: await authenticatedHeaders(),
     body: JSON.stringify(payload),
   });
   if (!response.ok) {
@@ -380,8 +388,7 @@ export async function createApplication(payload: {
 }
 
 export async function listApplications(user_id?: string): Promise<{ items: ApplicationRecord[] }> {
-  const query = user_id ? `?user_id=${encodeURIComponent(user_id)}` : "";
-  const response = await fetch(`${BACKEND_URL}/api/v1/applications${query}`);
+  const response = await fetch(`${BACKEND_URL}/api/v1/applications`, { headers: await authenticatedHeaders() });
   if (!response.ok) {
     throw new Error(`Failed to load applications: ${response.statusText}`);
   }
@@ -391,7 +398,7 @@ export async function listApplications(user_id?: string): Promise<{ items: Appli
 export async function updateApplicationStatus(applicationId: string, application_status: string): Promise<ApplicationRecord> {
   const response = await fetch(`${BACKEND_URL}/api/v1/applications/${applicationId}`, {
     method: "PUT",
-    headers: { "Content-Type": "application/json" },
+    headers: await authenticatedHeaders(),
     body: JSON.stringify({ application_status }),
   });
   if (!response.ok) {
@@ -401,7 +408,7 @@ export async function updateApplicationStatus(applicationId: string, application
 }
 
 export async function refreshApplicationListings(): Promise<{ items: Array<{ id: string; status: "open" | "closed" | "unknown"; checked_at: string; status_code?: number }> }> {
-  const response = await fetch(`${BACKEND_URL}/api/v1/applications/refresh-listings`, { method: "POST" });
+  const response = await fetch(`${BACKEND_URL}/api/v1/applications/refresh-listings`, { method: "POST", headers: await authenticatedHeaders() });
   if (!response.ok) throw new Error(`Failed to refresh job availability: ${response.statusText}`);
   return response.json();
 }

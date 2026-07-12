@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink as RouterNavLink, useLocation } from "react-router-dom";
+import { Link, NavLink as RouterNavLink, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "@/auth/AuthProvider";
 import {
   Search,
   Map,
@@ -13,6 +14,7 @@ import {
   X,
   Activity,
   ArrowUpRight,
+  LogOut,
   type LucideIcon,
 } from "lucide-react";
 
@@ -59,6 +61,9 @@ const Brand = ({ onClick }: { onClick?: () => void }) => (
 export const TopNav = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, signOut } = useAuth();
+  const handleSignOut = async () => { await signOut(); navigate("/"); };
 
   useEffect(() => { setMobileOpen(false); }, [location.pathname]);
 
@@ -132,6 +137,10 @@ export const TopNav = () => {
               </nav>
             </div>
 
+            <div className="border-t border-border px-5 py-4">
+              {user ? <button onClick={handleSignOut} className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-muted-foreground hover:bg-secondary hover:text-foreground"><LogOut className="h-4 w-4" /> Sign out</button> : <Link to="/login" className="text-sm font-semibold">Sign in</Link>}
+            </div>
+
             <div className="border-t border-border p-5">
               <div className="rounded-xl border border-accent/25 bg-accent/10 p-4">
                 <div className="flex items-center gap-2 text-xs font-bold text-accent"><Activity className="h-4 w-4" /> Career loop live</div>
@@ -178,6 +187,7 @@ export const TopNav = () => {
           <Link to="/applications" className="mt-3 flex items-center gap-1 text-xs font-bold text-foreground">
             View outcomes <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
+          {user ? <button onClick={handleSignOut} className="mt-4 flex items-center gap-2 text-xs font-bold text-muted-foreground hover:text-foreground"><LogOut className="h-3.5 w-3.5" /> Sign out</button> : <Link to="/login" className="mt-4 flex text-xs font-bold text-foreground">Sign in</Link>}
         </div>
       </aside>
 

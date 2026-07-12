@@ -87,3 +87,16 @@ class TestResumePII:
 
         resume_store.forget_user("user-pii")
         assert resume_store.get_text(token) is None
+
+
+class TestApplicationOwnership:
+    def test_status_update_cannot_cross_user_boundary(self):
+        sql_store.init()
+        sql_store.job_application_add(
+            app_id="owned-application", user_id="owner", company_name="Acme",
+            job_title="AI Engineer", job_url="https://example.com/job", application_status="saved",
+        )
+
+        assert sql_store.job_application_update_status("owned-application", "offer", user_id="other-user") is None
+        owner_rows = sql_store.job_applications_list(user_id="owner")
+        assert owner_rows[0]["application_status"] == "saved"

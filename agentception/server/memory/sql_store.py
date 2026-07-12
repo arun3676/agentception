@@ -721,19 +721,27 @@ def job_applications_list(user_id: Optional[str] = None) -> list[dict]:
         for r in rows or []
     ]
 
-def job_application_update_status(app_id: str, status: str) -> Optional[dict]:
+def job_application_update_status(app_id: str, status: str, user_id: Optional[str] = None) -> Optional[dict]:
     now = dt.datetime.utcnow().isoformat()
     with _conn() as c:
         try:
-            c.execute(
-                "UPDATE job_applications SET application_status=?, updated_at=? WHERE id=?",
-                (status, now, app_id),
-            )
+            if user_id:
+                cursor = c.execute(
+                    "UPDATE job_applications SET application_status=?, updated_at=? WHERE id=? AND user_id=?",
+                    (status, now, app_id, user_id),
+                )
+            else:
+                cursor = c.execute(
+                    "UPDATE job_applications SET application_status=?, updated_at=? WHERE id=?",
+                    (status, now, app_id),
+                )
             c.commit()
         except Exception:
             return None
+    if cursor.rowcount == 0:
+        return None
     # Fetch updated record
-    rows = job_applications_list()
+    rows = job_applications_list(user_id=user_id)
     for row in rows:
         if row["id"] == app_id:
             return row
