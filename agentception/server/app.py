@@ -342,16 +342,25 @@ async def test_enhanced_research():
 async def health():
     """Health check endpoint — also pings Supabase to prevent auto-pause."""
     db_ok = False
+    db_error = None
     try:
-        from .supabase_client import get_supabase_client
+        from .supabase_client import SUPABASE_URL, get_supabase_client
+        if not SUPABASE_URL:
+            raise RuntimeError("SUPABASE_URL is not set")
         sb = get_supabase_client()
+        if sb is None:
+            raise RuntimeError("supabase client failed to initialise (missing key?)")
         # Any REST request touches PostgREST → Postgres, which resets the 7-day idle timer.
-        # We use a table that is very likely to exist; 404 still counts as DB activity.
         sb.table("readiness_audits").select("id", count="exact").limit(1).execute()
         db_ok = True
-    except Exception:
-        pass
-    return {"status": "ok", "db": "connected" if db_ok else "unavailable", "message": "Agentception API is running"}
+    except Exception as e:
+        # Truncated reason, never a bare pass — "unavailable" with no cause is
+        # undebuggable (env? network? missing table?).
+        db_error = str(e)[:160]
+    body = {"status": "ok", "db": "connected" if db_ok else "unavailable", "message": "Agentception API is running"}
+    if db_error:
+        body["db_error"] = db_error
+    return body
 
 @app.get("/debug/memory/{run_id}")
 async def debug_memory(run_id: str):

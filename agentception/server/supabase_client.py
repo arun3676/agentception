@@ -9,7 +9,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SUPABASE_URL = os.getenv("SUPABASE_URL", "https://hikfndkbqdwxfxesfgdb.supabase.co")
+# No fallback URL on purpose. The old default pointed at a decommissioned project,
+# so a missing env var didn't fail — it silently talked to a dead database and every
+# caller's except-branch turned that into "feature quietly does nothing".
+SUPABASE_URL = os.getenv("SUPABASE_URL", "")
 SUPABASE_SERVICE_ROLE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
 SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "")
 
