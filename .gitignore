@@ -12,6 +12,12 @@
 # redacted (see agentception/evals/pii.py), so CI runs the full suite without them.
 resume/
 
+# ── Personal study material ───────────────────────────────────────────────────
+# The 17-chapter HTML book (interview prep, role framing, resume bullets). It's a
+# personal learning artefact, not part of the product, and it's read straight off
+# disk — open "html explainer files/index.html". Deliberately untracked.
+html explainer files/
+
 # ── Not part of this project ──────────────────────────────────────────────────
 # A separate Flask app. Its curated study data was copied into
 # agentception/server/data/study/; the app itself isn't shipped here.

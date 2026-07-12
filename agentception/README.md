@@ -17,7 +17,7 @@
 
 ## 🏗️ Architecture
 
-![Architecture](docs/architecture.png)
+![Architecture](../docs/assets/architecture.png)
 
 ### Backend (`server/`)
 - **FastAPI** application with async/await support
