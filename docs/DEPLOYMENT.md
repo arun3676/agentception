@@ -11,6 +11,9 @@ deploy, merge, or enter secret values.
 | Railway API | `agentception` | FastAPI via Railpack and `railway.json` |
 | Vercel landing | `landing` | Static files |
 
+Both Vercel project roots set `git.deploymentEnabled` to `false`. Pushes and pull
+requests must not create deployments; use an explicitly reviewed manual release.
+
 The containment release supports public role/location discovery and the public
 resource catalogue. Authentication, résumé upload, tailoring, saving, outcomes,
 and personalized learning remain unavailable in the browser.
