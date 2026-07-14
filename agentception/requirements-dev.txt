@@ -1,8 +1,0 @@
-# Test + evaluation dependencies. Kept out of requirements.txt so the deployed
-# image doesn't ship a judge model client and scikit-learn.
--r requirements.txt
-
-pytest>=8.0.0
-scikit-learn>=1.4      # AUROC / calibration in evals
-numpy>=1.26
-deepeval>=3.0          # LLM-as-judge (study relevance)

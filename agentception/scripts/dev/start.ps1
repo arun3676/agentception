@@ -11,7 +11,7 @@ Set-Location $scriptPath
 # Check for virtual environment
 if (-not (Test-Path ".venv\Scripts\Activate.ps1")) {
     Write-Host "❌ Virtual environment not found. Please run: python -m venv .venv" -ForegroundColor Red
-    Write-Host "   Then install dependencies: pip install -r requirements.txt" -ForegroundColor Yellow
+    Write-Host "   Then install locked dependencies: uv sync --frozen --group dev" -ForegroundColor Yellow
     exit 1
 }
 

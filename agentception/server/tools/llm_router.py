@@ -146,7 +146,9 @@ async def complete(
 
         except Exception as e:
             latency_ms = int((time.monotonic() - started) * 1000)
-            detail = f"{type(e).__name__}: {str(e)[:120]}"
+            response = getattr(e, "response", None)
+            status = getattr(response, "status_code", None)
+            detail = type(e).__name__ + (f" (HTTP {status})" if status else "")
             errors.append(f"{provider.name}: {detail}")
 
             sql_store.llm_call_record(

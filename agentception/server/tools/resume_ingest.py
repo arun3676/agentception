@@ -65,8 +65,7 @@ def structured_profile(text: str) -> Optional[Dict[str, Any]]:
     """Parse resume text into sections, returning None if the parser blows up."""
     try:
         return parse_resume_structured(text)
-    except Exception as e:
-        print(f"⚠️ Structured resume parsing failed: {e}")
+    except Exception:
         return None
 
 
@@ -86,8 +85,9 @@ async def parse_resume(data: bytes, filename: str) -> Dict[str, Any]:
             text = result["text"]
             structured = result.get("structured")
             parser = "reducto"
-    except Exception as e:
-        print(f"⚠️ Reducto parsing failed, falling back to local: {e}")
+    except Exception:
+        # Provider failures fall back locally without logging response data.
+        pass
 
     if not text.strip():
         text = extract_pdf_text_locally(data)

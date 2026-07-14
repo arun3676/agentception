@@ -4,26 +4,11 @@ import "./index.css";
 
 createRoot(document.getElementById("root")!).render(<App />);
 
-// Service Worker handling
+// Remove legacy registrations. Offline caching is disabled until update and
+// privacy behavior can be tested as part of the release workflow.
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    // Unregister any old service workers to prevent caching issues
-    navigator.serviceWorker.getRegistrations().then((registrations) => {
-      registrations.forEach((registration) => {
-        registration.unregister().then(() => {
-          console.log("[SW] Old service worker unregistered");
-        });
-      });
-    });
-
-    // Register new service worker with cache-busting
-    navigator.serviceWorker
-      .register("/sw.js?v=2")
-      .then((registration) => {
-        console.log("[SW] Registered:", registration.scope);
-      })
-      .catch((error) => {
-        console.log("[SW] Registration failed:", error);
-      });
-  });
+  void navigator.serviceWorker
+    .getRegistrations()
+    .then((registrations) => Promise.all(registrations.map((registration) => registration.unregister())))
+    .catch(() => undefined);
 }

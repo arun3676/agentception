@@ -23,34 +23,11 @@ except ImportError:
             return False
         return True
 
-# Apify integration for enhanced job URL extraction
-# Gracefully handle missing apify module
-try:
-    from .apify_jobs import (
-        apify_expand_search_hits,
-        apify_second_hop_extraction,
-        detect_ats_board,
-        get_apify_client,
-    )
-    APIFY_AVAILABLE = True
-except ImportError:
-    APIFY_AVAILABLE = False
-    print("⚠️ Apify module not available - job expansion disabled")
-
-# Check if APIFY_TOKEN is configured
-APIFY_TOKEN_PRESENT = bool(os.getenv("APIFY_TOKEN"))
-
-# Debug flag for discovery process
-DEBUG_DISCOVERY = True
+# Diagnostic output is opt-in and must remain disabled in production.
+DEBUG_DISCOVERY = os.getenv("DEBUG_DISCOVERY", "false").lower() == "true"
 
 # Feature flag: Use LLM-based normalization instead of rule-based extraction
 USE_LLM_NORMALIZER = os.getenv("USE_LLM_NORMALIZER", "true").lower() == "true"
-
-# Feature flag: Use Apify for enhanced job URL extraction
-USE_APIFY_EXPANSION = os.getenv("USE_APIFY_EXPANSION", "true").lower() == "true"
-
-# Increased candidate pool size when Apify is enabled
-APIFY_CANDIDATE_POOL_SIZE = 25  # vs default 10 without Apify
 
 # Import normalizer only if enabled
 if USE_LLM_NORMALIZER:
@@ -2611,53 +2588,6 @@ async def check_job_availability(
                     hits = secondary_hits
                     if DEBUG_DISCOVERY:
                         print(f"    ✅ Using role-only curated results ({len(hits)} hits)")
-        
-        # === APIFY EXPANSION ===
-        # Expand hits using Apify for deeper job URL extraction
-        # This extracts more job URLs from listing pages and ATS boards
-        if hits and USE_APIFY_EXPANSION and APIFY_AVAILABLE and APIFY_TOKEN_PRESENT:
-            try:
-                # Build location string for Apify filtering
-                apify_location = ""
-                if location_pref:
-                    apify_location = f"{location_pref.city}, {location_pref.state}" if location_pref.state else location_pref.city
-                
-                if DEBUG_DISCOVERY:
-                    print(f"    🔄 Apify expansion: expanding {len(hits)} hits...")
-                
-                # Run Apify expansion with timeout protection
-                expanded_hits = await asyncio.wait_for(
-                    apify_expand_search_hits(
-                        initial_hits=hits,
-                        role=role,
-                        location=apify_location,
-                        max_listing_urls=5,
-                        max_expanded_jobs=30
-                    ),
-                    timeout=120  # 2 minute timeout
-                )
-                
-                if expanded_hits and len(expanded_hits) > len(hits):
-                    original_count = len(hits)
-                    hits = expanded_hits
-                    if DEBUG_DISCOVERY:
-                        print(f"    ✅ Apify expanded: {original_count} → {len(hits)} hits (+{len(hits) - original_count} new)")
-                else:
-                    if DEBUG_DISCOVERY:
-                        print(f"    ℹ️ Apify expansion returned no new hits")
-                        
-            except asyncio.TimeoutError:
-                if DEBUG_DISCOVERY:
-                    print(f"    ⚠️ Apify expansion timed out, continuing with original {len(hits)} hits")
-            except Exception as e:
-                if DEBUG_DISCOVERY:
-                    print(f"    ⚠️ Apify expansion failed: {e}, continuing with original {len(hits)} hits")
-        elif hits and USE_APIFY_EXPANSION and not APIFY_AVAILABLE:
-            if DEBUG_DISCOVERY:
-                print(f"    ℹ️ Apify module not available, skipping expansion")
-        elif hits and USE_APIFY_EXPANSION and not APIFY_TOKEN_PRESENT:
-            if DEBUG_DISCOVERY:
-                print(f"    ℹ️ APIFY_TOKEN not set, skipping expansion")
         
         # Convert SearchHit objects to dict format for _extract_job_posting
         rows = []

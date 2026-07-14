@@ -1,75 +1,50 @@
-"""Pseudonymisation for the committed resume golden set.
+"""Privacy guardrails for committed synthetic resume fixtures.
 
-The resume eval runs on real PDFs belonging to a real person. The parse snapshot has
-to be committed — CI has no Reducto key and no PDFs, so it replays the snapshot — but
-a public repository is a bad place for a personal phone number and an email address
-that spam crawlers will happily harvest.
-
-So contact details are pseudonymised *before* they are written to the golden set, and
-the same function is applied to any parse the tests score. Both sides of the
-comparison get the identical transform, so **the measured accuracy is unchanged**: the
-parser still has to find the email in the layout and pull it out whole. It just
-reports a stand-in value when it does.
-
-Fields that carry no personal risk — name, employer, location, skills — are left
-alone. Pseudonymising those would make the eval unverifiable by a reader, which is a
-real cost for no privacy gain: the name is on the repository owner's GitHub profile
-and the employers are on their public CV.
-
-`phone` is dropped rather than replaced because no test scores it.
+Committed resume fixtures must be visibly synthetic and use reserved contact data.
+This module intentionally does not offer a "redact a real resume" helper: replacing
+an email address while retaining someone's identity and work history is not safe
+anonymisation.
 """
 
 from __future__ import annotations
 
 import re
-from typing import Any
 
-# A stand-in, not a real inbox. Deliberately obvious so nobody mistakes it for data.
-PSEUDONYM_EMAIL = "arun.chukkala@example.com"
+SYNTHETIC_NOTICE = "SYNTHETIC TEST FIXTURE - NOT A REAL PERSON"
+SYNTHETIC_NAME = "Jordan Lee"
+SYNTHETIC_EMAIL = "jordan.lee@example.com"
+# NANPA reserves 555-0100 through 555-0199 for fictional use.
+SYNTHETIC_PHONE = "+1 (202) 555-0147"
 
-_DROP = ("phone", "portfolio", "linkedin", "github")
-
-_EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+")
-# International and US forms: +1 (555) 010-4477, 555-010-4477, (555) 010 4477.
-_PHONE = re.compile(r"\+?\d{0,2}\s*\(?\d{3}\)?[\s.-]*\d{3}[\s.-]*\d{4}")
-
-
-def redact_text(text: str) -> str:
-    """Scrub contact details out of free resume text.
-
-    The header line of a resume is the one place a phone number appears, and it
-    carries no hiring signal — no skill, employer or date lives there — so removing
-    it does not weaken what the match eval measures.
-    """
-    if not text:
-        return text
-    text = _EMAIL.sub(PSEUDONYM_EMAIL, text)
-    return _PHONE.sub("[phone redacted]", text)
+_EMAIL = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")
+_PHONE = re.compile(r"(?:\+?1[\s.-]*)?\(?\d{3}\)?[\s.-]*\d{3}[\s.-]*\d{4}")
+_RESERVED_555 = re.compile(
+    r"(?:\+?1[\s.-]*)?\(?\d{3}\)?[\s.-]*555[\s.-]*01\d{2}"
+)
 
 
-def redact_contact(parsed: dict[str, Any]) -> dict[str, Any]:
-    """Return a copy of a structured parse with contact PII removed.
+def assert_synthetic_fixture_text(text: str) -> None:
+    """Reject committed fixture text that is not clearly and safely synthetic."""
+    if SYNTHETIC_NOTICE not in text:
+        raise AssertionError("synthetic fixture notice is missing")
+    if SYNTHETIC_NAME not in text:
+        raise AssertionError("canonical synthetic identity is missing")
+    if SYNTHETIC_EMAIL not in text:
+        raise AssertionError("canonical example.com email is missing")
+    if SYNTHETIC_PHONE not in text:
+        raise AssertionError("canonical reserved 555 phone is missing")
 
-    Applied identically by `scripts/build_resume_golden.py` when snapshotting and by
-    the resume eval when scoring the live fallback parser, so the snapshot and the
-    live path stay comparable.
-    """
-    if not parsed:
-        return parsed
+    non_example_emails = [
+        email for email in _EMAIL.findall(text) if not email.lower().endswith("@example.com")
+    ]
+    if non_example_emails:
+        raise AssertionError(
+            f"fixture contains {len(non_example_emails)} non-example.com email(s)"
+        )
 
-    out = dict(parsed)
-
-    contact = dict(out.get("contact") or {})
-    if contact:
-        if contact.get("email"):
-            contact["email"] = PSEUDONYM_EMAIL
-        for field in _DROP:
-            contact.pop(field, None)
-        out["contact"] = contact
-
-    # The full resume body is snapshotted alongside the parse, and the contact header
-    # line lives inside it.
-    if out.get("raw_text"):
-        out["raw_text"] = redact_text(out["raw_text"])
-
-    return out
+    phones = _PHONE.findall(text)
+    non_reserved_phones = [phone for phone in phones if not _RESERVED_555.fullmatch(phone)]
+    if non_reserved_phones:
+        raise AssertionError(
+            f"fixture contains {len(non_reserved_phones)} non-reserved phone number(s)"
+        )

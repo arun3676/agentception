@@ -1,9 +1,8 @@
 """Build the resume<->JD fit pairs used to measure match-ranking AUROC.
 
-Labelling is *weak supervision by role domain*, and deliberately so: every resume
-in resume/ belongs to the same AI/ML engineer, so the honest question we can ask
-is "does the matcher rank in-domain postings above out-of-domain ones?" — which is
-exactly the job a matcher has.
+Labelling is *weak supervision by role domain*. The single canonical input is a
+synthetic composite profile, so the narrow question is whether the matcher ranks
+in-domain postings above out-of-domain postings for that fixture.
 
   positive (fit=1): AI Engineer postings
   negative (fit=0): Frontend / DevOps postings
@@ -27,8 +26,8 @@ GOLDEN = ROOT / "evals" / "golden"
 INDEX = GOLDEN / "jds" / "index.jsonl"
 OUT = GOLDEN / "match_pairs.jsonl"
 
-# The resume under test (an AI/ML engineer). Relative to the repo root's sibling.
-RESUME = "Arun_Chukkala_GigaML.pdf"
+# The canonical synthetic resume fixture. No personal PDF is read by the eval.
+RESUME = "synthetic-jordan-lee.pdf"
 
 # Label from the POSTING'S OWN TITLE, not the query that surfaced it. Searching
 # "AI Engineer" also returns "Senior Staff Security Engineer, AI" — a security role,

@@ -1,152 +1,149 @@
-# Deployment
+# Deployment and release safety
 
-Three pieces, deployed separately:
+Agentception deploys manually after a reviewed pull request. Codex and CI do not
+deploy, merge, or enter secret values.
 
-| Piece | Host | Source |
+## Current containment architecture
+
+| Service | Root directory | Runtime |
 |---|---|---|
-| **API** | Railway | `agentception/` (FastAPI) |
-| **App** | Vercel | `agentception/ui/` (Vite → static) |
-| **Landing** | Vercel (2nd project) | `landing/` (static HTML) |
+| Vercel app | `agentception/ui` | Vite static build (`npm ci && npm run build`) |
+| Railway API | `agentception` | FastAPI via Railpack and `railway.json` |
+| Vercel landing | `landing` | Static files |
 
-Both hosts are **already connected** to this repo. The monorepo restructure moved the
-app from `./` to `./agentception/`, so each host needs its root directory updated once —
-that is the whole migration.
+Both Vercel project roots set `git.deploymentEnabled` to `false`. Pushes and pull
+requests must not create deployments; use an explicitly reviewed manual release.
 
----
+The containment release supports public role/location discovery and the public
+resource catalogue. Authentication, résumé upload, tailoring, saving, outcomes,
+and personalized learning remain unavailable in the browser.
 
-## 1. Vercel — update the root directory (required, or the build fails)
+## Current environment contract
 
-The app build currently fails with:
+Vercel app:
 
-```
-The specified Root Directory "ui" does not exist.
-```
-
-Fix, in **Vercel → project `agentception` → Settings → Build & Deployment**:
-
-| Setting | Old | **New** |
-|---|---|---|
-| Root Directory | `ui` | **`agentception/ui`** |
-
-Framework preset **Vite**, build `npm run build`, output `dist`, install `npm ci` — all
-already correct and also declared in `agentception/ui/vercel.json`.
-
-### Environment variables (Vercel → Settings → Environment Variables)
-
-Set these for **Production** *and* **Preview**. Anything the browser reads must be
-prefixed `VITE_` — Vite inlines them at build time, so **changing one requires a
-redeploy**, not just a restart.
-
-| Variable | Value | Why |
-|---|---|---|
-| `VITE_BACKEND_URL` | `https://agentception1809.up.railway.app` | Without it the app calls its own origin and every request 404s. |
-| `VITE_SUPABASE_URL` | your Supabase project URL | Auth. |
-| `VITE_SUPABASE_ANON_KEY` | Supabase **anon/publishable** key | Auth. Safe to expose — it is designed to be public and is protected by row-level security. |
-
-> **Never put a service-role key, or any of the API keys below, in a `VITE_*`
-> variable.** They are compiled into the JavaScript bundle and readable by anyone who
-> opens devtools.
-
-`VITE_SUPABASE_DEFAULT_USER_ID` is read by `supabase.ts` and `VerdictLoop.tsx` but is a
-local-development convenience. Leave it unset in production.
-
-## 2. Landing page — a second Vercel project
-
-`landing/` is plain HTML/CSS/JS with no build step.
-
-- **New Project** → same repo
-- **Root Directory:** `landing`
-- **Framework preset:** Other
-- **Build command:** none · **Output directory:** `.`
-- No environment variables.
-
-Point your apex domain at this one and the app at `app.<yourdomain>`.
-
-## 3. Railway — update the root directory
-
-Railway is **live** (`/health` returns 200), but it is building from the old layout.
-In **Railway → service → Settings**:
-
-| Setting | Value |
-|---|---|
-| Root Directory | **`agentception`** |
-| Start command | `python -m uvicorn server.app:app --host 0.0.0.0 --port $PORT` |
-| Health check path | `/health` |
-
-`railway.json`, `nixpacks.toml`, `Procfile` and `runtime.txt` (Python 3.11) already
-declare this — they just moved down a directory with the app.
-
-### Environment variables (Railway → Variables)
-
-**Required — the product is broken without these:**
-
-| Variable | Used by | What breaks without it |
-|---|---|---|
-| `TAVILY_API_KEY` | job search (primary) | No job results. |
-| `EXA_API_KEY` | job search (ATS) + study material | No ATS postings, no study results. |
-| `VOYAGE_API_KEY` | `rag/match.py` | Semantic matching. The matcher falls back to keyword-only — **this is the bug that shipped**; it now fails loudly instead of silently scoring 0.0. |
-| `DEEPSEEK_API_KEY` | `llm_router.py` (primary LLM) | Gap analysis, summaries, outreach. |
-
-**Strongly recommended:**
-
-| Variable | Used by | Notes |
-|---|---|---|
-| `REDUCTO_API_KEY` | resume parsing | Falls back to the local regex parser — measurably worse (**0.964 → 0.714** field accuracy). |
-| `OPENAI_API_KEY` | `llm_router.py` (fallback) | The second provider in the route. Your current key is out of quota; DeepSeek carries the load, but with no fallback a DeepSeek outage takes gap analysis down. |
-| `SUPABASE_URL`, `SUPABASE_ANON_KEY` | `server/auth.py` | JWT verification. Anonymous use still works without them; signed-in features don't. |
-
-**Optional — safe to leave unset:**
-
-`REDIS_URL` (cache; SQLite is used otherwise) · `AGENTCEPTION_DB` (SQLite path) ·
-`SUPABASE_SERVICE_ROLE_KEY` (migrations + keep-alive only — **never expose to the
-frontend**) · `RATE_LIMIT_DISABLED` (leave unset, i.e. limits on) · `PERPLEXITY_API_KEY`,
-`APIFY_TOKEN`, `KIMI_API_KEY`, `GOOGLE_MAPS_KEY` (legacy paths, not in the main flow).
-
-**Do NOT carry these over — nothing reads them.** They are leftovers from an earlier
-version of this project and are dead weight in a secrets store:
-
-```
-CHEAP_MODEL           COHERE_API_KEY        EVENTBRITE_API_KEY     EVENTBRITE_CLIENT_SECRET
-EVENTBRITE_PRIVATE_TOKEN   EVENTBRITE_PUBLIC_TOKEN   EVENTBRITE_TOKEN
-FOURSQUARE_API_KEY    FOURSQUARE_CLIENT_ID  FOURSQUARE_CLIENT_SECRET
-RAILWAY_URL           RERANK_MODEL          STRONG_MODEL
-SUPABASE_PUBLISHABLE_KEY   SUPABASE_SECRET_API_KEY
+```text
+VITE_BACKEND_URL=https://<railway-api-host>
 ```
 
-## 4. CORS — add the Vercel domains
+Railway API:
 
-The API must allow the browser origin. In `agentception/server/app.py`, the allowed
-origins list currently covers localhost and `*.vercel.app`. If you attach a custom
-domain, add it there or requests will fail with an opaque CORS error that looks like
-the backend is down.
+```text
+APP_ENV=production
+FRONTEND_ORIGINS=https://agentception.vercel.app
+TAVILY_API_KEY=<platform secret>
+EXA_API_KEY=<platform secret>
+```
 
----
+Railway uses the current `RAILPACK` builder, the `pyproject.toml`/`uv.lock`
+dependency contract, and Python 3.11.15 from `runtime.txt`. Do not reintroduce a
+Procfile, Nixpacks file, or a second Python dependency list.
 
-## Known production gaps
+`FRONTEND_ORIGINS` is a comma-separated list of exact origins. Wildcards,
+credentials, paths, and attacker-created `*.vercel.app` origins are rejected.
+Every authorized preview origin must be listed explicitly.
 
-**`/health` reports `"db": "unavailable"` in production right now.** That field pings
-**Supabase**, not the SQLite app database — so it means Railway either has no
-`SUPABASE_URL` / `SUPABASE_ANON_KEY` set, or they're wrong. Setting them is step 2
-below. (The handler swallows the real reason in a bare `except: pass`, so the log won't
-tell you which; worth fixing, it's the same silent-failure pattern the evals were built
-to catch.)
+Production startup rejects `MOCK_SEARCH=true`, `RATE_LIMIT_DISABLED=true`,
+`TAVILY_DISABLE_SSL_VERIFY=true`, `DEBUG_DISCOVERY=true`, and missing Tavily/Exa
+keys. Those development flags default to false and must not be enabled on
+Railway.
 
-**Railway's filesystem is ephemeral.** SQLite at `data/agentception.db` is wiped on
-every redeploy — saved runs, applications and cost records do not survive. For a
-portfolio demo that's arguably fine; for real users it isn't. Fix by attaching a
-**Railway volume** and pointing `AGENTCEPTION_DB` at it, or by moving to Supabase
-Postgres (`DATABASE_URL` is already read by `server/db.py`).
+The audit found that the live Railway service was missing `TAVILY_API_KEY`; the
+search release is blocked until an operator enters it in Railway's secret store.
+Never paste a key into chat, a pull request, a screenshot, or a log.
 
-**Supabase auto-pauses after 7 days idle.** `.github/workflows/keep-alive.yml` pings
-`/health` every 6 hours to prevent it.
+The following names belong to later reviewed phases; the containment runtime does
+not consume or enforce all of them yet:
 
----
+```text
+SUPABASE_URL
+SUPABASE_SERVICE_ROLE_KEY
+DATABASE_URL
+MIGRATION_DATABASE_URL
+PROVIDER_DAILY_BUDGET_USD
+REDUCTO_API_KEY
+VOYAGE_API_KEY
+DEEPSEEK_API_KEY
+OPENAI_API_KEY
+```
 
-## Order of operations
+Configuring a variable is not evidence that its feature is implemented. In
+particular, scheduled paid judge evaluations remain disabled until
+`PROVIDER_DAILY_BUDGET_USD` is enforced and reported by the application. The
+manual judge workflow exposes only `DEEPSEEK_API_KEY`, and only to its paid test
+step.
 
-1. Merge the PR.
-2. Railway → Root Directory `agentception`, add the four required keys → redeploy → check `/health`.
-3. Vercel (app) → Root Directory `agentception/ui`, add the three `VITE_*` vars → redeploy.
-4. Vercel (landing) → new project, Root Directory `landing`.
-5. Open the app, upload a resume, run a search. If jobs return with salary and a match
-   band, all four required keys are working.
+Health checks:
+
+- `GET /health/live` proves that the API process is running and exposes no provider state.
+- `GET /health/ready` returns 503 when the active application store cannot answer.
+- Railway uses `/health/ready` from `railway.json`.
+
+## Vercel security boundary
+
+`agentception/ui/vercel.json` applies CSP, frame, content-type, referrer,
+permissions, and HTTPS headers to the static app. The CSP permits the two Google
+Fonts hosts used by `index.html`; it does not list Supabase or provider domains.
+
+Vercel's static header configuration cannot substitute `VITE_BACKEND_URL` into a
+header value. Until the stable Railway API origin is available in reviewed
+deployment metadata, `connect-src` therefore permits HTTPS by scheme. Record the
+real API origin and replace that scheme source with the exact origin before
+calling the CSP least-privilege. Do not guess a Railway hostname or use a
+`*.up.railway.app` wildcard.
+
+## CI release gates
+
+CI installs Python with `uv sync --locked` after `uv lock --check`; an outdated
+lock fails instead of being ignored. It also runs backend tests, offline evals,
+frontend tests/typecheck/lint/build, the bundle budget, deterministic local
+Playwright tests, privacy and secret scans, Bandit, strict production-lock
+dependency audits, and production CycloneDX SBOM exports for Python and npm.
+Normal CI receives no provider keys.
+
+## Manual containment release
+
+1. Merge the reviewed containment PR only after privacy, backend, frontend, eval,
+   dependency, and synthetic browser gates pass.
+2. Complete the coordinated history rewrite in
+   [PRIVACY_HISTORY_REWRITE.md](PRIVACY_HISTORY_REWRITE.md) before normal merges resume.
+3. Enter or rotate secrets in the platform stores without exposing their values.
+4. Confirm the Railway project uses Railpack, the reviewed root directory, and
+   Python 3.11.15; deploy Railway and wait for strict readiness.
+5. Deploy the Vercel UI, then the static landing project if it changed.
+6. Run the synthetic desktop/mobile smoke test and verify console and network logs.
+7. Roll back application revisions independently if the smoke test fails.
+
+No résumé is uploaded during this containment smoke test because that production
+surface is intentionally absent.
+
+## Postgres migration gate for later releases
+
+Database work is blocked until read-only access points at the Agentception
+Supabase project. The currently connected Cork project is unrelated and must not
+be inspected or changed.
+
+Before any production-facing schema change:
+
+1. Inventory the live schema, grants, RLS, buckets, migration history, backups,
+   and connection mode without mutating them.
+2. Classify each migration as additive, backfill, or destructive/locking.
+3. Dry-run against a Supabase branch or disposable copy with lock and statement
+   timeouts, ownership/RLS tests, row-count checks, and advisor checks.
+4. Use `MIGRATION_DATABASE_URL` with direct connectivity or the session pooler.
+   Never run migrations through transaction-pooler port 6543.
+5. Use expand/backfill/contract across separate releases for incompatible changes.
+6. Verify backup/PITR and write a forward-fix plan before the migration job runs.
+7. Deploy manually in this order: migration job, Railway worker, Railway API and
+   readiness, Vercel, synthetic smoke test.
+
+The current SQLite/process-local implementation is not durable production
+persistence. Do not claim otherwise, attach a new production database, or run a
+migration until the correct project inventory is available.
+
+## Configuration references
+
+- [Railway configuration as code](https://docs.railway.com/config-as-code/reference)
+- [Railpack Python and uv detection](https://railpack.com/languages/python/)
+- [Vercel `vercel.json` reference](https://vercel.com/docs/project-configuration/vercel-json)
+- [uv lock checking and locked sync](https://docs.astral.sh/uv/concepts/projects/sync/)

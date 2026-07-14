@@ -18,13 +18,13 @@ from server.tools.resume_parser import (
 
 class TestMarkdownToPlainText:
     def test_h1_keeps_case_so_name_detection_works(self):
-        assert markdown_to_plain_text("# Arun Kumar Chukkala").strip() == "Arun Kumar Chukkala"
+        assert markdown_to_plain_text("# Jordan Lee").strip() == "Jordan Lee"
 
     def test_subheadings_are_uppercased_for_section_detection(self):
         assert "PROFESSIONAL SUMMARY" in markdown_to_plain_text("## Professional Summary")
 
     def test_page_continuation_banner_is_dropped(self):
-        md = "# Arun Kumar\n\nArun Kumar Chukkala (cont.)\n\nreal content"
+        md = "# Jordan Lee\n\nJordan Lee (cont.)\n\nreal content"
         out = markdown_to_plain_text(md)
         assert "cont." not in out
         assert "real content" in out
@@ -39,8 +39,8 @@ class TestMarkdownToPlainText:
         assert markdown_to_plain_text("- shipped a thing").startswith("•")
 
     def test_profile_urls_survive(self):
-        out = markdown_to_plain_text("[GitHub](https://github.com/arun)")
-        assert "https://github.com/arun" in out
+        out = markdown_to_plain_text("[Portfolio](https://portfolio.example.com/jordan-lee)")
+        assert "https://portfolio.example.com/jordan-lee" in out
 
 
 class TestClassifyHeader:
@@ -86,14 +86,14 @@ class TestParseSkills:
 
 class TestRoleCompanyOrder:
     def test_swaps_when_company_field_holds_the_job_title(self):
-        entry = {"company": "Senior AI Engineer", "title": "Jefferies Group"}
+        entry = {"company": "Senior AI Engineer", "title": "Example Labs"}
         assert _fix_role_company_order(entry) == {
-            "company": "Jefferies Group",
+            "company": "Example Labs",
             "title": "Senior AI Engineer",
         }
 
     def test_leaves_correct_entries_alone(self):
-        entry = {"company": "Jefferies Group", "title": "Senior AI Engineer"}
+        entry = {"company": "Example Labs", "title": "Senior AI Engineer"}
         assert _fix_role_company_order(dict(entry)) == entry
 
     def test_no_swap_when_both_look_like_roles(self):
@@ -103,8 +103,9 @@ class TestRoleCompanyOrder:
 
 class TestParseResumeStructured:
     RESUME = "\n".join([
-        "Jane Doe",
-        "jane@example.com | +1 (415) 555-1234",
+        "Jordan Lee",
+        "SYNTHETIC TEST FIXTURE - NOT A REAL PERSON",
+        "jordan.lee@example.com | +1 (202) 555-0147",
         "PROFESSIONAL SUMMARY",
         "Backend engineer with 5 years of experience.",
         "TECHNICAL SKILLS",
@@ -119,8 +120,8 @@ class TestParseResumeStructured:
 
     def test_extracts_contact(self):
         result = parse_resume_structured(self.RESUME)
-        assert result["contact"]["name"] == "Jane Doe"
-        assert result["contact"]["email"] == "jane@example.com"
+        assert result["contact"]["name"] == "Jordan Lee"
+        assert result["contact"]["email"] == "jordan.lee@example.com"
 
     def test_open_source_header_stops_experience_bleeding(self):
         result = parse_resume_structured(self.RESUME)

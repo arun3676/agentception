@@ -85,7 +85,12 @@ logs/
 .pytest_cache/
 test-results/
 playwright-report/
-e2e/*.png
+blob-report/
+e2e/screenshots/
+e2e/**/*.png
+e2e/**/*.webm
+e2e/**/*.zip
+e2e/fixtures/*.pdf
 htmlcov/
 .coverage
 

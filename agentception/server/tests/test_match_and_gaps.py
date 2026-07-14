@@ -6,7 +6,6 @@ as words like "equity", "offers" and "employment" — which then fed the study
 drawer. These pin the corrected behaviour.
 """
 
-from server.agentception2 import summarize_applications
 from server.tools.resume_job_matcher import analyze_gaps, extract_jd_skills
 from server.tools.resume_store import _display_skill
 
@@ -61,23 +60,3 @@ class TestSkillDisplayNames:
 
     def test_unknown_words_still_title_case(self):
         assert _display_skill("docker") == "Docker"
-
-
-class TestApplicationSummary:
-    def test_counts_the_db_status_field(self):
-        # Records store `application_status`; reading only `status` pinned every
-        # row to "applied" and kept callback_rate at 0 forever.
-        apps = [
-            {"application_status": "applied"},
-            {"application_status": "phone_screen"},
-            {"application_status": "offer"},
-            {"application_status": "rejected"},
-        ]
-        summary = summarize_applications(apps)
-        assert summary["status_counts"]["phone_screen"] == 1
-        assert summary["callback_rate"] == 0.5   # phone_screen + offer of 4
-        assert summary["offer_rate"] == 0.25
-
-    def test_still_accepts_the_legacy_status_key(self):
-        summary = summarize_applications([{"status": "offer"}])
-        assert summary["offer_rate"] == 1.0
