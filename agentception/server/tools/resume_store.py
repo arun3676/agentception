@@ -339,6 +339,12 @@ _USER_TOKENS: Dict[str, set] = {}
 def associate_token(user_id: str, token: str) -> None:
     _USER_TOKENS.setdefault(user_id, set()).add(token)
 
+
+def owns_token(user_id: str, token: str) -> bool:
+    """Whether the opaque resume token belongs to this authenticated user."""
+    return token in _USER_TOKENS.get(user_id, set())
+
+
 def forget_user(user_id: str) -> int:
     """Drop every resume this user uploaded, from every cache."""
     tokens = _USER_TOKENS.pop(user_id, set())
@@ -350,8 +356,7 @@ def forget_user(user_id: str) -> int:
 
 def clear_cache():
     """Clear all cached resume text (for cleanup)"""
-    global _CACHE, _INSIGHTS_CACHE, _PROFILE_CACHE
     _CACHE.clear()
     _INSIGHTS_CACHE.clear()
     _PROFILE_CACHE.clear()
-    print("🗑️ Cleared resume cache")
+    _USER_TOKENS.clear()

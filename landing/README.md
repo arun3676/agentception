@@ -1,12 +1,12 @@
 # Agentception — landing page
 
-A self-contained marketing page. No build step, no dependencies: three files.
+A self-contained production-scope page with no build step. Its copy is intentionally limited to the current public product: anonymous role/location search, per-result source status, and explicit unavailable states for personal workflows.
 
 ```
 landing/
   index.html    markup
   styles.css    design tokens mirrored from the app (ui/src/index.css)
-  script.js     theme toggle, sticky nav, scroll reveal, CTA wiring
+  script.js     navigation, reduced-motion-aware reveals, and CTA wiring
 ```
 
 ## Run locally
@@ -17,8 +17,9 @@ python -m http.server 4321
 # http://localhost:4321
 ```
 
-While on `localhost`, every "Open the app" CTA points at `http://localhost:8080`
-(the Vite dev server). Anywhere else it uses the production URL.
+On `localhost`, every "Open the app" or "Search roles" CTA points at
+`http://localhost:8080` (the Vite dev server). On other hosts it uses the
+production URL.
 
 ## Before deploying
 
@@ -33,16 +34,17 @@ place to change.
 
 ## Deploy
 
-Any static host works. On Vercel, create a second project with `landing/` as the
-root directory and no build command — it serves the directory as-is.
+Deployment is manual. On Vercel, configure `landing/` as the project root with
+no build command; the directory is served as-is.
 
-If you put the landing page on the same domain as the app, add its origin to the
-CORS list in `server/app.py`.
+The landing page does not call the application API, so it does not require a
+CORS entry.
 
 ## Notes
 
-- Dark and light themes both ship; the toggle persists to `localStorage` and
-  falls back to the OS preference.
-- The hero panel is a static mockup of the real product UI. It is
-  `aria-hidden` — it decorates, it doesn't inform.
-- Animations are skipped entirely under `prefers-reduced-motion`.
+- The hero checklist is an explanatory guide and is explicitly labeled as not
+  live data.
+- Do not add résumé, tailoring, saved-application, outcome, or personalized
+  learning claims until those authenticated workflows are implemented and
+  approved for production.
+- Animations and delayed reveals are skipped under `prefers-reduced-motion`.

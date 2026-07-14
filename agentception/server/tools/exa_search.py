@@ -114,8 +114,6 @@ async def exa_search(
             "text": it.get("text", ""),
             "score": it.get("score", 0.0) or 0.0,
         })
-    if not rows:
-        print(f"⚠️ Exa API returned no results for query: '{query}'")
     return rows
 
 

@@ -1,4 +1,4 @@
-# ── Secrets ───────────────────────────────────────────────────────────────────
+# Secrets
 # Every real key lives in .env. Only .env.example is tracked.
 .env
 .env.*
@@ -6,24 +6,28 @@
 *.pem
 *.key
 
-# ── Personal data ─────────────────────────────────────────────────────────────
-# Real resumes: someone's actual name, phone and address history. The evals do NOT
-# need them — the parses are snapshotted into evals/golden/ with contact details
-# redacted (see agentception/evals/pii.py), so CI runs the full suite without them.
+# Personal data
+# Never commit user resumes. Offline evals use the visibly synthetic source in
+# agentception/evals/fixtures/synthetic_resume.json.
 resume/
 
-# ── Personal study material ───────────────────────────────────────────────────
-# The 17-chapter HTML book (interview prep, role framing, resume bullets). It's a
-# personal learning artefact, not part of the product, and it's read straight off
-# disk — open "html explainer files/index.html". Deliberately untracked.
+# Browser output can contain uploaded document text and authenticated page state.
+agentception/e2e/screenshots/
+agentception/e2e/**/*.png
+agentception/e2e/**/*.webm
+agentception/e2e/**/*.zip
+agentception/e2e/fixtures/*.pdf
+agentception/test-results/
+agentception/playwright-report/
+agentception/blob-report/
+
+# Personal study material
 html explainer files/
 
-# ── Not part of this project ──────────────────────────────────────────────────
-# A separate Flask app. Its curated study data was copied into
-# agentception/server/data/study/; the app itself isn't shipped here.
+# Not part of this project
 learning-path-generator/
 
-# ── Python ────────────────────────────────────────────────────────────────────
+# Python
 __pycache__/
 *.py[cod]
 .venv/
@@ -33,20 +37,18 @@ venv/
 .mypy_cache/
 *.egg-info/
 
-# ── Databases (runtime state, rebuilt on boot) ────────────────────────────────
-# agentception.db was tracked until now, carrying 328 KB of stale rows from an
-# earlier version of this project. Seed data under data/seeds/ stays tracked.
+# Databases (runtime state, rebuilt on boot)
 *.db
 *.db-journal
 *.sqlite3
 
-# ── Node / frontend ───────────────────────────────────────────────────────────
+# Node / frontend
 node_modules/
 dist/
 .vite/
 *.tsbuildinfo
 
-# ── Local tooling & scratch ───────────────────────────────────────────────────
+# Local tooling and scratch
 .claude/
 .cursor/
 .playwright-mcp/

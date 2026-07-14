@@ -1,3 +1,5 @@
+document.documentElement.classList.add("js");
+
 var APP_URL = location.hostname === "localhost" || location.hostname === "127.0.0.1"
   ? "http://localhost:8080"
   : "https://agentception.vercel.app";
@@ -22,6 +24,12 @@ document.addEventListener("DOMContentLoaded", function () {
     setMenu(menuButton.getAttribute("aria-expanded") !== "true");
   });
 
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Escape" || menuButton.getAttribute("aria-expanded") !== "true") return;
+    setMenu(false);
+    menuButton.focus();
+  });
+
   mobileNav.querySelectorAll("a").forEach(function (link) {
     link.addEventListener("click", function () { setMenu(false); });
   });
@@ -32,13 +40,15 @@ document.addEventListener("DOMContentLoaded", function () {
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
 
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var ledgerRows = Array.from(document.querySelectorAll("#hero-ledger .ledger-row"));
   ledgerRows.forEach(function (row, index) {
-    window.setTimeout(function () { row.classList.add("is-ready"); }, 180 + (index * 145));
+    if (reduceMotion) row.classList.add("is-ready");
+    else window.setTimeout(function () { row.classList.add("is-ready"); }, 180 + (index * 145));
   });
 
   var reveals = Array.from(document.querySelectorAll(".reveal:not(.is-visible)"));
-  if (!("IntersectionObserver" in window)) {
+  if (reduceMotion || !("IntersectionObserver" in window)) {
     reveals.forEach(function (item) { item.classList.add("is-visible"); });
     return;
   }

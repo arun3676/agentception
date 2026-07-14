@@ -739,18 +739,12 @@ async def normalize_job_result(
         
         return normalized
         
-    except json.JSONDecodeError as e:
-        print(f"❌ Failed to parse JSON from LLM response: {e}")
-        print(f"Response text: {text[:500] if 'text' in locals() else 'No text'}")
+    except json.JSONDecodeError:
         return fallback_response
         
-    except httpx.HTTPStatusError as e:
-        print(f"❌ DeepSeek API error: {e.response.status_code} - {e.response.text[:200]}")
+    except httpx.HTTPStatusError:
         return fallback_response
         
-    except Exception as e:
-        print(f"❌ Unexpected error in normalize_job_result: {e}")
-        import traceback
-        traceback.print_exc()
+    except Exception:
         return fallback_response
 

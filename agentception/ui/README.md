@@ -1,118 +1,53 @@
-# Agentception Frontend
+# Agentception frontend
 
-Modern React + Vite frontend for the Agentception job search assistant.
+React 18, TypeScript, Vite, Tailwind, and shadcn/ui frontend for Agentception.
 
-## Tech Stack
+## Current routes
 
-- **React 18** - UI framework
-- **Vite** - Build tool and dev server
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Styling
-- **shadcn/ui** - Component library
-- **React Router** - Routing
-- **TanStack Query** - Data fetching (ready for future use)
+- `/` - anonymous role/location discovery
+- `/resources` - public study resources
+- `/dashboard` - honest feature-availability status
+- Personal routes render an unavailable state until authenticated ownership and
+  private APIs are complete.
+
+Removed experimental routes and outreach code are not part of the production
+bundle.
 
 ## Setup
 
-1. Install dependencies:
-```bash
-npm install
-```
-
-2. Create `.env` file (optional, defaults to `http://localhost:8000`):
-```env
-VITE_BACKEND_URL=http://localhost:8000
-```
-
-### Supabase Resume Tailoring Setup
-
-The Tailor Resume flow talks directly to Supabase Edge Functions. To let those functions write to Postgres, supply your Supabase credentials **and** a valid user id that already exists under `auth.users`:
-
-```env
-VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key
-VITE_SUPABASE_DEFAULT_USER_ID=00000000-0000-0000-0000-000000000000
-```
-
-Optional (new API key model): keep `VITE_SUPABASE_PUBLISHABLE_KEY` alongside the legacy anon JWT.  
-Server-only: `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_SECRET_API_KEY`.
-
-`VITE_SUPABASE_DEFAULT_USER_ID` should point to an actual user created in Supabase Auth (copy the UUID from Dashboard → Authentication → Users).  
-If you have your own auth layer, pass `userId` into the helper functions instead of relying on the default.
-
-Apply the database objects once per project: open `supabase/migrations/001_agentception_resume_tables.sql` in Dashboard → SQL Editor (or use a `sbp_` personal access token with the Supabase CLI).  
-Then verify with `npm run verify:supabase-schema`.
-
-Without tables + a valid user id, uploads will fail with `resumes_user_id_fkey` because the database enforces `user_id → auth.users`.
-
-See also `ui/.env.example` for Next.js-style `NEXT_PUBLIC_SUPABASE_*` variables.
-
-3. Start development server:
-```bash
+```powershell
+npm ci
+Copy-Item .env.example .env.local
 npm run dev
 ```
 
-The frontend will run on `http://localhost:8080`
+Required production variables:
 
-## Backend Connection
-
-The frontend connects to the FastAPI backend running on port 8000. Make sure the backend is running before starting the frontend.
-
-The backend URL can be configured via:
-- Environment variable: `VITE_BACKEND_URL`
-- Default: `http://localhost:8000`
-
-## Project Structure
-
-```
-src/
-├── components/          # React components
-│   ├── SearchForm.tsx   # Job search form
-│   ├── Timeline.tsx     # Real-time progress timeline
-│   ├── JobCard.tsx      # Job listing card
-│   ├── EmailCard.tsx    # Generated email card
-│   └── ui/             # shadcn/ui components
-├── lib/
-│   ├── api.ts          # Backend API utilities
-│   └── jobCardNormalization.ts  # Job card normalization logic
-├── pages/
-│   └── Index.tsx       # Main page
-└── hooks/
-    └── use-toast.ts    # Toast notification hook
+```text
+VITE_BACKEND_URL
 ```
 
-## Features
+The production build fails when the backend URL is missing. Authentication is
+intentionally absent from this containment UI; Supabase browser variables return
+only in the reviewed account-foundation change. Never put a Supabase secret/service
+key, provider key, shared user ID, or personal data in a `VITE_*` variable.
 
-- **Job Search**: Search for jobs by location and role
-- **Resume Upload**: Upload PDF resume for role detection
-- **Real-time Timeline**: SSE-based progress updates
-- **Job Cards**: Normalized job listings with match scores
-- **Email Generation**: Generate personalized outreach emails
-- **Pagination**: Load more results incrementally
+## Validation
 
-## API Integration
-
-All API calls are centralized in `src/lib/api.ts`:
-
-- `uploadResume()` - Upload PDF resume
-- `searchCompanies()` - Start job search
-- `getResults()` - Get search results with pagination
-- `generateEmails()` - Generate outreach emails
-- `createTimelineStream()` - SSE stream for timeline events
-
-## Build
-
-```bash
+```powershell
+npm test
+npx tsc --noEmit -p tsconfig.app.json
+npm run lint
 npm run build
+npm run check:bundle
+npm audit --omit=dev --audit-level=moderate
 ```
 
-Production build will be in `dist/` directory.
+Generated screenshots, video, traces, and reports are retained only for failed
+synthetic tests and are never committed.
 
-## Development
-
-The Vite dev server includes:
-- Hot Module Replacement (HMR)
-- TypeScript support
-- Path aliases (`@/` → `src/`)
-- Proxy for backend API (optional, via `/api` prefix)
-
+Vercel applies the security headers in `vercel.json`. Because static Vercel
+configuration cannot substitute `VITE_BACKEND_URL` into a response header, the
+containment CSP allows HTTPS API connections by scheme. Replace that scheme
+source with the exact stable API origin once deployment metadata is available;
+do not guess or add wildcard Railway domains.

@@ -1,10 +1,4 @@
-"""Eval-suite setup.
-
-Evals are separate from unit tests: they measure model/heuristic *quality* against
-a golden set rather than asserting code behaviour, they are slower, and the
-judge-based ones cost money. `pyproject.toml` keeps them out of the default
-pytest run; CI invokes them explicitly.
-"""
+"""Offline quality-evaluation setup and report generation."""
 
 from __future__ import annotations
 
@@ -20,16 +14,20 @@ sys.path.insert(0, str(ROOT))
 load_dotenv(ROOT / ".env")
 
 REPORT: dict[str, float] = {}
+RETIRED_METRICS = {
+    "resume_field_accuracy",
+    "resume_field_accuracy_fallback",
+    "study_relevance",
+}
 
 
 def pytest_configure(config):
     config.addinivalue_line("markers", "eval: offline quality metric (runs in CI)")
-    config.addinivalue_line("markers", "judge: LLM-as-judge metric (costs money; nightly)")
 
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
-    """Collect every record_property() metric so we can emit one report at the end."""
+    """Collect numeric record_property metrics for the final report."""
     outcome = yield
     report = outcome.get_result()
     if report.when == "call":
@@ -44,9 +42,8 @@ def pytest_sessionfinish(session, exitstatus):
 
     out = ROOT / "evals" / "report.json"
 
-    # MERGE, don't overwrite. The offline (`-m eval`) and judge (`-m judge`) suites
-    # run separately — writing the whole dict each time meant whichever ran last
-    # erased the other's metrics, so the report could never show both.
+    # Merge so a focused offline eval invocation does not erase metrics produced
+    # by another offline module.
     existing: dict[str, float] = {}
     if out.exists():
         try:
@@ -54,12 +51,17 @@ def pytest_sessionfinish(session, exitstatus):
         except (json.JSONDecodeError, OSError):
             existing = {}
     existing.update(REPORT)
+    for metric in RETIRED_METRICS:
+        existing.pop(metric, None)
 
     out.write_text(json.dumps(existing, indent=2), encoding="utf-8")
 
     lines = ["| metric | value |", "|---|---|"]
-    lines += [f"| {k} | {v} |" for k, v in sorted(existing.items())]
-    (ROOT / "evals" / "report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    lines += [f"| {key} | {value} |" for key, value in sorted(existing.items())]
+    (ROOT / "evals" / "report.md").write_text(
+        "\n".join(lines) + "\n",
+        encoding="utf-8",
+    )
 
     print("\n" + "\n".join(lines))
     print(f"\nwrote {out.name} + report.md")

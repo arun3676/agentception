@@ -28,7 +28,7 @@ SIGNAL_DOMAINS = [
     "crunchbase.com/organization"  # public org pages (sometimes partial)
 ]
 
-DEBUG_DISCOVERY = os.getenv("DEBUG_DISCOVERY", "true").lower() == "true"
+DEBUG_DISCOVERY = os.getenv("DEBUG_DISCOVERY", "false").lower() == "true"
 DOMAIN_FILTER_ENABLED = os.getenv("DOMAIN_FILTER_ENABLED", "true").lower() == "true"
 MIN_URLS_FOR_FILTERED_PASS = int(os.getenv("MIN_URLS_FOR_FILTERED_PASS", "6"))
 

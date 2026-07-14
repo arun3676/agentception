@@ -1,7 +1,6 @@
 """Regressions for the two job-search bugs.
 
-1. The UI's "detected from resume" default sends no `role`; requiring it 422'd
-   the whole resume-driven flow.
+1. Anonymous discovery requires an explicit role; resume inference is private.
 2. /results returned the artifacts wrapper (no top-level `companies`), so the UI
    rendered an empty results list even though the search succeeded.
 """
@@ -15,11 +14,13 @@ from server.app import app, memory, RagBody
 from server.agents.rag_companies import get_rag_results
 
 
-def test_ragbody_role_is_optional():
-    # The bug: role was required, so the no-role UI request failed validation.
-    body = RagBody(city="San Francisco, CA")
-    assert body.role is None
+def test_ragbody_requires_an_explicit_role():
+    body = RagBody(city="San Francisco, CA", role="AI Engineer")
+    assert body.role == "AI Engineer"
     assert body.city == "San Francisco, CA"
+
+    with pytest.raises(Exception):
+        RagBody(city="San Francisco, CA")
 
 
 def _seed_ragdoc(run_id: str, companies):
@@ -46,7 +47,7 @@ def _company(name: str, score: float, salary=None):
     }
 
 
-def test_get_rag_results_paginates_and_sorts():
+def test_get_rag_results_paginates_without_reordering_provider_results():
     run_id = "test-run-pagination"
     _seed_ragdoc(run_id, [
         _company("Acme", 0.5),
@@ -56,8 +57,8 @@ def test_get_rag_results_paginates_and_sorts():
 
     page = asyncio.run(get_rag_results(run_id, offset=0, limit=2, memory_store=memory))
     names = [c.company_name for c in page.companies]
-    # sorted by score desc, sliced to 2
-    assert names == ["Beta", "Gamma"]
+    # Source/provider order is preserved; undisclosed score fields do not rank it.
+    assert names == ["Acme", "Beta"]
     assert page.total == 3
 
 
@@ -78,6 +79,77 @@ def test_results_endpoint_returns_companies_and_city():
     assert data["companies"][0]["salary"] == "$150K – $200K"
     assert data["pagination"]["total"] == 1
     assert data["pagination"]["has_more"] is False
+
+
+def test_results_endpoint_never_exposes_retired_personal_or_score_fields():
+    run_id = "test-run-public-fields"
+    company = _company("PublicOnly", 0.8)
+    company.update(
+        {
+            "resume_match_score": 99,
+            "missing_skills": ["private-gap"],
+            "trust_score": 100,
+            "trust_label": "verified",
+            "trust_reasons": ["unsupported"],
+            "match_band": "top",
+            "match_probability": 0.99,
+            "match_explanation": "private comparison",
+            "is_expired": False,
+            "days_old": 1,
+            "posted_at": "2026-01-01",
+            "display_data": {
+                "title": "AI Engineer",
+                "score": 0.98,
+                "resume_excerpt": "private resume content",
+                "email": "jordan.lee@example.com",
+            },
+            "job_posting": {
+                "url": "https://jobs.lever.co/publiconly/1",
+                "title": "AI Engineer",
+                "snippet": "Source listing excerpt",
+                "score": 0.98,
+                "trust_score": 100,
+                "trust_label": "verified",
+                "trust_reasons": ["unsupported"],
+                "posted_at": "2026-01-01",
+                "is_expired": False,
+                "days_old": 1,
+            },
+        }
+    )
+    _seed_ragdoc(run_id, [company])
+
+    response = TestClient(app).get(f"/results/{run_id}")
+
+    assert response.status_code == 200
+    result = response.json()["companies"][0]
+    forbidden = {
+        "resume_match_score",
+        "missing_skills",
+        "trust_score",
+        "trust_label",
+        "trust_reasons",
+        "match_band",
+        "match_probability",
+        "match_explanation",
+        "is_expired",
+        "days_old",
+        "posted_at",
+        "score",
+        "rank_score",
+        "user_id",
+        "email",
+        "phone",
+        "contact_info",
+        "resume_text",
+        "resume_token",
+        "resume_insights",
+        "resume_excerpt",
+    }
+    assert forbidden.isdisjoint(result)
+    assert forbidden.isdisjoint(result["job_posting"])
+    if "display_data" in result:
+        assert forbidden.isdisjoint(result["display_data"])
 
 
 def test_results_endpoint_404_for_unknown_run():

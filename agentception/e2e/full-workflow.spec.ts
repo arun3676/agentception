@@ -1,509 +1,323 @@
-/**
- * Agentception AI Career Hub — Full E2E Workflow Test
- * 
- * Tests the complete workflow:
- * 1. Backend health + API key verification
- * 2. Resume upload (real PDF)
- * 3. RAG company search with resume
- * 4. Wait for results + verify job cards
- * 5. Writer outreach email generation
- * 6. Audit page workflow
- * 7. Navigation to all pages
- * 
- * Video is recorded automatically by Playwright.
- */
+import { expect, test as base, type Page } from "@playwright/test";
 
-import { test, expect, Page } from '@playwright/test';
-import * as path from 'path';
-import * as fs from 'fs';
+const BACKEND_URL = process.env.E2E_BACKEND_URL ?? "http://127.0.0.1:18000";
 
-const BACKEND = 'http://localhost:8000';
-const FRONTEND = 'http://localhost:8080';
+type BrowserMonitor = {
+  failures: string[];
+};
 
-// Pick the first resume from the folder
-const RESUME_DIR = path.resolve(__dirname, '../../resume');
+const test = base.extend<{ browserMonitor: BrowserMonitor }>({
+  browserMonitor: async ({ page }, use) => {
+    const failures: string[] = [];
+    const monitoredResourceTypes = new Set([
+      "document",
+      "script",
+      "stylesheet",
+      "xhr",
+      "fetch",
+      "eventsource",
+    ]);
 
-function getResumeFile(): string {
-  const files = fs.readdirSync(RESUME_DIR).filter(f => f.endsWith('.pdf'));
-  if (files.length === 0) throw new Error('No PDF resumes found in resume/ folder');
-  // Use the GigaML resume (smaller company, good test)
-  const preferred = files.find(f => f.includes('GigaML')) || files[0];
-  return path.join(RESUME_DIR, preferred);
-}
+    // The UI's remote fonts are decorative. Stub them so an unrelated CDN or
+    // offline CI worker cannot make a product-flow test flaky.
+    await page.route("https://fonts.googleapis.com/**", (route) =>
+      route.fulfill({ status: 200, contentType: "text/css", body: "" }),
+    );
 
-// ─── Helper: wait for backend to be ready ───────────────────────
-async function waitForBackend(page: Page, maxWaitMs = 30_000) {
-  const start = Date.now();
-  while (Date.now() - start < maxWaitMs) {
-    try {
-      const resp = await page.request.get(`${BACKEND}/health`);
-      if (resp.ok()) return;
-    } catch { /* retry */ }
-    await page.waitForTimeout(2000);
-  }
-  throw new Error('Backend did not become ready within timeout');
-}
+    page.on("console", (message) => {
+      if (message.type() === "error") failures.push(`console: ${message.text()}`);
+    });
+    page.on("pageerror", (error) => failures.push(`page: ${error.message}`));
+    page.on("requestfailed", (request) => {
+      if (monitoredResourceTypes.has(request.resourceType())) {
+        failures.push(
+          `request: ${request.method()} ${request.url()} (${request.failure()?.errorText ?? "failed"})`,
+        );
+      }
+    });
+    page.on("response", (response) => {
+      if (response.status() >= 400 && monitoredResourceTypes.has(response.request().resourceType())) {
+        failures.push(`response: ${response.status()} ${response.request().method()} ${response.url()}`);
+      }
+    });
 
-// ─── Helper: wait for frontend to be ready ──────────────────────
-async function waitForFrontend(page: Page, maxWaitMs = 30_000) {
-  const start = Date.now();
-  while (Date.now() - start < maxWaitMs) {
-    try {
-      const resp = await page.request.get(FRONTEND);
-      if (resp.ok()) return;
-    } catch { /* retry */ }
-    await page.waitForTimeout(2000);
-  }
-  throw new Error('Frontend did not become ready within timeout');
-}
-
-// ═══════════════════════════════════════════════════════════════
-// TEST 1: Backend Health & API Keys
-// ═══════════════════════════════════════════════════════════════
-test.describe('1. Backend Health & API Keys', () => {
-  test('backend is healthy', async ({ request }) => {
-    const resp = await request.get(`${BACKEND}/health`);
-    expect(resp.ok()).toBeTruthy();
-    const body = await resp.json();
-    expect(body.status).toBe('ok');
-    console.log('✅ Backend health:', body);
-  });
-
-  test('Tavily API key works', async ({ request }) => {
-    const resp = await request.get(`${BACKEND}/debug/tavily`);
-    expect(resp.ok()).toBeTruthy();
-    const body = await resp.json();
-    console.log('🔑 Tavily:', body.tavily_working ? '✅ Working' : '❌ Failed', body.error || '');
-    // Don't fail test if Tavily is down, just log
-    expect(body.tavily_key).toBe('SET');
-  });
-
-  test('Exa API key works', async ({ request }) => {
-    const resp = await request.get(`${BACKEND}/debug/exa`);
-    expect(resp.ok()).toBeTruthy();
-    const body = await resp.json();
-    console.log('🔑 Exa:', body.exa_working ? '✅ Working' : '❌ Failed', body.error || '');
-    expect(body.exa_key).toBe('SET');
-  });
-
-  test('PDF parsing libraries available', async ({ request }) => {
-    const resp = await request.get(`${BACKEND}/debug/pdf`);
-    expect(resp.ok()).toBeTruthy();
-    const body = await resp.json();
-    const libs = body.libraries;
-    const hasParser = libs.PyMuPDF?.available || libs.pypdf?.available || libs.pdfplumber?.available;
-    console.log('📄 PDF libs:', JSON.stringify(libs, null, 2));
-    expect(hasParser).toBeTruthy();
-  });
+    await use({ failures });
+    expect(failures, "The page emitted browser, console, or network errors").toEqual([]);
+  },
 });
 
-// ═══════════════════════════════════════════════════════════════
-// TEST 2: Full UI Workflow — Resume Upload → Search → Results
-// ═══════════════════════════════════════════════════════════════
-test.describe('2. Full UI Workflow', () => {
-  test('complete workflow: upload resume → search → view results → generate emails', async ({ page }) => {
-    // Navigate to the app
-    await page.goto(FRONTEND);
-    await page.waitForLoadState('networkidle');
-    
-    // Verify the hero section loaded
-    await expect(page.locator('h1')).toContainText('Build the proof');
-    console.log('✅ Step 1: Homepage loaded successfully');
-    
-    // Screenshot: Homepage
-    await page.screenshot({ path: 'e2e/screenshots/01-homepage.png', fullPage: true });
+async function expectAccessiblePageShell(page: Page, heading: RegExp | string) {
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  await expect(page.getByRole("main")).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: heading })).toBeVisible();
+  await expect(page.locator("h1")).toHaveCount(1);
 
-    // ── Step 2: Upload Resume ──────────────────────────────────
-    const resumePath = getResumeFile();
-    console.log(`📄 Using resume: ${path.basename(resumePath)}`);
-    
-    // Find the file input (hidden) and upload
-    const fileInput = page.locator('input[type="file"][accept="application/pdf"]');
-    await fileInput.setInputFiles(resumePath);
-    
-    // Wait for upload success toast
-    await page.waitForTimeout(3000);
-    
-    // Check for resume upload confirmation
-    const resumeConfirmation = page.locator('text=Resume uploaded').or(page.locator('text=Search enhanced'));
-    try {
-      await resumeConfirmation.first().waitFor({ timeout: 10_000 });
-      console.log('✅ Step 2: Resume uploaded successfully');
-    } catch {
-      console.log('⚠️ Step 2: Resume upload toast may have been missed, continuing...');
-    }
-    
-    await page.screenshot({ path: 'e2e/screenshots/02-resume-uploaded.png', fullPage: true });
+  const horizontalOverflow = await page.evaluate(
+    () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+  );
+  expect(horizontalOverflow, "The page must not overflow horizontally at this viewport").toBeLessThanOrEqual(1);
+}
 
-    // ── Step 3: Set location and search ────────────────────────
-    // Location should default to "San Francisco, CA"
-    const locationInput = page.locator('input[placeholder*="San Francisco"]');
-    await locationInput.clear();
-    await locationInput.fill('Austin, TX');
-    
-    // Select a role using the trigger button
-    try {
-      const roleSelect = page.locator('button[role="combobox"]').first();
-      await roleSelect.waitFor({ state: 'visible', timeout: 5000 });
-      await roleSelect.click();
-      await page.waitForTimeout(1000);
-      
-      // Click "AI Engineer" option
-      const aiEngineerOption = page.locator('[role="option"]').filter({ hasText: 'AI Engineer' });
-      if (await aiEngineerOption.isVisible({ timeout: 3000 }).catch(() => false)) {
-        await aiEngineerOption.click();
-        console.log('✅ Selected role: AI Engineer');
-      } else {
-        await page.keyboard.press('Escape');
-        console.log('⚠️ AI Engineer option not found, proceeding without role');
-      }
-    } catch {
-      console.log('⚠️ Role dropdown not found, proceeding without role selection');
-    }
-    
-    await page.screenshot({ path: 'e2e/screenshots/03-search-form-filled.png', fullPage: true });
-
-    // Click Search
-    const searchButton = page.locator('button').filter({ hasText: /Search Jobs/i });
-    await searchButton.click();
-    console.log('✅ Step 3: Search started');
-
-    // ── Step 4: Wait for timeline and results ──────────────────
-    // Wait for timeline section to appear
-    await page.waitForSelector('text=Search agents are working', { timeout: 15_000 }).catch(() => {
-      console.log('⚠️ Timeline header not found, checking for results directly...');
+async function mockPublicSearch(page: Page) {
+  await page.route("**/rag/companies", async (route) => {
+    await route.fulfill({
+      status: 202,
+      contentType: "application/json",
+      body: JSON.stringify({ run_id: "synthetic-search-run" }),
     });
-    
-    await page.screenshot({ path: 'e2e/screenshots/04-timeline-running.png', fullPage: true });
-
-    // Wait for results to load (poll every 5 seconds, up to 2.5 minutes)
-    let resultsFound = false;
-    for (let i = 0; i < 30; i++) {
-      await page.waitForTimeout(5000);
-      
-      // Check for any visible content indicating results loaded
-      const hasListings = await page.locator('text=Matched job board listings').isVisible().catch(() => false);
-      const hasCards = await page.locator('text=Application intelligence').isVisible().catch(() => false);
-      // Also check if any card-like elements appeared in the results area
-      const anyCards = await page.locator('a[href*="http"]').count().catch(() => 0);
-      
-      if (hasListings || hasCards || anyCards > 3) {
-        resultsFound = true;
-        console.log(`✅ Step 4: Results loaded after ${(i + 1) * 5} seconds`);
-        break;
-      }
-      
-      // Take periodic screenshots while waiting
-      if (i % 4 === 3) {
-        await page.screenshot({ path: `e2e/screenshots/04-waiting-${i}.png`, fullPage: true });
-        console.log(`⏳ Still waiting for results... (${(i + 1) * 5}s)`);
-      }
-    }
-    
-    await page.screenshot({ path: 'e2e/screenshots/05-results-loaded.png', fullPage: true });
-    
-    if (!resultsFound) {
-      console.log('⚠️ No job cards visible in UI after 2.5 min — the RAG search may still be running. Continuing to page navigation tests...');
-    }
-
-    // Verify backend is still healthy
-    const healthResp = await page.request.get(`${BACKEND}/health`);
-    console.log('✅ Backend still healthy during results check');
-
-    // ── Step 6: Navigate through pages ─────────────────────────
-    console.log('🧭 Step 6: Testing navigation to all pages...');
-    
-    // Dashboard
-    await page.goto(`${FRONTEND}/dashboard`);
-    await page.waitForLoadState('networkidle');
-    await page.screenshot({ path: 'e2e/screenshots/06-dashboard.png', fullPage: true });
-    console.log('  ✅ Dashboard loaded');
-    
-    // Resources
-    await page.goto(`${FRONTEND}/resources`);
-    await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(2000);
-    await page.screenshot({ path: 'e2e/screenshots/07-resources.png', fullPage: true });
-    console.log('  ✅ Resources loaded');
-    
-    // Learning Paths
-    await page.goto(`${FRONTEND}/learning-paths`);
-    await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(2000);
-    await page.screenshot({ path: 'e2e/screenshots/08-learning-paths.png', fullPage: true });
-    console.log('  ✅ Learning Paths loaded');
-    
-    // Skill Gaps
-    await page.goto(`${FRONTEND}/skill-gaps`);
-    await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(2000);
-    await page.screenshot({ path: 'e2e/screenshots/09-skill-gaps.png', fullPage: true });
-    console.log('  ✅ Skill Gaps loaded');
-    
-    // Applications
-    await page.goto(`${FRONTEND}/applications`);
-    await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(2000);
-    await page.screenshot({ path: 'e2e/screenshots/10-applications.png', fullPage: true });
-    console.log('  ✅ Applications loaded');
-    
-    // Tailor Resume
-    await page.goto(`${FRONTEND}/tailor-resume`);
-    await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(2000);
-    await page.screenshot({ path: 'e2e/screenshots/11-tailor-resume.png', fullPage: true });
-    console.log('  ✅ Tailor Resume loaded');
-    
-    // Audit
-    await page.goto(`${FRONTEND}/audit`);
-    await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(2000);
-    await page.screenshot({ path: 'e2e/screenshots/12-audit.png', fullPage: true });
-    console.log('  ✅ Audit loaded');
-    
-    // Verdict Loop
-    await page.goto(`${FRONTEND}/verdict-loop`);
-    await page.waitForLoadState('networkidle');
-    await page.waitForTimeout(2000);
-    await page.screenshot({ path: 'e2e/screenshots/13-verdict-loop.png', fullPage: true });
-    console.log('  ✅ Verdict Loop loaded');
-
-    console.log('🎉 All pages navigated successfully!');
   });
-});
 
-// ═══════════════════════════════════════════════════════════════
-// TEST 3: API-Level Workflow Verification  
-// ═══════════════════════════════════════════════════════════════
-test.describe('3. API-Level Workflow', () => {
-  test('full API workflow: upload → search → results → emails', async ({ request }) => {
-    // ── Step 1: Upload resume via API ──────────────────────────
-    const resumePath = getResumeFile();
-    const resumeBuffer = fs.readFileSync(resumePath);
-    const fileName = path.basename(resumePath);
-    
-    console.log(`📄 Uploading resume: ${fileName}`);
-    
-    const uploadResp = await request.post(`${BACKEND}/upload/resume`, {
-      multipart: {
-        file: {
-          name: fileName,
-          mimeType: 'application/pdf',
-          buffer: resumeBuffer,
-        },
-      },
+  await page.route("**/timeline/synthetic-search-run", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "text/event-stream",
+      headers: { "Cache-Control": "no-cache" },
+      body:
+        'data: {"run_id":"synthetic-search-run","agent":"Search","message":"Found 1 results"}\n\n' +
+        'event: end\ndata: {"status":"succeeded"}\n\n',
     });
-    
-    expect(uploadResp.ok()).toBeTruthy();
-    const uploadData = await uploadResp.json();
-    expect(uploadData.token).toBeTruthy();
-    expect(uploadData.chars).toBeGreaterThan(100);
-    console.log(`✅ Resume uploaded: ${uploadData.chars} chars, token: ${uploadData.token.substring(0, 8)}...`);
-    
-    // Check insights
-    if (uploadData.insights) {
-      const skills = uploadData.insights.skills;
-      // skills can be a dict {technical: [...], soft: [...]} or an array
-      let skillsSummary = 'N/A';
-      if (Array.isArray(skills)) {
-        skillsSummary = JSON.stringify(skills.slice(0, 5));
-      } else if (skills && typeof skills === 'object') {
-        const flat = [...(skills.technical || []), ...(skills.soft || [])].slice(0, 5);
-        skillsSummary = JSON.stringify(flat);
-      }
-      console.log(`  📊 Insights: role=${uploadData.insights.role}, skills=${skillsSummary}`);
-    }
+  });
 
-    // ── Step 2: Start RAG company search ───────────────────────
-    console.log('🔍 Starting RAG company search...');
-    const searchResp = await request.post(`${BACKEND}/rag/companies`, {
-      data: {
-        city: 'Austin, TX',
-        role: 'AI Engineer',
-        resumeToken: uploadData.token,
-        depth: 'standard',
-        offset: 0,
-        limit: 5,
-      },
+  await page.route("**/results/synthetic-search-run?*", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        run_id: "synthetic-search-run",
+        city: "Austin, TX",
+        role: "Backend Engineer",
+        companies: [
+          {
+            company_name: "Example Systems",
+            homepage_url: "https://example.org",
+            job_title: "Backend Engineer",
+            job_url: "https://jobs.example.org/backend-engineer",
+            job_location: "Austin, TX",
+            job_source: "Tavily",
+            blurb: "A synthetic source-linked listing used only for deterministic browser testing.",
+            observed_at: "2026-07-13T00:00:00Z",
+            description_origin: "provider_snippet",
+            remote_policy: "unknown",
+            listing_data_quality: "complete",
+          },
+        ],
+        pagination: { offset: 0, limit: 5, total: 1, has_more: false },
+      }),
     });
-    
-    expect(searchResp.ok()).toBeTruthy();
-    const searchData = await searchResp.json();
-    expect(searchData.run_id).toBeTruthy();
-    console.log(`✅ Search started: run_id=${searchData.run_id}`);
+  });
+}
 
-    // ── Step 3: Poll for results ───────────────────────────────
-    const runId = searchData.run_id;
-    let resultsData: any = null;
-    let attempts = 0;
-    const maxAttempts = 60; // 5 minutes max
+test.describe("production containment", () => {
+  test("public health exposes readiness only, never provider or key details", async ({ request }) => {
+    const response = await request.get(`${BACKEND_URL}/health`);
+    expect(response.status()).toBe(200);
+    expect(await response.json()).toEqual({ status: "ok" });
+    expect(response.headers()["content-security-policy"]).toContain("default-src 'none'");
+    expect(response.headers()["x-content-type-options"]).toBe("nosniff");
+    expect(response.headers()["access-control-allow-credentials"]).toBeUndefined();
 
-    while (attempts < maxAttempts) {
-      await new Promise(r => setTimeout(r, 5000));
-      attempts++;
-      
-      try {
-        const resultsResp = await request.get(`${BACKEND}/results/${runId}?offset=0&limit=10`);
-        if (resultsResp.ok()) {
-          const data = await resultsResp.json();
-          if (data.companies && data.companies.length > 0) {
-            resultsData = data;
-            console.log(`✅ Results ready after ${attempts * 5}s: ${data.companies.length} companies found`);
-            break;
-          }
-        }
-      } catch (e) {
-        // Retry
-      }
-      
-      if (attempts % 6 === 0) {
-        console.log(`⏳ Waiting for results... (${attempts * 5}s)`);
-      }
-    }
+    const serialized = (await response.body()).toString("utf8").toLowerCase();
+    expect(serialized).not.toMatch(/api.?key|key.?prefix|provider|tavily|exa|openai|deepseek|usage|cost/);
+  });
 
-    // ── Step 4: Evaluate results quality ───────────────────────
-    if (resultsData) {
-      console.log('\n📊 ═══ RESULTS EVALUATION ═══');
-      console.log(`  🏙️ City: ${resultsData.city || resultsData.location || 'N/A'}`);
-      console.log(`  💼 Role: ${resultsData.role}`);
-      console.log(`  🏢 Companies found: ${resultsData.companies.length}`);
-      console.log(`  📊 Total: ${resultsData.pagination?.total || resultsData.companies.length}`);
-      
-      // Evaluate each company
-      let qualityScore = 0;
-      const maxScore = 10;
-      
-      for (let i = 0; i < Math.min(resultsData.companies.length, 5); i++) {
-        const company = resultsData.companies[i];
-        const name = company.company_name || company.clean_company || company.name || company.company || company.job_posting?.company || 'Unknown';
-        const hasUrl = !!(company.homepage || company.url || company.job_posting?.url);
-        const hasBlurb = !!(company.blurb || company.description);
-        const hasJobPosting = !!(company.job_posting);
-        const hasScore = !!(company.score || company.resume_match_score);
-        
-        console.log(`\n  Company ${i+1}: ${name}`);
-        console.log(`    🔗 Has URL: ${hasUrl}`);
-        console.log(`    📝 Has description: ${hasBlurb}`);
-        console.log(`    💼 Has job posting: ${hasJobPosting}`);
-        console.log(`    📊 Has match score: ${hasScore}`);
-        if (company.job_posting?.title) {
-          console.log(`    🏷️ Job title: ${company.job_posting.title}`);
-        }
-        if (company.score) console.log(`    ⭐ Score: ${company.score}`);
-      }
-      
-      // Quality scoring
-      if (resultsData.companies.length >= 3) qualityScore += 2;
-      if (resultsData.companies.length >= 5) qualityScore += 1;
-      if (resultsData.role) qualityScore += 1;
-      if (resultsData.city) qualityScore += 1;
-      
-      const companiesWithJobs = resultsData.companies.filter((c: any) => c.job_posting?.url).length;
-      if (companiesWithJobs >= 2) qualityScore += 2;
-      if (companiesWithJobs >= 4) qualityScore += 1;
-      
-      const companiesWithScores = resultsData.companies.filter((c: any) => c.score || c.resume_match_score).length;
-      if (companiesWithScores >= 2) qualityScore += 1;
-      
-      const companiesWithDescriptions = resultsData.companies.filter((c: any) => c.blurb || c.description).length;
-      if (companiesWithDescriptions >= 3) qualityScore += 1;
-      
-      console.log(`\n  🎯 QUALITY SCORE: ${qualityScore}/${maxScore}`);
-      console.log(`  📋 Companies with job postings: ${companiesWithJobs}/${resultsData.companies.length}`);
-      console.log(`  📊 Companies with scores: ${companiesWithScores}/${resultsData.companies.length}`);
-      console.log(`  📝 Companies with descriptions: ${companiesWithDescriptions}/${resultsData.companies.length}`);
-      
-      // ── Step 5: Generate outreach emails ────────────────────
-      console.log('\n📧 Generating outreach emails...');
-      const writerResp = await request.post(`${BACKEND}/writer/outreach`, {
-        data: {
-          run_id: runId,
-          n: 3,
-        },
-      });
-      
-      if (writerResp.ok()) {
-        const writerData = await writerResp.json();
-        console.log(`✅ Writer started: run_id=${writerData.run_id}`);
-        
-        // Wait for emails to be generated (deepseek-chat can take ~60s)
-        await new Promise(r => setTimeout(r, 60_000));
-        
-        // Check results with emails
-        const emailResultsResp = await request.get(`${BACKEND}/results/${runId}?offset=0&limit=10`);
-        if (emailResultsResp.ok()) {
-          const emailResults = await emailResultsResp.json();
-          const emails = emailResults.emails || [];
-          console.log(`\n📧 ═══ EMAIL EVALUATION ═══`);
-          console.log(`  📬 Emails generated: ${emails.length}`);
-          
-          for (let i = 0; i < emails.length; i++) {
-            const email = emails[i];
-            console.log(`\n  Email ${i+1}:`);
-            console.log(`    🏢 Company: ${email.company || 'N/A'}`);
-            console.log(`    📨 Subject: ${email.subject || 'N/A'}`);
-            console.log(`    📏 Body length: ${(email.body || '').length} chars`);
-            
-            // Quality checks
-            const bodyWords = (email.body || '').split(/\s+/).length;
-            console.log(`    📝 Body words: ${bodyWords}`);
-            if (bodyWords > 130) {
-              console.log(`    ⚠️ Body exceeds 130 word limit!`);
-            }
-          }
-        }
-      } else {
-        console.log(`⚠️ Writer endpoint returned ${writerResp.status()}: ${await writerResp.text()}`);
-      }
-      
-    } else {
-      console.log('❌ No results returned after 5 minutes');
-      // Don't fail the test - log the issue
-    }
+  test("anonymous search sends only the role/location contract and renders a source", async ({
+    page,
+    browserMonitor: _browserMonitor,
+  }) => {
+    await mockPublicSearch(page);
+    await page.goto("/");
 
-    // ── Step 6: Test Audit endpoint ────────────────────────────
-    console.log('\n🔍 Testing Audit endpoint...');
-    const auditResp = await request.post(`${BACKEND}/audit/start`, {
-      data: {
-        target_role: 'AI Engineer',
-        resume_token: uploadData.token,
-        city: 'Austin, TX',
-      },
+    await expectAccessiblePageShell(page, /Find job listings/i);
+    await expect(page.getByLabel("Location")).toBeVisible();
+    await expect(page.getByRole("combobox", { name: "Desired role" })).toBeVisible();
+    await expect(page.locator('input[type="file"]')).toHaveCount(0);
+
+    await page.getByLabel("Location").fill("Austin, TX");
+    await page.getByRole("combobox", { name: "Desired role" }).click();
+    await page.getByRole("option", { name: "Backend Engineer", exact: true }).click();
+
+    const searchRequest = page.waitForRequest(
+      (request) => request.method() === "POST" && new URL(request.url()).pathname === "/rag/companies",
+    );
+    await page.getByRole("button", { name: "Search Jobs" }).click();
+
+    const request = await searchRequest;
+    expect(request.postDataJSON()).toEqual({
+      city: "Austin, TX",
+      role: "Backend Engineer",
+      depth: "standard",
     });
-    
-    if (auditResp.ok()) {
-      const auditData = await auditResp.json();
-      console.log(`✅ Audit started: run_id=${auditData.run_id}`);
-      
-      // Wait for audit to complete (involves Perplexity + OpenAI calls)
-      await new Promise(r => setTimeout(r, 90_000));
-      
-      const auditResultResp = await request.get(`${BACKEND}/audit/${auditData.run_id}/result`);
-      if (auditResultResp.ok()) {
-        const auditResult = await auditResultResp.json();
-        console.log('\n📋 ═══ AUDIT EVALUATION ═══');
-        console.log(`  🎯 Percentile: ${auditResult.percentile || 'N/A'}`);
-        console.log(`  📊 Gap type: ${auditResult.gap_type || 'N/A'}`);
-        console.log(`  ✅ Strengths: ${(auditResult.strengths || []).length}`);
-        console.log(`  ⚠️ Gaps: ${(auditResult.gap_details?.gaps || []).length}`);
-        if (auditResult.verdict_text) {
-          console.log(`  📝 Verdict: ${auditResult.verdict_text.substring(0, 200)}...`);
-        }
-      } else {
-        console.log(`⚠️ Audit result not ready yet (status: ${auditResultResp.status()})`);
-      }
-    } else {
-      console.log(`⚠️ Audit start failed: ${auditResp.status()}`);
+    expect(request.headers()["authorization"]).toBeUndefined();
+
+    await expect(page.getByRole("heading", { name: "Source listings" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Backend Engineer", level: 3 })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Open Backend Engineer.* listing/ })).toBeEnabled();
+    await expect(page.getByText("Tavily", { exact: true })).toBeVisible();
+    await expect(page.getByText("Jul 13, 2026", { exact: true })).toBeVisible();
+    await expect(page.getByText(/Public role search does not collect resume data/i)).toBeVisible();
+  });
+
+  test("successful empty discovery is explicit and creates no placeholder listing", async ({
+    page,
+    browserMonitor: _browserMonitor,
+  }) => {
+    await page.route("**/rag/companies", (route) => route.fulfill({
+      status: 202,
+      contentType: "application/json",
+      body: JSON.stringify({ run_id: "synthetic-empty-run", status: "queued" }),
+    }));
+    await page.route("**/timeline/synthetic-empty-run", (route) => route.fulfill({
+      status: 200,
+      contentType: "text/event-stream",
+      body: 'event: end\ndata: {"status":"succeeded"}\n\n',
+    }));
+    await page.route("**/results/synthetic-empty-run?*", (route) => route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        run_id: "synthetic-empty-run",
+        city: "Austin, TX",
+        role: "Backend Engineer",
+        companies: [],
+        pagination: { offset: 0, limit: 5, total: 0, has_more: false },
+      }),
+    }));
+
+    await page.goto("/");
+    await page.getByLabel("Location").fill("Austin, TX");
+    await page.getByRole("combobox", { name: "Desired role" }).click();
+    await page.getByRole("option", { name: "Backend Engineer", exact: true }).click();
+    await page.getByRole("button", { name: "Search Jobs" }).click();
+
+    await expect(page.getByText(/No listing entries were returned/i)).toBeVisible();
+    await expect(page.getByRole("article")).toHaveCount(0);
+  });
+
+  test("failed terminal event never becomes a completed result", async ({
+    page,
+    browserMonitor: _browserMonitor,
+  }) => {
+    await page.route("**/rag/companies", (route) => route.fulfill({
+      status: 202,
+      contentType: "application/json",
+      body: JSON.stringify({ run_id: "synthetic-failed-run", status: "queued" }),
+    }));
+    await page.route("**/timeline/synthetic-failed-run", (route) => route.fulfill({
+      status: 200,
+      contentType: "text/event-stream",
+      body: 'event: end\ndata: {"status":"failed"}\n\n',
+    }));
+
+    await page.goto("/");
+    await page.getByLabel("Location").fill("Austin, TX");
+    await page.getByRole("combobox", { name: "Desired role" }).click();
+    await page.getByRole("option", { name: "Backend Engineer", exact: true }).click();
+    await page.getByRole("button", { name: "Search Jobs" }).click();
+
+    await expect(page.getByText(/did not report a successful terminal state/i)).toBeVisible();
+    await expect(
+      page.getByRole("complementary", { name: "Current search status" }).getByText("Failed", { exact: true }),
+    ).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Backend Engineer", level: 3 })).toHaveCount(0);
+  });
+
+  test("public resources remain source-linked and explain their limits", async ({
+    page,
+    browserMonitor: _browserMonitor,
+  }) => {
+    await page.route("**/api/v1/study/pillars", (route) =>
+      route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({ pillars: [{ key: "backend", label: "Backend", keywords: ["HTTP", "SQL"] }] }),
+      }),
+    );
+    await page.route("**/api/v1/resources?*", (route) =>
+      route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          count: 1,
+          items: [
+            {
+              id: "synthetic-resource-1",
+              title: "HTTP semantics reference",
+              description: "A synthetic catalogue entry for browser validation.",
+              url: "https://docs.example.org/http",
+              category: "Documentation",
+            },
+          ],
+        }),
+      }),
+    );
+
+    await page.goto("/resources");
+    await expectAccessiblePageShell(page, /Browse learning references/i);
+    await expect(page.getByLabel("Search the resource catalogue")).toBeVisible();
+    await expect(page.getByText(/Inclusion is not an endorsement, ranking, or guarantee/i)).toBeVisible();
+    await expect(page.getByRole("heading", { name: "HTTP semantics reference" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Open source" })).toHaveAttribute(
+      "href",
+      "https://docs.example.org/http",
+    );
+  });
+
+  test("private personal-data routes show one explicit unavailable state and no upload control", async ({
+    page,
+    browserMonitor: _browserMonitor,
+  }) => {
+    const privateRoutes = [
+      ["/tailor-resume", "Resume tailoring"],
+      ["/applications", "Application tracking"],
+      ["/learning-paths", "Personal learning paths"],
+      ["/skill-gaps", "Resume skill analysis"],
+    ] as const;
+
+    for (const [path, feature] of privateRoutes) {
+      await page.goto(path);
+      await expectAccessiblePageShell(page, `${feature} is temporarily unavailable.`);
+      await expect(page.getByText(/authentication, private ownership, retention, and deletion controls/i)).toBeVisible();
+      await expect(page.locator('input[type="file"]')).toHaveCount(0);
+    }
+  });
+
+  test("retired beta routes and navigation labels are absent", async ({
+    page,
+    browserMonitor: _browserMonitor,
+  }, testInfo) => {
+    const retiredRoutes = [
+      "/outreach",
+      "/trust-profile",
+      "/portfolio",
+      "/cohort",
+      "/career-reverse-engineer",
+      "/audit",
+      "/one-thing",
+      "/verdict-loop",
+      "/system-health",
+    ];
+
+    for (const path of retiredRoutes) {
+      await page.goto(path);
+      await expectAccessiblePageShell(page, "Page not found");
     }
 
-    // ── Step 7: Test Resources endpoint ────────────────────────
-    console.log('\n📚 Testing Resources...');
-    const resourcesResp = await request.get(`${BACKEND}/api/v1/resources?limit=5`);
-    if (resourcesResp.ok()) {
-      const resourcesData = await resourcesResp.json();
-      console.log(`✅ Resources: ${resourcesData.items?.length || 0} items loaded`);
-    }
+    await page.goto("/");
+    const visibleNavigation = page.locator(
+      'nav[aria-label="Primary navigation"]:visible, nav[aria-label="Mobile navigation"]:visible',
+    );
+    await expect(visibleNavigation).toContainText("Search");
+    await expect(visibleNavigation).toContainText("Study");
+    await expect(visibleNavigation).not.toContainText(
+      /Outreach|Trust Profile|Portfolio|Cohort|Reverse Engineer|Audit|One Thing|Verdict|System Health/i,
+    );
 
-    console.log('\n🏁 ═══ E2E WORKFLOW COMPLETE ═══');
+    if (testInfo.project.name === "mobile-chromium") {
+      await page.getByRole("button", { name: "Open navigation" }).click();
+      await expect(page.getByRole("dialog", { name: "Navigation" })).toBeVisible();
+      await expect(page.getByRole("button", { name: "Close navigation" }).last()).toBeFocused();
+      await page.keyboard.press("Escape");
+      await expect(page.getByRole("dialog", { name: "Navigation" })).toHaveCount(0);
+    }
   });
 });

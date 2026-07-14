@@ -74,6 +74,13 @@ async def main() -> None:
         if i + BATCH < len(todo):
             await asyncio.sleep(PAUSE_SECONDS)
 
+    # Remove vectors for inputs no longer referenced by the golden set. In
+    # particular, this prevents embeddings derived from retired personal resume
+    # fixtures from lingering after the source data is removed.
+    referenced_keys = {_key(text) for text in unique}
+    cache = {key: value for key, value in cache.items() if key in referenced_keys}
+    CACHE_PATH.write_text(json.dumps(cache), encoding="utf-8")
+
     size_kb = CACHE_PATH.stat().st_size / 1024
     print(f"\n{len(cache)} vectors cached -> {CACHE_PATH.name} ({size_kb:.0f} KB)")
 

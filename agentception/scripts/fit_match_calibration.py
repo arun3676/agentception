@@ -33,12 +33,11 @@ from evals.embedding_cache import cached_embed  # noqa: E402
 from evals.metrics import load_jd_text, load_match_pairs  # noqa: E402
 
 OUT = ROOT / "server" / "data" / "match_calibration.json"
-RESUME_DIR = ROOT.parent / "resume"
+RESUME_TEXT = ROOT / "evals" / "golden" / "resume_text.txt"
 
 
 async def main() -> None:
     import server.tools.resume_job_matcher as matcher
-    from server.tools.resume_ingest import extract_pdf_text_locally
     from server.tools.resume_store import extract_resume_insights, put_text
 
     # Score with the cached embeddings so this is reproducible and free.
@@ -49,7 +48,7 @@ async def main() -> None:
     if not pairs:
         sys.exit("no match pairs — run scripts/build_match_pairs.py")
 
-    resume_text = extract_pdf_text_locally((RESUME_DIR / pairs[0]["resume"]).read_bytes())
+    resume_text = RESUME_TEXT.read_text(encoding="utf-8")
     insights = extract_resume_insights(put_text(resume_text)) or {}
 
     results = await asyncio.gather(*[

@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f5f2eb">
-  <meta name="description" content="Agentception turns live job-market evidence into one prioritized skill gap, a project-based learning path, and a smarter application loop.">
-  <title>Agentception — Your next role has a blueprint</title>
+  <meta name="description" content="Search for roles by title and location, review returned listing details, and open the source when available. Personal career workflows are unavailable during security hardening.">
+  <title>Agentception — Role discovery with source status</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -25,14 +25,14 @@
 
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#how">How it works</a>
-        <a href="#difference">The difference</a>
-        <a href="#research">Research</a>
+        <a href="#difference">Current scope</a>
+        <a href="#research">Product rules</a>
         <a href="#questions">Questions</a>
       </nav>
 
       <div class="nav-actions">
         <a class="text-link desktop-only" data-app-link href="#">Open the app</a>
-        <a class="button button-dark button-compact desktop-only" data-app-link href="#">Build my blueprint <i class="ph ph-arrow-up-right"></i></a>
+        <a class="button button-dark button-compact desktop-only" data-app-link href="#">Search roles <i class="ph ph-arrow-up-right"></i></a>
         <button class="menu-button" id="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
           <i class="ph ph-list"></i>
         </button>
@@ -41,8 +41,8 @@
 
     <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden>
       <a href="#how">How it works</a>
-      <a href="#difference">The difference</a>
-      <a href="#research">Research</a>
+      <a href="#difference">Current scope</a>
+      <a href="#research">Product rules</a>
       <a href="#questions">Questions</a>
       <a class="button button-dark" data-app-link href="#">Open the app <i class="ph ph-arrow-up-right"></i></a>
     </nav>
@@ -51,48 +51,48 @@
   <main id="main">
     <section class="hero shell">
       <div class="hero-copy reveal is-visible">
-        <div class="status-pill"><span></span> AI career operating system</div>
-        <h1><span class="headline-line">Your next role</span><em>has a blueprint.</em></h1>
+        <div class="status-pill"><span></span> Public role discovery</div>
+        <h1><span class="headline-line">Search job listings.</span><em>Check the source.</em></h1>
         <p class="hero-lede">
-          Agentception reads your resume, researches live roles, identifies the highest-impact gap,
-          and turns it into a project-based path you can actually finish.
+          Search by role and location, review the listing details returned by the discovery provider,
+          and open the original source when a safe link is available.
         </p>
         <div class="hero-actions">
-          <a class="button button-dark button-large" data-app-link href="#">Start building my blueprint <i class="ph ph-arrow-right"></i></a>
-          <a class="button button-text" href="#how">See the loop <i class="ph ph-arrow-down"></i></a>
+          <a class="button button-dark button-large" data-app-link href="#">Search by role and location <i class="ph ph-arrow-right"></i></a>
+          <a class="button button-text" href="#how">See how search works <i class="ph ph-arrow-down"></i></a>
         </div>
-        <p class="privacy-note"><i class="ph ph-shield-check"></i> Resume optional. Your data stays under your control.</p>
+        <p class="privacy-note"><i class="ph ph-shield-check"></i> Public search asks only for a role and location. Do not enter résumé or contact information.</p>
 
-        <div class="hero-proof" aria-label="Example live career signal">
-          <div class="proof-avatar" aria-hidden="true"><i class="ph-fill ph-sparkle"></i></div>
-          <div><span>Live signal detected</span><strong>AI Engineer demand is up</strong></div>
-          <span class="proof-metric">12 roles matched <i class="ph ph-arrow-up-right"></i></span>
+        <div class="scope-card" aria-label="Current production scope">
+          <div class="scope-card-icon" aria-hidden="true"><i class="ph-fill ph-sparkle"></i></div>
+          <div><span>Available now</span><strong>Anonymous job discovery</strong></div>
+          <span class="scope-card-detail">Role + location <i class="ph ph-arrow-up-right"></i></span>
         </div>
 
         <dl class="capability-facts" aria-label="Product capabilities">
-          <div><dt>Direct sources</dt><dd>ATS job boards</dd></div>
-          <div><dt>Market audit</dt><dd>20+ live JDs</dd></div>
-          <div><dt>Learning</dt><dd>Project-based</dd></div>
-          <div><dt>Feedback</dt><dd>Outcome-aware</dd></div>
+          <div><dt>Inputs</dt><dd>Role + location</dd></div>
+          <div><dt>Results</dt><dd>Source status shown</dd></div>
+          <div><dt>Missing data</dt><dd>Shown as unknown</dd></div>
+          <div><dt>Personal data</dt><dd>Not accepted</dd></div>
         </dl>
       </div>
 
-      <div class="ledger-wrap" aria-label="Agentception career evidence workflow">
+      <div class="ledger-wrap" aria-label="What to inspect in a search result">
         <div class="ledger-head">
-          <div><span class="ledger-kicker">Career evidence ledger</span><span class="live-label"><b></b> Live</span></div>
-          <span class="update-label"><b></b> Market signals connected</span>
+          <div><span class="ledger-kicker">Search result checklist</span><span class="guide-label"><b></b> Guide</span></div>
+          <span class="scope-label"><b></b> Not live data</span>
         </div>
 
         <ol class="ledger" id="hero-ledger">
           <li class="ledger-row" style="--row: 0">
             <div class="ledger-step">
               <span class="step-icon"><i class="ph ph-chart-line-up"></i></span>
-              <div><strong>Market demand</strong><small>Live role intelligence</small></div>
+              <div><strong>Search inputs</strong><small>Required fields</small></div>
             </div>
             <div class="ledger-content role-content">
-              <div><small>Target role</small><strong>AI Engineer <span class="mini-pill">High demand</span></strong></div>
-              <div class="role-cluster" aria-label="Related live roles">
-                <span class="selected">AI Engineer</span><span>ML Engineer</span><span>Applied ML</span><span>LLM Engineer</span>
+              <div><small>Role</small><strong>Your requested title <span class="mini-pill">Required</span></strong></div>
+              <div class="role-cluster" aria-label="Search input checklist">
+                <span class="selected">Role</span><span>Location</span><span>No résumé</span><span>No contact data</span>
               </div>
               <i class="ph ph-arrow-right row-arrow" aria-hidden="true"></i>
             </div>
@@ -101,12 +101,12 @@
           <li class="ledger-row" style="--row: 1">
             <div class="ledger-step">
               <span class="step-icon"><i class="ph ph-target"></i></span>
-              <div><strong>Gap identified</strong><small>Highest-impact next skill</small></div>
+              <div><strong>Source link</strong><small>Original listing</small></div>
             </div>
             <div class="ledger-content gap-content">
-              <div><small>Top gap in this example</small><strong>RAG evaluation</strong></div>
-              <div><small>Why it matters</small><p>Repeated across the audited role set and missing from the current evidence.</p></div>
-              <div class="signal-strength"><strong>Priority 01</strong><span>Move this first</span></div>
+              <div><small>Result action</small><strong>View source</strong></div>
+              <div><small>What it means</small><p>The button opens the safe URL returned with that result.</p></div>
+              <div class="signal-strength"><strong>No link?</strong><span>Shown as unavailable</span></div>
               <i class="ph ph-arrow-right row-arrow" aria-hidden="true"></i>
             </div>
           </li>
@@ -114,17 +114,17 @@
           <li class="ledger-row" style="--row: 2">
             <div class="ledger-step">
               <span class="step-icon"><i class="ph ph-map-trifold"></i></span>
-              <div><strong>Learning path</strong><small>Project-based sequence</small></div>
+              <div><strong>Listing details</strong><small>Provider-returned fields</small></div>
             </div>
             <div class="ledger-content path-content">
-              <small>4-week project path</small>
-              <ol class="mini-path" aria-label="Example four week learning path">
-                <li><b>1</b><span>Learn<small>Foundations</small></span></li>
-                <li><b>2</b><span>Build<small>Eval pipeline</small></span></li>
-                <li><b>3</b><span>Measure<small>Test retrieval</small></span></li>
-                <li><b>4</b><span>Ship<small>Document proof</small></span></li>
+              <small>Fields to review</small>
+              <ol class="mini-path" aria-label="Listing detail checklist">
+                <li><b>1</b><span>Title<small>As returned</small></span></li>
+                <li><b>2</b><span>Company<small>As returned</small></span></li>
+                <li><b>3</b><span>Location<small>As returned</small></span></li>
+                <li><b>4</b><span>Excerpt<small>When present</small></span></li>
               </ol>
-              <div class="time-box"><strong>4 weeks</strong><span>Scoped to your level</span></div>
+              <div class="time-box"><strong>Inspect</strong><span>Before acting</span></div>
               <i class="ph ph-arrow-right row-arrow" aria-hidden="true"></i>
             </div>
           </li>
@@ -132,12 +132,12 @@
           <li class="ledger-row" style="--row: 3">
             <div class="ledger-step">
               <span class="step-icon"><i class="ph ph-shield-check"></i></span>
-              <div><strong>Your evidence</strong><small>A project you can show</small></div>
+              <div><strong>Unknown values</strong><small>No invented details</small></div>
             </div>
             <div class="ledger-content evidence-content">
               <span class="project-mark"><i class="ph ph-brackets-curly"></i></span>
-              <div><small>Project deliverable</small><strong>RAG Evaluation Suite <span class="verified">Ready to build</span></strong><p>Tests, metrics, report, and a deployable result.</p></div>
-              <div class="evidence-score"><span>Evidence</span><strong>Concrete</strong></div>
+              <div><small>Data rule</small><strong>Keep gaps explicit <span class="availability-tag">No guessing</span></strong><p>Missing company, location, excerpt, or source data stays unavailable.</p></div>
+              <div class="evidence-score"><span>Fallback</span><strong>Unknown</strong></div>
               <i class="ph ph-arrow-right row-arrow" aria-hidden="true"></i>
             </div>
           </li>
@@ -145,12 +145,12 @@
           <li class="ledger-row" style="--row: 4">
             <div class="ledger-step">
               <span class="step-icon"><i class="ph ph-paper-plane-tilt"></i></span>
-              <div><strong>Next move</strong><small>Applications & outcomes</small></div>
+              <div><strong>Next move</strong><small>Public search only</small></div>
             </div>
             <div class="ledger-content move-content">
-              <div><small>Recommended next step</small><strong>Apply with stronger evidence</strong><p>Tailor the resume to a matched role, then log what happens.</p></div>
-              <div class="outcome-dots" aria-label="Five outcome feedback points"><i></i><i></i><i></i><i></i><i></i></div>
-              <div><small>Feedback unlocks</small><strong>After 5 outcomes</strong></div>
+              <div><small>Available action</small><strong>Open the original listing</strong><p>Decide what to do on the source site.</p></div>
+              <div class="access-state"><strong>Public only</strong></div>
+              <div><small>Personal workflows</small><strong>Unavailable</strong></div>
               <i class="ph ph-arrow-right row-arrow" aria-hidden="true"></i>
             </div>
           </li>
@@ -161,31 +161,31 @@
     <section class="difference section-rule shell" id="difference">
       <div class="section-intro reveal">
         <div>
-          <span class="eyebrow">The old way is fragmented</span>
-          <h2>Stop stitching tools.<br><em>Start building evidence.</em></h2>
+          <span class="eyebrow">A visible product boundary</span>
+          <h2>Know what works now.<br><em>Know what does not.</em></h2>
         </div>
-        <p>Job boards, course catalogs, and trackers were never designed to learn from one another. Agentception connects the signal from market demand to your next move.</p>
+        <p>Agentception currently exposes a narrow public search surface. Features that need identity, ownership, or personal history stay unavailable until those controls are ready.</p>
       </div>
 
       <div class="comparison reveal">
         <div class="flow-panel fragmented">
-          <div class="flow-title"><strong>The fragmented way</strong><span>More tabs. More guesswork.</span></div>
+          <div class="flow-title"><strong>Available now</strong><span>Anonymous and limited.</span></div>
           <ol class="flow-line">
-            <li><i class="ph ph-briefcase"></i><strong>Job boards</strong><span>Noisy listings</span></li>
-            <li><i class="ph ph-books"></i><strong>Course catalogs</strong><span>Generic content</span></li>
-            <li><i class="ph ph-lightbulb"></i><strong>Project ideas</strong><span>Built in the dark</span></li>
-            <li><i class="ph ph-clipboard-text"></i><strong>Tracker</strong><span>Manual updates</span></li>
-            <li><i class="ph ph-arrows-counter-clockwise"></i><strong>Outcome</strong><span>No learning</span></li>
+            <li><i class="ph ph-magnifying-glass"></i><strong>Role</strong><span>Required input</span></li>
+            <li><i class="ph ph-map-pin"></i><strong>Location</strong><span>Required input</span></li>
+            <li><i class="ph ph-radar"></i><strong>Search</strong><span>Provider-backed</span></li>
+            <li><i class="ph ph-file-text"></i><strong>Details</strong><span>As returned</span></li>
+            <li><i class="ph ph-arrow-square-out"></i><strong>Source</strong><span>Open listing</span></li>
           </ol>
         </div>
-        <div class="flow-panel connected">
-          <div class="flow-title"><strong>The Agentception loop</strong><span>One signal from market to impact.</span></div>
+        <div class="flow-panel unavailable">
+          <div class="flow-title"><strong>Private and unavailable</strong><span>Security work comes first.</span></div>
           <ol class="flow-line">
-            <li><i class="ph ph-radar"></i><strong>Live roles</strong><span>Real demand</span></li>
-            <li><i class="ph ph-crosshair"></i><strong>One gap</strong><span>Clear priority</span></li>
-            <li><i class="ph ph-map-trifold"></i><strong>Targeted path</strong><span>Scoped project</span></li>
-            <li><i class="ph ph-hammer"></i><strong>Evidence</strong><span>Build & ship</span></li>
-            <li><i class="ph ph-trend-up"></i><strong>Better next move</strong><span>Learn & improve</span></li>
+            <li><i class="ph ph-file-lock"></i><strong>Résumé</strong><span>Unavailable</span></li>
+            <li><i class="ph ph-crosshair"></i><strong>Fit</strong><span>Unavailable</span></li>
+            <li><i class="ph ph-pencil-line"></i><strong>Tailoring</strong><span>Unavailable</span></li>
+            <li><i class="ph ph-briefcase"></i><strong>Applications</strong><span>Unavailable</span></li>
+            <li><i class="ph ph-map-trifold"></i><strong>Learning</strong><span>Unavailable</span></li>
           </ol>
         </div>
       </div>
@@ -193,44 +193,44 @@
 
     <section class="process shell" id="how">
       <div class="process-copy reveal">
-        <span class="eyebrow">One connected loop</span>
-        <h2>From market signal<br>to measurable progress.</h2>
-        <p>Each stage narrows the next decision. No generic curriculum, unexplained score, or tracker that only counts activity.</p>
+        <span class="eyebrow">Public workflow</span>
+        <h2>A search you<br>can inspect.</h2>
+        <p>Search depends on configured providers. A provider error, timeout, or missing field should appear as unavailable rather than as a confident answer.</p>
         <a class="button button-dark" data-app-link href="#">Run my first search <i class="ph ph-arrow-up-right"></i></a>
       </div>
 
       <ol class="process-list">
-        <li class="reveal"><span>01</span><div><h3>Read your evidence</h3><p>Parse your resume into roles, skills, projects, and experience the search can actually use.</p></div><i class="ph ph-file-text"></i></li>
-        <li class="reveal"><span>02</span><div><h3>Research live demand</h3><p>Pull current openings from direct ATS sources and compare the role requirements.</p></div><i class="ph ph-radar"></i></li>
-        <li class="reveal"><span>03</span><div><h3>Prioritize the gap</h3><p>See what is missing in plain language and focus on the highest-leverage move first.</p></div><i class="ph ph-target"></i></li>
-        <li class="reveal"><span>04</span><div><h3>Build the path</h3><p>Generate a level-aware learning sequence with resources and proof-building projects.</p></div><i class="ph ph-map-trifold"></i></li>
-        <li class="reveal"><span>05</span><div><h3>Learn from outcomes</h3><p>Track applications and let repeated results show where the process is actually breaking.</p></div><i class="ph ph-chart-line-up"></i></li>
+        <li class="reveal"><span>01</span><div><h3>Enter a role</h3><p>Use a job title or role family. The search does not infer a role from personal documents.</p></div><i class="ph ph-text-t"></i></li>
+        <li class="reveal"><span>02</span><div><h3>Enter a location</h3><p>Add the market you want to inspect. Unknown locations remain unknown in returned results.</p></div><i class="ph ph-map-pin"></i></li>
+        <li class="reveal"><span>03</span><div><h3>Wait for discovery</h3><p>The search reports provider-backed progress. If discovery is unavailable, try again later.</p></div><i class="ph ph-radar"></i></li>
+        <li class="reveal"><span>04</span><div><h3>Review the fields</h3><p>Check title, company, location, excerpt, and source. Treat omissions as missing data.</p></div><i class="ph ph-list-magnifying-glass"></i></li>
+        <li class="reveal"><span>05</span><div><h3>Open the source</h3><p>When a safe link is available, use the source listing to confirm requirements and availability before acting.</p></div><i class="ph ph-arrow-square-out"></i></li>
       </ol>
     </section>
 
     <section class="research" id="research">
       <div class="shell">
         <div class="research-head reveal">
-          <span class="eyebrow">Designed around the 2026 gap</span>
-          <h2>Every category solves a piece.<br><em>The handoff is still broken.</em></h2>
-          <p>Our product research found better AI matching, better application tracking, and better personalized learning—but rarely one system that connects a real role, a specific gap, a proof-producing path, and the application result.</p>
+          <span class="eyebrow">Product rules</span>
+          <h2>Evidence, clear limits,<br><em>or unavailable.</em></h2>
+          <p>Every public result should show whether a safe source link is available, distinguish returned fields from missing data, and avoid predictions about fit or hiring.</p>
         </div>
 
         <div class="research-rows">
           <article class="research-row reveal">
             <span class="research-number">01</span>
-            <div><h3>Job discovery</h3><p>Modern job platforms explain fit and streamline search.</p></div>
-            <div><strong>What is still missing</strong><p>A direct bridge from a missing qualification to a scoped project and learning plan.</p></div>
+            <div><h3>Evidence-backed</h3><p>Show the source link and the listing details returned with the result.</p></div>
+            <div><strong>Copy rule</strong><p>Describe what was found without turning a listing into a fit or hiring claim.</p></div>
           </article>
           <article class="research-row reveal">
             <span class="research-number">02</span>
-            <div><h3>Learning platforms</h3><p>Course libraries can personalize content and generate roadmaps.</p></div>
-            <div><strong>What is still missing</strong><p>Fresh role evidence deciding what deserves your time this week—and what output proves it.</p></div>
+            <div><h3>Clearly limited</h3><p>Missing company, location, description, or source data stays unknown.</p></div>
+            <div><strong>Copy rule</strong><p>Do not invent a description, infer locality, or overstate provider output.</p></div>
           </article>
           <article class="research-row reveal">
             <span class="research-number">03</span>
-            <div><h3>Application trackers</h3><p>Trackers organize saves, documents, interviews, and offers.</p></div>
-            <div><strong>What is still missing</strong><p>A feedback loop that turns repeated outcomes into the next skill, evidence, or targeting decision.</p></div>
+            <div><h3>Explicitly unavailable</h3><p>Provider failures and paused private workflows need a durable unavailable state.</p></div>
+            <div><strong>Copy rule</strong><p>Do not replace errors, timeouts, or absent security controls with demo content.</p></div>
           </article>
         </div>
       </div>
@@ -239,22 +239,22 @@
     <section class="questions shell" id="questions">
       <div class="questions-copy reveal">
         <span class="eyebrow">Straight answers</span>
-        <h2>Built for action,<br>not another score.</h2>
+        <h2>What the public<br>product does today.</h2>
       </div>
       <div class="faq-list">
-        <details class="reveal"><summary>Where do the jobs come from?<i class="ph ph-plus"></i></summary><p>Agentception searches direct ATS postings, including Greenhouse, Lever, Ashby, and Workable, then filters and ranks the results against your target and resume evidence.</p></details>
-        <details class="reveal"><summary>Is the learning path generic?<i class="ph ph-plus"></i></summary><p>No. It uses your topic, level, learning style, goals, and time commitment, and can connect the result to gaps found in the target role.</p></details>
-        <details class="reveal"><summary>How does the outcome loop work?<i class="ph ph-plus"></i></summary><p>Log what happened after each application. Once there is enough personal evidence, Agentception can surface patterns instead of pretending one application proves anything.</p></details>
-        <details class="reveal"><summary>Do I need to upload a resume?<i class="ph ph-plus"></i></summary><p>No. You can search without one, but resume evidence makes matching, gap analysis, tailoring, and targeted study much more useful.</p></details>
+        <details class="reveal"><summary>Where do the jobs come from?<i class="ph ph-plus"></i></summary><p>Agentception uses configured discovery providers. A result links to the returned source when the URL is present and safe to open.</p></details>
+        <details class="reveal"><summary>What happens when search is unavailable?<i class="ph ph-plus"></i></summary><p>The product should show an error or unavailable state. It should not substitute a fabricated listing or treat a transport failure as a successful search.</p></details>
+        <details class="reveal"><summary>Do I need to upload a résumé?<i class="ph ph-plus"></i></summary><p>No. Public search does not accept a résumé. Résumé upload and other personal workflows are unavailable while authentication and ownership controls are rebuilt.</p></details>
+        <details class="reveal"><summary>Can I save, tailor, or track an application?<i class="ph ph-plus"></i></summary><p>Not in the current public product. Those actions require a secure account and remain unavailable during containment.</p></details>
       </div>
     </section>
 
     <section class="closing">
       <div class="shell closing-inner reveal">
-        <span class="status-pill inverse"><span></span> Your market signal is waiting</span>
-        <h2>Your next role is not a mystery.<br><em>It is a set of moves.</em></h2>
-        <p>Start with one live search. Leave with a clearer next step.</p>
-        <a class="button button-light button-large" data-app-link href="#">Build my blueprint <i class="ph ph-arrow-up-right"></i></a>
+        <span class="status-pill inverse"><span></span> Role + location only</span>
+        <h2>Start with a search.<br><em>Confirm it at the source.</em></h2>
+        <p>Search availability depends on configured discovery providers.</p>
+        <a class="button button-light button-large" data-app-link href="#">Search roles <i class="ph ph-arrow-up-right"></i></a>
       </div>
     </section>
   </main>
@@ -262,7 +262,7 @@
   <footer class="footer">
     <div class="shell footer-inner">
       <a class="brand" href="#main"><span class="brand-mark"><i class="ph-fill ph-sparkle"></i></span><span>agentception</span></a>
-      <p>Job search, learning, proof, and outcomes—connected.</p>
+      <p>Role discovery with source status. Personal workflows are unavailable.</p>
       <a data-app-link href="#">Open the app <i class="ph ph-arrow-up-right"></i></a>
     </div>
   </footer>

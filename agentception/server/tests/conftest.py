@@ -6,8 +6,10 @@ a test run polluted the app's data and the cost dashboard reported spend that ne
 happened. Every session now gets its own throwaway database.
 """
 
+import gc
 import os
 import tempfile
+import time
 from pathlib import Path
 
 # Must be set before sql_store is imported anywhere, so it resolves DB_PATH to this.
@@ -33,4 +35,15 @@ def _isolated_database():
     yield
 
     if _TMP_DB.exists():
-        _TMP_DB.unlink()
+        # sqlite3 connections used as context managers commit/rollback but may
+        # remain alive until collection. Windows refuses to unlink an open DB.
+        gc.collect()
+        for attempt in range(5):
+            try:
+                _TMP_DB.unlink()
+                break
+            except PermissionError:
+                if attempt == 4:
+                    raise
+                time.sleep(0.05)
+                gc.collect()

@@ -1,19 +1,22 @@
-# scripts/
+# Repository scripts
 
-One-off operational scripts. Nothing here is imported by the application, and
-nothing here runs under `pytest` — several of these call live, billed APIs.
+Active scripts have one of three bounded purposes:
 
-Run them from the project root:
+- build or validate the canonical synthetic résumé fixtures;
+- build offline job-description, skill, match, and embedding evaluation inputs;
+- run the repository privacy gate.
 
-```bash
-python scripts/check_openai_key.py            # verify OPENAI_API_KEY works (makes a real call)
-python scripts/check_mock_mode.py             # is MOCK_SEARCH on?
-python scripts/enable_mock_mode.py enable     # search without spending credits
-python scripts/enable_mock_mode.py disable
-python scripts/keep_alive.py                  # ping Supabase so the free tier doesn't pause
-python scripts/migrate_application_outcomes.py  # create the application_outcomes table
+No script checks a live key by printing its length/prefix, edits `.env`, keeps a
+database awake, embeds a project reference, or applies a production migration.
+Provider-backed fixture refreshes run only with explicit intent and keys from the
+local environment; generated outputs are reviewed before commit.
+
+Common commands from `agentception/`:
+
+```powershell
+uv run --locked python scripts/check_repository_privacy.py
+uv run --locked python scripts/build_synthetic_resume_fixture.py --goldens
+uv run --locked python scripts/build_synthetic_resume_fixture.py --output tmp/pdfs/synthetic-resume.pdf
 ```
 
-`check_openai_key.py` was previously named `test_openai_key.py`. pytest imports
-every `test_*.py` it discovers during collection, so the old name meant a bare
-`pytest` run silently issued a paid OpenAI request. Keep the `check_` prefix.
+The generated PDF is temporary and must not be committed.

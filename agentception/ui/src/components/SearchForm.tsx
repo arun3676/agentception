@@ -2,26 +2,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Upload } from "lucide-react";
-import { uploadResume, searchCompanies } from "@/lib/api";
+import { searchCompanies } from "@/lib/api";
 import { toast } from "@/hooks/use-toast";
 
 interface SearchFormProps {
-  onSearchStart: (runId: string, usedResume: boolean) => void;
-  onResumeUploaded: (
-    token: string,
-    insights?: ResumeInsights,
-    textPreview?: string,
-    fileName?: string,
-    structured?: import("@/lib/api").ResumeStructured
-  ) => void;
-}
-
-interface ResumeInsights {
-  role?: string;
-  skills?: string[];
-  skills_flat?: string[];
-  [key: string]: unknown;
+  onSearchStart: (runId: string) => void;
 }
 
 const ROLES = [
@@ -42,58 +27,23 @@ const ROLES = [
   "Blockchain Developer",
 ];
 
-export const SearchForm = ({ onSearchStart, onResumeUploaded }: SearchFormProps) => {
+export const validateSearchInput = (location: string, role: string) => {
+  if (!role.trim()) return "Choose a role to search.";
+  if (!location.trim()) return "Enter a location to search.";
+  return null;
+};
+
+export const SearchForm = ({ onSearchStart }: SearchFormProps) => {
   const [location, setLocation] = useState("San Francisco, CA");
-  const [role, setRole] = useState<string>("");
-  const [resumeToken, setResumeToken] = useState<string | null>(null);
-  const [resumeFileName, setResumeFileName] = useState<string | null>(null);
-  const [resumeInsights, setResumeInsights] = useState<ResumeInsights | null>(null);
-  const [isUploading, setIsUploading] = useState(false);
+  const [role, setRole] = useState("");
   const [isSearching, setIsSearching] = useState(false);
 
-  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    if (file.type !== "application/pdf") {
-      toast({
-        title: "Invalid file type",
-        description: "Please upload a PDF file",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setIsUploading(true);
-    try {
-      // Upload to backend for search (backend extracts insights for matching)
-      const result = await uploadResume(file);
-      setResumeToken(result.token);
-      setResumeFileName(file.name);
-      setResumeInsights(result.insights || null);
-      onResumeUploaded(result.token, result.insights, result.text_preview, file.name, result.structured);
-      
-      toast({
-        title: "Resume uploaded",
-        description: `Uploaded ${file.name} (${result.chars} characters). Ready for search.`,
-      });
-    } catch (error) {
-      console.error("Resume upload failed:", error);
-      toast({
-        title: "Upload failed",
-        description: "Failed to upload resume. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsUploading(false);
-    }
-  };
-
   const handleSearch = async () => {
-    if (!location.trim()) {
+    const validationError = validateSearchInput(location, role);
+    if (validationError) {
       toast({
-        title: "Location required",
-        description: "Please enter a location",
+        title: "Search details required",
+        description: validationError,
         variant: "destructive",
       });
       return;
@@ -103,18 +53,15 @@ export const SearchForm = ({ onSearchStart, onResumeUploaded }: SearchFormProps)
     try {
       const result = await searchCompanies({
         city: location,
-        role: role || undefined,
-        resumeToken: resumeToken || undefined,
+        role,
         depth: "standard",
-        offset: 0,
-        limit: 5,
       });
-      onSearchStart(result.run_id, Boolean(resumeToken));
-    } catch (error) {
-      console.error("Search failed:", error);
+      if (!result.run_id?.trim()) throw new Error("Search did not return an identifier.");
+      onSearchStart(result.run_id);
+    } catch {
       toast({
         title: "Search failed",
-        description: "Failed to start job search. Please try again.",
+        description: "The search service is unavailable. No results were generated; please try again later.",
         variant: "destructive",
       });
     } finally {
@@ -126,25 +73,30 @@ export const SearchForm = ({ onSearchStart, onResumeUploaded }: SearchFormProps)
     <div className="space-y-6">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground">Location</label>
+          <label htmlFor="search-location" className="text-sm font-medium text-foreground">
+            Location
+          </label>
           <Input
+            id="search-location"
             placeholder="e.g., San Francisco, CA"
             value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            onChange={(event) => setLocation(event.target.value)}
             className="h-12 rounded-2xl bg-background/80"
           />
         </div>
 
         <div className="space-y-2">
-          <label className="text-sm font-medium text-foreground">Desired Role (optional)</label>
+          <label id="search-role-label" className="text-sm font-medium text-foreground">
+            Desired role
+          </label>
           <Select value={role} onValueChange={setRole}>
-            <SelectTrigger className="h-12 rounded-2xl bg-background/80">
-              <SelectValue placeholder="Role will be detected from resume" />
+            <SelectTrigger aria-labelledby="search-role-label" className="h-12 rounded-2xl bg-background/80">
+              <SelectValue placeholder="Choose a role" />
             </SelectTrigger>
             <SelectContent>
-              {ROLES.map((r) => (
-                <SelectItem key={r} value={r}>
-                  {r}
+              {ROLES.map((roleName) => (
+                <SelectItem key={roleName} value={roleName}>
+                  {roleName}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -152,48 +104,16 @@ export const SearchForm = ({ onSearchStart, onResumeUploaded }: SearchFormProps)
         </div>
       </div>
 
-      <div className="space-y-2">
-        <label className="text-sm font-medium text-foreground">Resume (optional, improves search)</label>
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <Button variant="outline" className="h-12 justify-center gap-2 rounded-2xl sm:w-auto" disabled={isUploading} asChild>
-            <label>
-              <Upload className="h-4 w-4" />
-              {isUploading ? "Uploading..." : "Choose File"}
-              <input
-                type="file"
-                accept="application/pdf"
-                onChange={handleFileChange}
-                className="hidden"
-              />
-            </label>
-          </Button>
-          <span className="min-w-0 truncate text-sm text-muted-foreground">
-            {resumeFileName || "No file chosen"}
-          </span>
-        </div>
-        <p className="text-xs text-muted-foreground">
-          Upload here improves search. Resume tailoring will confirm the resume in its guided flow.
-        </p>
-        {resumeInsights && (
-          <div className="mt-2 rounded-2xl border border-primary/30 bg-primary/10 p-4 text-sm text-foreground">
-            <p className="font-medium text-primary">Search enhanced with your resume</p>
-            <p className="text-muted-foreground">
-              {(() => {
-                const skillsArr = Array.isArray(resumeInsights?.skills_flat)
-                  ? resumeInsights.skills_flat
-                  : Array.isArray(resumeInsights?.skills)
-                  ? resumeInsights.skills
-                  : [];
-                const skillsText = skillsArr.slice(0, 5).join(", ");
-                return `Role: ${resumeInsights.role || "Detected from resume"} • Skills: ${skillsText || "Key skills detected"}`;
-              })()}
-            </p>
-          </div>
-        )}
+      <div
+        role="status"
+        className="rounded-2xl border border-border bg-secondary/40 px-4 py-3 text-xs leading-5 text-muted-foreground"
+      >
+        Search uses only the role and location entered above. Resume upload and personal workspace features remain off
+        until secure account ownership is available.
       </div>
 
       <div className="flex gap-3 pt-2">
-        <Button onClick={handleSearch} disabled={isSearching || isUploading} className="h-12 w-full rounded-2xl sm:w-auto">
+        <Button onClick={handleSearch} disabled={isSearching} className="h-12 w-full rounded-2xl sm:w-auto">
           {isSearching ? "Searching..." : "Search Jobs"}
         </Button>
       </div>

@@ -29,11 +29,9 @@ def _get_tavily_key() -> Optional[str]:
     """Get Tavily API key from environment"""
     key = os.getenv("TAVILY_API_KEY")
     if not key:
-        print("⚠️ TAVILY_API_KEY not found in environment variables")
         return None
     key = key.strip().strip('"').strip("'")
     if not key or len(key) < 10:
-        print("⚠️ TAVILY_API_KEY appears to be invalid (too short)")
         return None
     return key
 
@@ -56,23 +54,15 @@ async def _robust_tavily_post(
             print(f"⚠️ Tavily API rate limit hit (429). Retrying in {delay:.2f}s... (Attempt {attempt + 1}/{MAX_RETRIES})")
             await asyncio.sleep(delay)
             return await _robust_tavily_post(client, url, headers, json_data, attempt + 1)
-        # Better error messages for other HTTP errors
-        error_detail = ""
-        try:
-            error_body = e.response.json()
-            error_detail = f" - {error_body.get('error', {}).get('message', str(error_body))}"
-        except:
-            error_detail = f" - {e.response.text[:200]}"
-        raise RuntimeError(f"Tavily API HTTP error {e.response.status_code}{error_detail}") from e
+        raise RuntimeError(f"Tavily API HTTP error {e.response.status_code}") from e
     except httpx.ConnectError as e:
         # Connection errors - retry with exponential backoff
         if attempt < MAX_RETRIES:
             delay = BASE_DELAY * (2 ** attempt) + random.uniform(0, 0.5)
             print(f"⚠️ Tavily API connection error. Retrying in {delay:.2f}s... (Attempt {attempt + 1}/{MAX_RETRIES})")
-            print(f"   Error: {str(e)[:200]}")
             await asyncio.sleep(delay)
             return await _robust_tavily_post(client, url, headers, json_data, attempt + 1)
-        raise RuntimeError(f"Tavily API connection failed after {MAX_RETRIES} attempts: {str(e)}") from e
+        raise RuntimeError(f"Tavily API connection failed after {MAX_RETRIES} attempts") from e
     except httpx.TimeoutException as e:
         if attempt < MAX_RETRIES:
             delay = BASE_DELAY * (2 ** attempt)
@@ -81,7 +71,7 @@ async def _robust_tavily_post(
             return await _robust_tavily_post(client, url, headers, json_data, attempt + 1)
         raise RuntimeError(f"Tavily API request timed out after {MAX_RETRIES} attempts") from e
     except Exception as e:
-        raise RuntimeError(f"Tavily API error: {str(e)}") from e
+        raise RuntimeError(f"Tavily API error: {type(e).__name__}") from e
 
 
 async def tavily_search(
@@ -147,18 +137,7 @@ async def tavily_search(
         ) as client:
             if DISABLE_SSL_VERIFY:
                 print("⚠️ Tavily SSL verification disabled via TAVILY_DISABLE_SSL_VERIFY=true")
-            try:
-                data = await _robust_tavily_post(client, f"{BASE}/search", headers, body)
-            except Exception as e:
-                # Provide helpful error message
-                error_msg = str(e)
-                if "API key" in error_msg.lower() or "401" in error_msg or "403" in error_msg:
-                    print(f"❌ Tavily API authentication error. Check TAVILY_API_KEY is set correctly.")
-                elif "connection" in error_msg.lower() or "timeout" in error_msg.lower():
-                    print(f"❌ Tavily API connection error. Check network connectivity and firewall settings.")
-                else:
-                    print(f"❌ Tavily API error: {error_msg}")
-                raise
+            data = await _robust_tavily_post(client, f"{BASE}/search", headers, body)
     
     # Transform Tavily response to match Exa format for compatibility
     results = []
@@ -172,9 +151,6 @@ async def tavily_search(
             # Additional Tavily fields
             "raw_content": item.get("raw_content", ""),
         })
-    
-    if not results:
-        print(f"⚠️ Tavily API returned no results for query: '{query}'")
     
     return results
 
@@ -256,7 +232,6 @@ async def tavily_search_batch(
     results_dict = {}
     for query, result in zip(queries, results_list):
         if isinstance(result, Exception):
-            print(f"⚠️ Tavily search failed for '{query}': {result}")
             results_dict[query] = []
         else:
             results_dict[query] = result

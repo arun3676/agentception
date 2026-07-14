@@ -1,33 +1,21 @@
 {
-  "dependencies": {
-    "react-dropzone": "^14.3.8"
-  },
-  "name": "agentception---copy",
-  "version": "1.0.0",
-  "description": "> TL;DR: Multi-agent workflow that finds companies, researches them, and writes personalized outreach emails—end-to-end in minutes.",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "devDependencies": {
-    "@playwright/test": "^1.59.1"
-  },
+  "name": "agentception-e2e",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Deterministic local browser test harness for Agentception.",
   "scripts": {
     "build": "npm --prefix ui run build",
     "dev": "npm --prefix ui run dev",
     "lint": "npm --prefix ui run lint",
     "preview": "npm --prefix ui run preview",
-    "test": "npm --prefix ui run build && python -m pytest server/tests -q"
+    "test": "npm --prefix ui test && uv run --locked python -m pytest server/tests -q --strict-markers",
+    "test:e2e": "playwright test",
+    "test:e2e:list": "playwright test --list"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/arun3676/agentception.git"
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/arun3676/agentception/issues"
-  },
-  "homepage": "https://github.com/arun3676/agentception#readme"
+  "engines": {
+    "node": ">=22"
+  }
 }

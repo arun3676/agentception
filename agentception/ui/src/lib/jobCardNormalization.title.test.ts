@@ -1,85 +1,78 @@
-/**
- * Titles on an ATS.
- *
- * Live production shipped every card titled "roles at Greenhouse":
- *   - the employer was read from the DOMAIN (job-boards.greenhouse.io -> the ATS
- *     vendor) instead of the PATH (/anthropic/ -> the actual employer), and
- *   - a real title, "Job Application for Staff Engineer at Anthropic", was
- *     classified as noise *before* the code that strips "Job Application for"
- *     ever ran, so it was discarded in favour of that bad guess.
- *
- * These strings are copied from real /results payloads.
- */
-
 import { describe, expect, it } from "vitest";
 
-import { normalizeJobCard } from "./jobCardNormalization";
+import { normalizeJobCard, type RawCompanyData } from "./jobCardNormalization";
 
-const anthropic = {
-  company_name: "Anthropic",
-  job_url: "https://job-boards.greenhouse.io/anthropic/jobs/8611081002",
-  job_title:
-    "Job Application for Staff+ Software Engineer, Full-stack at Anthropic. San Francisco, CA | New York City, NY | Seattle, WA.",
-  blurb: "Job Application for Staff+ Software Engineer, Full-stack at Anthropic.",
-  job_location: "San Francisco",
-};
+describe("truthful job-card normalization", () => {
+  it("uses only facts returned for the listing", () => {
+    const card = normalizeJobCard({
+      company_name: "Example Systems",
+      job_title: "Backend Engineer",
+      job_url: "https://jobs.example.com/roles/123",
+      job_location: "Remote — United States",
+      blurb: "Build and operate the public API.",
+      salary: "$150,000–$180,000",
+    });
 
-describe("ATS job titles", () => {
-  it("recovers the real role instead of naming the ATS vendor", () => {
-    const card = normalizeJobCard(anthropic, "");
-    expect(card).not.toBeNull();
-    // The bug: "roles at Greenhouse"
-    expect(card!.title.toLowerCase()).not.toContain("greenhouse");
-    expect(card!.title.toLowerCase()).not.toMatch(/^roles at/);
-    expect(card!.title.toLowerCase()).toContain("software engineer");
+    expect(card).toEqual({
+      displayTitle: "Backend Engineer",
+      displayCompany: "Example Systems",
+      displayLocation: "Remote — United States",
+      snippet: "Build and operate the public API.",
+      sourceDomain: "jobs.example.com",
+      sourceLabel: "Source unavailable",
+      applyUrl: "https://jobs.example.com/roles/123",
+      salary: "$150,000–$180,000",
+      observedAt: undefined,
+      descriptionOrigin: "unavailable",
+      remotePolicy: "unknown",
+      listingDataQuality: "unknown",
+    });
   });
 
-  it("drops the location tail and the trailing 'at <Company>'", () => {
-    const card = normalizeJobCard(anthropic, "");
-    expect(card!.title).not.toMatch(/San Francisco|Seattle|\|/);
-    expect(card!.title.toLowerCase()).not.toMatch(/at anthropic$/);
+  it("labels absent facts instead of inferring them from the URL or search", () => {
+    const card = normalizeJobCard({
+      job_url: "https://jobs.lever.co/example-company/role-id",
+    });
+
+    expect(card.displayTitle).toBe("Title unavailable");
+    expect(card.displayCompany).toBe("Company unavailable");
+    expect(card.displayLocation).toBe("Location unavailable");
+    expect(card.snippet).toBe("Description unavailable");
   });
 
-  it("falls back to the employer from the URL path, never the ATS host", () => {
-    const card = normalizeJobCard(
-      {
-        // No usable title at all — forces the fallback path.
-        company_name: "",
-        job_url: "https://jobs.lever.co/hophr/9e92ee57-64d5-493d-8f7d-42ac429ca826",
-        job_title: "Application",
-        blurb: "",
-      },
-      "",
-    );
-    expect(card).not.toBeNull();
-    expect(card!.title.toLowerCase()).not.toContain("lever");
-    expect(card!.title.toLowerCase()).toContain("hophr");
+  it("does not treat the search city as the listing location", () => {
+    const input = {
+      city: "San Francisco, CA",
+      job_title: "Platform Engineer",
+      job_url: "https://example.com/job",
+    } as RawCompanyData & { city: string };
+
+    expect(normalizeJobCard(input).displayLocation).toBe("Location unavailable");
   });
 
-  it("recovers the role from the SNIPPET when job_title is empty", () => {
-    // This is the shape production actually returns: job_title is unusable and
-    // the real role sits at the head of the blurb. Live, this rendered as
-    // "Open role at Anthropic" while the very next line of the card read
-    // "Job Application for Staff+ Software Engineer, Full-stack at Anthropic".
-    const card = normalizeJobCard(
-      {
-        company_name: "Anthropic",
-        job_url: "https://job-boards.greenhouse.io/anthropic/jobs/8611081002",
-        job_title: null,
-        blurb:
-          "Job Application for Staff+ Software Engineer, Full-stack at Anthropic. San Francisco, CA | New York City, NY | Seattle, WA.",
-      },
-      "",
-    );
-    expect(card!.title.toLowerCase()).toContain("software engineer");
-    expect(card!.title.toLowerCase()).not.toMatch(/^open role at/);
+  it("does not expose legacy match, trust, résumé, or hiring fields", () => {
+    const input = {
+      job_title: "Platform Engineer",
+      job_url: "https://example.com/job",
+      trust_score: 99,
+      resume_match_score: 95,
+      hiring_badge: "Hiring",
+    } as RawCompanyData & Record<string, unknown>;
+
+    const card = normalizeJobCard(input);
+    expect(card).not.toHaveProperty("trustScore");
+    expect(card).not.toHaveProperty("resumeMatchScore");
+    expect(card).not.toHaveProperty("matchInfo");
+    expect(card).not.toHaveProperty("matchScore");
+    expect(card).not.toHaveProperty("hiringBadge");
   });
 
-  it("does not emit a bare 'roles at ...' when no role was requested", () => {
-    const card = normalizeJobCard(
-      { company_name: "Pilothq", job_url: "https://job-boards.greenhouse.io/pilothq/jobs/1", job_title: "Application", blurb: "" },
-      "", // user searched without specifying a role
-    );
-    expect(card!.title).not.toMatch(/^\s*roles\s+at/i);
+  it("preserves backend order when cards are mapped", () => {
+    const input: RawCompanyData[] = [
+      { company_name: "First", job_url: "https://first.example/job" },
+      { company_name: "Second", job_url: "https://second.example/job" },
+    ];
+
+    expect(input.map(normalizeJobCard).map((card) => card.displayCompany)).toEqual(["First", "Second"]);
   });
 });

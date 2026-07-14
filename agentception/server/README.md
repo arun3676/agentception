@@ -1,28 +1,31 @@
-# Server — FastAPI Backend
+# FastAPI backend
 
-> TL;DR: Orchestrates multi-agent workflow (RAG → Research → Writer), streams timeline via SSE, persists results in SQLite.
+The containment backend exposes anonymous role/location discovery, search status
+and results, a public resource catalogue, and minimal health endpoints. Résumé,
+writer/outreach, debug, provider-health, usage, and experimental beta routes are
+not registered in production.
 
-## Quickstart
+Start from `agentception/`:
 
-```bash
-python -m venv .venv && .\.venv\Scripts\activate && pip install -r ..\requirements.txt
-python -m uvicorn server.app:app --reload --host 0.0.0.0 --port 8000
-start http://localhost:8000/docs
+```powershell
+python -m pip install uv==0.11.28
+uv lock --check
+uv sync --locked --group dev
+Copy-Item .env.example .env
+uv run uvicorn server.app:app --reload --port 8000
 ```
 
-## Key Endpoints
-- `POST /rag/companies`
-- `POST /writer/outreach`
-- `GET /timeline/{run_id}` (SSE)
-- `POST /save/add`, `GET /save/list`
+Validate:
 
-## Env
-Set in project `.env`:
-```
-EXA_API_KEY=...
-DEEPSEEK_API_KEY=...
-GOOGLE_MAPS_KEY=...
+```powershell
+uv run --locked python -m compileall server
+uv run --locked python -m pytest -q --strict-markers
 ```
 
-See root `README.md` for full docs and the architecture diagram.
+Production requires exact `FRONTEND_ORIGINS`, Tavily, and Exa configuration.
+Secrets remain server-side. `/health/live` exposes process liveness;
+`/health/ready` fails closed when the active store is unavailable.
 
+Search jobs, events, and SQLite persistence still need the reviewed Postgres
+worker migration. This module must not be described as restart-safe or horizontally
+scalable until that work is complete.

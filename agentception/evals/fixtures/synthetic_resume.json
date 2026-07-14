@@ -1,0 +1,96 @@
+{
+  "fixture_notice": "SYNTHETIC TEST FIXTURE - NOT A REAL PERSON",
+  "contact": {
+    "name": "Jordan Lee",
+    "email": "jordan.lee@example.com",
+    "phone": "+1 (202) 555-0147",
+    "city": "Example City",
+    "state": "CA",
+    "country": "USA",
+    "website": "https://portfolio.example.com/jordan-lee",
+    "linkedin": "https://www.example.com/profiles/jordan-lee"
+  },
+  "target_job_title": "Machine Learning Engineer",
+  "summary": "SYNTHETIC TEST FIXTURE - NOT A REAL PERSON. Machine learning engineer with experience building retrieval, evaluation, and model-serving systems. Focused on measurable reliability, transparent quality checks, and maintainable Python services.",
+  "skills": {
+    "technical": [
+      "Python",
+      "SQL",
+      "FastAPI",
+      "PyTorch",
+      "scikit-learn",
+      "PostgreSQL",
+      "Docker",
+      "AWS",
+      "Machine Learning",
+      "Retrieval-Augmented Generation",
+      "Model Evaluation",
+      "CI/CD"
+    ],
+    "soft": [
+      "Technical Communication",
+      "Cross-functional Collaboration"
+    ]
+  },
+  "experience": [
+    {
+      "position": "Machine Learning Engineer",
+      "company": "Northstar Example Labs (Fictional)",
+      "location": "Remote",
+      "duration": {
+        "start": "January 2022",
+        "end": "Present"
+      },
+      "achievements": [
+        "Built a deterministic evaluation service for retrieval and ranking experiments using Python, FastAPI, and PostgreSQL.",
+        "Introduced dataset versioning and release checks that made model-quality changes reviewable before deployment.",
+        "Reduced inference latency in a synthetic benchmark by batching requests and profiling model-serving bottlenecks.",
+        "Partnered with product and support teams to translate observed failure cases into reproducible test scenarios."
+      ]
+    },
+    {
+      "position": "Software Engineer",
+      "company": "Sample Analytics Cooperative (Fictional)",
+      "location": "Example City, CA",
+      "duration": {
+        "start": "June 2019",
+        "end": "December 2021"
+      },
+      "achievements": [
+        "Implemented Python data pipelines with explicit validation, retry behavior, and operational metrics.",
+        "Created SQL quality checks for batch datasets and documented remediation steps for failed records.",
+        "Containerized internal services and added automated unit, integration, and smoke tests to CI."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Synthetic Retrieval Evaluator",
+      "description": [
+        "Reference project for comparing keyword and semantic ranking with a versioned, fully synthetic corpus.",
+        "Publishes reproducible metrics and makes missing embeddings fail loudly instead of silently changing the evaluation."
+      ],
+      "github": "https://code.example.com/jordan-lee/retrieval-evaluator"
+    },
+    {
+      "name": "Example Model Service",
+      "description": [
+        "Small FastAPI service demonstrating bounded retries, structured errors, health checks, and request tracing without personal data."
+      ],
+      "demo": "https://demo.example.com/model-service"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science",
+      "field": "Computer Science",
+      "institution": "Example State University (Fictional)",
+      "location": "Example City, CA",
+      "duration": {
+        "start": "August 2015",
+        "end": "May 2019"
+      }
+    }
+  ],
+  "certifications": []
+}

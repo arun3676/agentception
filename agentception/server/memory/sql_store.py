@@ -16,6 +16,12 @@ def _conn():
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
     return sqlite3.connect(DB_PATH)
 
+
+def healthcheck() -> None:
+    """Raise when the active application store cannot serve a trivial query."""
+    with _conn() as connection:
+        connection.execute("SELECT 1").fetchone()
+
 def init():
     with _conn() as c:
         c.execute("""CREATE TABLE IF NOT EXISTS housing (
@@ -78,7 +84,7 @@ def init():
             tags_json TEXT,
             difficulty TEXT,
             cost TEXT,
-            verified INT DEFAULT 1,
+            verified INT DEFAULT 0,
             upvotes INT DEFAULT 0,
             added_at TEXT,
             updated_at TEXT,
@@ -277,11 +283,17 @@ def purge_user_data(user_id: str) -> dict[str, int]:
     """Hard-delete everything tied to a user. Backs the 'delete my data' endpoint —
     which has to actually delete things for the privacy claim to be true."""
     deleted: dict[str, int] = {}
+    deletion_statements = {
+        "search_runs": "DELETE FROM search_runs WHERE user_id=?",
+        "job_applications": "DELETE FROM job_applications WHERE user_id=?",
+        "learning_paths": "DELETE FROM learning_paths WHERE user_id=?",
+        "application_outcomes": "DELETE FROM application_outcomes WHERE user_id=?",
+        "resource_bookmarks": "DELETE FROM resource_bookmarks WHERE user_id=?",
+    }
     with _conn() as c:
-        for table in ("search_runs", "job_applications", "learning_paths",
-                      "application_outcomes", "resource_bookmarks"):
+        for table, statement in deletion_statements.items():
             try:
-                cur = c.execute(f"DELETE FROM {table} WHERE user_id=?", (user_id,))
+                cur = c.execute(statement, (user_id,))
                 deleted[table] = cur.rowcount
             except Exception:
                 deleted[table] = 0
@@ -386,7 +398,7 @@ def compute_search_cache_key(engine: str, query: str, params: dict) -> str:
         "params": params or {},
     }
     blob = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode("utf-8")
-    return hashlib.sha1(blob).hexdigest()
+    return hashlib.sha256(blob).hexdigest()
 
 def search_cache_get(key: str) -> Optional[Any]:
     now = dt.datetime.utcnow()
@@ -424,7 +436,7 @@ def search_cache_set(key: str, engine: str, query: str, params: dict, results: A
                     key,
                     engine,
                     query,
-                    hashlib.sha1(_serialize_params(params).encode("utf-8")).hexdigest(),
+                    hashlib.sha256(_serialize_params(params).encode("utf-8")).hexdigest(),
                     now.isoformat(),
                     expires_at.isoformat(),
                     json.dumps(results, ensure_ascii=False),
@@ -458,7 +470,7 @@ def resources_upsert_many(resources: list[dict]) -> None:
                         json.dumps(r.get("tags", [])),
                         r.get("difficulty"),
                         r.get("cost"),
-                        1 if r.get("verified", True) else 0,
+                        1 if r.get("verified", False) else 0,
                         int(r.get("upvotes", 0)),
                         r.get("added_at") or now,
                         r.get("updated_at") or now,
@@ -551,7 +563,7 @@ def resources_upvote(resource_id: str) -> Optional[dict]:
 
 def resource_bookmark_add(user_id: str, resource_id: str, notes: Optional[str] = None) -> Optional[dict]:
     now = dt.datetime.utcnow().isoformat()
-    bookmark_id = hashlib.sha1(f"{user_id}:{resource_id}".encode("utf-8")).hexdigest()
+    bookmark_id = hashlib.sha256(f"{user_id}:{resource_id}".encode("utf-8")).hexdigest()
     with _conn() as c:
         try:
             c.execute(
@@ -932,9 +944,14 @@ def _since_days(days: int) -> str:
 
 def recent_seen_urls(kind: str, days: int) -> Set[str]:
     since = _since_days(days)
-    table = "events" if kind == "event" else ("housing" if kind == "housing" else "places")
+    statements = {
+        "event": "SELECT url FROM events WHERE ts >= ?",
+        "housing": "SELECT url FROM housing WHERE ts >= ?",
+        "place": "SELECT url FROM places WHERE ts >= ?",
+    }
+    statement = statements.get(kind, statements["place"])
     with _conn() as c:
-        cur = c.execute(f"SELECT url FROM {table} WHERE ts >= ?", (since,))
+        cur = c.execute(statement, (since,))
         return set(row[0] for row in cur.fetchall() if row and row[0])
 
 def fetch_recent_housing(limit: int = 24, days: int = 7) -> list[HousingLead]:

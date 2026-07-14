@@ -1,147 +1,111 @@
-import { useEffect, useState, useRef } from "react";
-import { Check, Loader2, Search, Filter, Brain, Sparkles, ChevronDown } from "lucide-react";
-import { TimelineEvent, createTimelineStream } from "@/lib/api";
+import { useEffect, useRef, useState } from "react";
+import { AlertCircle, Check, ChevronDown, Circle, Loader2, Search } from "lucide-react";
+import { createTimelineStream, type TimelineEvent } from "@/lib/api";
 import { cn } from "@/lib/utils";
 
 interface TimelineProps {
   runId: string | null;
-  onComplete?: () => void;
+  onComplete?: (completedRunId: string) => void;
+  onFailed?: (failedRunId: string) => void;
 }
 
 interface TimelineStep {
   id: string;
-  icon: "search" | "filter" | "brain" | "complete";
+  icon: "search" | "review" | "complete" | "error";
   message: string;
-  status: "completed" | "active" | "pending";
+  status: "completed" | "active" | "failed";
 }
 
-let _stepIdCounter = 0;
-function nextStepId(): string {
-  _stepIdCounter += 1;
-  return `step-${_stepIdCounter}-${Date.now()}`;
-}
+type TimelinePresentation = Pick<TimelineStep, "icon" | "message">;
 
-// Map technical logs to user-friendly messages
-const humanizeMessage = (raw: string): { message: string; icon: TimelineStep["icon"] } | null => {
-  const lower = raw.toLowerCase();
-  
-  // Skip noise
-  if (lower.includes("run_id=") || lower.includes("caching under")) return null;
-  if (lower.includes("discovered 0") || lower.includes("re-ranking 0")) return null;
-  if (lower.includes("skipping")) return null;
-  if (lower === "system:" || !raw.trim()) return null;
-
-  // Phase mappings
-  if (lower.includes("starting rag") || lower.includes("phase 0: direct")) {
-    const roleMatch = raw.match(/role=([^,]+)/);
-    const locMatch = raw.match(/location=([^,]+)/);
-    const role = roleMatch ? roleMatch[1] : "jobs";
-    const loc = locMatch ? locMatch[1] : "";
-    return { 
-      message: `Searching for ${role}${loc ? ` in ${loc}` : ""}...`, 
-      icon: "search" 
-    };
-  }
-  
-  if (lower.includes("direct search found") || lower.includes("found") && lower.includes("results")) {
-    const countMatch = raw.match(/(\d+)\s*(local|results|remote)/i);
-    const count = countMatch ? countMatch[1] : "several";
-    return { message: `Found ${count} potential matches`, icon: "search" };
-  }
-
-  if (lower.includes("computing rank") || lower.includes("re-ranking") || lower.includes("filtering")) {
-    return { message: "Analyzing and ranking results...", icon: "filter" };
-  }
-
-  if (lower.includes("ranked") && lower.includes("companies")) {
-    const countMatch = raw.match(/ranked\s*(\d+)/i);
-    const count = countMatch ? countMatch[1] : "";
-    return { message: `Ranked ${count} companies by relevance`, icon: "brain" };
-  }
-
-  if (lower.includes("built") && lower.includes("hiring")) {
-    const countMatch = raw.match(/built\s*(\d+)/i);
-    const count = countMatch ? countMatch[1] : "";
-    return { message: `${count} opportunities ready`, icon: "complete" };
-  }
-
-  if (lower.includes("complete") || lower.includes("done") || lower.includes("finished")) {
-    return { message: "Search complete", icon: "complete" };
-  }
-
-  if (lower.includes("merged") || lower.includes("enriched")) {
-    return { message: "Enriching company data...", icon: "brain" };
-  }
-
-  // Generic fallback - clean up the message
-  const cleaned = raw
-    .replace(/^(RAG|System|Writer):\s*/i, "")
-    .replace(/phase\s*\d+(\.\d+)?:\s*/i, "")
-    .replace(/^[^\w\s:,-]+/u, "")
-    .trim();
-  
-  if (cleaned.length < 5) return null;
-  return { message: cleaned, icon: "search" };
+const SAFE_STAGE_LABELS: Record<string, TimelinePresentation> = {
+  queued: { message: "Search queued.", icon: "search" },
+  searching: { message: "Checking listing sources.", icon: "search" },
+  discovery: { message: "Checking additional listing sources.", icon: "search" },
+  enrichment: { message: "Reviewing returned listing details.", icon: "review" },
+  finalizing: { message: "Preparing returned listings.", icon: "review" },
+  succeeded: { message: "Search processing succeeded.", icon: "complete" },
+  failed: { message: "Search processing failed.", icon: "error" },
 };
+
+/**
+ * Convert persisted server events into a small, non-sensitive stage vocabulary.
+ * Counts, ranks, match claims, identifiers, URLs, and arbitrary provider text
+ * are never echoed into the page.
+ */
+export function presentTimelineEvent(event: TimelineEvent): TimelinePresentation {
+  if (event.level?.toLowerCase() === "error") return SAFE_STAGE_LABELS.failed;
+
+  const explicitStage = (event.stage || event.type || "").toLowerCase().replace(/[^a-z_]/g, "");
+  if (SAFE_STAGE_LABELS[explicitStage]) return SAFE_STAGE_LABELS[explicitStage];
+
+  const message = (event.message || "").toLowerCase();
+  if (/search complete|finished|\bdone\b/.test(message)) return SAFE_STAGE_LABELS.succeeded;
+  if (/search failed|timeline update failed|\berror\b/.test(message)) return SAFE_STAGE_LABELS.failed;
+  if (/enrich|job information|job description|full job/.test(message)) return SAFE_STAGE_LABELS.enrichment;
+  if (/rank|filter|deduplic|merg|built|caching/.test(message)) return SAFE_STAGE_LABELS.finalizing;
+  if (/phase 1|discover|candidate|additional role/.test(message)) return SAFE_STAGE_LABELS.discovery;
+  if (/starting|phase 0|direct search|searching/.test(message)) return SAFE_STAGE_LABELS.searching;
+  return { message: "Search update received.", icon: "review" };
+}
 
 const IconMap = {
   search: Search,
-  filter: Filter,
-  brain: Brain,
-  complete: Sparkles,
+  review: Circle,
+  complete: Check,
+  error: AlertCircle,
 };
 
-export const Timeline = ({ runId, onComplete }: TimelineProps) => {
+export const Timeline = ({ runId, onComplete, onFailed }: TimelineProps) => {
   const [steps, setSteps] = useState<TimelineStep[]>([]);
-  const [isComplete, setIsComplete] = useState(false);
+  const [terminalStatus, setTerminalStatus] = useState<"running" | "succeeded" | "failed">("running");
   const [showAll, setShowAll] = useState(false);
   const seenMessages = useRef(new Set<string>());
 
   useEffect(() => {
-    if (!runId) {
-      setSteps([]);
-      setIsComplete(false);
-      seenMessages.current.clear();
-      return;
-    }
+    setSteps([]);
+    setTerminalStatus("running");
+    setShowAll(false);
+    seenMessages.current.clear();
+
+    if (!runId) return;
 
     const eventSource = createTimelineStream(
       runId,
-      (event: TimelineEvent) => {
-        const result = humanizeMessage(event.message || "");
-        if (!result) return;
-        
-        // Deduplicate
-        if (seenMessages.current.has(result.message)) return;
-        seenMessages.current.add(result.message);
+      (event) => {
+        const presentation = presentTimelineEvent(event);
+        if (seenMessages.current.has(presentation.message)) return;
+        seenMessages.current.add(presentation.message);
 
-        setSteps(prev => {
-          // Mark previous active step as completed
-          const updated = prev.map(s => 
-            s.status === "active" ? { ...s, status: "completed" as const } : s
-          );
-          
-          return [...updated, {
-            id: nextStepId(),
-            icon: result.icon,
-            message: result.message,
-            status: "active" as const,
-          }];
-        });
+        setSteps((previous) => [
+          ...previous.map((step) => step.status === "active" ? { ...step, status: "completed" as const } : step),
+          {
+            id: `${runId}-${previous.length}`,
+            ...presentation,
+            status: presentation.icon === "error" ? "failed" : "active",
+          },
+        ]);
       },
       () => {
-        setSteps(prev => prev.map(s => ({ ...s, status: "completed" as const })));
-        setIsComplete(true);
-        onComplete?.();
-      }
+        setSteps((previous) => previous.map((step) => ({ ...step, status: "completed" as const })));
+        setTerminalStatus("succeeded");
+        onComplete?.(runId);
+      },
+      () => {
+        setSteps((previous) => previous.map((step) => step.status === "active"
+          ? { ...step, status: "failed" as const }
+          : step));
+        setTerminalStatus("failed");
+        onFailed?.(runId);
+      },
     );
 
     return () => eventSource.close();
-  }, [runId, onComplete]);
+  }, [runId, onComplete, onFailed]);
 
   if (!runId) {
     return (
-      <div className="flex items-center gap-2 text-sm text-muted-foreground py-4">
+      <div className="flex items-center gap-2 py-4 text-sm text-muted-foreground">
         <div className="h-1.5 w-1.5 rounded-full bg-muted-foreground/50" />
         <span>Ready to search</span>
       </div>
@@ -152,71 +116,64 @@ export const Timeline = ({ runId, onComplete }: TimelineProps) => {
   const hiddenCount = steps.length - visibleSteps.length;
 
   return (
-    <div className="py-2">
-      {/* Collapsed history */}
+    <div className="py-2" aria-live="polite">
       {hiddenCount > 0 && !showAll && (
         <button
+          type="button"
           onClick={() => setShowAll(true)}
-          className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground mb-3 transition-colors"
+          className="mb-3 flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
         >
-          <ChevronDown className="h-3 w-3" />
-          <span>{hiddenCount} previous steps</span>
+          <ChevronDown className="h-3 w-3" aria-hidden="true" />
+          <span>{hiddenCount} previous updates</span>
         </button>
       )}
 
-      {/* Timeline spine */}
-      <div className="relative">
-        {/* Vertical line */}
-        <div className="absolute left-[9px] top-2 bottom-2 w-px bg-border" />
-
-        {/* Steps */}
-        <div className="space-y-3">
-          {visibleSteps.map((step, idx) => {
-            const Icon = IconMap[step.icon];
-            const isLast = idx === visibleSteps.length - 1;
-            
-            return (
-              <div
-                key={step.id}
-                className={cn(
-                  "flex items-start gap-3 relative animate-in fade-in slide-in-from-bottom-2 duration-300",
-                  step.status === "completed" && !isLast && "opacity-50"
-                )}
-              >
-                {/* Icon */}
-                <div className={cn(
-                  "relative z-10 flex h-5 w-5 items-center justify-center rounded-full",
-                  step.status === "active" && "bg-foreground",
-                  step.status === "completed" && "bg-muted",
-                )}>
-                  {step.status === "active" ? (
-                    <Loader2 className="h-3 w-3 animate-spin text-background" />
-                  ) : (
-                    <Icon className="h-3 w-3 text-muted-foreground" />
-                  )}
-                </div>
-
-                {/* Message */}
-                <span className={cn(
-                  "text-sm pt-0.5",
-                  step.status === "active" ? "text-foreground font-medium" : "text-muted-foreground"
-                )}>
-                  {step.message}
-                </span>
-              </div>
-            );
-          })}
+      {visibleSteps.length === 0 && terminalStatus === "running" && (
+        <div className="flex items-center gap-2 text-sm text-muted-foreground" role="status">
+          <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+          Waiting for the first search update…
         </div>
+      )}
+
+      <div className="space-y-3">
+        {visibleSteps.map((step) => {
+          const Icon = IconMap[step.icon];
+          return (
+            <div key={step.id} className="flex items-start gap-3">
+              <div className={cn(
+                "flex h-5 w-5 shrink-0 items-center justify-center rounded-full",
+                step.status === "active" && "bg-foreground",
+                step.status === "completed" && "bg-muted",
+                step.status === "failed" && "bg-destructive/10 text-destructive",
+              )}>
+                {step.status === "active" ? (
+                  <Loader2 className="h-3 w-3 animate-spin text-background" aria-hidden="true" />
+                ) : (
+                  <Icon className="h-3 w-3" aria-hidden="true" />
+                )}
+              </div>
+              <span className={cn(
+                "pt-0.5 text-sm",
+                step.status === "active" ? "font-medium text-foreground" : "text-muted-foreground",
+                step.status === "failed" && "text-destructive",
+              )}>
+                {step.message}
+              </span>
+            </div>
+          );
+        })}
       </div>
 
-      {/* Completion state */}
-      {isComplete && steps.length > 0 && (
-        <div className="flex items-center gap-2 mt-4 pt-3 border-t border-border">
-          <Check className="h-4 w-4 text-green-500" />
-          <span className="text-sm text-muted-foreground">
-            Search complete
-          </span>
+      {terminalStatus === "succeeded" && (
+        <div className="mt-4 flex items-center gap-2 border-t border-border pt-3" role="status">
+          <Check className="h-4 w-4 text-green-600" aria-hidden="true" />
+          <span className="text-sm text-muted-foreground">Search succeeded. Retrieving returned listings.</span>
         </div>
+      )}
+      {terminalStatus === "failed" && (
+        <p role="alert" className="mt-4 border-t border-border pt-3 text-sm text-destructive">
+          Search ended without a successful terminal event. No results or completion were assumed.
+        </p>
       )}
     </div>
   );

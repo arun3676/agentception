@@ -62,6 +62,8 @@ class TimelineEvent(BaseModel):
     message: str
     payload: Optional[Dict[str, Any]] = None
     level: Literal["info", "warn", "error"] = "info"
+    stage: Optional[str] = None
+    event_id: Optional[str] = None
 
 from typing import Literal
 
@@ -338,7 +340,7 @@ class AIResource(BaseModel):
     tags: List[str] = []
     difficulty: Optional[str] = None
     cost: Optional[str] = None
-    verified: bool = True
+    verified: bool = False
     upvotes: int = 0
     added_at: Optional[str] = None
     updated_at: Optional[str] = None

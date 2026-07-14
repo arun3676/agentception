@@ -78,16 +78,12 @@ async def parse_resume_with_reducto(data: bytes, filename: str) -> Optional[Dict
             from .resume_parser import parse_resume_structured
             structured = parse_resume_structured(text)
 
-            usage = payload.get("usage") or {}
-            print(f"[Reducto] Parsed {filename}: {len(text)} chars, {usage.get('num_pages', '?')} pages")
             return {"text": text, "structured": structured}
 
-    except httpx.HTTPStatusError as e:
-        body = e.response.text[:200] if e.response is not None else ""
-        print(f"[Reducto] HTTP {e.response.status_code if e.response else '?'}: {body}")
+    except httpx.HTTPStatusError:
+        # Provider response bodies can echo document metadata; never log them.
         return None
-    except Exception as e:
-        print(f"[Reducto] Parse failed: {e}")
+    except Exception:
         return None
 
 
@@ -122,8 +118,7 @@ async def _extract_text(client: httpx.AsyncClient, payload: Dict[str, Any]) -> s
             fetched = await client.get(result["url"], headers={})
             fetched.raise_for_status()
             result = fetched.json()
-        except Exception as e:
-            print(f"[Reducto] Failed to fetch url result: {e}")
+        except Exception:
             return ""
 
     chunks = result.get("chunks") or []
